@@ -10,9 +10,12 @@ import { ExpeditionUI } from './ui/ExpeditionUI';
 import './style.css';
 import './expedition.css';
 import './combat.css';
+import './desktop.css';
 
 const forge = new URLSearchParams(window.location.search).get('view') === 'forge';
+const desktop = new URLSearchParams(window.location.search).get('desktop') === '1';
 document.body.classList.toggle('expedition-mode', !forge);
+document.body.classList.toggle('desktop-mode', desktop && !forge);
 const forgeUI = forge ? new ForgeUI((selection) => {
   if (!game.scene.isActive('AssetGalleryScene')) return;
   (game.scene.getScene('AssetGalleryScene') as AssetGalleryScene).setSelection(selection);

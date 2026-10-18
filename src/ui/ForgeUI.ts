@@ -3,6 +3,7 @@ import {
   TERRAIN_SPECS, UI_SPECS, actorAnimationKey, actorTextureKey,
 } from '../assets/catalog';
 import type { ActorId, ActorState, Direction, TextureSpec } from '../assets/catalog';
+import { viewHref } from './viewHref';
 
 export interface PreviewSelection {
   actor: ActorId;
@@ -25,9 +26,9 @@ export class ForgeUI {
   public constructor(private readonly onChange: (selection: Readonly<PreviewSelection>) => void) {
     this.element<HTMLElement>('#app').innerHTML = `
       <header class="masthead">
-        <a class="brand" href="/" aria-label="Ashen Covenant"><span class="brand-mark">A</span><span>ASHEN<span class="brand-subtitle">COVENANT</span></span></a>
+        <a class="brand" href="${viewHref('game')}" aria-label="Ashen Covenant"><span class="brand-mark">A</span><span>ASHEN<span class="brand-subtitle">COVENANT</span></span></a>
         <div class="chapter"><span class="chapter-number">I</span> КУЗНИЦА <span class="chapter-line"></span><span class="muted">VERTICAL SLICE</span></div>
-        <div class="forge-links"><a class="forge-return" href="/">В святилище →</a><span class="connection"><span class="status-dot"></span> Без внешних ассетов</span></div>
+        <div class="forge-links"><a class="forge-return" href="${viewHref('game')}">В святилище →</a><span class="connection"><span class="status-dot"></span> Без внешних ассетов</span></div>
       </header>
       <main>
         <section class="page-heading">

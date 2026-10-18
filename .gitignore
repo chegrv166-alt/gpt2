@@ -4,3 +4,5 @@ test-results/
 playwright-report/
 .vite/
 *.local
+desktop-dist/
+release/

@@ -1,0 +1,56 @@
+name: Windows executable
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Build Windows portable executable and installer
+        run: npm run dist:win
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Test the actual packaged Windows application
+        run: |
+          node desktop-dist/verify-package.cjs release/win-unpacked
+          npm run test:desktop
+        env:
+          DESKTOP_EXECUTABLE: ${{ github.workspace }}\release\win-unpacked\Ashen Covenant.exe
+      - name: Upload Windows files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ashen-Covenant-Windows-x64
+          path: release/*.exe
+          if-no-files-found: error
+      - name: Publish downloadable release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = '${{ github.ref_name }}'
+          $files = Get-ChildItem release/*.exe | ForEach-Object FullName
+          gh release create $tag @files --verify-tag --title "Ashen Covenant $tag · Windows" --notes-file desktop/release-notes.md
+      - name: Preserve failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-diagnostics
+          path: |
+            test-results/desktop
+            release/builder-debug.yml
+          if-no-files-found: ignore

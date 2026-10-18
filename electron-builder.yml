@@ -1,0 +1,29 @@
+appId: io.ashencovenant.game
+productName: Ashen Covenant
+asar: true
+directories:
+  output: release
+files:
+  - dist/**/*
+  - desktop-dist/main.cjs
+  - package.json
+  - '!node_modules/**/*'
+extraResources:
+  - from: node_modules/phaser/LICENSE.md
+    to: licenses/Phaser.txt
+win:
+  target:
+    - target: portable
+      arch: [x64]
+    - target: nsis
+      arch: [x64]
+portable:
+  artifactName: Ashen-Covenant-${version}-Windows-x64.exe
+  requestExecutionLevel: user
+nsis:
+  artifactName: Ashen-Covenant-${version}-Setup-x64.exe
+  oneClick: true
+  perMachine: false
+  allowElevation: false
+  createDesktopShortcut: true
+  shortcutName: Ashen Covenant

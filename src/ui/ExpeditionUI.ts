@@ -1,4 +1,5 @@
 import type { WorldStatus } from '../scenes/GameScene';
+import { viewHref } from './viewHref';
 
 interface ExpeditionActions {
   readonly reset: () => void;
@@ -15,8 +16,8 @@ export class ExpeditionUI {
     document.title = 'Ashen Covenant · Забытое святилище';
     this.element('#app').innerHTML = `
       <header class="masthead expedition-masthead">
-        <a class="brand" href="/" aria-label="Ashen Covenant"><span class="brand-mark">A</span><span>ASHEN<span class="brand-subtitle">COVENANT</span></span></a>
-        <nav class="expedition-nav" aria-label="Разделы"><span class="active"><i class="small-diamond"></i> Святилище</span><a href="/?view=forge">Кузница ассетов</a></nav>
+        <a class="brand" href="${viewHref('game')}" aria-label="Ashen Covenant"><span class="brand-mark">A</span><span>ASHEN<span class="brand-subtitle">COVENANT</span></span></a>
+        <nav class="expedition-nav" aria-label="Разделы"><span class="active"><i class="small-diamond"></i> Святилище</span><a href="${viewHref('forge')}">Кузница ассетов</a></nav>
         <span class="connection"><span class="status-dot"></span><span data-testid="world-status">Открываем врата</span></span>
       </header>
       <main class="expedition-main">
