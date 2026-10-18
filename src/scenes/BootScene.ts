@@ -5,6 +5,7 @@ import {
   actorAnimationKey, actorTextureKey,
 } from '../assets/catalog';
 import type { ActorId, ActorState, Direction } from '../assets/catalog';
+import { ART_SOURCES, PaintedTextures } from '../assets/PaintedTextures';
 
 type Point = readonly [number, number];
 type Graphics = Phaser.GameObjects.Graphics;
@@ -24,7 +25,7 @@ const PALETTES: Readonly<Record<ActorId, ActorPalette>> = {
   boss: { armor: 0x454b51, edge: 0x899087, cloth: 0x73382c, skin: 0x776b63, glow: 0xf6a559 },
 };
 
-/** Generates all art locally; the loader never downloads images, atlases or JSON. */
+/** Bundled painted atlases plus locally generated effects share one texture contract. */
 export class BootScene extends Phaser.Scene {
   private brush!: Graphics;
   private generationStarted = 0;
@@ -35,6 +36,7 @@ export class BootScene extends Phaser.Scene {
 
   public preload(): void {
     this.generationStarted = performance.now();
+    for (const [key, url] of Object.entries(ART_SOURCES)) this.load.image(key, url);
     this.brush = this.make.graphics({ x: 0, y: 0 }, false);
     try {
       this.generateTerrain();
@@ -49,6 +51,7 @@ export class BootScene extends Phaser.Scene {
   }
 
   public create(): void {
+    new PaintedTextures(this).bakeAll();
     for (const spec of TEXTURE_SPECS) {
       if (!this.textures.exists(spec.key)) throw new Error(`Missing procedural texture: ${spec.key}`);
       const source = this.textures.get(spec.key).getSourceImage();

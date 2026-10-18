@@ -28,17 +28,17 @@ export class ForgeUI {
       <header class="masthead">
         <a class="brand" href="${viewHref('game')}" aria-label="Ashen Covenant"><span class="brand-mark">A</span><span>ASHEN<span class="brand-subtitle">COVENANT</span></span></a>
         <div class="chapter"><span class="chapter-number">I</span> КУЗНИЦА <span class="chapter-line"></span><span class="muted">VERTICAL SLICE</span></div>
-        <div class="forge-links"><a class="forge-return" href="${viewHref('game')}">В святилище →</a><span class="connection"><span class="status-dot"></span> Без внешних ассетов</span></div>
+        <div class="forge-links"><a class="forge-return" href="${viewHref('game')}">В святилище →</a><span class="connection"><span class="status-dot"></span> Все ассеты включены в игру</span></div>
       </header>
       <main>
         <section class="page-heading">
-          <div><p class="eyebrow">ИЗ ПЕПЛА РОЖДАЕТСЯ МИР</p><h1>Кузница ассетов<span class="title-dot">.</span></h1><p class="intro">Камень, сталь и запретное пламя. Всё, что оживит святилище, создано кодом.</p></div>
+          <div><p class="eyebrow">ИЗ ПЕПЛА РОЖДАЕТСЯ МИР</p><h1>Кузница ассетов<span class="title-dot">.</span></h1><p class="intro">Камень, сталь и запретное пламя. Нарисованные атласы и живой свет святилища.</p></div>
           <div class="step-seal"><span>ЭТАП</span><strong>01<span> / 04</span></strong><span>ОСНОВА МИРА</span></div>
         </section>
         <div class="workspace">
-          <section class="preview-panel" aria-label="Предпросмотр процедурных ассетов">
+          <section class="preview-panel" aria-label="Предпросмотр ассетов">
             <div class="panel-heading"><span><i class="small-diamond"></i> СВЯТИЛИЩЕ</span><span class="muted">ИЗОМЕТРИЯ 2:1</span></div>
-            <div class="stage-wrap"><div id="game-stage"></div><div class="stage-caption"><span class="tiny-rule"></span> ПРОЦЕДУРНЫЙ ПРЕДПРОСМОТР</div><span class="stage-coordinate">X 00 · Y 00</span><div class="stage-vignette"></div></div>
+            <div class="stage-wrap"><div id="game-stage"></div><div class="stage-caption"><span class="tiny-rule"></span> МАСТЕРСКАЯ СПРАЙТОВ</div><span class="stage-coordinate">X 00 · Y 00</span><div class="stage-vignette"></div></div>
             <div class="preview-toolbar"><div class="live-label"><span class="status-dot"></span><span data-testid="boot-status">Создание текстур</span></div><div class="zoom-control"><label for="zoom">МАСШТАБ</label><input id="zoom" type="range" min="100" max="220" step="10" value="160"/><output id="zoom-value">160%</output></div><button id="pause" class="icon-button" aria-label="Приостановить анимацию" title="Приостановить анимацию"><span class="pause-glyph" aria-hidden="true"></span></button></div>
           </section>
           <aside class="inspector">

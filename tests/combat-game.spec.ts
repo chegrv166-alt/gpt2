@@ -67,6 +67,15 @@ test('right click casts, and reset restores combat resources and enemies', async
 test('Shift-click swings in place and uses the actual attack animation', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
+  await page.evaluate(async () => {
+    const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
+    if (!entry) throw new Error('Missing application entry');
+    const { game }: { game: Phaser.Game } = await import(entry);
+    const scene = game.scene.getScene('GameScene') as GameScene;
+    scene.player.sprite.on('animationstart', (animation: Phaser.Animations.Animation) => {
+      if (animation.key.startsWith('hero-attack-')) game.registry.set('observed-attack', animation.key);
+    });
+  });
   const canvas = await page.locator('#game-stage canvas').boundingBox();
   if (!canvas) throw new Error('Missing game canvas');
   await page.keyboard.down('Shift');
@@ -77,7 +86,7 @@ test('Shift-click swings in place and uses the actual attack animation', async (
     if (!entry) throw new Error('Missing application entry');
     const { game }: { game: Phaser.Game } = await import(entry);
     const scene = game.scene.getScene('GameScene') as GameScene;
-    return { position: scene.player.motor.position, animation: scene.player.sprite.anims.currentAnim?.key };
+    return { position: scene.player.motor.position, animation: game.registry.get('observed-attack') as string | undefined };
   });
   await expect.poll(async () => (await report()).animation).toMatch(/^hero-attack-/);
   const actual = await report();
@@ -105,7 +114,8 @@ test('boss renders a cached warning before its blast causes real player damage',
     return scene.children.list.some((object) => {
       if (object.type !== 'Image') return false;
       const image = object as Phaser.GameObjects.Image;
-      return image.texture.key === 'fx-telegraph' && image.depth === -9994 && image.visible;
+      const lighting = scene.children.getByName('room-lighting') as Phaser.GameObjects.Image | undefined;
+      return image.texture.key === 'fx-telegraph' && image.depth > (lighting?.depth ?? 0) && image.visible;
     });
   })).toBe(true);
   await expect.poll(async () => Number((await page.getByTestId('hero-health').textContent())?.split('/')[0]),

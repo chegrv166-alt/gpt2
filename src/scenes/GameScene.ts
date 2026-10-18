@@ -18,6 +18,7 @@ import type { RunOutcome } from '../systems/AdventureSystem';
 import type { StatsComponent } from '../components/StatsComponent';
 import { ROOM_ENEMIES, ROOM_NAMES } from '../world/rooms';
 import type { RoomNumber } from '../world/rooms';
+import { RoomLighting } from '../lighting/RoomLighting';
 
 interface RoomTransfer { readonly stats?: StatsComponent; readonly adventure?: AdventureSystem; }
 
@@ -44,6 +45,7 @@ export class GameScene extends Phaser.Scene {
   public player!: Player;
   public battle!: CombatWorld;
   public adventure!: AdventureSystem;
+  public lighting!: RoomLighting;
   private combatView!: CombatView;
   private lootView!: LootView;
   private pickupTarget: number | null = null;
@@ -69,7 +71,7 @@ export class GameScene extends Phaser.Scene {
     this.pickupTarget = null;
     this.statusTimer = 0;
     this.exitTarget = false; this.transitioning = false;
-    this.cameras.main.setBackgroundColor('#121b16');
+    this.cameras.main.setBackgroundColor('#080a13');
     this.arena = new ArenaRenderer(this, this.layout);
     this.player = new Player(this, this.arena, this.transfer.stats);
     this.battle = new CombatWorld(this.layout.grid, this.player.motor, this.player.stats, ROOM_ENEMIES[this.layout.room]);
@@ -78,6 +80,7 @@ export class GameScene extends Phaser.Scene {
     this.transfer = {};
     this.combatView = new CombatView(this, this.arena, this.battle);
     this.lootView = new LootView(this, this.arena, this.adventure.loot);
+    this.lighting = new RoomLighting(this, this.layout, this.arena.origin);
     this.target = new TargetIndicator(this, this.arena);
     this.controls = new PlayerInput(this, {
       primary: (world, force) => this.primary(world, force),
@@ -105,6 +108,7 @@ export class GameScene extends Phaser.Scene {
   public override update(_time: number, delta: number): void {
     if (this.transitioning) return;
     const seconds = Math.min(delta / 1000, 0.25);
+    this.lighting.update(seconds);
     const lerp = 1 - Math.exp(-6 * seconds);
     this.cameras.main.setLerp(lerp, lerp);
     const before = this.player.motor.mode;

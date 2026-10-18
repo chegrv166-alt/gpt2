@@ -14,6 +14,13 @@ const archive = path.join(directory, 'resources/app.asar');
 const entries = listPackage(archive, { isPack: false }).map((entry) => entry.replaceAll('\\', '/'));
 assert(entries.includes('/dist/index.html') && entries.includes('/desktop-dist/main.cjs'), 'Missing bundled game or launcher');
 assert(!entries.some((entry) => entry.startsWith('/node_modules/')), 'Development/source dependencies must not be shipped');
+const paintedAssets = entries.filter((entry) => /^\/dist\/assets\/(materials|props|actors)-[^/]+\.png$/.test(entry));
+assert.equal(paintedAssets.length, 3, 'All three painted atlases must be bundled for offline play');
+for (const entry of paintedAssets) {
+  const png = extractFile(archive, entry.slice(1));
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `Invalid bundled PNG: ${entry}`);
+  assert(png.readUInt32BE(16) >= 512 && png.readUInt32BE(20) >= 512, `Unexpected atlas dimensions: ${entry}`);
+}
 const html = extractFile(archive, 'dist/index.html').toString();
 assert(html.includes('./assets/'), 'Bundled assets must use file-compatible relative paths');
 console.log(`Verified Windows x64 executable and ${entries.length} bundled entries`);

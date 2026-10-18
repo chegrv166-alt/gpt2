@@ -23,7 +23,7 @@ export class EnemyView {
       color: enemy.kind === 'boss' ? '#dbac75' : enemy.kind === 'caster' ? '#b7a3cc' : '#9eac8e',
       stroke: '#10180f', strokeThickness: 3,
     }).setOrigin(0.5, 1);
-    this.warning = scene.add.image(0, 0, 'fx-telegraph').setDepth(-9994).setVisible(false);
+    this.warning = scene.add.image(0, 0, 'fx-telegraph').setDepth(8100).setVisible(false);
     this.selected = scene.add.image(0, 0, 'fx-target').setTint(0xd79362).setAlpha(0.7).setDepth(-9995).setVisible(false);
   }
 

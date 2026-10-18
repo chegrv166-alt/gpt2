@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 import { isoToScreen, screenToIso } from '../math/isometric';
 import type { Vec2 } from '../math/isometric';
 import type { ArenaLayout } from './ArenaLayout';
+import { getRoomLights } from '../lighting/lighting';
+import { FloorLayer } from './FloorLayer';
 
 /** Converts ground data into render objects; no movement or navigation logic. */
 export class ArenaRenderer {
@@ -26,6 +28,7 @@ export class ArenaRenderer {
     this.bounds = { x: 0, y: 0, width: (layout.width + layout.height) * 64 + 192, height: (layout.width + layout.height) * 32 + 320 };
     this.drawFloor();
     this.drawObstacles();
+    this.drawSconces();
     this.drawAtmosphere();
     this.drawGate();
   }
@@ -47,19 +50,7 @@ export class ArenaRenderer {
   }
 
   private drawFloor(): void {
-    for (let y = 0; y < this.layout.height; y += 1) {
-      for (let x = 0; x < this.layout.width; x += 1) {
-        const point = this.toScreen({ x, y });
-        const stone = this.layout.room === 2 || Math.abs(x - 7) < 2 || Math.abs(y - 11) < 2
-          || (x > 14 && y < 7) || (x > 3 && x < 10 && y > 14 && y < 20);
-        const variant = (x * 13 + y * 7) % 4;
-        const edge = x === 0 || y === 0 || x === this.layout.width - 1 || y === this.layout.height - 1;
-        const light = Math.round(255 * (edge ? 0.55 : 0.78 + ((x * 3 + y) % 5) * 0.035));
-        this.scene.add.image(point.x, point.y, `tile-${stone ? 'stone' : 'ground'}-${variant}`)
-          .setOrigin(0.5, 34 / 80).setDepth(-10_000).setTint(this.layout.room === 2
-            ? Phaser.Display.Color.GetColor(light - 23, light - 10, light) : Phaser.Display.Color.GetColor(light, light, light - 9));
-      }
-    }
+    new FloorLayer(this.scene, this.layout, this.origin);
     const seals: readonly Vec2[] = [this.layout.spawn, { x: 7, y: 11 }, { x: 17, y: 11 }, this.layout.gate];
     for (const { x, y } of seals) {
       const point = this.toScreen({ x, y });
@@ -70,9 +61,10 @@ export class ArenaRenderer {
   private drawObstacles(): void {
     for (const obstacle of this.layout.obstacles) {
       const point = this.toScreen(obstacle.tile);
-      const image = this.scene.add.image(point.x, point.y, obstacle.texture)
+      const texture = this.layout.room === 2 && obstacle.kind === 'wall'
+        ? obstacle.texture.replace('wall-', 'wall-crypt-') : obstacle.texture;
+      const image = this.scene.add.image(point.x, point.y, texture)
         .setOrigin(0.5, 114 / 144).setDepth(point.y);
-      if (obstacle.kind === 'wall') image.setTint(0xa7afa3);
       this.solids.push(image);
       if (obstacle.kind === 'brazier') {
         this.scene.add.image(point.x, point.y - 40, 'projectile-ember')
@@ -84,8 +76,27 @@ export class ArenaRenderer {
           quantity: 1, blendMode: Phaser.BlendModes.ADD,
         }).setDepth(point.y + 2);
         this.scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => sparks.destroy());
+        this.flame(point.x, point.y - 68);
       }
     }
+  }
+
+  private drawSconces(): void {
+    for (const light of getRoomLights(this.layout)) {
+      if (light.kind !== 'sconce') continue;
+      const mount = { x: light.fixture.x + (light.position.x - light.fixture.x) * 0.36,
+        y: light.fixture.y + (light.position.y - light.fixture.y) * 0.36 };
+      const point = this.toScreen(mount);
+      this.scene.add.image(point.x, point.y - 26, 'prop-sconce').setOrigin(0.5, 114 / 144)
+        .setScale(0.74).setDepth(this.toScreen(light.fixture).y + 2);
+      this.flame(point.x, point.y - 85);
+    }
+  }
+
+  private flame(x: number, y: number): void {
+    const glow = this.scene.add.image(x, y, 'projectile-ember').setBlendMode(Phaser.BlendModes.ADD)
+      .setScale(0.62, 0.85).setAlpha(0.48).setDepth(8002);
+    this.scene.tweens.add({ targets: glow, alpha: 0.24, scaleX: 0.52, duration: 320 + (Math.abs(x) % 170), yoyo: true, repeat: -1 });
   }
 
   private drawAtmosphere(): void {
