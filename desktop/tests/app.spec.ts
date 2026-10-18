@@ -49,6 +49,9 @@ test('desktop starts offline from bundled files in a full-window arena', async (
 test('packaged keyboard controls cast, open inventory, close it and reset resources', async () => {
   const page = await application.firstWindow();
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
+  await expect(page.locator('#room-number')).toContainText('КОМНАТА 1/2');
+  await page.keyboard.press('e');
+  await expect(page.getByTestId('destination-status')).toContainText('Врата запечатаны');
   await page.keyboard.press('q');
   await expect.poll(async () => Number((await page.getByTestId('hero-mana').textContent())?.split('/')[0])).toBeLessThan(80);
   await page.keyboard.press('i');

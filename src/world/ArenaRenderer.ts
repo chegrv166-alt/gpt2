@@ -8,6 +8,18 @@ export class ArenaRenderer {
   public readonly origin: Vec2;
   public readonly bounds: Readonly<{ x: number; y: number; width: number; height: number }>;
   private readonly solids: Phaser.GameObjects.Image[] = [];
+  private gateRing!: Phaser.GameObjects.Image;
+  private gateLight!: Phaser.GameObjects.Image;
+  private gateLabel!: Phaser.GameObjects.Text;
+
+  public updateGate(unlocked: boolean, cleared: boolean): void {
+    const finalRoom = this.layout.room === 2;
+    this.gateRing.setTint(unlocked || cleared ? 0xffffff : 0x666666).setAlpha(unlocked || cleared ? 0.8 : 0.3);
+    this.gateLight.setVisible(unlocked || (finalRoom && cleared));
+    this.gateLabel.setText(finalRoom ? cleared ? 'ЗАЛ ОЧИЩЕН' : 'ЗАЛ ПОГРЕБАЛЬНОГО ОГНЯ'
+      : unlocked ? 'КОМНАТА II · КЛИК / E РЯДОМ' : 'ВРАТА ЗАПЕЧАТАНЫ · ПОБЕДИТЕ ВСЕХ');
+    this.gateLabel.setColor(unlocked || cleared ? '#e8ce91' : '#a6a18f');
+  }
 
   public constructor(private readonly scene: Phaser.Scene, public readonly layout: ArenaLayout) {
     this.origin = { x: layout.height * 64 + 96, y: 160 };
@@ -38,17 +50,18 @@ export class ArenaRenderer {
     for (let y = 0; y < this.layout.height; y += 1) {
       for (let x = 0; x < this.layout.width; x += 1) {
         const point = this.toScreen({ x, y });
-        const stone = Math.abs(x - 7) < 2 || Math.abs(y - 11) < 2
+        const stone = this.layout.room === 2 || Math.abs(x - 7) < 2 || Math.abs(y - 11) < 2
           || (x > 14 && y < 7) || (x > 3 && x < 10 && y > 14 && y < 20);
         const variant = (x * 13 + y * 7) % 4;
         const edge = x === 0 || y === 0 || x === this.layout.width - 1 || y === this.layout.height - 1;
         const light = Math.round(255 * (edge ? 0.55 : 0.78 + ((x * 3 + y) % 5) * 0.035));
         this.scene.add.image(point.x, point.y, `tile-${stone ? 'stone' : 'ground'}-${variant}`)
-          .setOrigin(0.5, 34 / 80).setDepth(-10_000).setTint(Phaser.Display.Color.GetColor(light, light, light - 9));
+          .setOrigin(0.5, 34 / 80).setDepth(-10_000).setTint(this.layout.room === 2
+            ? Phaser.Display.Color.GetColor(light - 23, light - 10, light) : Phaser.Display.Color.GetColor(light, light, light - 9));
       }
     }
-    const seals: ReadonlyArray<readonly [number, number]> = [[5, 17], [7, 11], [17, 11], [18, 4]];
-    for (const [x, y] of seals) {
+    const seals: readonly Vec2[] = [this.layout.spawn, { x: 7, y: 11 }, { x: 17, y: 11 }, this.layout.gate];
+    for (const { x, y } of seals) {
       const point = this.toScreen({ x, y });
       this.scene.add.image(point.x, point.y, 'fx-target').setDepth(-9999).setScale(1.05).setAlpha(0.22);
     }
@@ -88,11 +101,11 @@ export class ArenaRenderer {
 
   private drawGate(): void {
     const point = this.toScreen(this.layout.gate);
-    this.scene.add.image(point.x, point.y, 'fx-target').setScale(1.4).setDepth(-9998).setAlpha(0.65);
-    const light = this.scene.add.image(point.x, point.y, 'fx-loot-legendary')
+    this.gateRing = this.scene.add.image(point.x, point.y, 'fx-target').setScale(1.4).setDepth(-9998).setAlpha(0.65);
+    this.gateLight = this.scene.add.image(point.x, point.y, 'fx-loot-legendary')
       .setOrigin(0.5, 144 / 160).setScale(1.6).setDepth(point.y - 1).setAlpha(0.7);
-    this.scene.tweens.add({ targets: light, alpha: 0.35, duration: 1600, yoyo: true, repeat: -1 });
-    this.scene.add.text(point.x, point.y - 125, 'СЕВЕРНЫЕ ВРАТА', {
+    this.scene.tweens.add({ targets: this.gateLight, alpha: 0.35, duration: 1600, yoyo: true, repeat: -1 });
+    this.gateLabel = this.scene.add.text(point.x, point.y - 125, '', {
       fontFamily: 'Georgia, serif', fontSize: '12px', color: '#c7b88a', letterSpacing: 2,
       backgroundColor: '#141b18aa', padding: { x: 10, y: 6 },
     }).setOrigin(0.5).setDepth(point.y + 3);

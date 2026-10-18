@@ -16,7 +16,7 @@ export class LootSystem {
   private readonly rewarded = new Set<number>();
   private nextId = 1;
 
-  public constructor(private readonly grid: CollisionGrid, private readonly random: () => number = Math.random) {}
+  public constructor(private grid: CollisionGrid, private readonly random: () => number = Math.random) {}
 
   public get drops(): readonly DropItem[] { return [...this.ground.values()]; }
 
@@ -60,4 +60,7 @@ export class LootSystem {
   }
 
   public clear(): void { this.ground.clear(); this.rewarded.clear(); }
+
+  /** Keep the item sequence unique across rooms while replacing collision and ground loot. */
+  public enterRoom(grid: CollisionGrid): void { this.clear(); this.grid = grid; }
 }

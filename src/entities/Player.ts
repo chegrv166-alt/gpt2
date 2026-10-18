@@ -9,11 +9,11 @@ import { PlayerMotor } from './PlayerMotor';
 /** Presentation and motor composition; collision and routing stay in ground space. */
 export class Player {
   public readonly motor: PlayerMotor;
-  public readonly stats = new StatsComponent(HERO_STATS);
   public readonly sprite: Phaser.GameObjects.Sprite;
   private readonly shadow: Phaser.GameObjects.Image;
 
-  public constructor(scene: Phaser.Scene, private readonly arena: ArenaRenderer) {
+  public constructor(scene: Phaser.Scene, private readonly arena: ArenaRenderer,
+    public readonly stats: StatsComponent = new StatsComponent(HERO_STATS)) {
     this.motor = new PlayerMotor(arena.layout.grid, arena.layout.spawn);
     const point = arena.toScreen(this.motor.position);
     this.shadow = scene.add.image(point.x, point.y, 'fx-shadow').setScale(0.65).setAlpha(0.55);

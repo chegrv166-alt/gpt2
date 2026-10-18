@@ -21,7 +21,7 @@ export class ExpeditionUI {
         <span class="connection"><span class="status-dot"></span><span data-testid="world-status">Открываем врата</span></span>
       </header>
       <main class="expedition-main">
-        <section class="expedition-heading"><div><p class="eyebrow">ГЛАВА I · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ</p><h1>Забытое святилище<span class="title-dot">.</span></h1></div><p>Тьма у врат обрела плоть.<br/><span>Меч и огонь укажут дорогу.</span></p></section>
+        <section class="expedition-heading"><div><p class="eyebrow" id="room-number">КОМНАТА 1/2 · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ</p><h1><span id="room-name">Забытое святилище</span><span class="title-dot">.</span></h1></div><p>Тьма у врат обрела плоть.<br/><span>Меч и огонь укажут дорогу.</span></p></section>
         <section class="expedition-frame" aria-label="Игровая арена">
           <div class="play-stage"><div id="game-stage"></div><div class="play-vignette"></div><div class="location-tag"><i class="small-diamond"></i><span>ДРЕВНИЕ РУИНЫ<span>Тишина перед бурей</span></span></div>
             <div class="expedition-objective"><span class="objective-symbol">I</span><div><p id="objective-heading">СТРАЖ СВЯТИЛИЩА</p><span id="objective-description">Найдите и победите хранителя</span><small id="gate-distance">Путь начинается здесь</small></div></div>
@@ -63,6 +63,10 @@ export class ExpeditionUI {
   }
 
   public update(status: WorldStatus): void {
+    this.element('#room-name').textContent = status.roomName;
+    this.element('#room-number').textContent = `КОМНАТА ${status.room}/2 · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ`;
+    this.element('.objective-symbol').textContent = status.room === 1 ? 'I' : 'II';
+    document.title = `Ashen Covenant · ${status.roomName}`;
     this.element('.play-stage').classList.toggle('is-modal', status.inventoryOpen || status.outcome !== 'playing');
     this.element('#inventory-toggle').setAttribute('aria-expanded', String(status.inventoryOpen));
     this.element('[data-testid="inventory-count"]').textContent = `${status.inventoryCount}/10`;
@@ -72,7 +76,9 @@ export class ExpeditionUI {
     const combat = status.combat;
     this.element('#objective-heading').textContent = !combat.alive ? 'СТРАННИК ПАЛ' : combat.bossDefeated ? 'СТРАЖ ПОВЕРЖЕН' : 'СТРАЖ СВЯТИЛИЩА';
     this.element('#objective-description').textContent = !combat.alive ? 'Нажмите R, чтобы начать заново.'
-      : combat.bossDefeated ? 'Тьма отступила. Исследуйте руины.' : 'Найдите и победите хранителя';
+      : status.exitUnlocked ? 'Вторая комната: клик по вратам или E рядом'
+      : status.cleared ? 'Обе комнаты пройдены. Поход завершён.'
+      : combat.bossDefeated ? 'Победите оставшихся противников' : 'Найдите и победите хранителя';
     this.element('[data-testid="hero-health"]').textContent = `${combat.hp} / ${combat.maxHp}`;
     this.element('[data-testid="hero-mana"]').textContent = `${combat.mana} / ${combat.maxMana}`;
     const health = this.element<HTMLProgressElement>('#hero-hp-bar');

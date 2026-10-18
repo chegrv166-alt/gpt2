@@ -17,11 +17,14 @@ export class UIScene extends Phaser.Scene {
   private shade!: Phaser.GameObjects.Rectangle;
   private inventory!: InventoryPanel;
   private ending!: EndOverlay;
+  private roomStatus!: Phaser.GameObjects.Text;
 
   public constructor() { super('UIScene'); }
 
   public create(): void {
     this.world = this.scene.get('GameScene') as GameScene;
+    this.roomStatus = this.add.text(18, 68, '', { fontFamily: 'Arial, sans-serif', fontSize: '12px',
+      color: '#e8ce91', backgroundColor: '#10180fee', padding: { x: 10, y: 8 }, wordWrap: { width: 240 } }).setName('room-status');
     this.hud = this.add.container().setName('hud');
     this.hud.add(this.add.rectangle(92, 36, 336, 72, 0x10180f, 0.94).setOrigin(0).setStrokeStyle(1, 0x706241));
     this.health = new OrbView(this, 'health', 80, 61).setScale(0.72);
@@ -47,6 +50,9 @@ export class UIScene extends Phaser.Scene {
   public override update(): void {
     const stats = this.world.player.stats;
     const adventure = this.world.adventure;
+    this.roomStatus.setText(`КОМНАТА ${adventure.room}/2\n${this.world.layout.room === 1
+      ? adventure.exitUnlocked ? 'Врата открыты · клик / E рядом' : `Врата закрыты · врагов: ${this.world.battle.status.remaining}`
+      : adventure.cleared ? 'Поход завершён' : `Очистите зал · врагов: ${this.world.battle.status.remaining}`}`);
     this.health.updateResource(stats.hp, stats.values.maxHp);
     this.mana.updateResource(stats.mana, stats.values.maxMana);
     this.skill.setAlpha(this.world.battle.status.skillAvailable ? 1 : 0.45);
@@ -69,6 +75,7 @@ export class UIScene extends Phaser.Scene {
   private resize(): void {
     const width = this.scale.width;
     const height = this.scale.height;
+    this.roomStatus.setScale(width < 600 ? 0.72 : 1);
     const hudScale = Math.min(1, (width - 16) / 520);
     this.hud.setScale(hudScale).setPosition((width - 520 * hudScale) / 2, height - 140 * hudScale);
     this.shade.setSize(width, height).setDisplaySize(width, height);

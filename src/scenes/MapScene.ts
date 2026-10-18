@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import type { GameScene } from './GameScene';
+import { ROOM_NAMES } from '../world/rooms';
 
 /** An independent screen-space camera keeps the map stable as the world zooms. */
 export class MapScene extends Phaser.Scene {
@@ -20,10 +21,10 @@ export class MapScene extends Phaser.Scene {
     background.lineStyle(1, 0x5e6346, 0.65).strokeRect(0, 0, 220, 154);
     background.lineStyle(1, 0x3a4532, 0.8).lineBetween(14, 31, 206, 31);
     this.panel.add(background);
-    this.panel.add(this.add.text(14, 12, 'ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ', {
+    this.panel.add(this.add.text(14, 12, `${this.world.layout.room}/2 · ${ROOM_NAMES[this.world.layout.room].toUpperCase()}`, {
       fontFamily: 'Arial, sans-serif', fontSize: '8px', color: '#b4b599', letterSpacing: 1.2,
     }));
-    this.panel.add(this.add.text(14, 136, 'СЕВЕРНЫЕ ВРАТА', {
+    this.panel.add(this.add.text(14, 136, this.world.layout.room === 1 ? 'СЕВЕРНЫЕ ВРАТА → КОМНАТА II' : 'ПОСЛЕДНИЙ ЗАЛ', {
       fontFamily: 'Arial, sans-serif', fontSize: '7px', color: '#9d926a', letterSpacing: 1,
     }));
     const map = this.add.graphics();

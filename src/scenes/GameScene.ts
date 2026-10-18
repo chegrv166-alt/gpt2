@@ -15,8 +15,17 @@ import { LootView } from '../views/LootView';
 import { AdventureSystem } from '../systems/AdventureSystem';
 import type { EquipmentSlot } from '../items/definitions';
 import type { RunOutcome } from '../systems/AdventureSystem';
+import type { StatsComponent } from '../components/StatsComponent';
+import { ROOM_ENEMIES, ROOM_NAMES } from '../world/rooms';
+import type { RoomNumber } from '../world/rooms';
+
+interface RoomTransfer { readonly stats?: StatsComponent; readonly adventure?: AdventureSystem; }
 
 export interface WorldStatus {
+  readonly room: RoomNumber;
+  readonly roomName: string;
+  readonly exitUnlocked: boolean;
+  readonly cleared: boolean;
   readonly state: 'idle' | 'walk';
   readonly mode: 'idle' | 'keyboard' | 'path';
   readonly gateDistance: number;
@@ -30,7 +39,7 @@ export interface WorldStatus {
 
 /** Coordinates the independent world, input, motor and presentation services. */
 export class GameScene extends Phaser.Scene {
-  public readonly layout = createArenaLayout();
+  public layout = createArenaLayout();
   public arena!: ArenaRenderer;
   public player!: Player;
   public battle!: CombatWorld;
@@ -42,20 +51,31 @@ export class GameScene extends Phaser.Scene {
   private target!: TargetIndicator;
   private lastMode = 'idle';
   private statusTimer = 0;
+  private transfer: RoomTransfer = {};
+  private exitTarget = false;
+  private transitioning = false;
 
   public constructor() {
     super('GameScene');
+  }
+
+  public init(data: RoomTransfer = {}): void {
+    this.transfer = data;
+    this.layout = createArenaLayout(data.adventure?.room ?? 1);
   }
 
   public create(): void {
     this.lastMode = 'idle';
     this.pickupTarget = null;
     this.statusTimer = 0;
+    this.exitTarget = false; this.transitioning = false;
     this.cameras.main.setBackgroundColor('#121b16');
     this.arena = new ArenaRenderer(this, this.layout);
-    this.player = new Player(this, this.arena);
-    this.battle = new CombatWorld(this.layout.grid, this.player.motor, this.player.stats);
-    this.adventure = new AdventureSystem(this.player.stats, this.layout.grid);
+    this.player = new Player(this, this.arena, this.transfer.stats);
+    this.battle = new CombatWorld(this.layout.grid, this.player.motor, this.player.stats, ROOM_ENEMIES[this.layout.room]);
+    this.adventure = this.transfer.adventure ?? new AdventureSystem(this.player.stats, this.layout.grid);
+    this.adventure.loot.enterRoom(this.layout.grid);
+    this.transfer = {};
     this.combatView = new CombatView(this, this.arena, this.battle);
     this.lootView = new LootView(this, this.arena, this.adventure.loot);
     this.target = new TargetIndicator(this, this.arena);
@@ -64,6 +84,7 @@ export class GameScene extends Phaser.Scene {
       skill: (world) => this.castSkill(world ? this.arena.toGround(world) : null),
       cancel: (blur) => this.cancelMovement(blur), reset: () => this.resetPlayer(), map: () => this.toggleMap(),
       inventory: () => this.toggleInventory(),
+      interact: () => this.enterNextRoom(),
     });
     const bounds = this.arena.bounds;
     this.cameras.main.setBounds(bounds.x, bounds.y, bounds.width, bounds.height)
@@ -78,9 +99,11 @@ export class GameScene extends Phaser.Scene {
     });
     this.game.events.emit('world-ready');
     this.emitStatus();
+    this.arena.updateGate(this.adventure.exitUnlocked, this.adventure.cleared);
   }
 
   public override update(_time: number, delta: number): void {
+    if (this.transitioning) return;
     const seconds = Math.min(delta / 1000, 0.25);
     const lerp = 1 - Math.exp(-6 * seconds);
     this.cameras.main.setLerp(lerp, lerp);
@@ -91,13 +114,17 @@ export class GameScene extends Phaser.Scene {
     const events = this.battle.drainEvents();
     this.combatView.render(events);
     const outcome = this.adventure.outcome;
-    const notices = this.adventure.update(events, this.player.motor.position, this.player.stats.alive);
+    const unlocked = this.adventure.exitUnlocked;
+    const notices = this.adventure.update(events, this.player.motor.position, this.player.stats.alive, this.battle.status.remaining);
+    this.arena.updateGate(this.adventure.exitUnlocked, this.adventure.cleared);
+    if (!unlocked && this.adventure.exitUnlocked) this.game.events.emit('destination-status', 'Комната зачищена. Северные врата открыты: клик по вратам или E рядом с ними.');
     for (const notice of notices) this.game.events.emit('destination-status', notice.result === 'picked'
       ? `Подобрано: ${notice.item.name}. I — открыть инвентарь.` : 'Рюкзак полон. Наденьте или выложите предмет.');
     if (outcome !== this.adventure.outcome) { this.battle.cancel(); this.controls.clear(); this.target.clear(); }
     this.lootView.render(seconds);
     const motor = this.player.motor;
-    if (motor.mode === 'keyboard') this.pickupTarget = null;
+    if (motor.mode === 'keyboard') { this.pickupTarget = null; this.exitTarget = false; }
+    if (this.exitTarget && this.nearExit() && this.enterNextRoom()) return;
     if (this.pickupTarget !== null && (!this.adventure.loot.drops.some((drop) => drop.id === this.pickupTarget)
       || notices.some((notice) => notice.result === 'full'))) {
       motor.stop(); this.target.clear(); this.pickupTarget = null;
@@ -125,6 +152,7 @@ export class GameScene extends Phaser.Scene {
   public moveTo(destination: Vec2): void {
     if (!this.player.stats.alive || this.adventure.paused) return;
     this.pickupTarget = null;
+    this.exitTarget = false;
     this.battle.cancel();
     const accepted = this.player.motor.setDestination(destination);
     this.lastMode = this.player.motor.mode;
@@ -133,6 +161,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   public cancelMovement(fromBlur = false): void {
+    this.exitTarget = false;
     if (this.adventure.inventoryOpen && !fromBlur) { this.toggleInventory(); return; }
     this.battle.cancel();
     this.pickupTarget = null;
@@ -153,12 +182,15 @@ export class GameScene extends Phaser.Scene {
   public continueAfterVictory(): void {
     this.adventure.continueAfterVictory();
     this.controls.clear();
-    this.game.events.emit('destination-status', 'Страж повержен. Заберите легендарную награду у врат.');
+    this.game.events.emit('destination-status', this.layout.room === 2 ? 'Страж повержен. Заберите награду и зачистите зал.'
+      : this.adventure.exitUnlocked ? 'Заберите награду. Северные врата ведут во вторую комнату: клик или E рядом.'
+      : 'Заберите награду и победите остальных врагов, чтобы открыть северные врата.');
     this.emitStatus();
   }
 
   public toggleInventory(): void {
     if (this.adventure.outcome !== 'playing') return;
+    this.exitTarget = false;
     this.adventure.toggleInventory();
     this.controls.clear(); this.battle.cancel(); this.target.clear(); this.pickupTarget = null;
     this.game.events.emit('destination-status', this.adventure.inventoryOpen ? 'Инвентарь открыт. Бой приостановлен.' : 'Путь продолжается.');
@@ -200,6 +232,13 @@ export class GameScene extends Phaser.Scene {
   private restartEncounter(full: boolean): void {
     this.controls.clear();
     this.adventure.reset(full);
+    this.exitTarget = false;
+    if (full && this.layout.room === 2) {
+      this.player.stats.restore();
+      this.transitioning = true;
+      this.scene.restart({ stats: this.player.stats, adventure: this.adventure });
+      return;
+    }
     this.battle.reset();
     this.pickupTarget = null;
     this.player.render('idle');
@@ -209,6 +248,30 @@ export class GameScene extends Phaser.Scene {
     this.cameras.main.centerOn(this.player.sprite.x, this.player.sprite.y - 45);
     this.game.events.emit('destination-status', 'Вы у входа в святилище.');
     this.emitStatus();
+  }
+
+  /** The simulation and spatial checks both guard entry; no UI can bypass the lock. */
+  public enterNextRoom(): boolean {
+    if (this.transitioning || !this.player.stats.alive || this.adventure.paused) return false;
+    if (!this.adventure.exitUnlocked) {
+      this.game.events.emit('destination-status', this.layout.room === 2 ? 'Это последняя комната похода.' : 'Врата запечатаны. Победите всех противников первой комнаты.');
+      return false;
+    }
+    if (!this.nearExit()) {
+      this.game.events.emit('destination-status', 'Подойдите к северным вратам и нажмите E или кликните по ним.');
+      return false;
+    }
+    if (!this.adventure.enterNextRoom(createArenaLayout(2).grid)) return false;
+    this.transitioning = true;
+    this.controls.clear(); this.battle.cancel();
+    this.scene.restart({ stats: this.player.stats, adventure: this.adventure });
+    return true;
+  }
+
+  private nearExit(): boolean {
+    const point = this.player.motor.position;
+    return Math.hypot(point.x - this.layout.gate.x, point.y - this.layout.gate.y) < 1.35
+      && this.layout.grid.isSegmentClear(point, this.layout.gate, this.player.motor.radius);
   }
 
   public changeZoom(amount: number): number {
@@ -229,7 +292,7 @@ export class GameScene extends Phaser.Scene {
     const result = this.battle.castSkill(target);
     const messages = { ok: 'Пепельный импульс', dead: 'Странник пал. Нажмите R.', busy: 'Завершите текущее действие.',
       cooldown: 'Умение ещё восстанавливается.', mana: 'Недостаточно маны.' };
-    if (result === 'ok') { this.target.clear(); this.lastMode = 'idle'; }
+    if (result === 'ok') { this.target.clear(); this.lastMode = 'idle'; this.exitTarget = false; }
     this.game.events.emit('destination-status', messages[result]);
     this.emitStatus();
   }
@@ -237,6 +300,7 @@ export class GameScene extends Phaser.Scene {
   public attackNearest(): void {
     if (this.adventure.paused) return;
     this.pickupTarget = null;
+    this.exitTarget = false;
     const position = this.player.motor.position;
     const enemy = this.battle.selectedEnemy ?? this.battle.enemies.filter((target) => target.stats.alive)
       .sort((a, b) => Math.hypot(a.motor.position.x - position.x, a.motor.position.y - position.y)
@@ -253,6 +317,7 @@ export class GameScene extends Phaser.Scene {
     if (!this.player.stats.alive || this.adventure.paused) return;
     this.pickupTarget = null;
     if (force) {
+      this.exitTarget = false;
       this.battle.forceAttack(this.arena.toGround(world));
       this.target.clear();
       return;
@@ -266,16 +331,27 @@ export class GameScene extends Phaser.Scene {
     }
     const enemy = this.combatView.pickEnemy(world);
     if (enemy) {
+      this.exitTarget = false;
       this.battle.commandAttack(enemy.id);
       this.target.clear();
       this.game.events.emit('destination-status', `Цель: ${ENEMY_DEFINITIONS[enemy.kind].name}`);
-    } else this.moveTo(this.arena.toGround(world));
+    } else {
+      const ground = this.arena.toGround(world);
+      if (this.layout.room === 1 && Math.hypot(ground.x - this.layout.gate.x, ground.y - this.layout.gate.y) < 1.1) {
+        if (!this.adventure.exitUnlocked) { this.enterNextRoom(); return; }
+        this.moveTo(this.layout.gate);
+        this.exitTarget = this.player.motor.mode === 'path' || this.nearExit();
+        this.game.events.emit('destination-status', 'Путь во вторую комнату. Несобранные вещи останутся здесь.');
+      } else this.moveTo(ground);
+    }
   }
 
   private emitStatus(): void {
     const position = this.player.motor.position;
     const distance = Math.hypot(position.x - this.layout.gate.x, position.y - this.layout.gate.y);
     const status: WorldStatus = {
+      room: this.adventure.room, roomName: ROOM_NAMES[this.adventure.room],
+      exitUnlocked: this.adventure.exitUnlocked, cleared: this.adventure.cleared,
       state: this.player.motor.state, mode: this.player.motor.mode,
       gateDistance: Math.round(distance * 2), gateReached: distance < 1.1,
       action: this.battle.hero.visualState, combat: this.battle.status,

@@ -8,6 +8,7 @@ interface InputActions {
   readonly reset: () => void;
   readonly map: () => void;
   readonly inventory: () => void;
+  readonly interact: () => void;
 }
 
 const MOVEMENT_CODES = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight']);
@@ -58,12 +59,13 @@ export class PlayerInput {
     if (MOVEMENT_CODES.has(event.code)) {
       event.preventDefault();
       this.pressed.add(event.code);
-    } else if (!event.repeat && ['Escape', 'KeyR', 'KeyM', 'KeyQ', 'KeyI'].includes(event.code)) {
+    } else if (!event.repeat && ['Escape', 'KeyR', 'KeyM', 'KeyQ', 'KeyI', 'KeyE'].includes(event.code)) {
       event.preventDefault();
       if (event.code === 'Escape') {
         this.clear();
         this.actions.cancel();
       } else if (event.code === 'KeyI') this.actions.inventory();
+      else if (event.code === 'KeyE') this.actions.interact();
       else if (event.code === 'KeyQ') this.actions.skill(this.pointerAim());
       else if (event.code === 'KeyR') this.actions.reset();
       else this.actions.map();
