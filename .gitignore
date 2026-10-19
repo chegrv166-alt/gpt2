@@ -7,3 +7,4 @@ playwright-report/
 desktop-dist/
 release/
 /.worktrees/
+/.superpowers/
