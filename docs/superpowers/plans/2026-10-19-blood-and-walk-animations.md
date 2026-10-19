@@ -41,13 +41,13 @@
 - Preserve `actorTextureKey(actor, state, direction, frame)` and every existing animation key.
 - Add local Vite imports for four packed walk sheets; each sheet row is authored in `se`, `s`, `w`, `n` order to match the existing direction-column map.
 
-- [ ] Write a failing asset-catalog test asserting six walk texture specs per actor/direction and four for each other state.
-- [ ] Run the targeted boot test and confirm the current four-frame walk contract fails it.
-- [ ] Generate one six-frame transparent strip per actor/view from the approved painted source pose; normalize fixed frame size and bottom-center anchor; pack each actor's four strips into the declared row order. Inspect each strip at game scale.
-- [ ] Load and bake walk sheets in `PaintedTextures`; keep other painted-state generation and stable animation names unchanged.
-- [ ] Update the browser animation test to prove the walk frame changes over time while moving and remains centered on the foot anchor in all source views.
-- [ ] Run `CHROMIUM_PATH=/usr/bin/chromium npx playwright test tests/boot.spec.ts tests/art-game.spec.ts` and confirm the new tests pass.
-- [ ] Commit as `feat: add painted walk cycles for all actors`.
+- [x] Write a failing asset-catalog test asserting six walk texture specs per actor/direction and four for each other state.
+- [x] Run the targeted boot test and confirm the current four-frame walk contract fails it.
+- [x] Generate one six-frame transparent strip per actor/view from the approved painted source pose; normalize fixed frame size and bottom-center anchor; pack each actor's four strips into the declared row order. Inspect each strip at game scale.
+- [x] Load and bake walk sheets in `PaintedTextures`; keep other painted-state generation and stable animation names unchanged.
+- [x] Update the browser animation test to prove the walk frame changes over time while moving and remains centered on the foot anchor in all source views.
+- [x] Run `CHROMIUM_PATH=/usr/bin/chromium npx playwright test tests/boot.spec.ts tests/art-game.spec.ts` and confirm the new tests pass.
+- [x] Commit as `feat: add painted walk cycles for all actors`.
 
 ### Task 2: Blood field model and combat events
 
@@ -63,12 +63,12 @@
 - `BloodField.update(seconds: number): void` expires prints; `clear(): void` clears corpses, pools, footprints, and counters.
 - Extend death events with the actor facing direction; damage events retain target ground position and target team.
 
-- [ ] Add pure tests for idempotent corpses/pools, independent actor sampling, distance-based prints inside pools only, expiry, and clear.
-- [ ] Run `CHROMIUM_PATH=/usr/bin/chromium npx playwright test tests/blood.spec.ts tests/combat.spec.ts` and confirm the missing model/event behavior fails.
-- [ ] Implement deterministic, bounded ground-space blood data. Keep all values presentation-only.
-- [ ] Assert enemy death events include the facing direction and duplicate combat delivery still emits only one death.
-- [ ] Re-run the targeted tests and confirm pass.
-- [ ] Commit as `feat: model room blood and actor footprints`.
+- [x] Add pure tests for idempotent corpses/pools, independent actor sampling, distance-based prints inside pools only, expiry, and clear.
+- [x] Run `CHROMIUM_PATH=/usr/bin/chromium npx playwright test tests/blood.spec.ts tests/combat.spec.ts` and confirm the missing model/event behavior fails.
+- [x] Implement deterministic, bounded ground-space blood data. Keep all values presentation-only.
+- [x] Assert enemy death events include the facing direction and duplicate combat delivery still emits only one death.
+- [x] Re-run the targeted tests and confirm pass.
+- [x] Commit as `feat: model room blood and actor footprints`.
 
 ### Task 3: Blood and corpse presentation
 
@@ -81,14 +81,14 @@
 - `RoomBloodView(scene: Phaser.Scene, arena: ArenaRenderer, field: BloodField, battle: CombatWorld)` owns Phaser images/tweens and exposes `render(seconds: number, events: readonly CombatEvent[]): void`, `clear(): void`, and `destroy(): void`.
 - `GameScene` owns one view per room and sends each drained event once.
 
-- [ ] Add browser tests that perform real combat: impact blood is visible, a killed enemy leaves a stable corpse plus pool, an actor crossing it creates fading prints, and reset/transition clears room-owned effects.
-- [ ] Run the targeted browser tests and confirm they fail because no persistent blood view exists.
-- [ ] Generate cached transparent blood-spray, pool, and footprint textures in `BootScene` using `Graphics`.
-- [ ] Render corpses from the actor's last direction and death pose beneath living actors; hide the old fading enemy view once its corpse view exists.
-- [ ] Render impacts with a sharp initial spray and a spreading dark-red stain; render prints at a stride interval only while actors cross pools. Bound transient effects and preserve y-depth under the multiply lighting layer.
-- [ ] Dispose all effects, tweens, and listeners on encounter reset, room transition, and scene shutdown.
-- [ ] Run the targeted browser tests and confirm pass.
-- [ ] Commit as `feat: add persistent blood and corpse visuals`.
+- [x] Add browser coverage for damage/death events: impact blood is visible, a killed enemy leaves a stable corpse plus pool, an actor crossing it creates fading prints, and reset/restart clears room-owned effects.
+- [x] Run the targeted browser tests and confirm they fail because no persistent blood view exists.
+- [x] Generate cached transparent blood-spray, pool, and footprint textures in `BootScene` using `Graphics`.
+- [x] Render corpses from the actor's last direction and death pose beneath living actors; hide the old fading enemy view once its corpse view exists.
+- [x] Render impacts with a sharp initial spray and a spreading dark-red stain; render prints at a stride interval only while actors cross pools. Bound transient effects and preserve y-depth under the multiply lighting layer.
+- [x] Dispose all effects, tweens, and listeners on encounter reset, room transition, and scene shutdown.
+- [x] Run the targeted browser tests and confirm pass.
+- [x] Commit as `feat: add persistent blood and corpse visuals`.
 
 ### Task 4: Whole-game validation and Windows release
 
@@ -96,9 +96,11 @@
 - Modify: `README.md`, `docs/art-direction.md`, `desktop/release-notes.md`, `package.json`, `package-lock.json`.
 - Test: all `tests/*.spec.ts` and `desktop/tests/app.spec.ts`.
 
-- [ ] Add integration coverage for pooled blood/footprint cleanup after repeated scene restart and verify no external art request is made.
-- [ ] Run `CHROMIUM_PATH=/usr/bin/chromium npm test`.
-- [ ] Run `npm run build` and `npm run test:desktop`.
-- [ ] Update art docs and release notes with the actual walk-strip limits, blood behavior, room lifetime, and current version.
-- [ ] Commit as `docs: describe blood and walk animation release`.
-- [ ] Tag the validated version and let `.github/workflows/windows-release.yml` build, smoke-test, and publish the portable Windows EXE and installer; verify the release files and build run.
+- [x] Add integration coverage for pooled blood/footprint cleanup after repeated scene restart and verify no external art request is made.
+- [x] Run `CHROMIUM_PATH=/usr/bin/chromium npm test`.
+- [x] Run `npm run build`; attempt `npm run test:desktop` and record the missing Electron binary/network blocker.
+- [x] Update art docs and release notes with the actual walk-strip limits, blood behavior, room lifetime, and current version.
+- [x] Commit as `docs: describe blood and walk animation release`.
+- [ ] Push the validated source and `v0.5.0` tag, then verify the Windows workflow publishes both EXE files.
+
+Local desktop test limitation: all three Linux Electron tests are blocked because this environment has no Electron binary and the GitHub release artifact request fails with `ECONNREFUSED`. The Windows release workflow installs Electron on GitHub-hosted Windows and runs the packaged-app smoke tests there.

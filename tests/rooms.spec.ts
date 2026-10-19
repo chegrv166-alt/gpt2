@@ -8,7 +8,7 @@ import { ROOM_ENEMIES } from '../src/world/rooms';
 import { findPath } from '../src/world/pathfinding';
 import { createItem } from '../src/items/definitions';
 
-const bossDeath: CombatEvent = { type: 'death', targetId: 6, kind: 'boss', position: { x: 18, y: 4 } };
+const bossDeath: CombatEvent = { type: 'death', targetId: 6, kind: 'boss', position: { x: 18, y: 4 }, direction: 'n' };
 
 test('the next room requires a living hero, a defeated boss, all enemies cleared and a closed modal', () => {
   const first = createArenaLayout();

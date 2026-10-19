@@ -174,7 +174,7 @@ export class CombatWorld {
     const amount = enemy.takeDamage(roll.amount);
     if (amount <= 0) return;
     this.events.push({ type: 'damage', targetId: enemy.id, position: { ...enemy.motor.position }, amount, critical: roll.critical, team: 'enemy' });
-    if (!enemy.stats.alive) this.events.push({ type: 'death', targetId: enemy.id, position: { ...enemy.motor.position }, kind: enemy.kind });
+    if (!enemy.stats.alive) this.events.push({ type: 'death', targetId: enemy.id, position: { ...enemy.motor.position }, kind: enemy.kind, direction: enemy.motor.direction });
   }
 
   private damageHero(attack: AttackProfile, power: number): void {
@@ -185,7 +185,7 @@ export class CombatWorld {
     this.events.push({ type: 'damage', targetId: 0, position: { ...this.hero.motor.position }, amount, critical: roll.critical, team: 'hero' });
     if (!this.hero.stats.alive) {
       this.targetId = null;
-      this.events.push({ type: 'death', targetId: 0, position: { ...this.hero.motor.position }, kind: 'hero' });
+      this.events.push({ type: 'death', targetId: 0, position: { ...this.hero.motor.position }, kind: 'hero', direction: this.hero.motor.direction });
     }
   }
 

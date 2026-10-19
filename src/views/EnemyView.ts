@@ -37,8 +37,8 @@ export class EnemyView {
     if (this.sprite.anims.currentAnim?.key !== key) this.sprite.play(key);
     this.sprite.anims.timeScale = enemy.telegraph ? 0.3 : 1;
     this.sprite.setPosition(point.x, point.y).setDepth(point.y + 0.5);
-    this.sprite.setTint(dead ? 0x686d61 : enemy.hitFlash > 0 ? 0xffd0ad : 0xffffff);
-    this.sprite.setAngle(dead ? -65 : 0).setAlpha(dead ? Math.max(0, 0.8 - enemy.deadSeconds / 1.4) : 1);
+    this.sprite.setTint(enemy.hitFlash > 0 ? 0xffd0ad : 0xffffff);
+    this.sprite.setAngle(0).setAlpha(1).setVisible(!dead);
     this.selected.setPosition(point.x, point.y).setScale(enemy.kind === 'boss' ? 1.35 : 0.85).setVisible(selected && !dead);
     this.bar.clear();
     this.label.setVisible(!dead);

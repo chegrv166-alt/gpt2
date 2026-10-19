@@ -59,7 +59,7 @@ test('boot generates visible cached textures without requesting external assets'
     }
     return { count: TEXTURE_SPECS.length, invalid, unique: new Set(signatures).size };
   });
-  expect(report.count).toBe(544);
+  expect(report.count).toBe(611);
   expect(report.invalid).toEqual([]);
   expect(report.unique).toBeGreaterThan(250);
   expect(externalRequests).toEqual([]);
@@ -130,8 +130,8 @@ test('catalog tabs display the generated item and effect canvases', async ({ pag
   await page.getByRole('button', { name: 'Предметы 6', exact: true }).click();
   await expect(page.locator('#asset-grid canvas')).toHaveCount(6);
   await expect(page.locator('#asset-grid code').first()).toHaveText('icon-sword');
-  await page.getByRole('button', { name: 'Эффекты 13', exact: true }).click();
-  await expect(page.locator('#asset-grid canvas')).toHaveCount(13);
+  await page.getByRole('button', { name: 'Эффекты 16', exact: true }).click();
+  await expect(page.locator('#asset-grid canvas')).toHaveCount(16);
   await expect(page.locator('#asset-grid code').filter({ hasText: 'fx-loot-legendary' })).toBeVisible();
 });
 

@@ -1,6 +1,7 @@
 export const TILE_WIDTH = 128;
 export const TILE_HEIGHT = 64;
 export const FRAME_COUNT = 4;
+export const WALK_FRAME_COUNT = 6;
 export const DIRECTIONS = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne'] as const;
 export const ACTOR_STATES = ['idle', 'walk', 'attack', 'hurt'] as const;
 export const ACTOR_IDS = ['hero', 'grunt', 'caster', 'boss'] as const;
@@ -91,6 +92,9 @@ export const EFFECT_SPECS: readonly TextureSpec[] = [
     key: `fx-loot-${rarity}`, width: 64, height: 160, category: 'effects',
   })),
   { key: 'fx-spark', width: 32, height: 32, category: 'effects' },
+  { key: 'fx-blood-spray', width: 96, height: 96, category: 'effects' },
+  { key: 'fx-blood-pool', width: 128, height: 80, category: 'effects' },
+  { key: 'fx-blood-footprint', width: 28, height: 42, category: 'effects' },
 ];
 
 export const UI_SPECS: readonly TextureSpec[] = [
@@ -101,7 +105,7 @@ export const UI_SPECS: readonly TextureSpec[] = [
 
 export const ACTOR_SPECS: readonly TextureSpec[] = ACTOR_IDS.flatMap((actor) =>
   ACTOR_STATES.flatMap((state) => DIRECTIONS.flatMap((direction) =>
-    Array.from({ length: FRAME_COUNT }, (_, frame): TextureSpec => ({
+    Array.from({ length: state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT }, (_, frame): TextureSpec => ({
       key: actorTextureKey(actor, state, direction, frame),
       width: ACTORS[actor].width, height: ACTORS[actor].height, category: 'actors',
     })))));

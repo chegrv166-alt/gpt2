@@ -19,6 +19,8 @@ import type { StatsComponent } from '../components/StatsComponent';
 import { ROOM_ENEMIES, ROOM_NAMES } from '../world/rooms';
 import type { RoomNumber } from '../world/rooms';
 import { RoomLighting } from '../lighting/RoomLighting';
+import { BloodField } from '../blood/BloodField';
+import { RoomBloodView } from '../blood/RoomBloodView';
 
 interface RoomTransfer { readonly stats?: StatsComponent; readonly adventure?: AdventureSystem; }
 
@@ -48,6 +50,8 @@ export class GameScene extends Phaser.Scene {
   public lighting!: RoomLighting;
   private combatView!: CombatView;
   private lootView!: LootView;
+  private bloodField!: BloodField;
+  private bloodView!: RoomBloodView;
   private pickupTarget: number | null = null;
   private controls!: PlayerInput;
   private target!: TargetIndicator;
@@ -79,6 +83,8 @@ export class GameScene extends Phaser.Scene {
     this.adventure.loot.enterRoom(this.layout.grid);
     this.transfer = {};
     this.combatView = new CombatView(this, this.arena, this.battle);
+    this.bloodField = new BloodField();
+    this.bloodView = new RoomBloodView(this, this.arena, this.bloodField, this.battle);
     this.lootView = new LootView(this, this.arena, this.adventure.loot);
     this.lighting = new RoomLighting(this, this.layout, this.arena.origin);
     this.target = new TargetIndicator(this, this.arena);
@@ -97,6 +103,7 @@ export class GameScene extends Phaser.Scene {
     this.scene.launch('MapScene');
     this.scene.launch('UIScene');
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.bloodView.destroy();
       this.scene.stop('MapScene');
       this.scene.stop('UIScene');
     });
@@ -117,6 +124,7 @@ export class GameScene extends Phaser.Scene {
     this.player.render(this.battle.hero.visualState, this.battle.hero.hitFlash);
     const events = this.battle.drainEvents();
     this.combatView.render(events);
+    this.bloodView.render(seconds, events);
     const outcome = this.adventure.outcome;
     const unlocked = this.adventure.exitUnlocked;
     const notices = this.adventure.update(events, this.player.motor.position, this.player.stats.alive, this.battle.status.remaining);
@@ -244,6 +252,7 @@ export class GameScene extends Phaser.Scene {
       return;
     }
     this.battle.reset();
+    this.bloodView.clear();
     this.pickupTarget = null;
     this.player.render('idle');
     this.combatView.reset();

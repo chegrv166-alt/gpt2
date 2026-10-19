@@ -1,5 +1,6 @@
 import type { StatValues } from '../components/StatsComponent';
 import type { Vec2 } from '../math/isometric';
+import type { Direction } from '../assets/catalog';
 
 export type Team = 'hero' | 'enemy';
 export type EnemyKind = 'grunt' | 'caster' | 'boss';
@@ -46,4 +47,4 @@ export type CombatEvent =
   | { readonly type: 'damage'; readonly targetId: number; readonly position: Vec2; readonly amount: number; readonly critical: boolean; readonly team: Team }
   | { readonly type: 'swing'; readonly position: Vec2; readonly direction: Vec2; readonly team: Team }
   | { readonly type: 'impact'; readonly position: Vec2; readonly radius: number; readonly team: Team }
-  | { readonly type: 'death'; readonly targetId: number; readonly position: Vec2; readonly kind: EnemyKind | 'hero' };
+  | { readonly type: 'death'; readonly targetId: number; readonly position: Vec2; readonly kind: EnemyKind | 'hero'; readonly direction: Direction };

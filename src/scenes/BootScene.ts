@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import {
   ACTORS, ACTOR_IDS, ACTOR_STATES, DIRECTIONS, DIRECTION_VECTORS, EFFECT_SPECS,
   FRAME_COUNT, ITEM_SPECS, PROJECTILE_SPECS, TEXTURE_SPECS,
+  WALK_FRAME_COUNT,
   actorAnimationKey, actorTextureKey,
 } from '../assets/catalog';
 import type { ActorId, ActorState, Direction } from '../assets/catalog';
@@ -389,8 +390,33 @@ export class BootScene extends Phaser.Scene {
           g.fillStyle(color, 0.25).fillEllipse(32, 144, 47, 15);
           g.lineStyle(1, color, 0.85).strokeEllipse(32, 144, 37, 11);
         } else {
-          this.polygon(g, 0xffdca3, [[16, 2], [19, 13], [30, 16], [19, 19], [16, 30], [13, 19], [2, 16], [13, 13]]);
-          g.fillStyle(0xfff7d7).fillCircle(16, 16, 3);
+          if (spec.key === 'fx-blood-pool') {
+            g.fillStyle(0x3d0710, 0.88).fillEllipse(64, 40, 120, 46);
+            g.fillStyle(0x740e1c, 0.82).fillEllipse(56, 36, 92, 31);
+            g.fillStyle(0xb21e2d, 0.42).fillEllipse(45, 31, 54, 12);
+            g.fillStyle(0x24050d, 0.85).fillEllipse(78, 45, 28, 9);
+            for (const [x, y, rx, ry] of [[18, 39, 14, 8], [104, 33, 17, 7], [84, 57, 10, 5]] as const) {
+              g.fillStyle(0x550a17, 0.9).fillEllipse(x, y, rx, ry);
+            }
+          } else if (spec.key === 'fx-blood-footprint') {
+            g.fillStyle(0x540916, 0.88).fillEllipse(14, 24, 21, 32);
+            g.fillStyle(0x8b1423, 0.82).fillEllipse(14, 29, 13, 20);
+            g.fillStyle(0x560a16, 0.9).fillEllipse(7, 6, 7, 9).fillEllipse(14, 3, 7, 8)
+              .fillEllipse(21, 6, 7, 9).fillCircle(4, 10, 3).fillCircle(24, 10, 3);
+          } else if (spec.key === 'fx-blood-spray') {
+            g.fillStyle(0x9f1023, 0.56).fillCircle(48, 48, 12);
+            g.fillStyle(0xd72836, 0.92).fillCircle(48, 48, 5);
+            for (let i = 0; i < 14; i++) {
+              const angle = i * Math.PI * 2 / 14 + 0.14;
+              const radius = 18 + (i % 4) * 5;
+              const x = 48 + Math.cos(angle) * radius; const y = 48 + Math.sin(angle) * radius;
+              g.fillStyle(i % 3 === 0 ? 0xd3323a : 0x721020, 0.88).fillCircle(x, y, 1.2 + (i % 3) * 0.65);
+              if (i % 2 === 0) g.fillEllipse(x + Math.cos(angle) * 4, y + Math.sin(angle) * 4, 2, 6);
+            }
+          } else {
+            this.polygon(g, 0xffdca3, [[16, 2], [19, 13], [30, 16], [19, 19], [16, 30], [13, 19], [2, 16], [13, 13]]);
+            g.fillStyle(0xfff7d7).fillCircle(16, 16, 3);
+          }
         }
       });
     }
@@ -439,7 +465,7 @@ export class BootScene extends Phaser.Scene {
           if (this.anims.exists(key)) continue;
           this.anims.create({
             key,
-            frames: Array.from({ length: FRAME_COUNT }, (_, frame) => ({ key: actorTextureKey(actor, state, direction, frame) })),
+            frames: Array.from({ length: state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT }, (_, frame) => ({ key: actorTextureKey(actor, state, direction, frame) })),
             frameRate: state === 'idle' ? 4 : state === 'walk' ? 9 : 12,
             repeat: state === 'idle' || state === 'walk' ? -1 : 0,
           });

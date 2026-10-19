@@ -16,7 +16,7 @@ async function act(page: Page, action: 'state' | 'gate' | 'clear' | 'kill' | 'ge
     if (command === 'clear') {
       const events = world.battle.enemies.map((enemy) => {
         enemy.takeDamage(10000);
-        return { type: 'death' as const, targetId: enemy.id, kind: enemy.kind, position: { ...enemy.motor.position } };
+        return { type: 'death' as const, targetId: enemy.id, kind: enemy.kind, position: { ...enemy.motor.position }, direction: enemy.motor.direction };
       });
       world.adventure.update(events, world.player.motor.position, true, 0);
     }

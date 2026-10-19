@@ -9,7 +9,7 @@ import { AdventureSystem } from '../src/systems/AdventureSystem';
 import { CollisionGrid } from '../src/world/CollisionGrid';
 
 const death = (id: number, kind: 'grunt' | 'caster' | 'boss' = 'grunt', x = 5): CombatEvent =>
-  ({ type: 'death', targetId: id, kind, position: { x, y: 5 } });
+  ({ type: 'death', targetId: id, kind, position: { x, y: 5 }, direction: 'se' });
 
 test('a full ten-slot bag swaps equipment atomically and does not accumulate damage bonuses', () => {
   const stats = new StatsComponent(HERO_STATS);

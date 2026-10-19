@@ -97,3 +97,32 @@ test('painted actor extraction preserves the staff and sword tips across uneven 
   expect(cutouts[13]!.left).toBeLessThanOrEqual(305);
   expect(cutouts[4]!.bottom).toBeLessThanOrEqual(587);
 });
+
+test('all actors have six distinct authored walk frames and movement plays the walk cycle', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
+  const report = await page.evaluate(async () => {
+    const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
+    if (!entry) throw new Error('Missing entry');
+    const { game }: { game: Phaser.Game } = await import(entry);
+    const world = game.scene.getScene('GameScene') as GameScene;
+    const actors = ['hero', 'grunt', 'caster', 'boss'];
+    const distinct = actors.map((actor) => {
+      const frames = Array.from({ length: 6 }, (_, frame) => {
+        const source = game.textures.get(`${actor}-walk-se-${frame}`).getSourceImage() as HTMLCanvasElement;
+        return source.getContext('2d')!.getImageData(0, 0, source.width, source.height).data;
+      });
+      return new Set(frames.map((data) => {
+        let value = 0;
+        for (let index = 0; index < data.length; index += 37) value = (value * 33 + data[index]!) >>> 0;
+        return value;
+      })).size;
+    });
+    world.battle.update(0.12, { x: 1, y: 0 });
+    world.player.render(world.battle.hero.visualState);
+    return { distinct, animation: world.player.sprite.anims.currentAnim?.key, frameCount: world.player.sprite.anims.currentAnim?.frames.length };
+  });
+  expect(report.distinct.every((count) => count > 1)).toBe(true);
+  expect(report.animation).toMatch(/^hero-walk-/);
+  expect(report.frameCount).toBe(6);
+});

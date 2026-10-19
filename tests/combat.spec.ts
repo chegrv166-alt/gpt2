@@ -6,6 +6,7 @@ import { CombatWorld } from '../src/combat/CombatWorld';
 import { ProjectileSystem } from '../src/combat/ProjectileSystem';
 import { PlayerMotor } from '../src/entities/PlayerMotor';
 import { CollisionGrid } from '../src/world/CollisionGrid';
+import { DIRECTIONS } from '../src/assets/catalog';
 
 test('stats clamp resources, reject overdrafts and recalculate modifiers without healing', () => {
   const stats = new StatsComponent(HERO_STATS);
@@ -165,6 +166,7 @@ test('a single skill explosion kills clustered casters once and interrupts their
   const events = world.drainEvents();
   expect(events.filter((event) => event.type === 'damage' && event.team === 'enemy')).toHaveLength(2);
   expect(events.filter((event) => event.type === 'death')).toHaveLength(2);
+  expect(events.filter((event) => event.type === 'death').every((event) => event.type !== 'death' || DIRECTIONS.includes(event.direction))).toBe(true);
   expect(world.hero.stats.hp).toBe(160);
   expect(world.projectiles.active).toHaveLength(0);
   advance(world, 2);

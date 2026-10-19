@@ -46,7 +46,7 @@ export class ForgeUI {
             <h2 data-testid="selected-actor">Странник</h2><p class="actor-role" id="actor-role"></p><p class="actor-description" id="actor-description"></p>
             <div class="section-label"><span>ВЫБРАТЬ ПЕРСОНАЖА</span><span>04</span></div>
             <div class="actor-grid">${ACTOR_IDS.map((id, index) => `<button class="actor-card${id === 'hero' ? ' selected' : ''}" data-actor="${id}" aria-pressed="${id === 'hero'}" aria-label="${ACTORS[id].name}"><span class="actor-emblem ${id}">${['♜', '♟', '✧', '♛'][index]}</span><span>${ACTORS[id].name}</span></button>`).join('')}</div>
-            <div class="section-label"><span>СОСТОЯНИЕ</span><span>4 КАДРА</span></div>
+            <div class="section-label"><span>СОСТОЯНИЕ</span><span>6 КАДРОВ ХОДЬБЫ</span></div>
             <div class="state-buttons">${([['idle', 'Покой'], ['walk', 'Бег'], ['attack', 'Атака'], ['hurt', 'Урон']] as const).map(([state, label]) => `<button data-state="${state}" class="${state === 'idle' ? 'selected' : ''}" aria-pressed="${state === 'idle'}">${label}</button>`).join('')}</div>
             <div class="section-label"><span>НАПРАВЛЕНИЕ ВЗГЛЯДА</span><span>8 СТОРОН</span></div>
             <div class="direction-control"><button id="rotate-left" aria-label="Повернуть влево">←</button><span><i class="direction-arrow" id="direction-arrow" aria-hidden="true"></i><span id="direction-name">Юго-восток</span></span><button id="rotate-right" aria-label="Повернуть вправо">→</button></div>
@@ -54,7 +54,7 @@ export class ForgeUI {
           </aside>
         </div>
         <section class="catalog-section" aria-label="Каталог текстур">
-          <div class="catalog-heading"><div><p class="eyebrow">БИБЛИОТЕКА СВЯТИЛИЩА</p><h2>Из чего соткан мир <span id="texture-count">541</span></h2></div><div class="catalog-tabs" role="group" aria-label="Категории текстур"><button data-catalog="terrain" class="selected" aria-pressed="true">Окружение <span>13</span></button><button data-catalog="actors" aria-pressed="false">Персонажи <span>512</span></button><button data-catalog="items" aria-pressed="false">Предметы <span>6</span></button><button data-catalog="effects" aria-pressed="false">Эффекты <span>10</span></button></div></div>
+          <div class="catalog-heading"><div><p class="eyebrow">БИБЛИОТЕКА СВЯТИЛИЩА</p><h2>Из чего соткан мир <span id="texture-count">541</span></h2></div><div class="catalog-tabs" role="group" aria-label="Категории текстур"><button data-catalog="terrain" class="selected" aria-pressed="true">Окружение <span>13</span></button><button data-catalog="actors" aria-pressed="false">Персонажи <span>512</span></button><button data-catalog="items" aria-pressed="false">Предметы <span>6</span></button><button data-catalog="effects" aria-pressed="false">Эффекты <span>16</span></button></div></div>
           <div class="asset-grid" id="asset-grid"></div>
         </section>
         <footer><span><i class="small-diamond"></i> ASHEN COVENANT <span class="footer-divider">/</span> ШАГ 1 · ПРОЦЕДУРНЫЕ АССЕТЫ</span><span id="generation-info">PHASER 3 · TYPESCRIPT · VITE</span></footer>

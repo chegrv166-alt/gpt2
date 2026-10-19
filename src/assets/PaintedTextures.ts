@@ -2,13 +2,21 @@ import type Phaser from 'phaser';
 import materialsURL from './art/materials.png';
 import propsURL from './art/props.png';
 import actorsURL from './art/actors.png';
-import { ACTORS, ACTOR_IDS, ACTOR_STATES, DIRECTIONS, DIRECTION_VECTORS, FRAME_COUNT, actorTextureKey } from './catalog';
+import heroWalkURL from './art/walk/hero.png';
+import gruntWalkURL from './art/walk/grunt.png';
+import casterWalkURL from './art/walk/caster.png';
+import bossWalkURL from './art/walk/boss.png';
+import { ACTORS, ACTOR_IDS, ACTOR_STATES, DIRECTIONS, DIRECTION_VECTORS, FRAME_COUNT, WALK_FRAME_COUNT, actorTextureKey } from './catalog';
 import type { ActorId, ActorState, Direction } from './catalog';
 
 export const ART_SOURCES = {
   'painted-materials': materialsURL,
   'painted-props': propsURL,
   'painted-actors': actorsURL,
+  'painted-walk-hero': heroWalkURL,
+  'painted-walk-grunt': gruntWalkURL,
+  'painted-walk-caster': casterWalkURL,
+  'painted-walk-boss': bossWalkURL,
 } as const;
 
 type Point = readonly [number, number];
@@ -166,6 +174,10 @@ export class PaintedTextures {
     const materials = new Atlas(this.scene, 'painted-materials');
     const props = new Atlas(this.scene, 'painted-props');
     const actors = new Atlas(this.scene, 'painted-actors');
+    const walkAtlases: Readonly<Record<ActorId, Atlas>> = {
+      hero: new Atlas(this.scene, 'painted-walk-hero'), grunt: new Atlas(this.scene, 'painted-walk-grunt'),
+      caster: new Atlas(this.scene, 'painted-walk-caster'), boss: new Atlas(this.scene, 'painted-walk-boss'),
+    };
     const slate = materials.cell(0, 0, 2, 2);
     const masonry = materials.cell(1, 0, 2, 2);
     const basalt = materials.cell(0, 1, 2, 2);
@@ -190,8 +202,15 @@ export class PaintedTextures {
     const actorCells = actors.actorCells();
     ACTOR_IDS.forEach((actor, row) => {
       const art = actorCells.slice(row * 4, row * 4 + 4);
-      for (const state of ACTOR_STATES) for (const direction of DIRECTIONS) for (let frame = 0; frame < FRAME_COUNT; frame++) {
+      for (const state of ACTOR_STATES) for (const direction of DIRECTIONS) for (let frame = 0; frame < (state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT); frame++) {
         const spec = ACTORS[actor];
+        if (state === 'walk') {
+          const columns: Record<Direction, number> = { e: 0, se: 0, s: 1, sw: 1, w: 2, nw: 2, n: 3, ne: 3 };
+          const walkFrame = walkAtlases[actor].cell(frame, columns[direction], WALK_FRAME_COUNT, 4);
+          this.bake(actorTextureKey(actor, state, direction, frame), spec.width, spec.height,
+            (context) => context.drawImage(walkFrame, 0, 0));
+          continue;
+        }
         this.bake(actorTextureKey(actor, state, direction, frame), spec.width, spec.height,
           (context) => this.actor(context, art, actor, state, direction, frame));
       }
