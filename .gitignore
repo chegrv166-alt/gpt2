@@ -6,3 +6,4 @@ playwright-report/
 *.local
 desktop-dist/
 release/
+/.worktrees/
