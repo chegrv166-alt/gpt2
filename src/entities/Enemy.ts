@@ -83,7 +83,7 @@ export class Enemy {
       if (!this.fired && this.attackAge >= windup) {
         this.fired = true;
         if (this.special && this.telegraph) actions.blast(this, this.telegraph.center, this.telegraph.radius);
-        else if (this.kind === 'caster') actions.shoot(this, this.aim);
+        else if ((this.kind === 'caster' || this.kind === 'archer')) actions.shoot(this, this.aim);
         else actions.melee(this, this.aim);
         this.telegraph = null;
       }
@@ -99,7 +99,7 @@ export class Enemy {
     }
     this.state = 'CHASE';
     const clear = this.grid.isSegmentClear(this.motor.position, target, 0.02);
-    const shouldRetreat = this.kind === 'caster' && distance < 2.3;
+    const shouldRetreat = (this.kind === 'caster' || this.kind === 'archer') && distance < 2.3;
     if (shouldRetreat !== this.retreating) {
       this.retreating = shouldRetreat;
       this.repath = 0;

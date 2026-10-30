@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { isoToScreen } from '../math/isometric';
 import type { Vec2 } from '../math/isometric';
 import type { ArenaLayout } from '../world/ArenaLayout';
-import { AMBIENT_LIGHT, FLAME_COLOR, getRoomLights, LightField } from './lighting';
+import { AMBIENT_LIGHT, FOREST_AMBIENT, FLAME_COLOR, getRoomLights, LightField } from './lighting';
 import type { LightRGB, PreparedLight } from './lighting';
 
 interface LightMask { readonly canvas: HTMLCanvasElement; readonly x: number; readonly y: number; }
@@ -15,12 +15,14 @@ export class RoomLighting {
   private readonly texture: Phaser.Textures.CanvasTexture;
   private readonly image: Phaser.GameObjects.Image;
   private readonly masks: readonly LightMask[];
+  private readonly animated: boolean;
   private elapsed = 0;
   private redrawTime = 1;
   private destroyed = false;
 
   public constructor(private readonly scene: Phaser.Scene, layout: ArenaLayout, origin: Vec2) {
-    this.field = new LightField(layout.grid, getRoomLights(layout));
+    this.field = new LightField(layout.grid, getRoomLights(layout), layout.room === 1 ? FOREST_AMBIENT : AMBIENT_LIGHT);
+    this.animated = layout.room !== 1;
     this.masks = this.field.lights.map((light) => this.createMask(light, origin));
     const width = Math.ceil(((layout.width + layout.height) * 64 + 192) * RESOLUTION);
     const height = Math.ceil(((layout.width + layout.height) * 32 + 320) * RESOLUTION);
@@ -36,7 +38,7 @@ export class RoomLighting {
   public sample(point: Vec2): LightRGB { return this.field.sample(point); }
 
   public update(seconds: number): void {
-    if (this.destroyed) return;
+    if (this.destroyed || (!this.animated && this.redrawTime === 0)) return;
     this.elapsed += seconds;
     this.redrawTime += seconds;
     if (this.redrawTime < 1 / 12) return;
@@ -44,7 +46,7 @@ export class RoomLighting {
     const context = this.texture.context;
     context.globalCompositeOperation = 'source-over';
     context.globalAlpha = 1;
-    context.fillStyle = `rgb(${AMBIENT_LIGHT.r * 255}, ${AMBIENT_LIGHT.g * 255}, ${AMBIENT_LIGHT.b * 255})`;
+    context.fillStyle = `rgb(${this.field.ambient.r * 255}, ${this.field.ambient.g * 255}, ${this.field.ambient.b * 255})`;
     context.fillRect(0, 0, this.texture.width, this.texture.height);
     context.globalCompositeOperation = 'lighter';
     for (let i = 0; i < this.masks.length; i++) {

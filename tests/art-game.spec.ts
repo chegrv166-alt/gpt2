@@ -9,7 +9,7 @@ test('bundled painted atlases produce textured floors, props and readable occlud
   page.on('request', (request) => {
     if (/^https?:/.test(request.url()) && new URL(request.url()).hostname !== '127.0.0.1') external.push(request.url());
   });
-  await page.goto('/?desktop=1');
+  await page.goto('/?desktop=1&room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const report = await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -48,7 +48,7 @@ test('bundled painted atlases produce textured floors, props and readable occlud
 });
 
 test('room restart disposes the old lighting texture and keeps one live light map', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const count = await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -99,7 +99,7 @@ test('painted actor extraction preserves the staff and sword tips across uneven 
 });
 
 test('all actors have six distinct authored walk frames and movement plays the walk cycle', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const report = await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;

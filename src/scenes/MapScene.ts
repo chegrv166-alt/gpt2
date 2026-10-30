@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { GameScene } from './GameScene';
-import { ROOM_NAMES } from '../world/rooms';
+import { ROOM_NAMES, ROOM_COUNT, nextRoom } from '../world/rooms';
 
 /** An independent screen-space camera keeps the map stable as the world zooms. */
 export class MapScene extends Phaser.Scene {
@@ -21,10 +21,10 @@ export class MapScene extends Phaser.Scene {
     background.lineStyle(1, 0x5e6346, 0.65).strokeRect(0, 0, 220, 154);
     background.lineStyle(1, 0x3a4532, 0.8).lineBetween(14, 31, 206, 31);
     this.panel.add(background);
-    this.panel.add(this.add.text(14, 12, `${this.world.layout.room}/2 · ${ROOM_NAMES[this.world.layout.room].toUpperCase()}`, {
+    this.panel.add(this.add.text(14, 12, `${this.world.layout.room}/${ROOM_COUNT} · ${ROOM_NAMES[this.world.layout.room].toUpperCase()}`, {
       fontFamily: 'Arial, sans-serif', fontSize: '8px', color: '#b4b599', letterSpacing: 1.2,
     }));
-    this.panel.add(this.add.text(14, 136, this.world.layout.room === 1 ? 'СЕВЕРНЫЕ ВРАТА → КОМНАТА II' : 'ПОСЛЕДНИЙ ЗАЛ', {
+    this.panel.add(this.add.text(14, 136, nextRoom(this.world.layout.room) ? `ВЫХОД → УРОВЕНЬ ${nextRoom(this.world.layout.room)}` : 'ПОСЛЕДНИЙ ЗАЛ', {
       fontFamily: 'Arial, sans-serif', fontSize: '7px', color: '#9d926a', letterSpacing: 1,
     }));
     const map = this.add.graphics();
@@ -34,8 +34,8 @@ export class MapScene extends Phaser.Scene {
         const point = this.mapPoint(x, y);
         map.fillStyle(grid.isBlocked(x, y) ? 0x7d8166 : 0x303e2e, 0.95);
         map.fillPoints([
-          { x: point.x, y: point.y - 1.7 }, { x: point.x + 3.4, y: point.y },
-          { x: point.x, y: point.y + 1.7 }, { x: point.x - 3.4, y: point.y },
+          { x: point.x, y: point.y - this.mapScale() / 2 }, { x: point.x + this.mapScale(), y: point.y },
+          { x: point.x, y: point.y + this.mapScale() / 2 }, { x: point.x - this.mapScale(), y: point.y },
         ], true);
       }
     }
@@ -86,7 +86,15 @@ export class MapScene extends Phaser.Scene {
   }
 
   private mapPoint(x: number, y: number): { x: number; y: number } {
-    return { x: 110 + (x - y) * 3.4, y: 47 + (x + y) * 1.7 };
+    const { width, height } = this.world.layout;
+    const scale = this.mapScale();
+    return { x: 110 + (x - y - (width - height) / 2) * scale,
+      y: 83 + (x + y - (width + height - 2) / 2) * scale / 2 };
+  }
+
+  private mapScale(): number {
+    return Math.min(192 / (this.world.layout.width + this.world.layout.height),
+      180 / (this.world.layout.width + this.world.layout.height));
   }
 
   private resize(): void {

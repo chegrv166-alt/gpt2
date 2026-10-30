@@ -20,6 +20,9 @@ interface ActorPalette {
 }
 
 const PALETTES: Readonly<Record<ActorId, ActorPalette>> = {
+  knife: { armor: 0x67503b, edge: 0xbb9870, cloth: 0x903f32, skin: 0xc49e7c, glow: 0xd9c3a0 },
+  spear: { armor: 0x505a39, edge: 0xa3ac79, cloth: 0x38472e, skin: 0xbfa184, glow: 0xd9c3a0 },
+  archer: { armor: 0x61513a, edge: 0xba9e6d, cloth: 0x635a31, skin: 0xc6a580, glow: 0xd9c3a0 },
   hero: { armor: 0x6f7c80, edge: 0xb9c5bc, cloth: 0x793e39, skin: 0xc5ab8e, glow: 0xe5c685 },
   grunt: { armor: 0x52594b, edge: 0x99977e, cloth: 0x494438, skin: 0x819076, glow: 0xb8cd7b },
   caster: { armor: 0x514262, edge: 0x9b80a9, cloth: 0x382c4a, skin: 0xa89aab, glow: 0xc796ef },
@@ -42,6 +45,7 @@ export class BootScene extends Phaser.Scene {
     try {
       this.generateTerrain();
       this.generateActors();
+      this.generateForest();
       this.generateProjectiles();
       this.generateItems();
       this.generateEffects();
@@ -185,7 +189,7 @@ export class BootScene extends Phaser.Scene {
     for (const actor of ACTOR_IDS) {
       for (const state of ACTOR_STATES) {
         for (const direction of DIRECTIONS) {
-          for (let frame = 0; frame < FRAME_COUNT; frame += 1) {
+          for (let frame = 0; frame < (state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT); frame += 1) {
             const definition = ACTORS[actor];
             this.bake(actorTextureKey(actor, state, direction, frame), definition.width, definition.height,
               (g) => this.drawActor(g, actor, state, direction, frame));
@@ -196,6 +200,7 @@ export class BootScene extends Phaser.Scene {
   }
 
   private drawActor(g: Graphics, actor: ActorId, state: ActorState, direction: Direction, frame: number): void {
+    if (actor === 'knife' || actor === 'spear' || actor === 'archer') { this.drawBandit(g, actor, state, direction, frame); return; }
     const definition = ACTORS[actor];
     const palette = PALETTES[actor];
     const [dx, dy] = DIRECTION_VECTORS[direction];
@@ -307,9 +312,87 @@ export class BootScene extends Phaser.Scene {
     }
   }
 
+  private generateForest(): void {
+    for (const kind of ['forest', 'path'] as const) for (let variant = 0; variant < 4; variant++) {
+      this.bake(`tile-${kind}-${variant}`, 128, 80, g => {
+        const random = this.random(917 + variant * 93);
+        this.polygon(g, 0x253126, [[2, 34], [64, 65], [126, 34], [126, 43], [64, 74], [2, 43]]);
+        this.polygon(g, kind === 'forest' ? 0x4c6040 : 0x857256, [[2, 34], [64, 3], [126, 34], [64, 65]]);
+        for (let i = 0; i < 140; i++) {
+          const x = 5 + random() * 118; const y = 6 + random() * 56;
+          if (Math.abs(x - 64) / 59 + Math.abs(y - 34) / 28 > 0.94) continue;
+          g.fillStyle(i % 3 === 0 ? 0xb3a677 : 0x263923, 0.2 + random() * 0.3)
+            .fillEllipse(x, y, 1 + random() * 5, 1 + random() * 2);
+          if (kind === 'forest' && i % 8 === 0) g.lineStyle(1, 0x8c9a59, 0.7).lineBetween(x, y, x - 2, y - 4);
+        }
+      });
+    }
+    this.bake('prop-tree', 128, 144, g => {
+      g.fillStyle(0x101e13, 0.35).fillEllipse(64, 116, 98, 28);
+      this.polygon(g, 0x493c2d, [[54, 116], [59, 55], [70, 55], [76, 119], [65, 124]]);
+      g.lineStyle(3, 0x8c7650).lineBetween(61, 111, 64, 62);
+      const random = this.random(712);
+      for (const [cx, cy, w, h] of [[63, 37, 92, 52], [39, 61, 66, 56], [88, 62, 63, 53], [65, 77, 86, 48]] as const) {
+        g.fillStyle(0x243c2b).fillEllipse(cx, cy, w, h);
+        g.fillStyle(0x3f5b36).fillEllipse(cx - 5, cy - 6, w * 0.85, h * 0.72);
+        for (let i = 0; i < 22; i++) {
+          const a = random() * Math.PI * 2; const r = Math.sqrt(random()) * 0.4;
+          g.fillStyle(i % 2 ? 0x698252 : 0x91a16b, 0.4)
+            .fillEllipse(cx + Math.cos(a) * w * r, cy + Math.sin(a) * h * r - 8, 8 + random() * 7, 3 + random() * 5);
+        }
+      }
+    });
+  }
+
+  private drawBandit(g: Graphics, actor: 'knife' | 'spear' | 'archer', state: ActorState, direction: Direction, frame: number): void {
+    const p = PALETTES[actor];
+    const [dx, dy] = DIRECTION_VECTORS[direction];
+    const phase = frame / (state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT) * Math.PI * 2;
+    const stride = state === 'walk' ? Math.sin(phase) * 6 : Math.sin(phase) * 0.5;
+    const bob = state === 'walk' ? Math.cos(phase * 2) * 1.3 : Math.sin(phase) * 0.7;
+    const recoil = state === 'hurt' ? [-3, 2, -1, 0][frame]! : 0;
+    const shape = (color: number, points: readonly Point[]): void => this.polygon(g, color, points.map(([x,y]) => [64 + x + recoil, 94 + y + bob]));
+    const line = (color: number, width: number, a: Point, b: Point): void => { g.lineStyle(width, color).lineBetween(64+a[0]+recoil,94+a[1]+bob,64+b[0]+recoil,94+b[1]+bob); };
+    g.fillStyle(0x142015, 0.28).fillEllipse(64, 96, 40, 13);
+    line(0x34362a, 8, [-7,-27], [-9+stride,-4]); line(0x454130, 8, [7,-27], [9-stride,-4]);
+    line(0x282a23, 7, [-13+stride,-2], [-3+stride,-2]); line(0x282a23, 7, [4-stride,-2], [15-stride,-2]);
+    shape(p.cloth, [[-12,-55],[12,-55],[19,-14],[-20,-12]]);
+    shape(p.armor, [[-13,-52],[12,-52],[14,-30],[-12,-28]]);
+    line(p.edge, 2, [-10,-48], [-8,-32]); line(0x302b20, 5, [-13,-29], [13,-29]);
+    shape(p.cloth, [[dx*3,-78],[13+dx*3,-65],[12,-53],[-12,-53],[-13+dx*3,-65]]);
+    g.fillStyle(p.skin).fillEllipse(64+dx*3+recoil,32+bob,17,18);
+    if (dy < 0) shape(p.cloth, [[-10,-72],[11,-72],[11,-53],[-10,-53]]);
+    else line(actor === 'knife' ? 0x9b4335 : 0x33382a, 5, [-7+dx*3,-58], [9+dx*3,-58]);
+    const thrust = state === 'attack' ? [0, 3, 10, 3][frame]! : 0;
+    const hx = 18 + dx*thrust; const hy = -39 + dy*thrust;
+    line(p.armor, 7, [11,-49], [hx,hy]);
+    g.fillStyle(p.skin).fillCircle(64+hx+recoil,94+hy+bob,4);
+    if (actor === 'spear') {
+      const vx = dx*0.5+0.3; const vy = dy*0.5-0.5;
+      line(0x95754a, 3, [hx-vx*31,hy-vy*31], [hx+vx*33,hy+vy*33]);
+      shape(0xd3d2b7, [[hx+vx*41,hy+vy*41],[hx+vx*29-vy*4,hy+vy*29+vx*4],[hx+vx*29+vy*4,hy+vy*29-vx*4]]);
+    } else if (actor === 'archer') {
+      const x = 64+hx+recoil; const y = 94+hy+bob;
+      g.lineStyle(3, 0xc1a16d).beginPath().arc(x-7,y,24,-1.15,1.15).strokePath();
+      g.lineStyle(1,0xe0d5b2).lineBetween(x+3,y-22,x+3-thrust,y).lineBetween(x+3-thrust,y,x+3,y+22);
+      line(0xa38a5c, 3, [-9,-44], [-20,-65]);
+      line(0xd2c8a3, 1, [hx-13,hy], [hx+28,hy]);
+    } else {
+      line(0x69472f, 4, [hx-3,hy+4], [hx+3,hy-3]);
+      shape(0xd8d8c5, [[hx+1,hy-4],[hx+17+thrust/3,hy-15],[hx+7,hy-1]]);
+    }
+  }
+
   private generateProjectiles(): void {
     for (const spec of PROJECTILE_SPECS) {
       this.bake(spec.key, spec.width, spec.height, (g) => {
+        if (spec.key === 'projectile-arrow') {
+          g.lineStyle(3, 0x6d4a2d).lineBetween(10, 32, 48, 32);
+          g.lineStyle(1, 0xd6c298).lineBetween(12, 31, 47, 31);
+          this.polygon(g, 0xd4d6c1, [[47, 27], [59, 32], [47, 37]]);
+          g.lineStyle(2, 0xc2b99c).lineBetween(9, 26, 20, 32).lineBetween(9, 38, 20, 32);
+          return;
+        }
         if (spec.key === 'projectile-slash') {
           g.lineStyle(9, 0xf2d499, 0.13).beginPath().arc(29, 34, 24, -1.3, 1.2).strokePath();
           g.lineStyle(3, 0xffe9bb, 0.9).beginPath().arc(29, 34, 24, -1.3, 1.2).strokePath();

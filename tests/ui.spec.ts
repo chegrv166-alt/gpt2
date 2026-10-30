@@ -36,7 +36,7 @@ async function clickUI(page: Page, name: string): Promise<void> {
 }
 
 test('independent HUD uses cached sphere textures and crops health to the real resource', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await expect.poll(async () => page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -64,7 +64,7 @@ test('independent HUD uses cached sphere textures and crops health to the real r
 });
 
 test('inventory buttons equip items, block the world, and respawn retains gear while a new run clears it', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -94,7 +94,7 @@ test('inventory buttons equip items, block the world, and respawn retains gear w
 });
 
 test('killing the boss opens victory once and continuing preserves the legendary ground reward', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -123,7 +123,7 @@ test('killing the boss opens victory once and continuing preserves the legendary
 
 test('mobile inventory remains inside the canvas and closes through its own button', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.getByRole('button', { name: 'Открыть инвентарь' }).click();
   await expect(page.getByRole('button', { name: 'Открыть инвентарь' })).toHaveAttribute('aria-expanded', 'true');
@@ -133,7 +133,7 @@ test('mobile inventory remains inside the canvas and closes through its own butt
 });
 
 test('dropping beside a wall preserves a reachable item outside automatic pickup range', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -181,7 +181,7 @@ test('dropping beside a wall preserves a reachable item outside automatic pickup
 test('restarting the world rebuilds one UI and keeps inventory hotkeys and modal input working', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;

@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { ROOM_COUNT, nextRoom } from '../world/rooms';
 import type { GameScene } from '../scenes/GameScene';
 import type { RunOutcome } from '../systems/AdventureSystem';
 import { button, label, panelBackground } from './widgets';
@@ -20,16 +21,16 @@ export class EndOverlay extends Phaser.GameObjects.Container {
     this.removeAll(true);
     if (outcome === 'playing') return;
     const dead = outcome === 'dead';
-    const firstRoom = this.world.layout.room === 1;
+    const next = nextRoom(this.world.layout.room);
     panelBackground(this.scene, this, 520, 310);
     label(this.scene, this, 260, 30, dead ? 'ПЕПЕЛ ПОМНИТ' : 'КЛЯТВА ИСПОЛНЕНА', 11, '#b4a171').setOrigin(0.5);
     label(this.scene, this, 260, 65, dead ? 'Странник пал' : 'Страж повержен', 31, dead ? '#e0a28e' : '#e8ce91').setOrigin(0.5);
     label(this.scene, this, 260, 113, dead
       ? 'Путь не окончен. Снаряжение и собранные вещи\nостанутся с вами после возвращения.'
-      : firstRoom ? 'Заберите награду и победите остальных врагов.\nСеверные врата откроют путь во вторую комнату.'
+      : next ? `Заберите награду и победите остальных врагов.\nВрата откроют путь на уровень ${next}.`
       : 'Вы достигли последнего зала.\nЗаберите легендарную награду и завершите зачистку.', 14, '#b6c0a5').setOrigin(0.5, 0).setAlign('center').setLineSpacing(8);
     const defeated = this.world.battle.enemies.filter((enemy) => !enemy.stats.alive).length;
-    label(this.scene, this, 260, 179, `Комната ${this.world.layout.room}/2 · Повержено: ${defeated}/${this.world.battle.enemies.length} · Рюкзак: ${this.world.adventure.inventory.count}/10`, 12, '#969d80').setOrigin(0.5);
+    label(this.scene, this, 260, 179, `Комната ${this.world.layout.room}/${ROOM_COUNT} · Повержено: ${defeated}/${this.world.battle.enemies.length} · Рюкзак: ${this.world.adventure.inventory.count}/10`, 12, '#969d80').setOrigin(0.5);
     button(this.scene, this, 35, 214, 220, 41, dead ? 'Возродиться' : 'Забрать награду', 'end-primary', () => dead ? this.world.respawn() : this.world.continueAfterVictory());
     button(this.scene, this, 268, 214, 216, 41, 'Новый поход', 'end-restart', () => this.world.resetPlayer());
     label(this.scene, this, 260, 277, 'Enter — продолжить  ·  R — новый поход', 11, '#8b987d').setOrigin(0.5);

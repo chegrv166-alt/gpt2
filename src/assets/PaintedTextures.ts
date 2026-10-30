@@ -6,7 +6,7 @@ import heroWalkURL from './art/walk/hero.png';
 import gruntWalkURL from './art/walk/grunt.png';
 import casterWalkURL from './art/walk/caster.png';
 import bossWalkURL from './art/walk/boss.png';
-import { ACTORS, ACTOR_IDS, ACTOR_STATES, DIRECTIONS, DIRECTION_VECTORS, FRAME_COUNT, WALK_FRAME_COUNT, actorTextureKey } from './catalog';
+import { ACTORS, ACTOR_STATES, DIRECTIONS, DIRECTION_VECTORS, FRAME_COUNT, WALK_FRAME_COUNT, actorTextureKey } from './catalog';
 import type { ActorId, ActorState, Direction } from './catalog';
 
 export const ART_SOURCES = {
@@ -174,7 +174,7 @@ export class PaintedTextures {
     const materials = new Atlas(this.scene, 'painted-materials');
     const props = new Atlas(this.scene, 'painted-props');
     const actors = new Atlas(this.scene, 'painted-actors');
-    const walkAtlases: Readonly<Record<ActorId, Atlas>> = {
+    const walkAtlases: Readonly<Record<'hero' | 'grunt' | 'caster' | 'boss', Atlas>> = {
       hero: new Atlas(this.scene, 'painted-walk-hero'), grunt: new Atlas(this.scene, 'painted-walk-grunt'),
       caster: new Atlas(this.scene, 'painted-walk-caster'), boss: new Atlas(this.scene, 'painted-walk-boss'),
     };
@@ -200,7 +200,7 @@ export class PaintedTextures {
       });
     });
     const actorCells = actors.actorCells();
-    ACTOR_IDS.forEach((actor, row) => {
+    (['hero', 'grunt', 'caster', 'boss'] as const).forEach((actor, row) => {
       const art = actorCells.slice(row * 4, row * 4 + 4);
       for (const state of ACTOR_STATES) for (const direction of DIRECTIONS) for (let frame = 0; frame < (state === 'walk' ? WALK_FRAME_COUNT : FRAME_COUNT); frame++) {
         const spec = ACTORS[actor];
@@ -272,7 +272,7 @@ export class PaintedTextures {
     context.beginPath(); context.moveTo(64, 68); context.lineTo(64, 113); context.stroke();
   }
 
-  private actor(context: Context, arts: readonly HTMLCanvasElement[], actor: ActorId, state: ActorState, direction: Direction, frame: number): void {
+  private actor(context: Context, arts: readonly HTMLCanvasElement[], actor: Exclude<ActorId, 'knife' | 'spear' | 'archer'>, state: ActorState, direction: Direction, frame: number): void {
     const columns: Record<Direction, number> = { e: 0, se: 0, s: 1, sw: 1, w: 2, nw: 2, n: 3, ne: 3 };
     const art = arts[columns[direction]]!;
     const definition = ACTORS[actor];

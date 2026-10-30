@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { isoToScreen, screenToIso } from '../math/isometric';
 import type { Vec2 } from '../math/isometric';
 import type { ArenaLayout } from './ArenaLayout';
+import { nextRoom } from './rooms';
 import { getRoomLights } from '../lighting/lighting';
 import { FloorLayer } from './FloorLayer';
 
@@ -15,11 +16,11 @@ export class ArenaRenderer {
   private gateLabel!: Phaser.GameObjects.Text;
 
   public updateGate(unlocked: boolean, cleared: boolean): void {
-    const finalRoom = this.layout.room === 2;
+    const finalRoom = this.layout.room === 3;
     this.gateRing.setTint(unlocked || cleared ? 0xffffff : 0x666666).setAlpha(unlocked || cleared ? 0.8 : 0.3);
     this.gateLight.setVisible(unlocked || (finalRoom && cleared));
     this.gateLabel.setText(finalRoom ? cleared ? 'ЗАЛ ОЧИЩЕН' : 'ЗАЛ ПОГРЕБАЛЬНОГО ОГНЯ'
-      : unlocked ? 'КОМНАТА II · КЛИК / E РЯДОМ' : 'ВРАТА ЗАПЕЧАТАНЫ · ПОБЕДИТЕ ВСЕХ');
+      : unlocked ? `УРОВЕНЬ ${nextRoom(this.layout.room)} · КЛИК / E РЯДОМ` : 'ВРАТА ЗАПЕЧАТАНЫ · ПОБЕДИТЕ ВСЕХ');
     this.gateLabel.setColor(unlocked || cleared ? '#e8ce91' : '#a6a18f');
   }
 
@@ -51,7 +52,7 @@ export class ArenaRenderer {
 
   private drawFloor(): void {
     new FloorLayer(this.scene, this.layout, this.origin);
-    const seals: readonly Vec2[] = [this.layout.spawn, { x: 7, y: 11 }, { x: 17, y: 11 }, this.layout.gate];
+    const seals: readonly Vec2[] = this.layout.room === 1 ? [this.layout.spawn, this.layout.gate] : [this.layout.spawn, { x: 7, y: 11 }, { x: 17, y: 11 }, this.layout.gate];
     for (const { x, y } of seals) {
       const point = this.toScreen({ x, y });
       this.scene.add.image(point.x, point.y, 'fx-target').setDepth(-9999).setScale(1.05).setAlpha(0.22);
@@ -61,7 +62,7 @@ export class ArenaRenderer {
   private drawObstacles(): void {
     for (const obstacle of this.layout.obstacles) {
       const point = this.toScreen(obstacle.tile);
-      const texture = this.layout.room === 2 && obstacle.kind === 'wall'
+      const texture = this.layout.room === 3 && obstacle.kind === 'wall'
         ? obstacle.texture.replace('wall-', 'wall-crypt-') : obstacle.texture;
       const image = this.scene.add.image(point.x, point.y, texture)
         .setOrigin(0.5, 114 / 144).setDepth(point.y);

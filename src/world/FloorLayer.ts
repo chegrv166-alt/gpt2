@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { isoToScreen } from '../math/isometric';
 import type { Vec2 } from '../math/isometric';
+import { forestPathY } from './ArenaLayout';
 import type { ArenaLayout } from './ArenaLayout';
 
 interface FloorTile { readonly source: CanvasImageSource; readonly x: number; readonly y: number; }
@@ -18,7 +19,7 @@ export class FloorLayer {
     for (let y = 0; y < layout.height; y++) for (let x = 0; x < layout.width; x++) {
       const stone = Math.abs(x - 7) < 2 || Math.abs(y - 11) < 2
         || (x > 14 && y < 7) || (x > 3 && x < 10 && y > 14 && y < 20);
-      const material = layout.room === 2 ? 'crypt' : stone ? 'stone' : 'ground';
+      const material = layout.room === 1 ? Math.abs(y - forestPathY(x)) <= 2 ? 'path' : 'forest' : layout.room === 3 ? 'crypt' : stone ? 'stone' : 'ground';
       const key = `tile-${material}-${(x * 13 + y * 7) % 4}`;
       let source = sources.get(key);
       if (!source) {

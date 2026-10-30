@@ -94,6 +94,7 @@ test('nearby loot cannot be picked through a wall or beyond the pickup radius', 
 
 test('inventory pauses pickup, boss victory happens once and death has priority', () => {
   const adventure = new AdventureSystem(new StatsComponent(HERO_STATS), new CollisionGrid(12, 12, []), () => 0.1);
+  adventure.room = 2; // Boss victory belongs to the sanctuary, now level 2.
   expect(adventure.toggleInventory()).toBe(true);
   adventure.loot.consume([death(1)]);
   adventure.update([], { x: 5, y: 5 }, true);

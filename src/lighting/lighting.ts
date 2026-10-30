@@ -6,6 +6,7 @@ export interface LightRGB { readonly r: number; readonly g: number; readonly b: 
 export interface RoomLight { readonly id: string; readonly kind: 'brazier' | 'sconce'; readonly fixture: Vec2;
   readonly position: Vec2; readonly radius: number; readonly intensity: number; }
 export const AMBIENT_LIGHT: LightRGB = Object.freeze({ r: 0.34, g: 0.38, b: 0.50 });
+export const FOREST_AMBIENT: LightRGB = Object.freeze({ r: 0.63, g: 0.72, b: 0.64 });
 export const FLAME_COLOR: LightRGB = Object.freeze({ r: 1, g: 0.59, b: 0.22 });
 
 /** Fixtures stay on their masonry tile; emission starts on its open side. */
@@ -20,6 +21,7 @@ export function getRoomLights(layout: ArenaLayout): readonly RoomLight[] {
   };
   const cardinal = [{ x: 0, y: 1 }, { x: 1, y: 0 }, { x: -1, y: 0 }, { x: 0, y: -1 }];
   for (const obstacle of layout.obstacles) if (obstacle.kind === 'brazier') add(obstacle.tile, 'brazier', cardinal);
+  if (layout.room === 1) return lights;
   for (const y of [5, 16]) {
     add({ x: 0, y }, 'sconce', [{ x: 1, y: 0 }]);
     add({ x: layout.width - 1, y }, 'sconce', [{ x: -1, y: 0 }]);
@@ -82,7 +84,7 @@ export interface PreparedLight { readonly source: RoomLight; readonly polygon: r
 export class LightField {
   public readonly lights: readonly PreparedLight[];
 
-  public constructor(grid: CollisionGrid, lights: readonly RoomLight[]) {
+  public constructor(grid: CollisionGrid, lights: readonly RoomLight[], public readonly ambient: LightRGB = AMBIENT_LIGHT) {
     const blockers: Vec2[] = [];
     for (let y = 0; y < grid.height; y++) for (let x = 0; x < grid.width; x++) if (grid.isBlocked(x, y)) blockers.push({ x, y });
     this.lights = lights.map((source) => ({ source, polygon: visibilityPolygon(source.position, source.radius, blockers) }));
@@ -94,7 +96,7 @@ export class LightField {
       const distance = Math.hypot(point.x - source.position.x, point.y - source.position.y);
       if (distance < source.radius && contains(polygon, point)) intensity += source.intensity * (1 - distance / source.radius) ** 2;
     }
-    return { r: Math.min(1, AMBIENT_LIGHT.r + intensity * FLAME_COLOR.r),
-      g: Math.min(1, AMBIENT_LIGHT.g + intensity * FLAME_COLOR.g), b: Math.min(1, AMBIENT_LIGHT.b + intensity * FLAME_COLOR.b) };
+    return { r: Math.min(1, this.ambient.r + intensity * FLAME_COLOR.r),
+      g: Math.min(1, this.ambient.g + intensity * FLAME_COLOR.g), b: Math.min(1, this.ambient.b + intensity * FLAME_COLOR.b) };
   }
 }

@@ -49,7 +49,7 @@ test('arena starts with procedural art and no external runtime requests', async 
   page.on('request', (request) => {
     if (/^https?:/.test(request.url()) && new URL(request.url()).hostname !== '127.0.0.1') external.push(request.url());
   });
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await expect(page.locator('#game-stage canvas')).toBeVisible();
   expect((await snapshot(page)).position).toEqual({ x: 5, y: 17 });
@@ -58,7 +58,7 @@ test('arena starts with procedural art and no external runtime requests', async 
 });
 
 test('WASD moves in screen directions, animates the hero and advances the follow camera', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const start = await snapshot(page);
   await page.keyboard.down('d');
@@ -74,7 +74,7 @@ test('WASD moves in screen directions, animates the hero and advances the follow
 });
 
 test('ground click shows a target and follows a route around the broken wall', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await clickGround(page, { x: 5, y: 11 });
   await expect.poll(async () => (await snapshot(page)).mode).toBe('path');
@@ -90,7 +90,7 @@ test('ground click shows a target and follows a route around the broken wall', a
 });
 
 test('blocked clicks are rejected and keyboard input cancels click movement', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await clickGround(page, { x: 5, y: 13 });
   await expect(page.getByTestId('destination-status')).toContainText('пройти');
@@ -105,19 +105,19 @@ test('blocked clicks are rejected and keyboard input cancels click movement', as
 });
 
 test('zoom preserves ground picking and restart returns the hero to the spawn', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.getByRole('button', { name: 'Приблизить' }).click();
   await expect.poll(async () => (await snapshot(page)).zoom).toBeGreaterThan(1);
   await clickGround(page, { x: 7, y: 17 });
   await expect.poll(async () => (await snapshot(page)).position.x, { timeout: 6000 }).toBeGreaterThan(6.8);
   await page.getByRole('button', { name: 'Вернуться к началу' }).click();
-  expect((await snapshot(page)).position).toEqual({ x: 5, y: 17 });
+  await expect.poll(async () => (await snapshot(page)).position).toEqual({ x: 3, y: 12 });
   expect((await snapshot(page)).state).toBe('idle');
 });
 
 test('Escape cancels the route and focus loss releases held movement keys', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await clickGround(page, { x: 5, y: 11 });
   await expect.poll(async () => (await snapshot(page)).mode).toBe('path');
@@ -135,7 +135,7 @@ test.describe('mobile arena', () => {
   test.use({ hasTouch: true, viewport: { width: 390, height: 844 } });
 
   test('touch movement works and the asset forge remains available', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/?room=2');
     await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
     await clickGround(page, { x: 7, y: 17 }, true);
     await expect.poll(async () => (await snapshot(page)).position.x, { timeout: 6000 }).toBeGreaterThan(6.8);
@@ -148,7 +148,7 @@ test.describe('mobile arena', () => {
 test('destroying the game releases window-level input listeners', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;

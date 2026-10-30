@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { ROOM_COUNT, nextRoom } from '../world/rooms';
 import type { GameScene } from './GameScene';
 import { OrbView } from '../ui/OrbView';
 import { InventoryPanel } from '../ui/InventoryPanel';
@@ -50,7 +51,7 @@ export class UIScene extends Phaser.Scene {
   public override update(): void {
     const stats = this.world.player.stats;
     const adventure = this.world.adventure;
-    this.roomStatus.setText(`КОМНАТА ${adventure.room}/2\n${this.world.layout.room === 1
+    this.roomStatus.setText(`КОМНАТА ${adventure.room}/${ROOM_COUNT}\n${nextRoom(this.world.layout.room) !== null
       ? adventure.exitUnlocked ? 'Врата открыты · клик / E рядом' : `Врата закрыты · врагов: ${this.world.battle.status.remaining}`
       : adventure.cleared ? 'Поход завершён' : `Очистите зал · врагов: ${this.world.battle.status.remaining}`}`);
     this.health.updateResource(stats.hp, stats.values.maxHp);

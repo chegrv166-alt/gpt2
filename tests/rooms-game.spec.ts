@@ -48,21 +48,21 @@ async function act(page: Page, action: 'state' | 'gate' | 'clear' | 'kill' | 'ge
 test('locked exit rejects interaction; clearing first room allows E transition with the same hero and gear', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.keyboard.press('e');
-  expect((await act(page, 'state')).room).toBe(1);
+  expect((await act(page, 'state')).room).toBe(2);
   await act(page, 'gear');
   await act(page, 'clear');
   await page.keyboard.press('Enter');
   await expect.poll(async () => (await act(page, 'state')).unlocked).toBe(true);
   // The gate still requires physical proximity, even after unlocking.
   await page.keyboard.press('e');
-  expect((await act(page, 'state')).room).toBe(1);
+  expect((await act(page, 'state')).room).toBe(2);
   await act(page, 'gate');
   const before = await act(page, 'state');
   await page.keyboard.press('e');
-  await expect.poll(async () => (await act(page, 'state')).room).toBe(2);
+  await expect.poll(async () => (await act(page, 'state')).room).toBe(3);
   await expect(page.locator('#room-name')).toHaveText('Зал погребального огня');
   const after = await act(page, 'state');
   expect(after.position).toEqual({ x: 5, y: 19 });
@@ -78,30 +78,30 @@ test('locked exit rejects interaction; clearing first room allows E transition w
   await expect.poll(async () => (await act(page, 'state')).outcome).toBe('dead');
   await page.keyboard.press('Enter');
   await expect.poll(async () => (await act(page, 'state')).outcome).toBe('playing');
-  expect((await act(page, 'state')).room).toBe(2);
+  expect((await act(page, 'state')).room).toBe(3);
   expect((await act(page, 'state')).weapon).toBe('travel-sword');
   await act(page, 'clear');
   await expect.poll(async () => (await act(page, 'state')).outcome).toBe('victory');
   await page.keyboard.press('Enter');
   await page.keyboard.press('e');
-  expect((await act(page, 'state')).room).toBe(2);
+  expect((await act(page, 'state')).room).toBe(3);
   await page.keyboard.press('r');
   await expect.poll(async () => (await act(page, 'state')).room).toBe(1);
   expect((await act(page, 'state')).weapon).toBeUndefined();
-  expect((await act(page, 'state')).enemies).toBe(6);
+  expect((await act(page, 'state')).enemies).toBe(12);
   expect((await act(page, 'state')).unlocked).toBe(false);
   expect(errors).toEqual([]);
 });
 
 test('clicking the open gate from afar routes around walls and enters the second room once', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await act(page, 'clear');
   await page.keyboard.press('Enter');
   await act(page, 'overview');
   const point = await act(page, 'state');
   await page.mouse.click(point.clickX, point.clickY);
-  await expect.poll(async () => (await act(page, 'state')).room, { timeout: 15_000 }).toBe(2);
+  await expect.poll(async () => (await act(page, 'state')).room, { timeout: 15_000 }).toBe(3);
   await page.waitForTimeout(250);
   expect((await act(page, 'state')).enemies).toBe(6);
 });

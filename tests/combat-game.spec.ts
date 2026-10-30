@@ -5,7 +5,7 @@ import type { GameScene } from '../src/scenes/GameScene';
 test('combat arena exposes health, mana and working skill cooldown', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await expect(page.getByTestId('hero-health')).toHaveText('160 / 160');
   await expect(page.getByTestId('hero-mana')).toHaveText('80 / 80');
@@ -20,7 +20,7 @@ test('combat arena exposes health, mana and working skill cooldown', async ({ pa
 });
 
 test('clicking an enemy approaches, strikes and reduces its actual health', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const target = await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -49,7 +49,7 @@ test('clicking an enemy approaches, strikes and reduces its actual health', asyn
 });
 
 test('right click casts, and reset restores combat resources and enemies', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const canvas = await page.locator('#game-stage canvas').boundingBox();
   if (!canvas) throw new Error('Missing game canvas');
@@ -61,11 +61,11 @@ test('right click casts, and reset restores combat resources and enemies', async
   await page.getByRole('button', { name: 'Вернуться к началу' }).click();
   await expect(page.getByTestId('hero-health')).toHaveText('160 / 160');
   await expect(page.getByTestId('hero-mana')).toHaveText('80 / 80');
-  await expect(page.getByTestId('enemy-count')).toHaveText('6');
+  await expect(page.getByTestId('enemy-count')).toHaveText('12');
 });
 
 test('Shift-click swings in place and uses the actual attack animation', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -94,7 +94,7 @@ test('Shift-click swings in place and uses the actual attack animation', async (
 });
 
 test('boss renders a cached warning before its blast causes real player damage', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;

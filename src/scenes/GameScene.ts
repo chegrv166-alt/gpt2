@@ -16,7 +16,7 @@ import { AdventureSystem } from '../systems/AdventureSystem';
 import type { EquipmentSlot } from '../items/definitions';
 import type { RunOutcome } from '../systems/AdventureSystem';
 import type { StatsComponent } from '../components/StatsComponent';
-import { ROOM_ENEMIES, ROOM_NAMES } from '../world/rooms';
+import { ROOM_ENEMIES, ROOM_NAMES, nextRoom } from '../world/rooms';
 import type { RoomNumber } from '../world/rooms';
 import { RoomLighting } from '../lighting/RoomLighting';
 import { BloodField } from '../blood/BloodField';
@@ -67,7 +67,9 @@ export class GameScene extends Phaser.Scene {
 
   public init(data: RoomTransfer = {}): void {
     this.transfer = data;
-    this.layout = createArenaLayout(data.adventure?.room ?? 1);
+    const selected = import.meta.env.DEV ? Number(new URLSearchParams(location.search).get('room')) : 1;
+    const initial: RoomNumber = selected === 2 || selected === 3 ? selected : 1;
+    this.layout = createArenaLayout(data.adventure?.room ?? initial);
   }
 
   public create(): void {
@@ -80,6 +82,7 @@ export class GameScene extends Phaser.Scene {
     this.player = new Player(this, this.arena, this.transfer.stats);
     this.battle = new CombatWorld(this.layout.grid, this.player.motor, this.player.stats, ROOM_ENEMIES[this.layout.room]);
     this.adventure = this.transfer.adventure ?? new AdventureSystem(this.player.stats, this.layout.grid);
+    this.adventure.room = this.layout.room;
     this.adventure.loot.enterRoom(this.layout.grid);
     this.transfer = {};
     this.combatView = new CombatView(this, this.arena, this.battle);
@@ -129,7 +132,7 @@ export class GameScene extends Phaser.Scene {
     const unlocked = this.adventure.exitUnlocked;
     const notices = this.adventure.update(events, this.player.motor.position, this.player.stats.alive, this.battle.status.remaining);
     this.arena.updateGate(this.adventure.exitUnlocked, this.adventure.cleared);
-    if (!unlocked && this.adventure.exitUnlocked) this.game.events.emit('destination-status', 'Комната зачищена. Северные врата открыты: клик по вратам или E рядом с ними.');
+    if (!unlocked && this.adventure.exitUnlocked) this.game.events.emit('destination-status', `Уровень зачищен. Выход на уровень ${nextRoom(this.layout.room)}: клик по вратам или E рядом.`);
     for (const notice of notices) this.game.events.emit('destination-status', notice.result === 'picked'
       ? `Подобрано: ${notice.item.name}. I — открыть инвентарь.` : 'Рюкзак полон. Наденьте или выложите предмет.');
     if (outcome !== this.adventure.outcome) { this.battle.cancel(); this.controls.clear(); this.target.clear(); }
@@ -194,8 +197,8 @@ export class GameScene extends Phaser.Scene {
   public continueAfterVictory(): void {
     this.adventure.continueAfterVictory();
     this.controls.clear();
-    this.game.events.emit('destination-status', this.layout.room === 2 ? 'Страж повержен. Заберите награду и зачистите зал.'
-      : this.adventure.exitUnlocked ? 'Заберите награду. Северные врата ведут во вторую комнату: клик или E рядом.'
+    this.game.events.emit('destination-status', this.layout.room === 3 ? 'Страж повержен. Заберите награду и зачистите зал.'
+      : this.adventure.exitUnlocked ? `Заберите награду. Врата ведут на уровень ${nextRoom(this.layout.room)}: клик или E рядом.`
       : 'Заберите награду и победите остальных врагов, чтобы открыть северные врата.');
     this.emitStatus();
   }
@@ -245,7 +248,7 @@ export class GameScene extends Phaser.Scene {
     this.controls.clear();
     this.adventure.reset(full);
     this.exitTarget = false;
-    if (full && this.layout.room === 2) {
+    if (full && this.layout.room !== 1) {
       this.player.stats.restore();
       this.transitioning = true;
       this.scene.restart({ stats: this.player.stats, adventure: this.adventure });
@@ -259,7 +262,7 @@ export class GameScene extends Phaser.Scene {
     this.target.clear();
     this.lastMode = 'idle';
     this.cameras.main.centerOn(this.player.sprite.x, this.player.sprite.y - 45);
-    this.game.events.emit('destination-status', 'Вы у входа в святилище.');
+    this.game.events.emit('destination-status', `Вы у входа: ${ROOM_NAMES[this.layout.room]}.`);
     this.emitStatus();
   }
 
@@ -267,14 +270,15 @@ export class GameScene extends Phaser.Scene {
   public enterNextRoom(): boolean {
     if (this.transitioning || !this.player.stats.alive || this.adventure.paused) return false;
     if (!this.adventure.exitUnlocked) {
-      this.game.events.emit('destination-status', this.layout.room === 2 ? 'Это последняя комната похода.' : 'Врата запечатаны. Победите всех противников первой комнаты.');
+      this.game.events.emit('destination-status', this.layout.room === 3 ? 'Это последняя комната похода.' : 'Врата запечатаны. Победите всех противников этого уровня.');
       return false;
     }
     if (!this.nearExit()) {
-      this.game.events.emit('destination-status', 'Подойдите к северным вратам и нажмите E или кликните по ним.');
+      this.game.events.emit('destination-status', 'Подойдите к вратам и нажмите E или кликните по ним.');
       return false;
     }
-    if (!this.adventure.enterNextRoom(createArenaLayout(2).grid)) return false;
+    const next = nextRoom(this.layout.room);
+    if (next === null || !this.adventure.enterNextRoom(createArenaLayout(next).grid)) return false;
     this.transitioning = true;
     this.controls.clear(); this.battle.cancel();
     this.scene.restart({ stats: this.player.stats, adventure: this.adventure });
@@ -350,11 +354,11 @@ export class GameScene extends Phaser.Scene {
       this.game.events.emit('destination-status', `Цель: ${ENEMY_DEFINITIONS[enemy.kind].name}`);
     } else {
       const ground = this.arena.toGround(world);
-      if (this.layout.room === 1 && Math.hypot(ground.x - this.layout.gate.x, ground.y - this.layout.gate.y) < 1.1) {
+      if (nextRoom(this.layout.room) !== null && Math.hypot(ground.x - this.layout.gate.x, ground.y - this.layout.gate.y) < 1.1) {
         if (!this.adventure.exitUnlocked) { this.enterNextRoom(); return; }
         this.moveTo(this.layout.gate);
         this.exitTarget = this.player.motor.mode === 'path' || this.nearExit();
-        this.game.events.emit('destination-status', 'Путь во вторую комнату. Несобранные вещи останутся здесь.');
+        this.game.events.emit('destination-status', `Путь на уровень ${nextRoom(this.layout.room)}. Несобранные вещи останутся здесь.`);
       } else this.moveTo(ground);
     }
   }

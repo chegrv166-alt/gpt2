@@ -31,7 +31,7 @@ export class CombatView {
       alive.add(projectile.id);
       let sprite = this.bolts.get(projectile.id);
       if (!sprite) {
-        sprite = this.scene.add.image(0, 0, projectile.team === 'hero' ? 'projectile-ember' : 'projectile-arcane').setScale(0.8);
+        sprite = this.scene.add.image(0, 0, projectile.visual === 'arrow' ? 'projectile-arrow' : projectile.team === 'hero' ? 'projectile-ember' : 'projectile-arcane').setScale(0.8);
         this.bolts.set(projectile.id, sprite);
       }
       const point = this.arena.toScreen(projectile.position);

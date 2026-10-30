@@ -35,7 +35,7 @@ async function worldTarget(page: Page, kind: 'enemy' | 'drop') {
 }
 
 test('a real kill drops loot, clicking collects it, and inventory pauses combat while equipment changes stats', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   const enemy = await worldTarget(page, 'enemy');
   await page.mouse.click(enemy.x, enemy.y);

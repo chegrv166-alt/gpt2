@@ -32,7 +32,7 @@ test('a pillar casts a narrow shadow without extinguishing the light beside it',
 });
 
 test('both rooms have fixed floor and wall fixtures with open emission points', () => {
-  for (const room of [1, 2] as const) {
+  for (const room of [2, 3] as const) {
     const layout = createArenaLayout(room);
     const lights = getRoomLights(layout);
     expect(lights.filter((light) => light.kind === 'brazier')).toHaveLength(layout.obstacles.filter((o) => o.kind === 'brazier').length);

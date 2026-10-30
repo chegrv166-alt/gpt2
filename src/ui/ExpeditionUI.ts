@@ -1,3 +1,4 @@
+import { ROOM_COUNT, nextRoom } from '../world/rooms';
 import type { WorldStatus } from '../scenes/GameScene';
 import { viewHref } from './viewHref';
 
@@ -21,16 +22,16 @@ export class ExpeditionUI {
         <span class="connection"><span class="status-dot"></span><span data-testid="world-status">Открываем врата</span></span>
       </header>
       <main class="expedition-main">
-        <section class="expedition-heading"><div><p class="eyebrow" id="room-number">КОМНАТА 1/2 · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ</p><h1><span id="room-name">Забытое святилище</span><span class="title-dot">.</span></h1></div><p>Тьма у врат обрела плоть.<br/><span>Меч и огонь укажут дорогу.</span></p></section>
+        <section class="expedition-heading"><div><p class="eyebrow" id="room-number">КОМНАТА 1/3 · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ</p><h1><span id="room-name">Разбойничья тропа</span><span class="title-dot">.</span></h1></div><p>Тьма у врат обрела плоть.<br/><span>Меч и огонь укажут дорогу.</span></p></section>
         <section class="expedition-frame" aria-label="Игровая арена">
-          <div class="play-stage"><div id="game-stage"></div><div class="play-vignette"></div><div class="location-tag"><i class="small-diamond"></i><span>ДРЕВНИЕ РУИНЫ<span>Тишина перед бурей</span></span></div>
+          <div class="play-stage"><div id="game-stage"></div><div class="play-vignette"></div><div class="location-tag"><i class="small-diamond"></i><span><b id="location-name">ЛЕСНАЯ ТРОПА</b><span id="location-mood">Разбойники среди деревьев</span></span></div>
             <div class="expedition-objective"><span class="objective-symbol">I</span><div><p id="objective-heading">СТРАЖ СВЯТИЛИЩА</p><span id="objective-description">Найдите и победите хранителя</span><small id="gate-distance">Путь начинается здесь</small></div></div>
           </div>
           <div class="expedition-toolbar"><div class="traveler-state"><span class="traveler-symbol">♜</span><span>СТРАННИК<small data-testid="player-state">Покой</small></span></div><div class="movement-help"><span class="keycaps"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>движение</span><span class="help-divider"></span><span class="mouse-glyph"></span><span>выбрать путь</span></div><div class="world-controls"><button id="map-toggle" aria-label="Показать или скрыть карту" aria-pressed="true"><kbd>M</kbd> Карта</button><button id="world-reset" aria-label="Вернуться к началу"><kbd>R</kbd> К началу</button></div></div>
           <div class="combat-hud" aria-label="Бой и характеристики">
             <div class="combat-resources"><label class="resource health"><span>ЗДОРОВЬЕ <b data-testid="hero-health">160 / 160</b></span><progress id="hero-hp-bar" value="160" max="160" aria-label="Здоровье героя"></progress></label><label class="resource mana"><span>МАНА <b data-testid="hero-mana">80 / 80</b></span><progress id="hero-mana-bar" value="80" max="80" aria-label="Мана героя"></progress></label></div>
             <div class="combat-skills"><button id="melee-action" class="ability-button" aria-label="Удар мечом" title="ЛКМ по врагу — сблизиться и атаковать. Shift+ЛКМ — удар на месте."><canvas data-skill-icon="icon-sword" width="42" height="42"></canvas><span>Клинок<small>ЛКМ · УДАР</small></span></button><button id="skill-action" class="ability-button ember" aria-label="Пепельный импульс" title="Q / ПКМ · 18 маны · взрывной снаряд · перезарядка 1.4 с"><canvas data-skill-icon="projectile-ember" width="42" height="42"></canvas><span>Пепельный импульс<small><kbd>Q</kbd> <span data-testid="skill-cooldown">Готов</span></small></span></button></div>
-            <div class="combat-summary"><span id="target-summary">Святилище ждёт</span><span>Противники <b data-testid="enemy-count">6</b><i></i><span id="hero-offense">Урон 26 · Броня 15</span></span></div>
+            <div class="combat-summary"><span id="target-summary">Святилище ждёт</span><span>Противники <b data-testid="enemy-count">12</b><i></i><span id="hero-offense">Урон 26 · Броня 15</span></span></div>
           </div>
         </section>
         <div class="expedition-footnote"><p><i class="small-diamond"></i><span data-testid="destination-status" aria-live="polite">Нажмите на свободную землю, чтобы отправиться в путь.</span></p><div class="world-zoom"><span>МАСШТАБ</span><button id="zoom-out" aria-label="Отдалить">−</button><output id="world-zoom-value">100%</output><button id="zoom-in" aria-label="Приблизить">+</button></div></div>
@@ -64,21 +65,23 @@ export class ExpeditionUI {
 
   public update(status: WorldStatus): void {
     this.element('#room-name').textContent = status.roomName;
-    this.element('#room-number').textContent = `КОМНАТА ${status.room}/2 · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ`;
-    this.element('.objective-symbol').textContent = status.room === 1 ? 'I' : 'II';
+    this.element('#location-name').textContent = status.room === 1 ? 'ЛЕСНАЯ ТРОПА' : 'ДРЕВНИЕ РУИНЫ';
+    this.element('#location-mood').textContent = status.room === 1 ? 'Разбойники среди деревьев' : 'Тишина перед бурей';
+    this.element('#room-number').textContent = `КОМНАТА ${status.room}/${ROOM_COUNT} · ПЕПЕЛЬНЫЕ ПРЕДЕЛЫ`;
+    this.element('.objective-symbol').textContent = ['I', 'II', 'III'][status.room - 1]!;
     document.title = `Ashen Covenant · ${status.roomName}`;
     this.element('.play-stage').classList.toggle('is-modal', status.inventoryOpen || status.outcome !== 'playing');
     this.element('#inventory-toggle').setAttribute('aria-expanded', String(status.inventoryOpen));
     this.element('[data-testid="inventory-count"]').textContent = `${status.inventoryCount}/10`;
     this.element('[data-testid="player-state"]').textContent = status.action === 'dead' ? 'Пал в бою'
       : status.action === 'attack' ? 'Атака' : status.action === 'hurt' ? 'Ранен' : status.state === 'walk' ? 'В пути' : 'Покой';
-    this.element('#gate-distance').textContent = status.gateReached ? 'Вы у северных врат' : `${status.gateDistance} м до врат`;
+    this.element('#gate-distance').textContent = status.gateReached ? 'Вы у врат' : `${status.gateDistance} м до врат`;
     const combat = status.combat;
-    this.element('#objective-heading').textContent = !combat.alive ? 'СТРАННИК ПАЛ' : combat.bossDefeated ? 'СТРАЖ ПОВЕРЖЕН' : 'СТРАЖ СВЯТИЛИЩА';
+    this.element('#objective-heading').textContent = !combat.alive ? 'СТРАННИК ПАЛ' : status.room === 1 ? status.cleared ? 'ТРОПА СВОБОДНА' : 'РАЗБОЙНИЧЬЯ ЗАСАДА' : combat.bossDefeated ? 'СТРАЖ ПОВЕРЖЕН' : 'СТРАЖ СВЯТИЛИЩА';
     this.element('#objective-description').textContent = !combat.alive ? 'Нажмите R, чтобы начать заново.'
-      : status.exitUnlocked ? 'Вторая комната: клик по вратам или E рядом'
-      : status.cleared ? 'Обе комнаты пройдены. Поход завершён.'
-      : combat.bossDefeated ? 'Победите оставшихся противников' : 'Найдите и победите хранителя';
+      : status.exitUnlocked ? `Уровень ${nextRoom(status.room)}: клик по вратам или E рядом`
+      : status.cleared ? 'Три уровня пройдены. Поход завершён.'
+      : status.room === 1 ? 'Зачистите лесную тропу и найдите восточные врата' : combat.bossDefeated ? 'Победите оставшихся противников' : 'Найдите и победите хранителя';
     this.element('[data-testid="hero-health"]').textContent = `${combat.hp} / ${combat.maxHp}`;
     this.element('[data-testid="hero-mana"]').textContent = `${combat.mana} / ${combat.maxMana}`;
     const health = this.element<HTMLProgressElement>('#hero-hp-bar');

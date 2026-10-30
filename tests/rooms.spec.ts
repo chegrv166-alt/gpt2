@@ -11,9 +11,10 @@ import { createItem } from '../src/items/definitions';
 const bossDeath: CombatEvent = { type: 'death', targetId: 6, kind: 'boss', position: { x: 18, y: 4 }, direction: 'n' };
 
 test('the next room requires a living hero, a defeated boss, all enemies cleared and a closed modal', () => {
-  const first = createArenaLayout();
-  const second = createArenaLayout(2);
+  const first = createArenaLayout(2);
+  const second = createArenaLayout(3);
   const run = new AdventureSystem(new StatsComponent(HERO_STATS), first.grid);
+  run.room = 2;
   expect(run.enterNextRoom(second.grid)).toBe(false);
   run.update([], first.spawn, true, 0);
   expect(run.exitUnlocked).toBe(false);
@@ -26,7 +27,7 @@ test('the next room requires a living hero, a defeated boss, all enemies cleared
   expect(run.enterNextRoom(second.grid)).toBe(false);
   run.toggleInventory();
   expect(run.enterNextRoom(second.grid)).toBe(true);
-  expect(run.room).toBe(2);
+  expect(run.room).toBe(3);
   expect(run.exitUnlocked).toBe(false);
   expect(run.enterNextRoom(first.grid)).toBe(false);
   run.update([bossDeath], second.spawn, false, 0);
@@ -36,9 +37,10 @@ test('the next room requires a living hero, a defeated boss, all enemies cleared
 
 test('room transitions preserve equipment, bag, resource values and distinct loot identities', () => {
   const stats = new StatsComponent(HERO_STATS);
-  const first = createArenaLayout();
-  const second = createArenaLayout(2);
+  const first = createArenaLayout(2);
+  const second = createArenaLayout(3);
   const run = new AdventureSystem(stats, first.grid, () => 0.1);
+  run.room = 2;
   const sword = createItem('kept-sword', 'weapon', 'rare');
   run.inventory.add(sword); run.inventory.equip(0);
   run.inventory.add(createItem('kept-armor', 'armor', 'rare'));
@@ -58,7 +60,7 @@ test('room transitions preserve equipment, bag, resource values and distinct loo
   expect(run.loot.drops[0]?.item.id).not.toBe(oldReward.id);
   expect(run.inventory.add(run.loot.drops[0]!.item)).toBe(true);
   run.reset(false);
-  expect(run.room).toBe(2);
+  expect(run.room).toBe(3);
   expect(run.inventory.count).toBe(3);
   run.reset(true);
   expect(run.room).toBe(1);
@@ -66,10 +68,10 @@ test('room transitions preserve equipment, bag, resource values and distinct loo
 });
 
 test('each room has a distinct layout and reachable entry, exit and enemy spawns', () => {
-  const first = createArenaLayout();
-  const second = createArenaLayout(2);
+  const first = createArenaLayout(2);
+  const second = createArenaLayout(3);
   expect(second.obstacles).not.toEqual(first.obstacles);
-  for (const room of [1, 2] as const) {
+  for (const room of [2, 3] as const) {
     const layout = createArenaLayout(room);
     expect(findPath(layout.grid, layout.spawn, layout.gate, 0.22)).not.toBeNull();
     expect(ROOM_ENEMIES[room].some((spawn) => spawn.kind === 'boss')).toBe(true);

@@ -3,7 +3,7 @@ import type { Vec2 } from '../math/isometric';
 import type { Direction } from '../assets/catalog';
 
 export type Team = 'hero' | 'enemy';
-export type EnemyKind = 'grunt' | 'caster' | 'boss';
+export type EnemyKind = 'grunt' | 'caster' | 'boss' | 'knife' | 'spear' | 'archer';
 export type EnemyState = 'IDLE' | 'CHASE' | 'ATTACK' | 'HURT' | 'DEAD';
 
 export const HERO_STATS: StatValues = {
@@ -25,6 +25,12 @@ export interface EnemyDefinition {
 }
 
 export const ENEMY_DEFINITIONS: Readonly<Record<EnemyKind, EnemyDefinition>> = {
+  knife: { name: 'Разбойник · нож', radius: 0.23, aggro: 5, range: 0.8, windup: 0.2, duration: 0.48, cooldown: 0.75,
+    stats: { maxHp: 40, maxMana: 0, attackDamage: 9, armor: 2, moveSpeed: 2.1, critChance: 0.04, critMultiplier: 1.5 } },
+  spear: { name: 'Разбойник · копьё', radius: 0.24, aggro: 5.5, range: 1.85, windup: 0.55, duration: 0.9, cooldown: 1.35,
+    stats: { maxHp: 52, maxMana: 0, attackDamage: 13, armor: 4, moveSpeed: 1.6, critChance: 0.03, critMultiplier: 1.5 } },
+  archer: { name: 'Разбойник · лук', radius: 0.23, aggro: 6.5, range: 5.8, windup: 0.65, duration: 1, cooldown: 1.6,
+    stats: { maxHp: 36, maxMana: 0, attackDamage: 11, armor: 1, moveSpeed: 1.8, critChance: 0.03, critMultiplier: 1.5 } },
   grunt: { name: 'Осквернённый', radius: 0.24, aggro: 3.8, range: 0.95, windup: 0.32, duration: 0.65, cooldown: 1.05,
     stats: { maxHp: 58, maxMana: 0, attackDamage: 11, armor: 6, moveSpeed: 1.65, critChance: 0.03, critMultiplier: 1.5 } },
   caster: { name: 'Культист', radius: 0.23, aggro: 5.5, range: 4.6, windup: 0.46, duration: 0.82, cooldown: 1.65,

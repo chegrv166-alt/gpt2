@@ -61,6 +61,8 @@ export class ForgeUI {
       </main>`;
     this.bindControls();
     this.element('[data-catalog="effects"] span').textContent = String(PROJECTILE_SPECS.length + EFFECT_SPECS.length + UI_SPECS.length);
+    this.element('[data-catalog="actors"] span').textContent = String(ACTOR_IDS.length * 8 * 18);
+    this.element('[data-catalog="terrain"] span').textContent = String(TERRAIN_SPECS.length);
     this.refresh();
   }
 

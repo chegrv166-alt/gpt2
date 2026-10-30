@@ -118,7 +118,7 @@ export class CombatWorld {
         melee: (source, aim) => this.melee(source.motor.position, unitVector(source.motor.position, aim),
           ENEMY_DEFINITIONS[source.kind].range, Math.PI / 3, 'enemy', source.stats.values),
         shoot: (source, aim) => this.projectiles.spawn({ sourceId: source.id, team: 'enemy', from: source.motor.position,
-          aim, speed: 4.4, radius: 0.1, power: 1, splashRadius: 0, lifespan: 2.3, attack: source.stats.values }),
+          aim, visual: source.kind === 'archer' ? 'arrow' : 'magic', speed: source.kind === 'archer' ? 7 : 4.4, radius: 0.1, power: 1, splashRadius: 0, lifespan: 2.3, attack: source.stats.values }),
         blast: (source, center, radius) => {
           this.events.push({ type: 'impact', position: center, radius, team: 'enemy' });
           const hero = this.hero.motor.position;

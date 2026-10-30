@@ -4,7 +4,7 @@ export const FRAME_COUNT = 4;
 export const WALK_FRAME_COUNT = 6;
 export const DIRECTIONS = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne'] as const;
 export const ACTOR_STATES = ['idle', 'walk', 'attack', 'hurt'] as const;
-export const ACTOR_IDS = ['hero', 'grunt', 'caster', 'boss'] as const;
+export const ACTOR_IDS = ['hero', 'grunt', 'caster', 'boss', 'knife', 'spear', 'archer'] as const;
 
 export type Direction = (typeof DIRECTIONS)[number];
 export type ActorState = (typeof ACTOR_STATES)[number];
@@ -29,6 +29,9 @@ export interface ActorDefinition {
 }
 
 export const ACTORS: Readonly<Record<ActorId, ActorDefinition>> = {
+  knife: { name: 'Разбойник с ножом', role: 'Ближний бой · быстрый налётчик', description: 'Кожаный жилет, красный платок и короткий нож.', width: 128, height: 112, footY: 94, color: 0xb27552 },
+  spear: { name: 'Разбойник с копьём', role: 'Ближний бой · длинный выпад', description: 'Лесной дозорный с длинным копьём и зелёным плащом.', width: 128, height: 112, footY: 94, color: 0x899a66 },
+  archer: { name: 'Разбойник с луком', role: 'Дальний бой · стрелы и отступление', description: 'Капюшон, колчан и деревянный лук. Держится на расстоянии.', width: 128, height: 112, footY: 94, color: 0xbda56b },
   hero: {
     name: 'Странник', role: 'Герой · меч и щит',
     description: 'Последний из ордена. Потёртая сталь, багровый плащ и клинок, который ещё помнит свет.',
@@ -65,17 +68,17 @@ export function actorAnimationKey(actor: ActorId, state: ActorState, direction: 
 }
 
 export const TERRAIN_SPECS: readonly TextureSpec[] = [
-  ...(['ground', 'stone'] as const).flatMap((kind) =>
+  ...(['ground', 'stone', 'forest', 'path'] as const).flatMap((kind) =>
     Array.from({ length: 4 }, (_, variant): TextureSpec => ({
       key: `tile-${kind}-${variant}`, width: 128, height: 80, category: 'terrain',
     }))),
-  ...['wall-nw', 'wall-ne', 'prop-rock', 'prop-pillar', 'prop-brazier'].map((key): TextureSpec => ({
+  ...['wall-nw', 'wall-ne', 'prop-rock', 'prop-pillar', 'prop-brazier', 'prop-tree'].map((key): TextureSpec => ({
     key, width: 128, height: 144, category: 'terrain',
   })),
 ];
 
 export const PROJECTILE_SPECS: readonly TextureSpec[] =
-  ['projectile-ember', 'projectile-arcane', 'projectile-slash'].map((key) => ({
+  ['projectile-ember', 'projectile-arcane', 'projectile-slash', 'projectile-arrow'].map((key) => ({
     key, width: 64, height: 64, category: 'projectiles',
   }));
 

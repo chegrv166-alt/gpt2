@@ -5,6 +5,7 @@ import { segmentCircleHitTime, unitVector } from './geometry';
 import type { AttackProfile } from './geometry';
 
 export interface ProjectileRequest {
+  readonly visual?: 'magic' | 'arrow';
   readonly sourceId: number;
   readonly team: Team;
   readonly from: Vec2;
@@ -19,6 +20,7 @@ export interface ProjectileRequest {
 
 export interface Projectile {
   readonly id: number;
+  readonly visual?: 'magic' | 'arrow';
   readonly sourceId: number;
   readonly team: Team;
   position: Vec2;
@@ -56,7 +58,7 @@ export class ProjectileSystem {
     const direction = unitVector(request.from, request.aim);
     if (!this.grid.canOccupy(request.from, request.radius)) return;
     this.items.push({
-      id: this.nextId++, sourceId: request.sourceId, team: request.team, position: { ...request.from },
+      id: this.nextId++, visual: request.visual ?? 'magic', sourceId: request.sourceId, team: request.team, position: { ...request.from },
       velocity: { x: direction.x * request.speed, y: direction.y * request.speed },
       radius: request.radius, power: request.power, splashRadius: request.splashRadius,
       remaining: request.lifespan, attack: { ...request.attack },

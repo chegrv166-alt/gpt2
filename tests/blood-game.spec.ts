@@ -5,7 +5,7 @@ import type { GameScene } from '../src/scenes/GameScene';
 test('hits paint blood, deaths leave a corpse and pool, and room reset clears them', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?room=2');
   await expect(page.getByTestId('world-status')).toHaveText('Святилище открыто');
   await page.evaluate(async () => {
     const entry = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/src/main.ts"]')?.src;
@@ -41,7 +41,7 @@ test('hits paint blood, deaths leave a corpse and pool, and room reset clears th
     internal.bloodField.sampleActor(55, { x: 10, y: 17 }, 0.1);
     internal.bloodView.render(0.016, []);
     const footprints = scene.children.list.some((object) => object.name === 'blood-print-55');
-    scene.resetPlayer();
+    await new Promise<void>((resolve) => { game.events.once('world-ready', () => requestAnimationFrame(() => resolve())); scene.resetPlayer(); });
     const cleared = !scene.children.list.some((object) => String(object.name).startsWith('blood-') || object.name === 'corpse-1');
     await new Promise<void>((resolve) => { game.events.once('world-ready', () => resolve()); scene.scene.restart(); });
     const restarted = game.scene.getScene('GameScene') as GameScene;
