@@ -1,0 +1,9050 @@
+{
+  "width": 512,
+  "height": 384,
+  "start": [
+    136,
+    292
+  ],
+  "districts": [
+    {
+      "id": "town",
+      "name": "Жилой Вель",
+      "rect": [
+        76,
+        230,
+        116,
+        96
+      ],
+      "center": [
+        136,
+        280
+      ],
+      "color": "948574"
+    },
+    {
+      "id": "docks",
+      "name": "Речная пристань",
+      "rect": [
+        252,
+        276,
+        64,
+        80
+      ],
+      "center": [
+        282,
+        314
+      ],
+      "color": "718f9b"
+    },
+    {
+      "id": "graves",
+      "name": "Кладбище и каменоломня",
+      "rect": [
+        296,
+        144,
+        116,
+        96
+      ],
+      "center": [
+        350,
+        190
+      ],
+      "color": "aca597"
+    },
+    {
+      "id": "forest",
+      "name": "Лесные окраины",
+      "rect": [
+        48,
+        48,
+        144,
+        128
+      ],
+      "center": [
+        116,
+        112
+      ],
+      "color": "697a73"
+    },
+    {
+      "id": "abbey",
+      "name": "Монастырский округ",
+      "rect": [
+        372,
+        36,
+        112,
+        112
+      ],
+      "center": [
+        426,
+        84
+      ],
+      "color": "b29d84"
+    }
+  ],
+  "roads": [
+    [
+      [
+        88,
+        280
+      ],
+      [
+        184,
+        280
+      ]
+    ],
+    [
+      [
+        136,
+        220
+      ],
+      [
+        136,
+        326
+      ]
+    ],
+    [
+      [
+        90,
+        242
+      ],
+      [
+        182,
+        242
+      ],
+      [
+        182,
+        314
+      ],
+      [
+        90,
+        314
+      ],
+      [
+        90,
+        242
+      ]
+    ],
+    [
+      [
+        136,
+        242
+      ],
+      [
+        150,
+        198
+      ],
+      [
+        174,
+        142
+      ],
+      [
+        164,
+        110
+      ],
+      [
+        140,
+        78
+      ],
+      [
+        84,
+        100
+      ],
+      [
+        78,
+        212
+      ],
+      [
+        90,
+        280
+      ]
+    ],
+    [
+      [
+        84,
+        100
+      ],
+      [
+        116,
+        118
+      ],
+      [
+        104,
+        148
+      ],
+      [
+        150,
+        198
+      ]
+    ],
+    [
+      [
+        164,
+        110
+      ],
+      [
+        204,
+        112
+      ],
+      [
+        266,
+        112
+      ],
+      [
+        350,
+        112
+      ],
+      [
+        410,
+        112
+      ],
+      [
+        424,
+        132
+      ]
+    ],
+    [
+      [
+        150,
+        198
+      ],
+      [
+        188,
+        200
+      ],
+      [
+        262,
+        200
+      ],
+      [
+        310,
+        194
+      ],
+      [
+        350,
+        180
+      ],
+      [
+        394,
+        186
+      ]
+    ],
+    [
+      [
+        136,
+        306
+      ],
+      [
+        204,
+        304
+      ],
+      [
+        274,
+        304
+      ],
+      [
+        294,
+        300
+      ],
+      [
+        304,
+        338
+      ],
+      [
+        272,
+        344
+      ],
+      [
+        266,
+        294
+      ]
+    ],
+    [
+      [
+        274,
+        304
+      ],
+      [
+        310,
+        250
+      ],
+      [
+        366,
+        224
+      ],
+      [
+        350,
+        180
+      ],
+      [
+        370,
+        148
+      ],
+      [
+        386,
+        96
+      ],
+      [
+        408,
+        64
+      ],
+      [
+        448,
+        72
+      ],
+      [
+        460,
+        104
+      ],
+      [
+        410,
+        112
+      ]
+    ],
+    [
+      [
+        310,
+        194
+      ],
+      [
+        330,
+        176
+      ],
+      [
+        354,
+        158
+      ],
+      [
+        370,
+        148
+      ]
+    ],
+    [
+      [
+        310,
+        250
+      ],
+      [
+        394,
+        228
+      ],
+      [
+        394,
+        186
+      ]
+    ],
+    [
+      [
+        112,
+        280
+      ],
+      [
+        112,
+        266
+      ]
+    ],
+    [
+      [
+        329,
+        177
+      ],
+      [
+        330,
+        178
+      ]
+    ],
+    [
+      [
+        385,
+        98
+      ],
+      [
+        386,
+        98
+      ]
+    ],
+    [
+      [
+        407,
+        65
+      ],
+      [
+        408,
+        66
+      ]
+    ],
+    [
+      [
+        173,
+        144
+      ],
+      [
+        174,
+        144
+      ]
+    ],
+    [
+      [
+        353,
+        159
+      ],
+      [
+        354,
+        160
+      ]
+    ],
+    [
+      [
+        449,
+        74
+      ],
+      [
+        448,
+        74
+      ]
+    ],
+    [
+      [
+        136,
+        254
+      ],
+      [
+        134,
+        254
+      ]
+    ],
+    [
+      [
+        90,
+        288
+      ],
+      [
+        94,
+        288
+      ]
+    ],
+    [
+      [
+        170,
+        242
+      ],
+      [
+        170,
+        246
+      ]
+    ],
+    [
+      [
+        108,
+        314
+      ],
+      [
+        108,
+        310
+      ]
+    ],
+    [
+      [
+        286,
+        341
+      ],
+      [
+        286,
+        340
+      ]
+    ],
+    [
+      [
+        310,
+        194
+      ],
+      [
+        310,
+        196
+      ]
+    ],
+    [
+      [
+        351,
+        182
+      ],
+      [
+        350,
+        182
+      ]
+    ],
+    [
+      [
+        366,
+        224
+      ],
+      [
+        366,
+        226
+      ]
+    ],
+    [
+      [
+        141,
+        79
+      ],
+      [
+        140,
+        80
+      ]
+    ],
+    [
+      [
+        105,
+        149
+      ],
+      [
+        104,
+        150
+      ]
+    ],
+    [
+      [
+        165,
+        112
+      ],
+      [
+        164,
+        112
+      ]
+    ],
+    [
+      [
+        424,
+        132
+      ],
+      [
+        424,
+        134
+      ]
+    ],
+    [
+      [
+        460,
+        104
+      ],
+      [
+        460,
+        106
+      ]
+    ],
+    [
+      [
+        115,
+        120
+      ],
+      [
+        116,
+        120
+      ]
+    ],
+    [
+      [
+        269,
+        322
+      ],
+      [
+        272,
+        322
+      ]
+    ],
+    [
+      [
+        359,
+        205
+      ],
+      [
+        350,
+        208
+      ]
+    ],
+    [
+      [
+        411,
+        113
+      ],
+      [
+        410,
+        114
+      ]
+    ]
+  ],
+  "bridges": [
+    {
+      "y": 112
+    },
+    {
+      "y": 200
+    },
+    {
+      "y": 304
+    }
+  ],
+  "scenery": [
+    {
+      "point": [
+        98,
+        237
+      ],
+      "key": "house_b",
+      "scale": 1.0422584110272315,
+      "solid": true
+    },
+    {
+      "point": [
+        106,
+        236
+      ],
+      "key": "inn",
+      "scale": 1.0446512648794761,
+      "solid": true
+    },
+    {
+      "point": [
+        145,
+        236
+      ],
+      "key": "house_b",
+      "scale": 1.031722717740414,
+      "solid": true
+    },
+    {
+      "point": [
+        157,
+        237
+      ],
+      "key": "house_b",
+      "scale": 1.0171229957222865,
+      "solid": true
+    },
+    {
+      "point": [
+        181,
+        236
+      ],
+      "key": "inn",
+      "scale": 0.9132256346518083,
+      "solid": true
+    },
+    {
+      "point": [
+        94,
+        252
+      ],
+      "key": "house",
+      "scale": 1.003800216170947,
+      "solid": true
+    },
+    {
+      "point": [
+        106,
+        252
+      ],
+      "key": "inn",
+      "scale": 0.8092334946152506,
+      "solid": true
+    },
+    {
+      "point": [
+        119,
+        252
+      ],
+      "key": "inn",
+      "scale": 0.954143716304372,
+      "solid": true
+    },
+    {
+      "point": [
+        143,
+        248
+      ],
+      "key": "house",
+      "scale": 1.042433422641465,
+      "solid": true
+    },
+    {
+      "point": [
+        154,
+        251
+      ],
+      "key": "inn",
+      "scale": 0.9418411608858177,
+      "solid": true
+    },
+    {
+      "point": [
+        94,
+        262
+      ],
+      "key": "house",
+      "scale": 0.7960283079436401,
+      "solid": true
+    },
+    {
+      "point": [
+        119,
+        260
+      ],
+      "key": "inn",
+      "scale": 1.0407646710590286,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        263
+      ],
+      "key": "inn",
+      "scale": 0.823012470933026,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        260
+      ],
+      "key": "house_b",
+      "scale": 0.781520767177448,
+      "solid": true
+    },
+    {
+      "point": [
+        154,
+        262
+      ],
+      "key": "inn",
+      "scale": 1.0213219648735354,
+      "solid": true
+    },
+    {
+      "point": [
+        167,
+        260
+      ],
+      "key": "house",
+      "scale": 1.0372084331465719,
+      "solid": true
+    },
+    {
+      "point": [
+        85,
+        274
+      ],
+      "key": "house",
+      "scale": 0.9270315589747216,
+      "solid": true
+    },
+    {
+      "point": [
+        94,
+        275
+      ],
+      "key": "house_b",
+      "scale": 1.0006438629335803,
+      "solid": true
+    },
+    {
+      "point": [
+        109,
+        272
+      ],
+      "key": "inn",
+      "scale": 1.0426428031209953,
+      "solid": true
+    },
+    {
+      "point": [
+        121,
+        272
+      ],
+      "key": "house_b",
+      "scale": 1.0452177095437145,
+      "solid": true
+    },
+    {
+      "point": [
+        130,
+        274
+      ],
+      "key": "inn",
+      "scale": 0.8950829297567616,
+      "solid": true
+    },
+    {
+      "point": [
+        146,
+        272
+      ],
+      "key": "house_b",
+      "scale": 0.8824276075832298,
+      "solid": true
+    },
+    {
+      "point": [
+        166,
+        276
+      ],
+      "key": "house",
+      "scale": 0.9565268995381274,
+      "solid": true
+    },
+    {
+      "point": [
+        178,
+        272
+      ],
+      "key": "inn",
+      "scale": 0.9889250364708906,
+      "solid": true
+    },
+    {
+      "point": [
+        86,
+        286
+      ],
+      "key": "house_b",
+      "scale": 0.9698510117215191,
+      "solid": true
+    },
+    {
+      "point": [
+        109,
+        287
+      ],
+      "key": "house_b",
+      "scale": 1.011934451584776,
+      "solid": true
+    },
+    {
+      "point": [
+        121,
+        285
+      ],
+      "key": "house",
+      "scale": 0.8121095073027008,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        286
+      ],
+      "key": "house",
+      "scale": 0.8862817008176799,
+      "solid": true
+    },
+    {
+      "point": [
+        170,
+        287
+      ],
+      "key": "house",
+      "scale": 0.8537345912356101,
+      "solid": true
+    },
+    {
+      "point": [
+        85,
+        296
+      ],
+      "key": "inn",
+      "scale": 0.983754019592051,
+      "solid": true
+    },
+    {
+      "point": [
+        97,
+        300
+      ],
+      "key": "inn",
+      "scale": 0.7925123920820509,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        299
+      ],
+      "key": "house",
+      "scale": 1.0295712267514476,
+      "solid": true
+    },
+    {
+      "point": [
+        121,
+        300
+      ],
+      "key": "house",
+      "scale": 1.0228370656699952,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        299
+      ],
+      "key": "inn",
+      "scale": 0.8291470967157377,
+      "solid": true
+    },
+    {
+      "point": [
+        146,
+        297
+      ],
+      "key": "inn",
+      "scale": 0.9523300723316417,
+      "solid": true
+    },
+    {
+      "point": [
+        158,
+        297
+      ],
+      "key": "house_b",
+      "scale": 1.0079811527185374,
+      "solid": true
+    },
+    {
+      "point": [
+        166,
+        296
+      ],
+      "key": "house_b",
+      "scale": 0.7842472602532242,
+      "solid": true
+    },
+    {
+      "point": [
+        82,
+        309
+      ],
+      "key": "inn",
+      "scale": 0.8419903013359423,
+      "solid": true
+    },
+    {
+      "point": [
+        118,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.896532427664565,
+      "solid": true
+    },
+    {
+      "point": [
+        178,
+        310
+      ],
+      "key": "inn",
+      "scale": 0.7961233505225093,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        284
+      ],
+      "key": "warehouse",
+      "scale": 0.848654280974188,
+      "solid": true
+    },
+    {
+      "point": [
+        276,
+        283
+      ],
+      "key": "warehouse",
+      "scale": 0.911991347091476,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        286
+      ],
+      "key": "warehouse",
+      "scale": 1.0211131726021143,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        302
+      ],
+      "key": "warehouse",
+      "scale": 0.8482148368375163,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        314
+      ],
+      "key": "warehouse",
+      "scale": 0.8984968651904476,
+      "solid": true
+    },
+    {
+      "point": [
+        293,
+        317
+      ],
+      "key": "warehouse",
+      "scale": 0.8353913296993317,
+      "solid": true
+    },
+    {
+      "point": [
+        307,
+        315
+      ],
+      "key": "warehouse",
+      "scale": 0.9111971986505445,
+      "solid": true
+    },
+    {
+      "point": [
+        262,
+        331
+      ],
+      "key": "warehouse",
+      "scale": 0.9362973454422715,
+      "solid": true
+    },
+    {
+      "point": [
+        278,
+        334
+      ],
+      "key": "warehouse",
+      "scale": 0.9711309595059145,
+      "solid": true
+    },
+    {
+      "point": [
+        293,
+        332
+      ],
+      "key": "warehouse",
+      "scale": 0.7951748566476714,
+      "solid": true
+    },
+    {
+      "point": [
+        261,
+        346
+      ],
+      "key": "warehouse",
+      "scale": 0.9594776029401659,
+      "solid": true
+    },
+    {
+      "point": [
+        292,
+        347
+      ],
+      "key": "warehouse",
+      "scale": 0.9913903455348765,
+      "solid": true
+    },
+    {
+      "point": [
+        310,
+        346
+      ],
+      "key": "warehouse",
+      "scale": 0.7817553238841699,
+      "solid": true
+    },
+    {
+      "point": [
+        305,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9199783787382123,
+      "solid": true
+    },
+    {
+      "point": [
+        318,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.8980299933671776,
+      "solid": true
+    },
+    {
+      "point": [
+        335,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9931597646346427,
+      "solid": true
+    },
+    {
+      "point": [
+        351,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9429650061226029,
+      "solid": true
+    },
+    {
+      "point": [
+        385,
+        154
+      ],
+      "key": "grave",
+      "scale": 0.7877922521931822,
+      "solid": true
+    },
+    {
+      "point": [
+        398,
+        153
+      ],
+      "key": "grave",
+      "scale": 0.8274016482624227,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        170
+      ],
+      "key": "grave",
+      "scale": 0.9459987221464465,
+      "solid": true
+    },
+    {
+      "point": [
+        335,
+        167
+      ],
+      "key": "grave",
+      "scale": 0.8314832177594423,
+      "solid": true
+    },
+    {
+      "point": [
+        350,
+        169
+      ],
+      "key": "grave",
+      "scale": 0.8434947008800178,
+      "solid": true
+    },
+    {
+      "point": [
+        369,
+        170
+      ],
+      "key": "grave",
+      "scale": 0.849820025237485,
+      "solid": true
+    },
+    {
+      "point": [
+        384,
+        170
+      ],
+      "key": "grave",
+      "scale": 0.8141040655321496,
+      "solid": true
+    },
+    {
+      "point": [
+        398,
+        168
+      ],
+      "key": "grave",
+      "scale": 0.9794803770728691,
+      "solid": true
+    },
+    {
+      "point": [
+        306,
+        182
+      ],
+      "key": "grave",
+      "scale": 0.8147762544776175,
+      "solid": true
+    },
+    {
+      "point": [
+        402,
+        183
+      ],
+      "key": "grave",
+      "scale": 0.9264036190208158,
+      "solid": true
+    },
+    {
+      "point": [
+        305,
+        201
+      ],
+      "key": "grave",
+      "scale": 0.8557381138013012,
+      "solid": true
+    },
+    {
+      "point": [
+        318,
+        202
+      ],
+      "key": "grave",
+      "scale": 0.8151427788115063,
+      "solid": true
+    },
+    {
+      "point": [
+        338,
+        199
+      ],
+      "key": "grave",
+      "scale": 0.9210685087922617,
+      "solid": true
+    },
+    {
+      "point": [
+        367,
+        199
+      ],
+      "key": "grave",
+      "scale": 1.0274667757288112,
+      "solid": true
+    },
+    {
+      "point": [
+        386,
+        200
+      ],
+      "key": "grave",
+      "scale": 0.9477919019097317,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        215
+      ],
+      "key": "grave",
+      "scale": 0.9170687611386079,
+      "solid": true
+    },
+    {
+      "point": [
+        320,
+        218
+      ],
+      "key": "grave",
+      "scale": 0.9785155118341902,
+      "solid": true
+    },
+    {
+      "point": [
+        337,
+        215
+      ],
+      "key": "grave",
+      "scale": 0.9126777252990854,
+      "solid": true
+    },
+    {
+      "point": [
+        353,
+        218
+      ],
+      "key": "grave",
+      "scale": 0.9441501916928341,
+      "solid": true
+    },
+    {
+      "point": [
+        382,
+        215
+      ],
+      "key": "grave",
+      "scale": 0.8794357517786138,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        233
+      ],
+      "key": "grave",
+      "scale": 0.8007316999704618,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        231
+      ],
+      "key": "grave",
+      "scale": 0.8698167600932837,
+      "solid": true
+    },
+    {
+      "point": [
+        337,
+        233
+      ],
+      "key": "grave",
+      "scale": 0.8577917482563894,
+      "solid": true
+    },
+    {
+      "point": [
+        401,
+        234
+      ],
+      "key": "grave",
+      "scale": 0.8949682632703289,
+      "solid": true
+    },
+    {
+      "point": [
+        381,
+        45
+      ],
+      "key": "inn",
+      "scale": 1.0453123569511353,
+      "solid": true
+    },
+    {
+      "point": [
+        394,
+        42
+      ],
+      "key": "inn",
+      "scale": 0.7876441492281645,
+      "solid": true
+    },
+    {
+      "point": [
+        410,
+        42
+      ],
+      "key": "inn",
+      "scale": 0.8183766760931804,
+      "solid": true
+    },
+    {
+      "point": [
+        444,
+        44
+      ],
+      "key": "house",
+      "scale": 1.01302890874656,
+      "solid": true
+    },
+    {
+      "point": [
+        458,
+        42
+      ],
+      "key": "inn",
+      "scale": 0.8933966816940008,
+      "solid": true
+    },
+    {
+      "point": [
+        474,
+        45
+      ],
+      "key": "house",
+      "scale": 0.79938826444246,
+      "solid": true
+    },
+    {
+      "point": [
+        381,
+        58
+      ],
+      "key": "house_b",
+      "scale": 0.9384712190478486,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        58
+      ],
+      "key": "inn",
+      "scale": 0.8009590684809474,
+      "solid": true
+    },
+    {
+      "point": [
+        430,
+        59
+      ],
+      "key": "inn",
+      "scale": 0.8661602975953943,
+      "solid": true
+    },
+    {
+      "point": [
+        446,
+        62
+      ],
+      "key": "inn",
+      "scale": 1.0395374767204981,
+      "solid": true
+    },
+    {
+      "point": [
+        459,
+        59
+      ],
+      "key": "house",
+      "scale": 0.9300457803933337,
+      "solid": true
+    },
+    {
+      "point": [
+        475,
+        59
+      ],
+      "key": "house_b",
+      "scale": 0.8935998013182911,
+      "solid": true
+    },
+    {
+      "point": [
+        380,
+        77
+      ],
+      "key": "inn",
+      "scale": 1.0040209755952063,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        78
+      ],
+      "key": "house_b",
+      "scale": 0.9805188897134232,
+      "solid": true
+    },
+    {
+      "point": [
+        428,
+        78
+      ],
+      "key": "inn",
+      "scale": 0.8683013292133668,
+      "solid": true
+    },
+    {
+      "point": [
+        459,
+        76
+      ],
+      "key": "house",
+      "scale": 0.9701560905361367,
+      "solid": true
+    },
+    {
+      "point": [
+        476,
+        74
+      ],
+      "key": "house",
+      "scale": 0.983903718772585,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        91
+      ],
+      "key": "house",
+      "scale": 0.844548021539602,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        92
+      ],
+      "key": "inn",
+      "scale": 0.8163191887444088,
+      "solid": true
+    },
+    {
+      "point": [
+        427,
+        90
+      ],
+      "key": "house_b",
+      "scale": 1.011216339179565,
+      "solid": true
+    },
+    {
+      "point": [
+        446,
+        92
+      ],
+      "key": "inn",
+      "scale": 0.8673023698418516,
+      "solid": true
+    },
+    {
+      "point": [
+        460,
+        93
+      ],
+      "key": "house_b",
+      "scale": 1.0055975406357212,
+      "solid": true
+    },
+    {
+      "point": [
+        476,
+        90
+      ],
+      "key": "house_b",
+      "scale": 0.9253234895443937,
+      "solid": true
+    },
+    {
+      "point": [
+        478,
+        110
+      ],
+      "key": "inn",
+      "scale": 0.9078706151821503,
+      "solid": true
+    },
+    {
+      "point": [
+        396,
+        122
+      ],
+      "key": "inn",
+      "scale": 0.7839956931596906,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        125
+      ],
+      "key": "house_b",
+      "scale": 0.8372451284069423,
+      "solid": true
+    },
+    {
+      "point": [
+        427,
+        122
+      ],
+      "key": "house_b",
+      "scale": 0.7965063600425333,
+      "solid": true
+    },
+    {
+      "point": [
+        446,
+        123
+      ],
+      "key": "house_b",
+      "scale": 0.9170400770783778,
+      "solid": true
+    },
+    {
+      "point": [
+        461,
+        122
+      ],
+      "key": "house_b",
+      "scale": 1.0469069797964285,
+      "solid": true
+    },
+    {
+      "point": [
+        478,
+        123
+      ],
+      "key": "house_b",
+      "scale": 0.8120198810015635,
+      "solid": true
+    },
+    {
+      "point": [
+        378,
+        141
+      ],
+      "key": "inn",
+      "scale": 1.045438747609667,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        142
+      ],
+      "key": "house",
+      "scale": 0.7821875279312456,
+      "solid": true
+    },
+    {
+      "point": [
+        411,
+        138
+      ],
+      "key": "house",
+      "scale": 0.8342303979670278,
+      "solid": true
+    },
+    {
+      "point": [
+        428,
+        139
+      ],
+      "key": "inn",
+      "scale": 0.8274304387223912,
+      "solid": true
+    },
+    {
+      "point": [
+        442,
+        140
+      ],
+      "key": "inn",
+      "scale": 0.9375306764944492,
+      "solid": true
+    },
+    {
+      "point": [
+        460,
+        140
+      ],
+      "key": "house_b",
+      "scale": 0.8056872667362022,
+      "solid": true
+    },
+    {
+      "point": [
+        477,
+        138
+      ],
+      "key": "house",
+      "scale": 1.0238344150411431,
+      "solid": true
+    },
+    {
+      "point": [
+        109,
+        351
+      ],
+      "key": "tree_pale",
+      "scale": 0.9638124142541635,
+      "solid": true
+    },
+    {
+      "point": [
+        266,
+        178
+      ],
+      "key": "tree",
+      "scale": 0.8794599572748969,
+      "solid": true
+    },
+    {
+      "point": [
+        249,
+        233
+      ],
+      "key": "tree_pale",
+      "scale": 1.09797785559787,
+      "solid": true
+    },
+    {
+      "point": [
+        375,
+        352
+      ],
+      "key": "tree_pale",
+      "scale": 0.8516812254038975,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        87
+      ],
+      "key": "tree_pale",
+      "scale": 0.7593375805305468,
+      "solid": true
+    },
+    {
+      "point": [
+        376,
+        304
+      ],
+      "key": "pine",
+      "scale": 1.0191798388094218,
+      "solid": true
+    },
+    {
+      "point": [
+        45,
+        168
+      ],
+      "key": "pine",
+      "scale": 0.8163911399130236,
+      "solid": true
+    },
+    {
+      "point": [
+        75,
+        352
+      ],
+      "key": "tree_pale",
+      "scale": 0.7711925114778564,
+      "solid": true
+    },
+    {
+      "point": [
+        53,
+        99
+      ],
+      "key": "pine",
+      "scale": 1.1908860291658634,
+      "solid": true
+    },
+    {
+      "point": [
+        450,
+        248
+      ],
+      "key": "tree_pale",
+      "scale": 0.9550768805191581,
+      "solid": true
+    },
+    {
+      "point": [
+        99,
+        352
+      ],
+      "key": "pine",
+      "scale": 0.8842575075348842,
+      "solid": true
+    },
+    {
+      "point": [
+        276,
+        184
+      ],
+      "key": "tree",
+      "scale": 0.761584203448151,
+      "solid": true
+    },
+    {
+      "point": [
+        71,
+        163
+      ],
+      "key": "tree_pale",
+      "scale": 0.9121416577353085,
+      "solid": true
+    },
+    {
+      "point": [
+        286,
+        108
+      ],
+      "key": "tree_pale",
+      "scale": 0.8662718124821057,
+      "solid": true
+    },
+    {
+      "point": [
+        234,
+        196
+      ],
+      "key": "tree",
+      "scale": 1.0235278071966851,
+      "solid": true
+    },
+    {
+      "point": [
+        99,
+        140
+      ],
+      "key": "tree",
+      "scale": 1.074429394223675,
+      "solid": true
+    },
+    {
+      "point": [
+        129,
+        53
+      ],
+      "key": "pine",
+      "scale": 0.8397975851809563,
+      "solid": true
+    },
+    {
+      "point": [
+        424,
+        325
+      ],
+      "key": "tree_pale",
+      "scale": 0.8619053031943084,
+      "solid": true
+    },
+    {
+      "point": [
+        324,
+        24
+      ],
+      "key": "tree",
+      "scale": 1.0460886432601484,
+      "solid": true
+    },
+    {
+      "point": [
+        47,
+        172
+      ],
+      "key": "pine",
+      "scale": 1.0178618064226816,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        77
+      ],
+      "key": "tree",
+      "scale": 0.8978399959790183,
+      "solid": true
+    },
+    {
+      "point": [
+        485,
+        273
+      ],
+      "key": "tree_pale",
+      "scale": 0.8621722617714471,
+      "solid": true
+    },
+    {
+      "point": [
+        304,
+        138
+      ],
+      "key": "tree_pale",
+      "scale": 1.1989702881140336,
+      "solid": true
+    },
+    {
+      "point": [
+        265,
+        188
+      ],
+      "key": "pine",
+      "scale": 0.9395795703871648,
+      "solid": true
+    },
+    {
+      "point": [
+        291,
+        217
+      ],
+      "key": "tree_pale",
+      "scale": 1.177755934107114,
+      "solid": true
+    },
+    {
+      "point": [
+        145,
+        172
+      ],
+      "key": "tree_pale",
+      "scale": 1.141580103024903,
+      "solid": true
+    },
+    {
+      "point": [
+        253,
+        238
+      ],
+      "key": "tree_pale",
+      "scale": 1.0040870584303947,
+      "solid": true
+    },
+    {
+      "point": [
+        55,
+        115
+      ],
+      "key": "tree",
+      "scale": 1.0862104613924775,
+      "solid": true
+    },
+    {
+      "point": [
+        427,
+        254
+      ],
+      "key": "tree_pale",
+      "scale": 0.7523704155304619,
+      "solid": true
+    },
+    {
+      "point": [
+        23,
+        342
+      ],
+      "key": "pine",
+      "scale": 1.0015169179216556,
+      "solid": true
+    },
+    {
+      "point": [
+        288,
+        85
+      ],
+      "key": "tree_pale",
+      "scale": 0.7945839836711475,
+      "solid": true
+    },
+    {
+      "point": [
+        288,
+        108
+      ],
+      "key": "tree",
+      "scale": 1.088236653579461,
+      "solid": true
+    },
+    {
+      "point": [
+        225,
+        91
+      ],
+      "key": "pine",
+      "scale": 0.9801984620051498,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        72
+      ],
+      "key": "tree",
+      "scale": 0.8575910884537415,
+      "solid": true
+    },
+    {
+      "point": [
+        294,
+        45
+      ],
+      "key": "tree",
+      "scale": 0.9317097576868488,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        235
+      ],
+      "key": "pine",
+      "scale": 1.1490624476632276,
+      "solid": true
+    },
+    {
+      "point": [
+        403,
+        305
+      ],
+      "key": "tree",
+      "scale": 0.8403175600022847,
+      "solid": true
+    },
+    {
+      "point": [
+        266,
+        238
+      ],
+      "key": "tree",
+      "scale": 0.8391379387608103,
+      "solid": true
+    },
+    {
+      "point": [
+        416,
+        225
+      ],
+      "key": "pine",
+      "scale": 1.181628020394332,
+      "solid": true
+    },
+    {
+      "point": [
+        491,
+        246
+      ],
+      "key": "pine",
+      "scale": 0.9756733532726689,
+      "solid": true
+    },
+    {
+      "point": [
+        90,
+        183
+      ],
+      "key": "pine",
+      "scale": 0.8293429637622214,
+      "solid": true
+    },
+    {
+      "point": [
+        297,
+        145
+      ],
+      "key": "pine",
+      "scale": 0.9281034756876099,
+      "solid": true
+    },
+    {
+      "point": [
+        414,
+        284
+      ],
+      "key": "tree",
+      "scale": 0.9921950504045337,
+      "solid": true
+    },
+    {
+      "point": [
+        324,
+        72
+      ],
+      "key": "tree_pale",
+      "scale": 1.056911454748578,
+      "solid": true
+    },
+    {
+      "point": [
+        55,
+        172
+      ],
+      "key": "tree_pale",
+      "scale": 1.0962777093445615,
+      "solid": true
+    },
+    {
+      "point": [
+        312,
+        163
+      ],
+      "key": "pine",
+      "scale": 0.9816913977698974,
+      "solid": true
+    },
+    {
+      "point": [
+        307,
+        49
+      ],
+      "key": "tree",
+      "scale": 1.0343933128765999,
+      "solid": true
+    },
+    {
+      "point": [
+        243,
+        245
+      ],
+      "key": "pine",
+      "scale": 0.9630304741570983,
+      "solid": true
+    },
+    {
+      "point": [
+        95,
+        144
+      ],
+      "key": "tree",
+      "scale": 0.7786696334817542,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        73
+      ],
+      "key": "tree",
+      "scale": 0.9947718091669115,
+      "solid": true
+    },
+    {
+      "point": [
+        299,
+        245
+      ],
+      "key": "tree",
+      "scale": 1.1209110842512673,
+      "solid": true
+    },
+    {
+      "point": [
+        111,
+        47
+      ],
+      "key": "pine",
+      "scale": 0.8363895433676564,
+      "solid": true
+    },
+    {
+      "point": [
+        406,
+        252
+      ],
+      "key": "tree",
+      "scale": 0.7814602712660452,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        110
+      ],
+      "key": "tree",
+      "scale": 0.779345407436234,
+      "solid": true
+    },
+    {
+      "point": [
+        195,
+        157
+      ],
+      "key": "tree",
+      "scale": 0.9026499981611016,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        44
+      ],
+      "key": "tree",
+      "scale": 0.793582800288775,
+      "solid": true
+    },
+    {
+      "point": [
+        95,
+        65
+      ],
+      "key": "pine",
+      "scale": 0.8864662616420396,
+      "solid": true
+    },
+    {
+      "point": [
+        69,
+        91
+      ],
+      "key": "tree",
+      "scale": 0.8531211818974531,
+      "solid": true
+    },
+    {
+      "point": [
+        68,
+        38
+      ],
+      "key": "tree_pale",
+      "scale": 0.8133016105258434,
+      "solid": true
+    },
+    {
+      "point": [
+        91,
+        345
+      ],
+      "key": "pine",
+      "scale": 0.874793253875429,
+      "solid": true
+    },
+    {
+      "point": [
+        182,
+        119
+      ],
+      "key": "tree_pale",
+      "scale": 0.9071785195177053,
+      "solid": true
+    },
+    {
+      "point": [
+        133,
+        60
+      ],
+      "key": "pine",
+      "scale": 0.9236564242075349,
+      "solid": true
+    },
+    {
+      "point": [
+        262,
+        217
+      ],
+      "key": "tree",
+      "scale": 1.199463957292029,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        348
+      ],
+      "key": "pine",
+      "scale": 0.9347882990300201,
+      "solid": true
+    },
+    {
+      "point": [
+        67,
+        322
+      ],
+      "key": "tree",
+      "scale": 1.0360706792023944,
+      "solid": true
+    },
+    {
+      "point": [
+        37,
+        109
+      ],
+      "key": "pine",
+      "scale": 1.0135093079583588,
+      "solid": true
+    },
+    {
+      "point": [
+        41,
+        126
+      ],
+      "key": "tree_pale",
+      "scale": 1.1729907769323265,
+      "solid": true
+    },
+    {
+      "point": [
+        73,
+        102
+      ],
+      "key": "tree",
+      "scale": 0.7810342842459144,
+      "solid": true
+    },
+    {
+      "point": [
+        436,
+        204
+      ],
+      "key": "tree_pale",
+      "scale": 1.1460986172177081,
+      "solid": true
+    },
+    {
+      "point": [
+        164,
+        150
+      ],
+      "key": "tree_pale",
+      "scale": 1.1223868712353886,
+      "solid": true
+    },
+    {
+      "point": [
+        214,
+        32
+      ],
+      "key": "tree",
+      "scale": 1.0441798637652715,
+      "solid": true
+    },
+    {
+      "point": [
+        73,
+        357
+      ],
+      "key": "tree",
+      "scale": 0.9207304233691906,
+      "solid": true
+    },
+    {
+      "point": [
+        328,
+        166
+      ],
+      "key": "tree_pale",
+      "scale": 1.150987291617968,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        282
+      ],
+      "key": "tree",
+      "scale": 0.8221601352741691,
+      "solid": true
+    },
+    {
+      "point": [
+        356,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.9288748263522999,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        136
+      ],
+      "key": "pine",
+      "scale": 1.1705202948674014,
+      "solid": true
+    },
+    {
+      "point": [
+        257,
+        250
+      ],
+      "key": "tree",
+      "scale": 0.7543443001139541,
+      "solid": true
+    },
+    {
+      "point": [
+        61,
+        196
+      ],
+      "key": "tree",
+      "scale": 0.752831767906135,
+      "solid": true
+    },
+    {
+      "point": [
+        384,
+        175
+      ],
+      "key": "tree",
+      "scale": 0.9708243079323543,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        66
+      ],
+      "key": "tree_pale",
+      "scale": 0.8306079553851518,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        95
+      ],
+      "key": "tree",
+      "scale": 1.015727248884599,
+      "solid": true
+    },
+    {
+      "point": [
+        261,
+        30
+      ],
+      "key": "tree_pale",
+      "scale": 1.167361300576684,
+      "solid": true
+    },
+    {
+      "point": [
+        103,
+        51
+      ],
+      "key": "pine",
+      "scale": 1.0142367646518846,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        356
+      ],
+      "key": "tree_pale",
+      "scale": 1.0321858993026527,
+      "solid": true
+    },
+    {
+      "point": [
+        432,
+        192
+      ],
+      "key": "tree",
+      "scale": 0.8144807824706295,
+      "solid": true
+    },
+    {
+      "point": [
+        288,
+        79
+      ],
+      "key": "tree_pale",
+      "scale": 1.111210654194946,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        125
+      ],
+      "key": "tree_pale",
+      "scale": 1.1735799614524356,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        123
+      ],
+      "key": "pine",
+      "scale": 0.7707173545173419,
+      "solid": true
+    },
+    {
+      "point": [
+        359,
+        260
+      ],
+      "key": "pine",
+      "scale": 0.7886983992182962,
+      "solid": true
+    },
+    {
+      "point": [
+        456,
+        293
+      ],
+      "key": "tree_pale",
+      "scale": 1.097433678719987,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        345
+      ],
+      "key": "pine",
+      "scale": 1.0139277547822327,
+      "solid": true
+    },
+    {
+      "point": [
+        340,
+        21
+      ],
+      "key": "tree",
+      "scale": 0.9426967165654002,
+      "solid": true
+    },
+    {
+      "point": [
+        422,
+        348
+      ],
+      "key": "tree_pale",
+      "scale": 1.0117073901884457,
+      "solid": true
+    },
+    {
+      "point": [
+        117,
+        140
+      ],
+      "key": "tree",
+      "scale": 0.9428407254525415,
+      "solid": true
+    },
+    {
+      "point": [
+        336,
+        76
+      ],
+      "key": "tree_pale",
+      "scale": 1.0283980361157568,
+      "solid": true
+    },
+    {
+      "point": [
+        97,
+        181
+      ],
+      "key": "tree",
+      "scale": 0.8308352418717898,
+      "solid": true
+    },
+    {
+      "point": [
+        193,
+        183
+      ],
+      "key": "pine",
+      "scale": 0.841596239258831,
+      "solid": true
+    },
+    {
+      "point": [
+        87,
+        125
+      ],
+      "key": "tree_pale",
+      "scale": 0.8701595885358678,
+      "solid": true
+    },
+    {
+      "point": [
+        70,
+        240
+      ],
+      "key": "tree",
+      "scale": 1.1389813230194,
+      "solid": true
+    },
+    {
+      "point": [
+        49,
+        137
+      ],
+      "key": "tree",
+      "scale": 0.8654543947339403,
+      "solid": true
+    },
+    {
+      "point": [
+        45,
+        357
+      ],
+      "key": "pine",
+      "scale": 0.8642777330539758,
+      "solid": true
+    },
+    {
+      "point": [
+        464,
+        275
+      ],
+      "key": "tree",
+      "scale": 0.9954891741790886,
+      "solid": true
+    },
+    {
+      "point": [
+        288,
+        96
+      ],
+      "key": "tree_pale",
+      "scale": 1.1405981776120824,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        141
+      ],
+      "key": "tree_pale",
+      "scale": 1.0930071468517273,
+      "solid": true
+    },
+    {
+      "point": [
+        125,
+        154
+      ],
+      "key": "tree",
+      "scale": 1.0333762846926526,
+      "solid": true
+    },
+    {
+      "point": [
+        52,
+        105
+      ],
+      "key": "tree",
+      "scale": 0.7992088980170288,
+      "solid": true
+    },
+    {
+      "point": [
+        181,
+        336
+      ],
+      "key": "pine",
+      "scale": 1.0654181650747598,
+      "solid": true
+    },
+    {
+      "point": [
+        435,
+        277
+      ],
+      "key": "tree",
+      "scale": 1.0741527143954794,
+      "solid": true
+    },
+    {
+      "point": [
+        295,
+        90
+      ],
+      "key": "pine",
+      "scale": 0.8292735199544947,
+      "solid": true
+    },
+    {
+      "point": [
+        42,
+        91
+      ],
+      "key": "pine",
+      "scale": 0.8686144654318424,
+      "solid": true
+    },
+    {
+      "point": [
+        421,
+        335
+      ],
+      "key": "tree",
+      "scale": 1.1027011156115774,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        37
+      ],
+      "key": "pine",
+      "scale": 1.060238438096034,
+      "solid": true
+    },
+    {
+      "point": [
+        407,
+        262
+      ],
+      "key": "tree",
+      "scale": 1.1599689988948214,
+      "solid": true
+    },
+    {
+      "point": [
+        246,
+        209
+      ],
+      "key": "pine",
+      "scale": 1.1603967710553476,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        102
+      ],
+      "key": "tree",
+      "scale": 1.1955653628766993,
+      "solid": true
+    },
+    {
+      "point": [
+        20,
+        335
+      ],
+      "key": "tree_pale",
+      "scale": 0.8114848738428085,
+      "solid": true
+    },
+    {
+      "point": [
+        38,
+        157
+      ],
+      "key": "tree",
+      "scale": 0.9041035892937057,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        84
+      ],
+      "key": "pine",
+      "scale": 0.7824440726299504,
+      "solid": true
+    },
+    {
+      "point": [
+        21,
+        235
+      ],
+      "key": "pine",
+      "scale": 0.9572774611286646,
+      "solid": true
+    },
+    {
+      "point": [
+        57,
+        176
+      ],
+      "key": "pine",
+      "scale": 0.8713645708832173,
+      "solid": true
+    },
+    {
+      "point": [
+        440,
+        235
+      ],
+      "key": "tree",
+      "scale": 0.8702783697598921,
+      "solid": true
+    },
+    {
+      "point": [
+        489,
+        313
+      ],
+      "key": "tree",
+      "scale": 1.0388558824630596,
+      "solid": true
+    },
+    {
+      "point": [
+        178,
+        174
+      ],
+      "key": "pine",
+      "scale": 1.1062835056737106,
+      "solid": true
+    },
+    {
+      "point": [
+        116,
+        110
+      ],
+      "key": "tree_pale",
+      "scale": 0.9514346203516421,
+      "solid": true
+    },
+    {
+      "point": [
+        265,
+        243
+      ],
+      "key": "tree_pale",
+      "scale": 1.1161814415081688,
+      "solid": true
+    },
+    {
+      "point": [
+        118,
+        225
+      ],
+      "key": "pine",
+      "scale": 0.9652351479923117,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        95
+      ],
+      "key": "tree_pale",
+      "scale": 1.0880691369780304,
+      "solid": true
+    },
+    {
+      "point": [
+        136,
+        68
+      ],
+      "key": "pine",
+      "scale": 0.7685738738011785,
+      "solid": true
+    },
+    {
+      "point": [
+        136,
+        91
+      ],
+      "key": "tree_pale",
+      "scale": 1.0986410546686054,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        60
+      ],
+      "key": "tree_pale",
+      "scale": 1.0546549340340026,
+      "solid": true
+    },
+    {
+      "point": [
+        305,
+        68
+      ],
+      "key": "tree_pale",
+      "scale": 1.0176917130996754,
+      "solid": true
+    },
+    {
+      "point": [
+        334,
+        48
+      ],
+      "key": "pine",
+      "scale": 1.0755091518078796,
+      "solid": true
+    },
+    {
+      "point": [
+        412,
+        329
+      ],
+      "key": "tree",
+      "scale": 0.8982087108366227,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        102
+      ],
+      "key": "pine",
+      "scale": 1.185421673760956,
+      "solid": true
+    },
+    {
+      "point": [
+        80,
+        40
+      ],
+      "key": "pine",
+      "scale": 1.183046263161322,
+      "solid": true
+    },
+    {
+      "point": [
+        147,
+        107
+      ],
+      "key": "tree",
+      "scale": 0.8236379216316029,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        82
+      ],
+      "key": "tree",
+      "scale": 0.9830916802934149,
+      "solid": true
+    },
+    {
+      "point": [
+        223,
+        351
+      ],
+      "key": "pine",
+      "scale": 0.8578016144986826,
+      "solid": true
+    },
+    {
+      "point": [
+        387,
+        315
+      ],
+      "key": "tree",
+      "scale": 1.05502864750202,
+      "solid": true
+    },
+    {
+      "point": [
+        127,
+        118
+      ],
+      "key": "pine",
+      "scale": 0.9602369110086295,
+      "solid": true
+    },
+    {
+      "point": [
+        402,
+        309
+      ],
+      "key": "pine",
+      "scale": 1.0827998730155675,
+      "solid": true
+    },
+    {
+      "point": [
+        82,
+        45
+      ],
+      "key": "tree",
+      "scale": 0.911773098191998,
+      "solid": true
+    },
+    {
+      "point": [
+        269,
+        248
+      ],
+      "key": "tree",
+      "scale": 1.183437117735275,
+      "solid": true
+    },
+    {
+      "point": [
+        289,
+        234
+      ],
+      "key": "pine",
+      "scale": 0.8757223706852755,
+      "solid": true
+    },
+    {
+      "point": [
+        115,
+        347
+      ],
+      "key": "pine",
+      "scale": 1.0169511760543417,
+      "solid": true
+    },
+    {
+      "point": [
+        366,
+        322
+      ],
+      "key": "pine",
+      "scale": 1.0919910992514392,
+      "solid": true
+    },
+    {
+      "point": [
+        265,
+        53
+      ],
+      "key": "tree_pale",
+      "scale": 0.8021199219060988,
+      "solid": true
+    },
+    {
+      "point": [
+        292,
+        69
+      ],
+      "key": "tree",
+      "scale": 0.9715058448384257,
+      "solid": true
+    },
+    {
+      "point": [
+        46,
+        290
+      ],
+      "key": "tree_pale",
+      "scale": 1.0007631713119172,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        116
+      ],
+      "key": "tree",
+      "scale": 0.9705061355102389,
+      "solid": true
+    },
+    {
+      "point": [
+        408,
+        324
+      ],
+      "key": "tree",
+      "scale": 1.194631825744821,
+      "solid": true
+    },
+    {
+      "point": [
+        449,
+        320
+      ],
+      "key": "tree_pale",
+      "scale": 0.9930929702327416,
+      "solid": true
+    },
+    {
+      "point": [
+        128,
+        93
+      ],
+      "key": "tree",
+      "scale": 1.137835633174975,
+      "solid": true
+    },
+    {
+      "point": [
+        414,
+        324
+      ],
+      "key": "tree",
+      "scale": 1.1107021621885451,
+      "solid": true
+    },
+    {
+      "point": [
+        86,
+        92
+      ],
+      "key": "pine",
+      "scale": 0.8120888510209059,
+      "solid": true
+    },
+    {
+      "point": [
+        466,
+        315
+      ],
+      "key": "tree_pale",
+      "scale": 0.8790912184194812,
+      "solid": true
+    },
+    {
+      "point": [
+        244,
+        209
+      ],
+      "key": "tree_pale",
+      "scale": 0.9395525517445196,
+      "solid": true
+    },
+    {
+      "point": [
+        38,
+        338
+      ],
+      "key": "tree_pale",
+      "scale": 0.9048906973067905,
+      "solid": true
+    },
+    {
+      "point": [
+        285,
+        90
+      ],
+      "key": "tree_pale",
+      "scale": 1.0883080914313488,
+      "solid": true
+    },
+    {
+      "point": [
+        213,
+        128
+      ],
+      "key": "tree_pale",
+      "scale": 0.8305961261360438,
+      "solid": true
+    },
+    {
+      "point": [
+        137,
+        103
+      ],
+      "key": "tree",
+      "scale": 0.8944134383448488,
+      "solid": true
+    },
+    {
+      "point": [
+        421,
+        305
+      ],
+      "key": "tree_pale",
+      "scale": 0.7859187240394988,
+      "solid": true
+    },
+    {
+      "point": [
+        338,
+        101
+      ],
+      "key": "pine",
+      "scale": 0.7902148110231281,
+      "solid": true
+    },
+    {
+      "point": [
+        468,
+        184
+      ],
+      "key": "tree_pale",
+      "scale": 0.7893154123997409,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        151
+      ],
+      "key": "tree",
+      "scale": 1.113817573939585,
+      "solid": true
+    },
+    {
+      "point": [
+        110,
+        63
+      ],
+      "key": "tree_pale",
+      "scale": 1.046416156098234,
+      "solid": true
+    },
+    {
+      "point": [
+        459,
+        333
+      ],
+      "key": "pine",
+      "scale": 1.1981602959455913,
+      "solid": true
+    },
+    {
+      "point": [
+        136,
+        132
+      ],
+      "key": "tree_pale",
+      "scale": 1.0543172115334372,
+      "solid": true
+    },
+    {
+      "point": [
+        122,
+        133
+      ],
+      "key": "tree_pale",
+      "scale": 0.985342593701706,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        190
+      ],
+      "key": "tree_pale",
+      "scale": 1.0138093370294445,
+      "solid": true
+    },
+    {
+      "point": [
+        286,
+        65
+      ],
+      "key": "tree",
+      "scale": 0.9924201887680097,
+      "solid": true
+    },
+    {
+      "point": [
+        122,
+        182
+      ],
+      "key": "tree_pale",
+      "scale": 0.9715553869274415,
+      "solid": true
+    },
+    {
+      "point": [
+        448,
+        29
+      ],
+      "key": "pine",
+      "scale": 0.9440386471733574,
+      "solid": true
+    },
+    {
+      "point": [
+        70,
+        253
+      ],
+      "key": "tree",
+      "scale": 0.8988949414082258,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        335
+      ],
+      "key": "pine",
+      "scale": 0.9518584220040595,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        80
+      ],
+      "key": "pine",
+      "scale": 0.8224465557874786,
+      "solid": true
+    },
+    {
+      "point": [
+        387,
+        338
+      ],
+      "key": "tree",
+      "scale": 1.0240997521016295,
+      "solid": true
+    },
+    {
+      "point": [
+        439,
+        282
+      ],
+      "key": "pine",
+      "scale": 1.192209019429819,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        44
+      ],
+      "key": "tree_pale",
+      "scale": 0.9201357866008849,
+      "solid": true
+    },
+    {
+      "point": [
+        214,
+        328
+      ],
+      "key": "pine",
+      "scale": 1.1436510961161224,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        149
+      ],
+      "key": "pine",
+      "scale": 1.0179718450801996,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        221
+      ],
+      "key": "pine",
+      "scale": 0.8456686825960283,
+      "solid": true
+    },
+    {
+      "point": [
+        295,
+        252
+      ],
+      "key": "pine",
+      "scale": 0.9776777462645843,
+      "solid": true
+    },
+    {
+      "point": [
+        360,
+        77
+      ],
+      "key": "tree_pale",
+      "scale": 0.936826827070733,
+      "solid": true
+    },
+    {
+      "point": [
+        205,
+        323
+      ],
+      "key": "tree",
+      "scale": 1.132519214427715,
+      "solid": true
+    },
+    {
+      "point": [
+        236,
+        193
+      ],
+      "key": "pine",
+      "scale": 0.9679875280189979,
+      "solid": true
+    },
+    {
+      "point": [
+        134,
+        90
+      ],
+      "key": "tree_pale",
+      "scale": 0.869067527438354,
+      "solid": true
+    },
+    {
+      "point": [
+        311,
+        48
+      ],
+      "key": "pine",
+      "scale": 0.9148012714792964,
+      "solid": true
+    },
+    {
+      "point": [
+        366,
+        45
+      ],
+      "key": "pine",
+      "scale": 1.1204473123841898,
+      "solid": true
+    },
+    {
+      "point": [
+        440,
+        311
+      ],
+      "key": "tree_pale",
+      "scale": 1.1115176540885048,
+      "solid": true
+    },
+    {
+      "point": [
+        435,
+        225
+      ],
+      "key": "pine",
+      "scale": 0.9750155961535945,
+      "solid": true
+    },
+    {
+      "point": [
+        251,
+        240
+      ],
+      "key": "pine",
+      "scale": 1.0394444495288817,
+      "solid": true
+    },
+    {
+      "point": [
+        312,
+        205
+      ],
+      "key": "pine",
+      "scale": 0.7609425889152766,
+      "solid": true
+    },
+    {
+      "point": [
+        280,
+        188
+      ],
+      "key": "pine",
+      "scale": 1.017898438622399,
+      "solid": true
+    },
+    {
+      "point": [
+        22,
+        347
+      ],
+      "key": "pine",
+      "scale": 0.9396543197531908,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        228
+      ],
+      "key": "tree_pale",
+      "scale": 0.7935374459248863,
+      "solid": true
+    },
+    {
+      "point": [
+        75,
+        350
+      ],
+      "key": "pine",
+      "scale": 0.9796065801296447,
+      "solid": true
+    },
+    {
+      "point": [
+        270,
+        74
+      ],
+      "key": "tree",
+      "scale": 0.8440582927503233,
+      "solid": true
+    },
+    {
+      "point": [
+        450,
+        238
+      ],
+      "key": "tree",
+      "scale": 1.0752153433125013,
+      "solid": true
+    },
+    {
+      "point": [
+        181,
+        53
+      ],
+      "key": "tree",
+      "scale": 0.7715548716096088,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        318
+      ],
+      "key": "pine",
+      "scale": 0.8054258882980534,
+      "solid": true
+    },
+    {
+      "point": [
+        107,
+        45
+      ],
+      "key": "tree",
+      "scale": 1.0902617366998613,
+      "solid": true
+    },
+    {
+      "point": [
+        330,
+        75
+      ],
+      "key": "pine",
+      "scale": 1.0271710517445563,
+      "solid": true
+    },
+    {
+      "point": [
+        63,
+        354
+      ],
+      "key": "tree",
+      "scale": 1.0338091083639078,
+      "solid": true
+    },
+    {
+      "point": [
+        58,
+        322
+      ],
+      "key": "tree",
+      "scale": 0.8385356884511935,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        34
+      ],
+      "key": "tree_pale",
+      "scale": 1.1761046683694116,
+      "solid": true
+    },
+    {
+      "point": [
+        414,
+        266
+      ],
+      "key": "tree",
+      "scale": 0.9729913243152261,
+      "solid": true
+    },
+    {
+      "point": [
+        161,
+        154
+      ],
+      "key": "pine",
+      "scale": 1.1116039744855841,
+      "solid": true
+    },
+    {
+      "point": [
+        73,
+        88
+      ],
+      "key": "tree_pale",
+      "scale": 0.8423403302440184,
+      "solid": true
+    },
+    {
+      "point": [
+        477,
+        282
+      ],
+      "key": "tree_pale",
+      "scale": 1.0523634617476867,
+      "solid": true
+    },
+    {
+      "point": [
+        340,
+        209
+      ],
+      "key": "tree_pale",
+      "scale": 1.0885196928959608,
+      "solid": true
+    },
+    {
+      "point": [
+        107,
+        54
+      ],
+      "key": "pine",
+      "scale": 0.9733386114063836,
+      "solid": true
+    },
+    {
+      "point": [
+        351,
+        56
+      ],
+      "key": "tree_pale",
+      "scale": 1.024288530644804,
+      "solid": true
+    },
+    {
+      "point": [
+        39,
+        157
+      ],
+      "key": "tree_pale",
+      "scale": 0.8166476490244567,
+      "solid": true
+    },
+    {
+      "point": [
+        257,
+        238
+      ],
+      "key": "pine",
+      "scale": 0.8745353446075022,
+      "solid": true
+    },
+    {
+      "point": [
+        478,
+        248
+      ],
+      "key": "pine",
+      "scale": 1.033576766041698,
+      "solid": true
+    },
+    {
+      "point": [
+        134,
+        126
+      ],
+      "key": "pine",
+      "scale": 1.0646211641717698,
+      "solid": true
+    },
+    {
+      "point": [
+        216,
+        103
+      ],
+      "key": "pine",
+      "scale": 1.1277732892662893,
+      "solid": true
+    },
+    {
+      "point": [
+        427,
+        306
+      ],
+      "key": "tree_pale",
+      "scale": 0.9463815168147727,
+      "solid": true
+    },
+    {
+      "point": [
+        437,
+        306
+      ],
+      "key": "pine",
+      "scale": 0.8644871390917109,
+      "solid": true
+    },
+    {
+      "point": [
+        34,
+        50
+      ],
+      "key": "tree",
+      "scale": 0.7561723027416173,
+      "solid": true
+    },
+    {
+      "point": [
+        159,
+        79
+      ],
+      "key": "tree",
+      "scale": 0.7597746568949639,
+      "solid": true
+    },
+    {
+      "point": [
+        487,
+        306
+      ],
+      "key": "tree_pale",
+      "scale": 0.8977015700185309,
+      "solid": true
+    },
+    {
+      "point": [
+        55,
+        149
+      ],
+      "key": "pine",
+      "scale": 0.7826765243099494,
+      "solid": true
+    },
+    {
+      "point": [
+        392,
+        311
+      ],
+      "key": "tree_pale",
+      "scale": 1.1072380321925461,
+      "solid": true
+    },
+    {
+      "point": [
+        51,
+        364
+      ],
+      "key": "tree",
+      "scale": 0.9740316986087518,
+      "solid": true
+    },
+    {
+      "point": [
+        465,
+        324
+      ],
+      "key": "tree_pale",
+      "scale": 0.8871000196743374,
+      "solid": true
+    },
+    {
+      "point": [
+        408,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.9988329043293271,
+      "solid": true
+    },
+    {
+      "point": [
+        61,
+        115
+      ],
+      "key": "tree_pale",
+      "scale": 1.0839535428400424,
+      "solid": true
+    },
+    {
+      "point": [
+        173,
+        122
+      ],
+      "key": "tree",
+      "scale": 0.9668105698272998,
+      "solid": true
+    },
+    {
+      "point": [
+        352,
+        76
+      ],
+      "key": "tree",
+      "scale": 0.8192793055291674,
+      "solid": true
+    },
+    {
+      "point": [
+        298,
+        201
+      ],
+      "key": "tree",
+      "scale": 0.9925489268582847,
+      "solid": true
+    },
+    {
+      "point": [
+        90,
+        125
+      ],
+      "key": "tree",
+      "scale": 0.7775487669720375,
+      "solid": true
+    },
+    {
+      "point": [
+        353,
+        310
+      ],
+      "key": "tree",
+      "scale": 1.0964003931601602,
+      "solid": true
+    },
+    {
+      "point": [
+        433,
+        312
+      ],
+      "key": "tree",
+      "scale": 0.8826789052501036,
+      "solid": true
+    },
+    {
+      "point": [
+        63,
+        218
+      ],
+      "key": "tree_pale",
+      "scale": 0.8669121863442185,
+      "solid": true
+    },
+    {
+      "point": [
+        396,
+        345
+      ],
+      "key": "tree",
+      "scale": 1.0847624706455186,
+      "solid": true
+    },
+    {
+      "point": [
+        349,
+        104
+      ],
+      "key": "tree_pale",
+      "scale": 1.1381738957202419,
+      "solid": true
+    },
+    {
+      "point": [
+        259,
+        94
+      ],
+      "key": "pine",
+      "scale": 0.8857369751740668,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        105
+      ],
+      "key": "tree",
+      "scale": 0.9895493350304103,
+      "solid": true
+    },
+    {
+      "point": [
+        263,
+        228
+      ],
+      "key": "pine",
+      "scale": 1.1643579993700652,
+      "solid": true
+    },
+    {
+      "point": [
+        28,
+        358
+      ],
+      "key": "tree_pale",
+      "scale": 0.8366682061058313,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        199
+      ],
+      "key": "pine",
+      "scale": 1.030163400487103,
+      "solid": true
+    },
+    {
+      "point": [
+        434,
+        302
+      ],
+      "key": "tree_pale",
+      "scale": 1.0327853037249748,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        110
+      ],
+      "key": "tree",
+      "scale": 0.8095062433895943,
+      "solid": true
+    },
+    {
+      "point": [
+        130,
+        225
+      ],
+      "key": "pine",
+      "scale": 0.9844533876526463,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        81
+      ],
+      "key": "tree_pale",
+      "scale": 1.0406714357497682,
+      "solid": true
+    },
+    {
+      "point": [
+        341,
+        44
+      ],
+      "key": "tree",
+      "scale": 0.8107358089832406,
+      "solid": true
+    },
+    {
+      "point": [
+        153,
+        171
+      ],
+      "key": "tree",
+      "scale": 0.7857089110218379,
+      "solid": true
+    },
+    {
+      "point": [
+        79,
+        344
+      ],
+      "key": "tree",
+      "scale": 0.9121506347722308,
+      "solid": true
+    },
+    {
+      "point": [
+        178,
+        174
+      ],
+      "key": "tree",
+      "scale": 1.131126563121435,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        332
+      ],
+      "key": "tree",
+      "scale": 1.1920056711644862,
+      "solid": true
+    },
+    {
+      "point": [
+        199,
+        249
+      ],
+      "key": "pine",
+      "scale": 0.8540681176558973,
+      "solid": true
+    },
+    {
+      "point": [
+        270,
+        93
+      ],
+      "key": "pine",
+      "scale": 0.9308909961065278,
+      "solid": true
+    },
+    {
+      "point": [
+        130,
+        61
+      ],
+      "key": "tree_pale",
+      "scale": 1.1246824806275613,
+      "solid": true
+    },
+    {
+      "point": [
+        117,
+        126
+      ],
+      "key": "tree",
+      "scale": 0.7732467752017034,
+      "solid": true
+    },
+    {
+      "point": [
+        260,
+        65
+      ],
+      "key": "tree",
+      "scale": 0.8082693461809417,
+      "solid": true
+    },
+    {
+      "point": [
+        461,
+        267
+      ],
+      "key": "tree",
+      "scale": 1.1700508353566743,
+      "solid": true
+    },
+    {
+      "point": [
+        396,
+        302
+      ],
+      "key": "tree_pale",
+      "scale": 1.1514526586136613,
+      "solid": true
+    },
+    {
+      "point": [
+        285,
+        152
+      ],
+      "key": "tree",
+      "scale": 1.1451267304038537,
+      "solid": true
+    },
+    {
+      "point": [
+        345,
+        82
+      ],
+      "key": "tree",
+      "scale": 0.8388014549007056,
+      "solid": true
+    },
+    {
+      "point": [
+        425,
+        323
+      ],
+      "key": "pine",
+      "scale": 1.184287848917716,
+      "solid": true
+    },
+    {
+      "point": [
+        342,
+        65
+      ],
+      "key": "pine",
+      "scale": 0.7994252456277883,
+      "solid": true
+    },
+    {
+      "point": [
+        283,
+        40
+      ],
+      "key": "tree",
+      "scale": 0.8510242449261916,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        64
+      ],
+      "key": "tree",
+      "scale": 1.0543713340244938,
+      "solid": true
+    },
+    {
+      "point": [
+        54,
+        134
+      ],
+      "key": "pine",
+      "scale": 1.186397349844681,
+      "solid": true
+    },
+    {
+      "point": [
+        422,
+        249
+      ],
+      "key": "tree",
+      "scale": 0.7943897292360342,
+      "solid": true
+    },
+    {
+      "point": [
+        80,
+        54
+      ],
+      "key": "tree_pale",
+      "scale": 1.1369153304227835,
+      "solid": true
+    },
+    {
+      "point": [
+        269,
+        95
+      ],
+      "key": "tree",
+      "scale": 0.921354769492676,
+      "solid": true
+    },
+    {
+      "point": [
+        300,
+        75
+      ],
+      "key": "pine",
+      "scale": 0.862822803712866,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        336
+      ],
+      "key": "tree_pale",
+      "scale": 1.1802053835334898,
+      "solid": true
+    },
+    {
+      "point": [
+        276,
+        71
+      ],
+      "key": "tree",
+      "scale": 1.149427167211905,
+      "solid": true
+    },
+    {
+      "point": [
+        23,
+        135
+      ],
+      "key": "pine",
+      "scale": 0.7734641092529767,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        230
+      ],
+      "key": "tree",
+      "scale": 1.0930632413954786,
+      "solid": true
+    },
+    {
+      "point": [
+        394,
+        328
+      ],
+      "key": "tree",
+      "scale": 0.7876462923445923,
+      "solid": true
+    },
+    {
+      "point": [
+        395,
+        319
+      ],
+      "key": "tree_pale",
+      "scale": 0.8989737519570051,
+      "solid": true
+    },
+    {
+      "point": [
+        421,
+        285
+      ],
+      "key": "tree",
+      "scale": 0.9432105362085061,
+      "solid": true
+    },
+    {
+      "point": [
+        257,
+        212
+      ],
+      "key": "tree",
+      "scale": 0.7553531919111921,
+      "solid": true
+    },
+    {
+      "point": [
+        422,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.7715342336147749,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        226
+      ],
+      "key": "pine",
+      "scale": 1.1789177859378013,
+      "solid": true
+    },
+    {
+      "point": [
+        415,
+        307
+      ],
+      "key": "tree",
+      "scale": 1.137263515100095,
+      "solid": true
+    },
+    {
+      "point": [
+        444,
+        241
+      ],
+      "key": "tree",
+      "scale": 1.1580708334076442,
+      "solid": true
+    },
+    {
+      "point": [
+        107,
+        363
+      ],
+      "key": "tree",
+      "scale": 0.8439518545999072,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        45
+      ],
+      "key": "tree_pale",
+      "scale": 0.9249586466941934,
+      "solid": true
+    },
+    {
+      "point": [
+        343,
+        104
+      ],
+      "key": "pine",
+      "scale": 1.1122654455087442,
+      "solid": true
+    },
+    {
+      "point": [
+        428,
+        323
+      ],
+      "key": "tree_pale",
+      "scale": 1.0940366199861007,
+      "solid": true
+    },
+    {
+      "point": [
+        94,
+        167
+      ],
+      "key": "pine",
+      "scale": 1.058017252092882,
+      "solid": true
+    },
+    {
+      "point": [
+        53,
+        139
+      ],
+      "key": "tree_pale",
+      "scale": 0.9621402625019764,
+      "solid": true
+    },
+    {
+      "point": [
+        341,
+        276
+      ],
+      "key": "tree",
+      "scale": 0.9159751672366565,
+      "solid": true
+    },
+    {
+      "point": [
+        41,
+        131
+      ],
+      "key": "tree_pale",
+      "scale": 0.7800583018243868,
+      "solid": true
+    },
+    {
+      "point": [
+        388,
+        273
+      ],
+      "key": "tree",
+      "scale": 0.8976994080883388,
+      "solid": true
+    },
+    {
+      "point": [
+        419,
+        267
+      ],
+      "key": "tree_pale",
+      "scale": 0.9526078513604813,
+      "solid": true
+    },
+    {
+      "point": [
+        49,
+        120
+      ],
+      "key": "tree",
+      "scale": 1.1279492634607913,
+      "solid": true
+    },
+    {
+      "point": [
+        255,
+        107
+      ],
+      "key": "tree_pale",
+      "scale": 0.8155899560097002,
+      "solid": true
+    },
+    {
+      "point": [
+        46,
+        100
+      ],
+      "key": "pine",
+      "scale": 0.7539713283752971,
+      "solid": true
+    },
+    {
+      "point": [
+        318,
+        84
+      ],
+      "key": "pine",
+      "scale": 1.1765346239496266,
+      "solid": true
+    },
+    {
+      "point": [
+        66,
+        363
+      ],
+      "key": "pine",
+      "scale": 0.9689887887155557,
+      "solid": true
+    },
+    {
+      "point": [
+        282,
+        80
+      ],
+      "key": "pine",
+      "scale": 1.196966455335005,
+      "solid": true
+    },
+    {
+      "point": [
+        215,
+        52
+      ],
+      "key": "tree_pale",
+      "scale": 0.8594547627193753,
+      "solid": true
+    },
+    {
+      "point": [
+        383,
+        284
+      ],
+      "key": "tree_pale",
+      "scale": 1.0896691568270973,
+      "solid": true
+    },
+    {
+      "point": [
+        323,
+        86
+      ],
+      "key": "tree_pale",
+      "scale": 0.8390302326967742,
+      "solid": true
+    },
+    {
+      "point": [
+        423,
+        276
+      ],
+      "key": "pine",
+      "scale": 0.7680541822637916,
+      "solid": true
+    },
+    {
+      "point": [
+        91,
+        167
+      ],
+      "key": "tree",
+      "scale": 1.1155224350610697,
+      "solid": true
+    },
+    {
+      "point": [
+        103,
+        356
+      ],
+      "key": "tree_pale",
+      "scale": 1.0320082621689093,
+      "solid": true
+    },
+    {
+      "point": [
+        149,
+        345
+      ],
+      "key": "pine",
+      "scale": 0.7654112803485825,
+      "solid": true
+    },
+    {
+      "point": [
+        290,
+        218
+      ],
+      "key": "tree",
+      "scale": 0.9441966361808581,
+      "solid": true
+    },
+    {
+      "point": [
+        362,
+        194
+      ],
+      "key": "pine",
+      "scale": 0.9649614837868825,
+      "solid": true
+    },
+    {
+      "point": [
+        34,
+        141
+      ],
+      "key": "tree",
+      "scale": 1.0098472866316528,
+      "solid": true
+    },
+    {
+      "point": [
+        85,
+        337
+      ],
+      "key": "pine",
+      "scale": 0.9331068611425827,
+      "solid": true
+    },
+    {
+      "point": [
+        437,
+        249
+      ],
+      "key": "pine",
+      "scale": 0.9796298677136135,
+      "solid": true
+    },
+    {
+      "point": [
+        476,
+        326
+      ],
+      "key": "pine",
+      "scale": 0.937911402473584,
+      "solid": true
+    },
+    {
+      "point": [
+        29,
+        134
+      ],
+      "key": "tree_pale",
+      "scale": 0.8912483792978414,
+      "solid": true
+    },
+    {
+      "point": [
+        489,
+        293
+      ],
+      "key": "tree",
+      "scale": 0.8971816434598378,
+      "solid": true
+    },
+    {
+      "point": [
+        35,
+        122
+      ],
+      "key": "tree_pale",
+      "scale": 0.8114338472744458,
+      "solid": true
+    },
+    {
+      "point": [
+        277,
+        258
+      ],
+      "key": "tree_pale",
+      "scale": 1.1596073328396979,
+      "solid": true
+    },
+    {
+      "point": [
+        440,
+        344
+      ],
+      "key": "tree",
+      "scale": 0.9490633784512061,
+      "solid": true
+    },
+    {
+      "point": [
+        492,
+        316
+      ],
+      "key": "pine",
+      "scale": 1.1514593457171123,
+      "solid": true
+    },
+    {
+      "point": [
+        287,
+        201
+      ],
+      "key": "pine",
+      "scale": 0.845790803603123,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        148
+      ],
+      "key": "tree_pale",
+      "scale": 1.16830624034489,
+      "solid": true
+    },
+    {
+      "point": [
+        352,
+        263
+      ],
+      "key": "tree_pale",
+      "scale": 1.0092964089968397,
+      "solid": true
+    },
+    {
+      "point": [
+        124,
+        134
+      ],
+      "key": "pine",
+      "scale": 0.8470068150018001,
+      "solid": true
+    },
+    {
+      "point": [
+        139,
+        62
+      ],
+      "key": "pine",
+      "scale": 0.8434894495699227,
+      "solid": true
+    },
+    {
+      "point": [
+        26,
+        144
+      ],
+      "key": "tree_pale",
+      "scale": 1.126400163018179,
+      "solid": true
+    },
+    {
+      "point": [
+        434,
+        254
+      ],
+      "key": "tree_pale",
+      "scale": 0.9729972766651234,
+      "solid": true
+    },
+    {
+      "point": [
+        467,
+        267
+      ],
+      "key": "tree",
+      "scale": 0.9885438602815626,
+      "solid": true
+    },
+    {
+      "point": [
+        435,
+        315
+      ],
+      "key": "tree",
+      "scale": 1.1483943940889798,
+      "solid": true
+    },
+    {
+      "point": [
+        249,
+        234
+      ],
+      "key": "tree_pale",
+      "scale": 0.8307032366915107,
+      "solid": true
+    },
+    {
+      "point": [
+        469,
+        288
+      ],
+      "key": "pine",
+      "scale": 1.1758738315758954,
+      "solid": true
+    },
+    {
+      "point": [
+        443,
+        156
+      ],
+      "key": "tree_pale",
+      "scale": 1.0554575343948338,
+      "solid": true
+    },
+    {
+      "point": [
+        433,
+        287
+      ],
+      "key": "pine",
+      "scale": 0.8220193755148055,
+      "solid": true
+    },
+    {
+      "point": [
+        73,
+        94
+      ],
+      "key": "tree_pale",
+      "scale": 0.9689272160958583,
+      "solid": true
+    },
+    {
+      "point": [
+        66,
+        91
+      ],
+      "key": "pine",
+      "scale": 0.8626731464855774,
+      "solid": true
+    },
+    {
+      "point": [
+        56,
+        166
+      ],
+      "key": "pine",
+      "scale": 0.8215129238688043,
+      "solid": true
+    },
+    {
+      "point": [
+        443,
+        267
+      ],
+      "key": "tree",
+      "scale": 0.9755557890465212,
+      "solid": true
+    },
+    {
+      "point": [
+        111,
+        357
+      ],
+      "key": "tree_pale",
+      "scale": 1.075868680339182,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        102
+      ],
+      "key": "pine",
+      "scale": 1.0188274044632963,
+      "solid": true
+    },
+    {
+      "point": [
+        283,
+        79
+      ],
+      "key": "pine",
+      "scale": 0.8353628047951381,
+      "solid": true
+    },
+    {
+      "point": [
+        91,
+        142
+      ],
+      "key": "tree",
+      "scale": 1.137200364572703,
+      "solid": true
+    },
+    {
+      "point": [
+        265,
+        55
+      ],
+      "key": "tree",
+      "scale": 0.7786786757251042,
+      "solid": true
+    },
+    {
+      "point": [
+        472,
+        276
+      ],
+      "key": "tree_pale",
+      "scale": 1.0440074668320807,
+      "solid": true
+    },
+    {
+      "point": [
+        481,
+        279
+      ],
+      "key": "pine",
+      "scale": 1.197449144972692,
+      "solid": true
+    },
+    {
+      "point": [
+        488,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.8478570064711051,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        77
+      ],
+      "key": "tree_pale",
+      "scale": 0.8173418826847562,
+      "solid": true
+    },
+    {
+      "point": [
+        113,
+        185
+      ],
+      "key": "tree",
+      "scale": 1.0876007735136817,
+      "solid": true
+    },
+    {
+      "point": [
+        363,
+        261
+      ],
+      "key": "tree",
+      "scale": 1.1004661565052247,
+      "solid": true
+    },
+    {
+      "point": [
+        89,
+        160
+      ],
+      "key": "tree_pale",
+      "scale": 1.0345661771108736,
+      "solid": true
+    },
+    {
+      "point": [
+        27,
+        295
+      ],
+      "key": "tree",
+      "scale": 0.8475765405386549,
+      "solid": true
+    },
+    {
+      "point": [
+        437,
+        342
+      ],
+      "key": "pine",
+      "scale": 0.830801125770111,
+      "solid": true
+    },
+    {
+      "point": [
+        69,
+        336
+      ],
+      "key": "tree",
+      "scale": 1.0214921202637006,
+      "solid": true
+    },
+    {
+      "point": [
+        470,
+        219
+      ],
+      "key": "tree",
+      "scale": 0.8275289453508656,
+      "solid": true
+    },
+    {
+      "point": [
+        130,
+        353
+      ],
+      "key": "tree_pale",
+      "scale": 0.8138109752480389,
+      "solid": true
+    },
+    {
+      "point": [
+        287,
+        202
+      ],
+      "key": "pine",
+      "scale": 0.8611220104982524,
+      "solid": true
+    },
+    {
+      "point": [
+        113,
+        36
+      ],
+      "key": "tree_pale",
+      "scale": 0.8267209295850558,
+      "solid": true
+    },
+    {
+      "point": [
+        459,
+        336
+      ],
+      "key": "tree",
+      "scale": 0.9072415275077989,
+      "solid": true
+    },
+    {
+      "point": [
+        26,
+        360
+      ],
+      "key": "pine",
+      "scale": 1.152491960329996,
+      "solid": true
+    },
+    {
+      "point": [
+        248,
+        157
+      ],
+      "key": "pine",
+      "scale": 0.8011831792453785,
+      "solid": true
+    },
+    {
+      "point": [
+        72,
+        356
+      ],
+      "key": "tree_pale",
+      "scale": 1.1246601993211585,
+      "solid": true
+    },
+    {
+      "point": [
+        39,
+        287
+      ],
+      "key": "tree",
+      "scale": 0.8574422443864385,
+      "solid": true
+    },
+    {
+      "point": [
+        443,
+        333
+      ],
+      "key": "tree_pale",
+      "scale": 0.9022884540247609,
+      "solid": true
+    },
+    {
+      "point": [
+        431,
+        292
+      ],
+      "key": "pine",
+      "scale": 0.9863866657412882,
+      "solid": true
+    },
+    {
+      "point": [
+        19,
+        90
+      ],
+      "key": "tree_pale",
+      "scale": 0.9095005954737293,
+      "solid": true
+    },
+    {
+      "point": [
+        37,
+        358
+      ],
+      "key": "tree_pale",
+      "scale": 1.0852906257849777,
+      "solid": true
+    },
+    {
+      "point": [
+        65,
+        154
+      ],
+      "key": "tree_pale",
+      "scale": 0.849627223543144,
+      "solid": true
+    },
+    {
+      "point": [
+        177,
+        106
+      ],
+      "key": "tree",
+      "scale": 0.8454007920207669,
+      "solid": true
+    },
+    {
+      "point": [
+        104,
+        156
+      ],
+      "key": "pine",
+      "scale": 0.9316345572124678,
+      "solid": true
+    },
+    {
+      "point": [
+        489,
+        64
+      ],
+      "key": "tree_pale",
+      "scale": 1.0833274889964037,
+      "solid": true
+    },
+    {
+      "point": [
+        458,
+        258
+      ],
+      "key": "tree_pale",
+      "scale": 1.097879215926986,
+      "solid": true
+    },
+    {
+      "point": [
+        371,
+        171
+      ],
+      "key": "tree_pale",
+      "scale": 1.0404963303747639,
+      "solid": true
+    },
+    {
+      "point": [
+        269,
+        46
+      ],
+      "key": "pine",
+      "scale": 1.1150368531932071,
+      "solid": true
+    },
+    {
+      "point": [
+        90,
+        92
+      ],
+      "key": "pine",
+      "scale": 0.8610985941689207,
+      "solid": true
+    },
+    {
+      "point": [
+        267,
+        245
+      ],
+      "key": "tree",
+      "scale": 1.1124350588972205,
+      "solid": true
+    },
+    {
+      "point": [
+        334,
+        73
+      ],
+      "key": "tree_pale",
+      "scale": 0.8593410142894556,
+      "solid": true
+    },
+    {
+      "point": [
+        134,
+        85
+      ],
+      "key": "tree_pale",
+      "scale": 0.8648377820746331,
+      "solid": true
+    },
+    {
+      "point": [
+        276,
+        123
+      ],
+      "key": "pine",
+      "scale": 1.0264213159632454,
+      "solid": true
+    },
+    {
+      "point": [
+        478,
+        278
+      ],
+      "key": "tree",
+      "scale": 0.908111451410551,
+      "solid": true
+    },
+    {
+      "point": [
+        433,
+        316
+      ],
+      "key": "tree",
+      "scale": 1.0974989115322082,
+      "solid": true
+    },
+    {
+      "point": [
+        325,
+        94
+      ],
+      "key": "tree",
+      "scale": 0.7757906967544997,
+      "solid": true
+    },
+    {
+      "point": [
+        441,
+        316
+      ],
+      "key": "pine",
+      "scale": 1.0952306514498042,
+      "solid": true
+    },
+    {
+      "point": [
+        364,
+        267
+      ],
+      "key": "tree_pale",
+      "scale": 0.9079327484644022,
+      "solid": true
+    },
+    {
+      "point": [
+        262,
+        102
+      ],
+      "key": "pine",
+      "scale": 0.8298502715748504,
+      "solid": true
+    },
+    {
+      "point": [
+        377,
+        325
+      ],
+      "key": "pine",
+      "scale": 0.9581256536785576,
+      "solid": true
+    },
+    {
+      "point": [
+        439,
+        248
+      ],
+      "key": "tree",
+      "scale": 1.0409123351230112,
+      "solid": true
+    },
+    {
+      "point": [
+        442,
+        345
+      ],
+      "key": "tree_pale",
+      "scale": 1.183462521530647,
+      "solid": true
+    },
+    {
+      "point": [
+        113,
+        45
+      ],
+      "key": "pine",
+      "scale": 0.9603193588083333,
+      "solid": true
+    },
+    {
+      "point": [
+        25,
+        188
+      ],
+      "key": "tree_pale",
+      "scale": 1.1232354344520519,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        58
+      ],
+      "key": "tree",
+      "scale": 0.841431946086609,
+      "solid": true
+    },
+    {
+      "point": [
+        130,
+        113
+      ],
+      "key": "pine",
+      "scale": 1.002285871756229,
+      "solid": true
+    },
+    {
+      "point": [
+        411,
+        253
+      ],
+      "key": "tree",
+      "scale": 1.168075812324537,
+      "solid": true
+    },
+    {
+      "point": [
+        261,
+        81
+      ],
+      "key": "tree_pale",
+      "scale": 1.0933018560094716,
+      "solid": true
+    },
+    {
+      "point": [
+        161,
+        125
+      ],
+      "key": "tree",
+      "scale": 0.9516235636159849,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        248
+      ],
+      "key": "pine",
+      "scale": 0.8133015575220024,
+      "solid": true
+    },
+    {
+      "point": [
+        283,
+        252
+      ],
+      "key": "tree_pale",
+      "scale": 0.8699291392194639,
+      "solid": true
+    },
+    {
+      "point": [
+        364,
+        313
+      ],
+      "key": "tree_pale",
+      "scale": 1.1986348466269878,
+      "solid": true
+    },
+    {
+      "point": [
+        68,
+        330
+      ],
+      "key": "pine",
+      "scale": 0.9628177725047881,
+      "solid": true
+    },
+    {
+      "point": [
+        473,
+        313
+      ],
+      "key": "tree_pale",
+      "scale": 0.7860688239476352,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        38
+      ],
+      "key": "pine",
+      "scale": 0.9413059648665828,
+      "solid": true
+    },
+    {
+      "point": [
+        28,
+        284
+      ],
+      "key": "tree_pale",
+      "scale": 1.1959204291094379,
+      "solid": true
+    },
+    {
+      "point": [
+        65,
+        269
+      ],
+      "key": "pine",
+      "scale": 0.8962389171997571,
+      "solid": true
+    },
+    {
+      "point": [
+        350,
+        78
+      ],
+      "key": "tree",
+      "scale": 0.7952367842130428,
+      "solid": true
+    },
+    {
+      "point": [
+        124,
+        90
+      ],
+      "key": "tree_pale",
+      "scale": 1.066687416068435,
+      "solid": true
+    },
+    {
+      "point": [
+        357,
+        77
+      ],
+      "key": "tree_pale",
+      "scale": 1.0237610282769802,
+      "solid": true
+    },
+    {
+      "point": [
+        159,
+        91
+      ],
+      "key": "tree_pale",
+      "scale": 1.1747368691992208,
+      "solid": true
+    },
+    {
+      "point": [
+        53,
+        65
+      ],
+      "key": "tree_pale",
+      "scale": 0.9404781268209996,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        72
+      ],
+      "key": "tree",
+      "scale": 0.8379482127198333,
+      "solid": true
+    },
+    {
+      "point": [
+        43,
+        202
+      ],
+      "key": "tree_pale",
+      "scale": 1.1018438998249707,
+      "solid": true
+    },
+    {
+      "point": [
+        328,
+        61
+      ],
+      "key": "pine",
+      "scale": 0.9472098500494611,
+      "solid": true
+    },
+    {
+      "point": [
+        352,
+        83
+      ],
+      "key": "pine",
+      "scale": 1.158941460897677,
+      "solid": true
+    },
+    {
+      "point": [
+        104,
+        69
+      ],
+      "key": "tree_pale",
+      "scale": 1.0538063337705474,
+      "solid": true
+    },
+    {
+      "point": [
+        293,
+        267
+      ],
+      "key": "pine",
+      "scale": 0.9518046905398195,
+      "solid": true
+    },
+    {
+      "point": [
+        35,
+        77
+      ],
+      "key": "pine",
+      "scale": 1.0099023604574229,
+      "solid": true
+    },
+    {
+      "point": [
+        116,
+        168
+      ],
+      "key": "tree_pale",
+      "scale": 0.8413292782014948,
+      "solid": true
+    },
+    {
+      "point": [
+        261,
+        73
+      ],
+      "key": "tree_pale",
+      "scale": 1.1413628000977978,
+      "solid": true
+    },
+    {
+      "point": [
+        310,
+        100
+      ],
+      "key": "tree_pale",
+      "scale": 1.0666077979744153,
+      "solid": true
+    },
+    {
+      "point": [
+        416,
+        358
+      ],
+      "key": "pine",
+      "scale": 1.0163882417250654,
+      "solid": true
+    },
+    {
+      "point": [
+        277,
+        242
+      ],
+      "key": "tree",
+      "scale": 1.1698098619401416,
+      "solid": true
+    },
+    {
+      "point": [
+        42,
+        62
+      ],
+      "key": "tree_pale",
+      "scale": 1.0631513179128884,
+      "solid": true
+    },
+    {
+      "point": [
+        440,
+        240
+      ],
+      "key": "pine",
+      "scale": 0.9581584916436412,
+      "solid": true
+    },
+    {
+      "point": [
+        124,
+        104
+      ],
+      "key": "pine",
+      "scale": 0.7994263856869204,
+      "solid": true
+    },
+    {
+      "point": [
+        169,
+        84
+      ],
+      "key": "tree",
+      "scale": 0.8583858187950453,
+      "solid": true
+    },
+    {
+      "point": [
+        268,
+        91
+      ],
+      "key": "tree_pale",
+      "scale": 0.9824510455889208,
+      "solid": true
+    },
+    {
+      "point": [
+        413,
+        350
+      ],
+      "key": "tree_pale",
+      "scale": 1.1881275909595632,
+      "solid": true
+    },
+    {
+      "point": [
+        55,
+        331
+      ],
+      "key": "pine",
+      "scale": 1.1626244375653045,
+      "solid": true
+    },
+    {
+      "point": [
+        26,
+        121
+      ],
+      "key": "pine",
+      "scale": 1.151257094726436,
+      "solid": true
+    },
+    {
+      "point": [
+        428,
+        298
+      ],
+      "key": "tree",
+      "scale": 1.1603268991358489,
+      "solid": true
+    },
+    {
+      "point": [
+        51,
+        80
+      ],
+      "key": "tree_pale",
+      "scale": 0.8779831927720898,
+      "solid": true
+    },
+    {
+      "point": [
+        402,
+        346
+      ],
+      "key": "pine",
+      "scale": 0.9836235398853477,
+      "solid": true
+    },
+    {
+      "point": [
+        347,
+        43
+      ],
+      "key": "tree_pale",
+      "scale": 0.7588345156850786,
+      "solid": true
+    },
+    {
+      "point": [
+        348,
+        78
+      ],
+      "key": "tree",
+      "scale": 1.069315894207323,
+      "solid": true
+    },
+    {
+      "point": [
+        422,
+        301
+      ],
+      "key": "pine",
+      "scale": 0.8395290202311242,
+      "solid": true
+    },
+    {
+      "point": [
+        411,
+        221
+      ],
+      "key": "tree",
+      "scale": 0.8524412804523703,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        75
+      ],
+      "key": "tree_pale",
+      "scale": 0.9387847920437453,
+      "solid": true
+    },
+    {
+      "point": [
+        290,
+        206
+      ],
+      "key": "tree",
+      "scale": 1.1696379961300305,
+      "solid": true
+    },
+    {
+      "point": [
+        251,
+        224
+      ],
+      "key": "tree",
+      "scale": 0.8409989120518517,
+      "solid": true
+    },
+    {
+      "point": [
+        72,
+        122
+      ],
+      "key": "tree_pale",
+      "scale": 1.1645283306535814,
+      "solid": true
+    },
+    {
+      "point": [
+        491,
+        220
+      ],
+      "key": "pine",
+      "scale": 0.8708015598411193,
+      "solid": true
+    },
+    {
+      "point": [
+        272,
+        265
+      ],
+      "key": "tree",
+      "scale": 0.9578028957485406,
+      "solid": true
+    },
+    {
+      "point": [
+        19,
+        92
+      ],
+      "key": "pine",
+      "scale": 1.046689204855741,
+      "solid": true
+    },
+    {
+      "point": [
+        475,
+        314
+      ],
+      "key": "pine",
+      "scale": 0.8085208939919526,
+      "solid": true
+    },
+    {
+      "point": [
+        107,
+        120
+      ],
+      "key": "tree",
+      "scale": 1.0079321817928575,
+      "solid": true
+    },
+    {
+      "point": [
+        318,
+        56
+      ],
+      "key": "pine",
+      "scale": 0.7666779681155355,
+      "solid": true
+    },
+    {
+      "point": [
+        81,
+        89
+      ],
+      "key": "tree_pale",
+      "scale": 0.9721447202694695,
+      "solid": true
+    },
+    {
+      "point": [
+        254,
+        165
+      ],
+      "key": "tree_pale",
+      "scale": 1.0419683672269093,
+      "solid": true
+    },
+    {
+      "point": [
+        475,
+        181
+      ],
+      "key": "pine",
+      "scale": 1.0852494572424525,
+      "solid": true
+    },
+    {
+      "point": [
+        161,
+        118
+      ],
+      "key": "tree",
+      "scale": 0.9813357327720769,
+      "solid": true
+    },
+    {
+      "point": [
+        45,
+        126
+      ],
+      "key": "pine",
+      "scale": 1.0250431667025346,
+      "solid": true
+    },
+    {
+      "point": [
+        341,
+        76
+      ],
+      "key": "pine",
+      "scale": 0.8398172579370112,
+      "solid": true
+    },
+    {
+      "point": [
+        434,
+        262
+      ],
+      "key": "tree",
+      "scale": 1.1788260224732818,
+      "solid": true
+    },
+    {
+      "point": [
+        460,
+        300
+      ],
+      "key": "pine",
+      "scale": 0.8481499911237281,
+      "solid": true
+    },
+    {
+      "point": [
+        41,
+        168
+      ],
+      "key": "pine",
+      "scale": 1.1657000186243767,
+      "solid": true
+    },
+    {
+      "point": [
+        79,
+        108
+      ],
+      "key": "tree_pale",
+      "scale": 0.9996140937928801,
+      "solid": true
+    },
+    {
+      "point": [
+        256,
+        178
+      ],
+      "key": "pine",
+      "scale": 1.0918310415211685,
+      "solid": true
+    },
+    {
+      "point": [
+        472,
+        320
+      ],
+      "key": "tree_pale",
+      "scale": 0.9928263590845906,
+      "solid": true
+    },
+    {
+      "point": [
+        39,
+        363
+      ],
+      "key": "tree",
+      "scale": 0.7658156879110026,
+      "solid": true
+    },
+    {
+      "point": [
+        439,
+        250
+      ],
+      "key": "pine",
+      "scale": 1.1675430855825832,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        64
+      ],
+      "key": "tree_pale",
+      "scale": 1.1814896416056468,
+      "solid": true
+    },
+    {
+      "point": [
+        27,
+        78
+      ],
+      "key": "tree_pale",
+      "scale": 0.7762978932646075,
+      "solid": true
+    },
+    {
+      "point": [
+        266,
+        263
+      ],
+      "key": "tree_pale",
+      "scale": 1.0495876677454428,
+      "solid": true
+    },
+    {
+      "point": [
+        325,
+        58
+      ],
+      "key": "pine",
+      "scale": 1.016827998271702,
+      "solid": true
+    },
+    {
+      "point": [
+        113,
+        341
+      ],
+      "key": "tree_pale",
+      "scale": 1.1267656910568513,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        101
+      ],
+      "key": "tree",
+      "scale": 1.1931800407794089,
+      "solid": true
+    },
+    {
+      "point": [
+        444,
+        262
+      ],
+      "key": "tree_pale",
+      "scale": 1.116234734836496,
+      "solid": true
+    },
+    {
+      "point": [
+        320,
+        232
+      ],
+      "key": "pine",
+      "scale": 0.8471975776152645,
+      "solid": true
+    },
+    {
+      "point": [
+        296,
+        108
+      ],
+      "key": "tree_pale",
+      "scale": 1.1166063182942163,
+      "solid": true
+    },
+    {
+      "point": [
+        179,
+        335
+      ],
+      "key": "tree_pale",
+      "scale": 0.9577524058845384,
+      "solid": true
+    },
+    {
+      "point": [
+        37,
+        158
+      ],
+      "key": "tree",
+      "scale": 1.0245826264335094,
+      "solid": true
+    },
+    {
+      "point": [
+        43,
+        101
+      ],
+      "key": "tree_pale",
+      "scale": 1.057226485603152,
+      "solid": true
+    },
+    {
+      "point": [
+        65,
+        113
+      ],
+      "key": "tree",
+      "scale": 1.0894395934766794,
+      "solid": true
+    },
+    {
+      "point": [
+        263,
+        190
+      ],
+      "key": "pine",
+      "scale": 0.878845468592634,
+      "solid": true
+    },
+    {
+      "point": [
+        459,
+        232
+      ],
+      "key": "tree",
+      "scale": 0.8750628231890919,
+      "solid": true
+    },
+    {
+      "point": [
+        75,
+        111
+      ],
+      "key": "tree",
+      "scale": 1.1276452419540273,
+      "solid": true
+    },
+    {
+      "point": [
+        314,
+        78
+      ],
+      "key": "tree_pale",
+      "scale": 1.0379054417982756,
+      "solid": true
+    },
+    {
+      "point": [
+        128,
+        186
+      ],
+      "key": "tree",
+      "scale": 0.9536157774154743,
+      "solid": true
+    },
+    {
+      "point": [
+        425,
+        294
+      ],
+      "key": "pine",
+      "scale": 1.076594771465539,
+      "solid": true
+    },
+    {
+      "point": [
+        283,
+        266
+      ],
+      "key": "tree",
+      "scale": 0.7808330762071415,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        82
+      ],
+      "key": "pine",
+      "scale": 0.8031656766719928,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        78
+      ],
+      "key": "pine",
+      "scale": 0.7859686725134277,
+      "solid": true
+    },
+    {
+      "point": [
+        37,
+        339
+      ],
+      "key": "tree",
+      "scale": 1.1618600705494275,
+      "solid": true
+    },
+    {
+      "point": [
+        219,
+        63
+      ],
+      "key": "pine",
+      "scale": 0.8109868886661529,
+      "solid": true
+    },
+    {
+      "point": [
+        277,
+        206
+      ],
+      "key": "pine",
+      "scale": 1.1904409801933264,
+      "solid": true
+    },
+    {
+      "point": [
+        196,
+        363
+      ],
+      "key": "pine",
+      "scale": 0.7658527891021761,
+      "solid": true
+    },
+    {
+      "point": [
+        377,
+        282
+      ],
+      "key": "pine",
+      "scale": 1.0064261025890429,
+      "solid": true
+    },
+    {
+      "point": [
+        169,
+        103
+      ],
+      "key": "tree_pale",
+      "scale": 1.082793493087941,
+      "solid": true
+    },
+    {
+      "point": [
+        219,
+        267
+      ],
+      "key": "pine",
+      "scale": 0.9711630088019563,
+      "solid": true
+    },
+    {
+      "point": [
+        92,
+        64
+      ],
+      "key": "pine",
+      "scale": 1.131790753026425,
+      "solid": true
+    },
+    {
+      "point": [
+        147,
+        74
+      ],
+      "key": "pine",
+      "scale": 0.8953456128929614,
+      "solid": true
+    },
+    {
+      "point": [
+        331,
+        340
+      ],
+      "key": "tree_pale",
+      "scale": 0.7992217199270442,
+      "solid": true
+    },
+    {
+      "point": [
+        74,
+        120
+      ],
+      "key": "tree_pale",
+      "scale": 0.7737037717231259,
+      "solid": true
+    },
+    {
+      "point": [
+        275,
+        54
+      ],
+      "key": "pine",
+      "scale": 1.0053222341039054,
+      "solid": true
+    },
+    {
+      "point": [
+        94,
+        186
+      ],
+      "key": "tree_pale",
+      "scale": 0.789909210106031,
+      "solid": true
+    },
+    {
+      "point": [
+        42,
+        163
+      ],
+      "key": "pine",
+      "scale": 0.9003317700252902,
+      "solid": true
+    },
+    {
+      "point": [
+        415,
+        311
+      ],
+      "key": "tree",
+      "scale": 0.8170204882565255,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        37
+      ],
+      "key": "pine",
+      "scale": 1.1068161945137207,
+      "solid": true
+    },
+    {
+      "point": [
+        74,
+        161
+      ],
+      "key": "pine",
+      "scale": 0.7503007253485956,
+      "solid": true
+    },
+    {
+      "point": [
+        336,
+        46
+      ],
+      "key": "tree",
+      "scale": 0.9374863627223187,
+      "solid": true
+    },
+    {
+      "point": [
+        58,
+        151
+      ],
+      "key": "tree_pale",
+      "scale": 0.8265668953221861,
+      "solid": true
+    },
+    {
+      "point": [
+        33,
+        349
+      ],
+      "key": "tree",
+      "scale": 1.142920717813781,
+      "solid": true
+    },
+    {
+      "point": [
+        110,
+        39
+      ],
+      "key": "pine",
+      "scale": 1.0337960900754015,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        166
+      ],
+      "key": "pine",
+      "scale": 1.1931480663112888,
+      "solid": true
+    },
+    {
+      "point": [
+        128,
+        53
+      ],
+      "key": "tree",
+      "scale": 1.1394842300231258,
+      "solid": true
+    },
+    {
+      "point": [
+        55,
+        263
+      ],
+      "key": "tree",
+      "scale": 0.8572686508007515,
+      "solid": true
+    },
+    {
+      "point": [
+        56,
+        364
+      ],
+      "key": "tree_pale",
+      "scale": 1.191090430917973,
+      "solid": true
+    },
+    {
+      "point": [
+        316,
+        363
+      ],
+      "key": "tree",
+      "scale": 0.8285625000640444,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        167
+      ],
+      "key": "pine",
+      "scale": 1.0551982116466276,
+      "solid": true
+    },
+    {
+      "point": [
+        458,
+        251
+      ],
+      "key": "tree_pale",
+      "scale": 1.0659797888002904,
+      "solid": true
+    },
+    {
+      "point": [
+        290,
+        222
+      ],
+      "key": "tree_pale",
+      "scale": 0.9555441317267583,
+      "solid": true
+    },
+    {
+      "point": [
+        270,
+        85
+      ],
+      "key": "tree_pale",
+      "scale": 0.8491874858952834,
+      "solid": true
+    },
+    {
+      "point": [
+        26,
+        333
+      ],
+      "key": "tree_pale",
+      "scale": 1.0528388688574424,
+      "solid": true
+    },
+    {
+      "point": [
+        306,
+        54
+      ],
+      "key": "pine",
+      "scale": 0.8813252554941762,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        173
+      ],
+      "key": "tree_pale",
+      "scale": 0.7980271093014079,
+      "solid": true
+    },
+    {
+      "point": [
+        257,
+        196
+      ],
+      "key": "tree",
+      "scale": 1.0294908441970887,
+      "solid": true
+    },
+    {
+      "point": [
+        346,
+        91
+      ],
+      "key": "tree",
+      "scale": 1.1586912382591004,
+      "solid": true
+    },
+    {
+      "point": [
+        298,
+        42
+      ],
+      "key": "pine",
+      "scale": 0.8703205312863425,
+      "solid": true
+    },
+    {
+      "point": [
+        237,
+        221
+      ],
+      "key": "pine",
+      "scale": 1.131136720781528,
+      "solid": true
+    },
+    {
+      "point": [
+        159,
+        96
+      ],
+      "key": "tree",
+      "scale": 0.8288140688792179,
+      "solid": true
+    },
+    {
+      "point": [
+        444,
+        316
+      ],
+      "key": "tree",
+      "scale": 1.0383056621923794,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        345
+      ],
+      "key": "tree_pale",
+      "scale": 0.7996365938164809,
+      "solid": true
+    },
+    {
+      "point": [
+        392,
+        319
+      ],
+      "key": "pine",
+      "scale": 0.8386598030621794,
+      "solid": true
+    },
+    {
+      "point": [
+        140,
+        135
+      ],
+      "key": "tree",
+      "scale": 1.0522295584564256,
+      "solid": true
+    },
+    {
+      "point": [
+        273,
+        216
+      ],
+      "key": "tree",
+      "scale": 0.7895974484260226,
+      "solid": true
+    },
+    {
+      "point": [
+        251,
+        228
+      ],
+      "key": "tree",
+      "scale": 1.0985297900664373,
+      "solid": true
+    },
+    {
+      "point": [
+        293,
+        76
+      ],
+      "key": "tree_pale",
+      "scale": 0.807694201648977,
+      "solid": true
+    },
+    {
+      "point": [
+        342,
+        99
+      ],
+      "key": "tree",
+      "scale": 0.8937360268464818,
+      "solid": true
+    },
+    {
+      "point": [
+        279,
+        45
+      ],
+      "key": "pine",
+      "scale": 0.7937335959889962,
+      "solid": true
+    },
+    {
+      "point": [
+        475,
+        216
+      ],
+      "key": "tree",
+      "scale": 0.7918333559156011,
+      "solid": true
+    },
+    {
+      "point": [
+        60,
+        105
+      ],
+      "key": "pine",
+      "scale": 0.8021072286070808,
+      "solid": true
+    },
+    {
+      "point": [
+        57,
+        88
+      ],
+      "key": "pine",
+      "scale": 1.1629644913161408,
+      "solid": true
+    },
+    {
+      "point": [
+        172,
+        120
+      ],
+      "key": "pine",
+      "scale": 0.9148565784311649,
+      "solid": true
+    },
+    {
+      "point": [
+        63,
+        339
+      ],
+      "key": "tree_pale",
+      "scale": 1.0373452044414875,
+      "solid": true
+    },
+    {
+      "point": [
+        411,
+        354
+      ],
+      "key": "tree_pale",
+      "scale": 0.8538998845124373,
+      "solid": true
+    },
+    {
+      "point": [
+        434,
+        290
+      ],
+      "key": "pine",
+      "scale": 0.7883955865911614,
+      "solid": true
+    },
+    {
+      "point": [
+        281,
+        83
+      ],
+      "key": "pine",
+      "scale": 0.89847599046525,
+      "solid": true
+    },
+    {
+      "point": [
+        20,
+        296
+      ],
+      "key": "tree",
+      "scale": 0.7590981001609339,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        334
+      ],
+      "key": "pine",
+      "scale": 0.90128496121215,
+      "solid": true
+    },
+    {
+      "point": [
+        131,
+        171
+      ],
+      "key": "pine",
+      "scale": 0.7560024468171073,
+      "solid": true
+    },
+    {
+      "point": [
+        335,
+        158
+      ],
+      "key": "tree",
+      "scale": 0.9975475163512351,
+      "solid": true
+    },
+    {
+      "point": [
+        233,
+        206
+      ],
+      "key": "tree_pale",
+      "scale": 0.8728250310809146,
+      "solid": true
+    },
+    {
+      "point": [
+        280,
+        71
+      ],
+      "key": "tree_pale",
+      "scale": 1.0077069202670776,
+      "solid": true
+    },
+    {
+      "point": [
+        230,
+        89
+      ],
+      "key": "pine",
+      "scale": 0.7756595745478329,
+      "solid": true
+    },
+    {
+      "point": [
+        129,
+        63
+      ],
+      "key": "tree_pale",
+      "scale": 0.7583068175267302,
+      "solid": true
+    },
+    {
+      "point": [
+        139,
+        144
+      ],
+      "key": "tree",
+      "scale": 1.1812039924860143,
+      "solid": true
+    },
+    {
+      "point": [
+        299,
+        129
+      ],
+      "key": "tree_pale",
+      "scale": 0.8606564742874647,
+      "solid": true
+    },
+    {
+      "point": [
+        446,
+        304
+      ],
+      "key": "tree",
+      "scale": 0.9419440777688937,
+      "solid": true
+    },
+    {
+      "point": [
+        110,
+        56
+      ],
+      "key": "tree",
+      "scale": 0.9754831615890919,
+      "solid": true
+    },
+    {
+      "point": [
+        203,
+        326
+      ],
+      "key": "pine",
+      "scale": 0.9420814677603395,
+      "solid": true
+    },
+    {
+      "point": [
+        115,
+        43
+      ],
+      "key": "tree_pale",
+      "scale": 0.8889456132139057,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        121
+      ],
+      "key": "tree_pale",
+      "scale": 0.9006961557517321,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        62
+      ],
+      "key": "tree_pale",
+      "scale": 0.7953151044271072,
+      "solid": true
+    },
+    {
+      "point": [
+        164,
+        85
+      ],
+      "key": "tree",
+      "scale": 1.0524677629043686,
+      "solid": true
+    },
+    {
+      "point": [
+        76,
+        113
+      ],
+      "key": "tree_pale",
+      "scale": 0.8290784067032574,
+      "solid": true
+    },
+    {
+      "point": [
+        455,
+        318
+      ],
+      "key": "pine",
+      "scale": 0.9482725374007264,
+      "solid": true
+    },
+    {
+      "point": [
+        243,
+        213
+      ],
+      "key": "pine",
+      "scale": 0.9414567511742539,
+      "solid": true
+    },
+    {
+      "point": [
+        165,
+        66
+      ],
+      "key": "pine",
+      "scale": 0.8111679727636696,
+      "solid": true
+    },
+    {
+      "point": [
+        429,
+        274
+      ],
+      "key": "tree_pale",
+      "scale": 0.7692175225928715,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        237
+      ],
+      "key": "tree_pale",
+      "scale": 0.9139886082746637,
+      "solid": true
+    },
+    {
+      "point": [
+        52,
+        86
+      ],
+      "key": "tree_pale",
+      "scale": 1.0560884290503731,
+      "solid": true
+    },
+    {
+      "point": [
+        354,
+        302
+      ],
+      "key": "pine",
+      "scale": 0.9690290524061825,
+      "solid": true
+    },
+    {
+      "point": [
+        378,
+        296
+      ],
+      "key": "tree",
+      "scale": 0.9907747753231896,
+      "solid": true
+    },
+    {
+      "point": [
+        48,
+        52
+      ],
+      "key": "tree",
+      "scale": 0.8618467307358337,
+      "solid": true
+    },
+    {
+      "point": [
+        151,
+        110
+      ],
+      "key": "tree",
+      "scale": 0.8829655976279013,
+      "solid": true
+    },
+    {
+      "point": [
+        269,
+        224
+      ],
+      "key": "tree_pale",
+      "scale": 1.0420196623508813,
+      "solid": true
+    },
+    {
+      "point": [
+        344,
+        225
+      ],
+      "key": "tree",
+      "scale": 0.9086339451214241,
+      "solid": true
+    },
+    {
+      "point": [
+        30,
+        117
+      ],
+      "key": "tree",
+      "scale": 0.9581514286334913,
+      "solid": true
+    },
+    {
+      "point": [
+        35,
+        93
+      ],
+      "key": "pine",
+      "scale": 1.187719261561097,
+      "solid": true
+    },
+    {
+      "point": [
+        380,
+        18
+      ],
+      "key": "pine",
+      "scale": 1.0355009401056052,
+      "solid": true
+    },
+    {
+      "point": [
+        391,
+        292
+      ],
+      "key": "tree",
+      "scale": 0.9630293390207635,
+      "solid": true
+    },
+    {
+      "point": [
+        48,
+        65
+      ],
+      "key": "pine",
+      "scale": 0.8223013002337912,
+      "solid": true
+    },
+    {
+      "point": [
+        450,
+        325
+      ],
+      "key": "tree",
+      "scale": 1.1011330359946467,
+      "solid": true
+    },
+    {
+      "point": [
+        456,
+        282
+      ],
+      "key": "tree_pale",
+      "scale": 1.1552094995844904,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        109
+      ],
+      "key": "tree",
+      "scale": 1.1830126303199442,
+      "solid": true
+    },
+    {
+      "point": [
+        254,
+        249
+      ],
+      "key": "pine",
+      "scale": 1.0749640615962852,
+      "solid": true
+    },
+    {
+      "point": [
+        428,
+        325
+      ],
+      "key": "tree_pale",
+      "scale": 0.8501482432256591,
+      "solid": true
+    },
+    {
+      "point": [
+        157,
+        83
+      ],
+      "key": "tree_pale",
+      "scale": 0.9202749184191368,
+      "solid": true
+    },
+    {
+      "point": [
+        331,
+        57
+      ],
+      "key": "tree",
+      "scale": 1.1857590956988961,
+      "solid": true
+    },
+    {
+      "point": [
+        293,
+        61
+      ],
+      "key": "tree",
+      "scale": 1.0553611497624469,
+      "solid": true
+    },
+    {
+      "point": [
+        125,
+        351
+      ],
+      "key": "tree",
+      "scale": 0.97990594552246,
+      "solid": true
+    },
+    {
+      "point": [
+        467,
+        247
+      ],
+      "key": "pine",
+      "scale": 0.9902566205348331,
+      "solid": true
+    },
+    {
+      "point": [
+        95,
+        176
+      ],
+      "key": "tree_pale",
+      "scale": 0.9737943458629594,
+      "solid": true
+    },
+    {
+      "point": [
+        124,
+        104
+      ],
+      "key": "pine",
+      "scale": 1.0115539194074532,
+      "solid": true
+    },
+    {
+      "point": [
+        275,
+        133
+      ],
+      "key": "tree_pale",
+      "scale": 1.0990688671090465,
+      "solid": true
+    },
+    {
+      "point": [
+        124,
+        41
+      ],
+      "key": "pine",
+      "scale": 0.9906176744341895,
+      "solid": true
+    },
+    {
+      "point": [
+        289,
+        254
+      ],
+      "key": "tree",
+      "scale": 0.7601313432169731,
+      "solid": true
+    },
+    {
+      "point": [
+        271,
+        164
+      ],
+      "key": "pine",
+      "scale": 1.0744876134550583,
+      "solid": true
+    },
+    {
+      "point": [
+        117,
+        136
+      ],
+      "key": "tree",
+      "scale": 0.8440578917796895,
+      "solid": true
+    },
+    {
+      "point": [
+        334,
+        65
+      ],
+      "key": "tree",
+      "scale": 0.9566092428317188,
+      "solid": true
+    },
+    {
+      "point": [
+        70,
+        141
+      ],
+      "key": "tree",
+      "scale": 0.8119975985032286,
+      "solid": true
+    },
+    {
+      "point": [
+        46,
+        87
+      ],
+      "key": "pine",
+      "scale": 1.093200832059476,
+      "solid": true
+    },
+    {
+      "point": [
+        128,
+        350
+      ],
+      "key": "tree_pale",
+      "scale": 0.9482402862278833,
+      "solid": true
+    },
+    {
+      "point": [
+        364,
+        53
+      ],
+      "key": "tree_pale",
+      "scale": 0.8209214516513095,
+      "solid": true
+    },
+    {
+      "point": [
+        355,
+        53
+      ],
+      "key": "tree",
+      "scale": 0.8490127089336843,
+      "solid": true
+    },
+    {
+      "point": [
+        420,
+        303
+      ],
+      "key": "tree_pale",
+      "scale": 0.782145208663919,
+      "solid": true
+    },
+    {
+      "point": [
+        59,
+        96
+      ],
+      "key": "tree_pale",
+      "scale": 0.9695336857778785,
+      "solid": true
+    },
+    {
+      "point": [
+        287,
+        86
+      ],
+      "key": "pine",
+      "scale": 0.9751043491037588,
+      "solid": true
+    },
+    {
+      "point": [
+        421,
+        249
+      ],
+      "key": "tree_pale",
+      "scale": 0.9958817754319467,
+      "solid": true
+    },
+    {
+      "point": [
+        263,
+        90
+      ],
+      "key": "pine",
+      "scale": 1.0541904254782701,
+      "solid": true
+    },
+    {
+      "point": [
+        146,
+        141
+      ],
+      "key": "tree_pale",
+      "scale": 0.9792483117597656,
+      "solid": true
+    },
+    {
+      "point": [
+        371,
+        247
+      ],
+      "key": "pine",
+      "scale": 0.9260368925499176,
+      "solid": true
+    },
+    {
+      "point": [
+        320,
+        104
+      ],
+      "key": "tree_pale",
+      "scale": 1.1441267074540395,
+      "solid": true
+    },
+    {
+      "point": [
+        291,
+        268
+      ],
+      "key": "tree_pale",
+      "scale": 1.1258689681453005,
+      "solid": true
+    },
+    {
+      "point": [
+        457,
+        263
+      ],
+      "key": "tree",
+      "scale": 0.8578149269331853,
+      "solid": true
+    },
+    {
+      "point": [
+        81,
+        74
+      ],
+      "key": "tree_pale",
+      "scale": 1.072612731974825,
+      "solid": true
+    },
+    {
+      "point": [
+        285,
+        51
+      ],
+      "key": "tree",
+      "scale": 0.8329778492561173,
+      "solid": true
+    },
+    {
+      "point": [
+        284,
+        237
+      ],
+      "key": "tree_pale",
+      "scale": 1.037959824991283,
+      "solid": true
+    },
+    {
+      "point": [
+        62,
+        276
+      ],
+      "key": "tree",
+      "scale": 0.8706894189535336,
+      "solid": true
+    },
+    {
+      "point": [
+        67,
+        175
+      ],
+      "key": "tree",
+      "scale": 0.9444993246968827,
+      "solid": true
+    },
+    {
+      "point": [
+        449,
+        244
+      ],
+      "key": "tree",
+      "scale": 1.1534058205915265,
+      "solid": true
+    },
+    {
+      "point": [
+        138,
+        163
+      ],
+      "key": "pine",
+      "scale": 1.1629754923340636,
+      "solid": true
+    },
+    {
+      "point": [
+        347,
+        51
+      ],
+      "key": "tree",
+      "scale": 0.9805752897708425,
+      "solid": true
+    },
+    {
+      "point": [
+        128,
+        346
+      ],
+      "key": "tree",
+      "scale": 1.1783885288833869,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        19
+      ],
+      "key": "tree",
+      "scale": 1.020091307077874,
+      "solid": true
+    },
+    {
+      "point": [
+        38,
+        358
+      ],
+      "key": "tree",
+      "scale": 1.076077203873566,
+      "solid": true
+    },
+    {
+      "point": [
+        116,
+        41
+      ],
+      "key": "pine",
+      "scale": 1.0404762037166067,
+      "solid": true
+    },
+    {
+      "point": [
+        50,
+        171
+      ],
+      "key": "tree",
+      "scale": 0.8482677610315723,
+      "solid": true
+    },
+    {
+      "point": [
+        415,
+        353
+      ],
+      "key": "tree_pale",
+      "scale": 0.9149785773637948,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        334
+      ],
+      "key": "tree",
+      "scale": 1.026907538988882,
+      "solid": true
+    },
+    {
+      "point": [
+        430,
+        335
+      ],
+      "key": "pine",
+      "scale": 1.0648532801177708,
+      "solid": true
+    },
+    {
+      "point": [
+        258,
+        362
+      ],
+      "key": "tree_pale",
+      "scale": 0.9181058563096693,
+      "solid": true
+    },
+    {
+      "point": [
+        431,
+        293
+      ],
+      "key": "pine",
+      "scale": 0.9300876051425583,
+      "solid": true
+    },
+    {
+      "point": [
+        276,
+        51
+      ],
+      "key": "pine",
+      "scale": 0.7769094049190409,
+      "solid": true
+    },
+    {
+      "point": [
+        58,
+        59
+      ],
+      "key": "pine",
+      "scale": 0.834863571872537,
+      "solid": true
+    },
+    {
+      "point": [
+        205,
+        247
+      ],
+      "key": "pine",
+      "scale": 0.8284554686778384,
+      "solid": true
+    },
+    {
+      "point": [
+        279,
+        270
+      ],
+      "key": "pine",
+      "scale": 1.1617689273086942,
+      "solid": true
+    },
+    {
+      "point": [
+        491,
+        262
+      ],
+      "key": "tree",
+      "scale": 0.7997399871781212,
+      "solid": true
+    },
+    {
+      "point": [
+        460,
+        300
+      ],
+      "key": "tree_pale",
+      "scale": 0.8858761003122178,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        96
+      ],
+      "key": "tree",
+      "scale": 0.797106836247332,
+      "solid": true
+    },
+    {
+      "point": [
+        343,
+        272
+      ],
+      "key": "tree_pale",
+      "scale": 1.0301590325756513,
+      "solid": true
+    },
+    {
+      "point": [
+        468,
+        300
+      ],
+      "key": "tree",
+      "scale": 0.8089356163503736,
+      "solid": true
+    },
+    {
+      "point": [
+        248,
+        210
+      ],
+      "key": "pine",
+      "scale": 0.9899090050624157,
+      "solid": true
+    },
+    {
+      "point": [
+        151,
+        351
+      ],
+      "key": "tree",
+      "scale": 1.097177582575707,
+      "solid": true
+    },
+    {
+      "point": [
+        115,
+        136
+      ],
+      "key": "tree_pale",
+      "scale": 1.1403291111039258,
+      "solid": true
+    },
+    {
+      "point": [
+        481,
+        270
+      ],
+      "key": "pine",
+      "scale": 1.0332962689878484,
+      "solid": true
+    },
+    {
+      "point": [
+        400,
+        328
+      ],
+      "key": "tree",
+      "scale": 1.003375419123983,
+      "solid": true
+    },
+    {
+      "point": [
+        86,
+        151
+      ],
+      "key": "tree_pale",
+      "scale": 1.1704098323364367,
+      "solid": true
+    },
+    {
+      "point": [
+        410,
+        305
+      ],
+      "key": "pine",
+      "scale": 0.9532263836487556,
+      "solid": true
+    },
+    {
+      "point": [
+        131,
+        131
+      ],
+      "key": "tree_pale",
+      "scale": 1.0119027059917023,
+      "solid": true
+    },
+    {
+      "point": [
+        63,
+        71
+      ],
+      "key": "tree_pale",
+      "scale": 0.7868198693458918,
+      "solid": true
+    },
+    {
+      "point": [
+        298,
+        45
+      ],
+      "key": "tree_pale",
+      "scale": 1.083368115991848,
+      "solid": true
+    },
+    {
+      "point": [
+        238,
+        190
+      ],
+      "key": "tree_pale",
+      "scale": 1.1174757258974597,
+      "solid": true
+    },
+    {
+      "point": [
+        278,
+        183
+      ],
+      "key": "tree",
+      "scale": 1.1268398120770395,
+      "solid": true
+    },
+    {
+      "point": [
+        40,
+        348
+      ],
+      "key": "tree",
+      "scale": 0.929696367754529,
+      "solid": true
+    },
+    {
+      "point": [
+        355,
+        281
+      ],
+      "key": "tree_pale",
+      "scale": 1.1085745449246103,
+      "solid": true
+    },
+    {
+      "point": [
+        58,
+        350
+      ],
+      "key": "pine",
+      "scale": 0.909216230177122,
+      "solid": true
+    },
+    {
+      "point": [
+        91,
+        191
+      ],
+      "key": "tree",
+      "scale": 0.7934563584816449,
+      "solid": true
+    },
+    {
+      "point": [
+        244,
+        216
+      ],
+      "key": "tree_pale",
+      "scale": 0.9799647892547523,
+      "solid": true
+    },
+    {
+      "point": [
+        373,
+        144
+      ],
+      "key": "cover",
+      "scale": 0.8409596792948633,
+      "solid": false
+    },
+    {
+      "point": [
+        297,
+        335
+      ],
+      "key": "grave",
+      "scale": 0.6204433996143691,
+      "solid": false
+    },
+    {
+      "point": [
+        380,
+        142
+      ],
+      "key": "tree_pale",
+      "scale": 0.7425499818054886,
+      "solid": false
+    },
+    {
+      "point": [
+        176,
+        272
+      ],
+      "key": "grave",
+      "scale": 0.5628417998529727,
+      "solid": false
+    },
+    {
+      "point": [
+        237,
+        206
+      ],
+      "key": "tree_pale",
+      "scale": 0.6528462588126892,
+      "solid": false
+    },
+    {
+      "point": [
+        366,
+        161
+      ],
+      "key": "grave",
+      "scale": 0.631459104841192,
+      "solid": false
+    },
+    {
+      "point": [
+        255,
+        106
+      ],
+      "key": "cover",
+      "scale": 0.7969097913211414,
+      "solid": false
+    },
+    {
+      "point": [
+        257,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.628088277257902,
+      "solid": false
+    },
+    {
+      "point": [
+        142,
+        231
+      ],
+      "key": "tree_pale",
+      "scale": 0.5996486746503786,
+      "solid": false
+    },
+    {
+      "point": [
+        99,
+        248
+      ],
+      "key": "grave",
+      "scale": 0.5146842588423756,
+      "solid": false
+    },
+    {
+      "point": [
+        305,
+        243
+      ],
+      "key": "tree_pale",
+      "scale": 0.7995826311904479,
+      "solid": false
+    },
+    {
+      "point": [
+        394,
+        87
+      ],
+      "key": "grave",
+      "scale": 0.6389890131068978,
+      "solid": false
+    },
+    {
+      "point": [
+        88,
+        124
+      ],
+      "key": "cover",
+      "scale": 0.5366092358946349,
+      "solid": false
+    },
+    {
+      "point": [
+        371,
+        145
+      ],
+      "key": "grave",
+      "scale": 0.7103636036557399,
+      "solid": false
+    },
+    {
+      "point": [
+        92,
+        320
+      ],
+      "key": "cover",
+      "scale": 0.5655467544415365,
+      "solid": false
+    },
+    {
+      "point": [
+        273,
+        306
+      ],
+      "key": "cover",
+      "scale": 0.6414479368589472,
+      "solid": false
+    },
+    {
+      "point": [
+        142,
+        258
+      ],
+      "key": "grave",
+      "scale": 0.6544534049769886,
+      "solid": false
+    },
+    {
+      "point": [
+        363,
+        155
+      ],
+      "key": "grave",
+      "scale": 0.5305875997101662,
+      "solid": false
+    },
+    {
+      "point": [
+        274,
+        205
+      ],
+      "key": "grave",
+      "scale": 0.6218709481679078,
+      "solid": false
+    },
+    {
+      "point": [
+        184,
+        320
+      ],
+      "key": "grave",
+      "scale": 0.7362504820199827,
+      "solid": false
+    },
+    {
+      "point": [
+        285,
+        309
+      ],
+      "key": "grave",
+      "scale": 0.6789522243821007,
+      "solid": false
+    },
+    {
+      "point": [
+        289,
+        191
+      ],
+      "key": "cover",
+      "scale": 0.7808182490130788,
+      "solid": false
+    },
+    {
+      "point": [
+        331,
+        187
+      ],
+      "key": "grave",
+      "scale": 0.5745993585735243,
+      "solid": false
+    },
+    {
+      "point": [
+        102,
+        120
+      ],
+      "key": "cover",
+      "scale": 0.5397041460320865,
+      "solid": false
+    },
+    {
+      "point": [
+        380,
+        103
+      ],
+      "key": "tree_pale",
+      "scale": 0.6419792709545965,
+      "solid": false
+    },
+    {
+      "point": [
+        454,
+        112
+      ],
+      "key": "grave",
+      "scale": 0.6197146610482527,
+      "solid": false
+    },
+    {
+      "point": [
+        259,
+        106
+      ],
+      "key": "cover",
+      "scale": 0.8463885974379999,
+      "solid": false
+    },
+    {
+      "point": [
+        302,
+        314
+      ],
+      "key": "grave",
+      "scale": 0.8162374197408075,
+      "solid": false
+    },
+    {
+      "point": [
+        444,
+        100
+      ],
+      "key": "cover",
+      "scale": 0.7855523904910189,
+      "solid": false
+    },
+    {
+      "point": [
+        144,
+        312
+      ],
+      "key": "grave",
+      "scale": 0.5304045149356665,
+      "solid": false
+    },
+    {
+      "point": [
+        295,
+        203
+      ],
+      "key": "cover",
+      "scale": 0.8132230197427712,
+      "solid": false
+    },
+    {
+      "point": [
+        402,
+        58
+      ],
+      "key": "tree_pale",
+      "scale": 0.6782101006536569,
+      "solid": false
+    },
+    {
+      "point": [
+        425,
+        119
+      ],
+      "key": "cover",
+      "scale": 0.5084290226455817,
+      "solid": false
+    },
+    {
+      "point": [
+        414,
+        70
+      ],
+      "key": "cover",
+      "scale": 0.813961677856224,
+      "solid": false
+    },
+    {
+      "point": [
+        190,
+        298
+      ],
+      "key": "grave",
+      "scale": 0.7977664311266282,
+      "solid": false
+    },
+    {
+      "point": [
+        93,
+        259
+      ],
+      "key": "tree_pale",
+      "scale": 0.6862453358847813,
+      "solid": false
+    },
+    {
+      "point": [
+        163,
+        131
+      ],
+      "key": "cover",
+      "scale": 0.7935194771916112,
+      "solid": false
+    },
+    {
+      "point": [
+        287,
+        202
+      ],
+      "key": "cover",
+      "scale": 0.7305809639959773,
+      "solid": false
+    },
+    {
+      "point": [
+        142,
+        248
+      ],
+      "key": "grave",
+      "scale": 0.7532445308330662,
+      "solid": false
+    },
+    {
+      "point": [
+        77,
+        234
+      ],
+      "key": "cover",
+      "scale": 0.6147321324476054,
+      "solid": false
+    },
+    {
+      "point": [
+        149,
+        92
+      ],
+      "key": "cover",
+      "scale": 0.6293023713766903,
+      "solid": false
+    },
+    {
+      "point": [
+        106,
+        122
+      ],
+      "key": "cover",
+      "scale": 0.7948250888344992,
+      "solid": false
+    },
+    {
+      "point": [
+        96,
+        298
+      ],
+      "key": "grave",
+      "scale": 0.6656706843798752,
+      "solid": false
+    },
+    {
+      "point": [
+        170,
+        205
+      ],
+      "key": "grave",
+      "scale": 0.7601686387564695,
+      "solid": false
+    },
+    {
+      "point": [
+        152,
+        174
+      ],
+      "key": "cover",
+      "scale": 0.8016500305197634,
+      "solid": false
+    },
+    {
+      "point": [
+        121,
+        125
+      ],
+      "key": "tree_pale",
+      "scale": 0.5663573773944245,
+      "solid": false
+    },
+    {
+      "point": [
+        364,
+        161
+      ],
+      "key": "tree_pale",
+      "scale": 0.6378003422212442,
+      "solid": false
+    },
+    {
+      "point": [
+        96,
+        300
+      ],
+      "key": "cover",
+      "scale": 0.5797046669745374,
+      "solid": false
+    },
+    {
+      "point": [
+        358,
+        165
+      ],
+      "key": "cover",
+      "scale": 0.5135325394859971,
+      "solid": false
+    },
+    {
+      "point": [
+        140,
+        92
+      ],
+      "key": "cover",
+      "scale": 0.6895987859406907,
+      "solid": false
+    },
+    {
+      "point": [
+        114,
+        133
+      ],
+      "key": "tree_pale",
+      "scale": 0.5918265112621859,
+      "solid": false
+    },
+    {
+      "point": [
+        198,
+        206
+      ],
+      "key": "tree_pale",
+      "scale": 0.5638080682063709,
+      "solid": false
+    },
+    {
+      "point": [
+        87,
+        168
+      ],
+      "key": "grave",
+      "scale": 0.8357566172246758,
+      "solid": false
+    },
+    {
+      "point": [
+        312,
+        106
+      ],
+      "key": "cover",
+      "scale": 0.5092438142295643,
+      "solid": false
+    },
+    {
+      "point": [
+        371,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.6934971476529506,
+      "solid": false
+    },
+    {
+      "point": [
+        350,
+        118
+      ],
+      "key": "tree_pale",
+      "scale": 0.7123546741900337,
+      "solid": false
+    },
+    {
+      "point": [
+        368,
+        177
+      ],
+      "key": "grave",
+      "scale": 0.7086260106322732,
+      "solid": false
+    },
+    {
+      "point": [
+        378,
+        97
+      ],
+      "key": "grave",
+      "scale": 0.7398801343614516,
+      "solid": false
+    },
+    {
+      "point": [
+        339,
+        118
+      ],
+      "key": "grave",
+      "scale": 0.782326502676312,
+      "solid": false
+    },
+    {
+      "point": [
+        157,
+        205
+      ],
+      "key": "grave",
+      "scale": 0.6943529960677177,
+      "solid": false
+    },
+    {
+      "point": [
+        174,
+        193
+      ],
+      "key": "tree_pale",
+      "scale": 0.8479779713643456,
+      "solid": false
+    },
+    {
+      "point": [
+        222,
+        118
+      ],
+      "key": "grave",
+      "scale": 0.8177172776651553,
+      "solid": false
+    },
+    {
+      "point": [
+        443,
+        112
+      ],
+      "key": "grave",
+      "scale": 0.6783389267834014,
+      "solid": false
+    },
+    {
+      "point": [
+        227,
+        310
+      ],
+      "key": "tree_pale",
+      "scale": 0.7451061424586574,
+      "solid": false
+    },
+    {
+      "point": [
+        284,
+        106
+      ],
+      "key": "cover",
+      "scale": 0.5402489529744996,
+      "solid": false
+    },
+    {
+      "point": [
+        238,
+        118
+      ],
+      "key": "grave",
+      "scale": 0.6512725446685841,
+      "solid": false
+    },
+    {
+      "point": [
+        401,
+        89
+      ],
+      "key": "grave",
+      "scale": 0.6052593181283731,
+      "solid": false
+    },
+    {
+      "point": [
+        169,
+        308
+      ],
+      "key": "cover",
+      "scale": 0.7660127273858222,
+      "solid": false
+    },
+    {
+      "point": [
+        442,
+        66
+      ],
+      "key": "grave",
+      "scale": 0.7280755688096675,
+      "solid": false
+    },
+    {
+      "point": [
+        133,
+        180
+      ],
+      "key": "grave",
+      "scale": 0.7827595972990251,
+      "solid": false
+    },
+    {
+      "point": [
+        301,
+        278
+      ],
+      "key": "grave",
+      "scale": 0.8473060069202443,
+      "solid": false
+    },
+    {
+      "point": [
+        273,
+        309
+      ],
+      "key": "tree_pale",
+      "scale": 0.8309115638759919,
+      "solid": false
+    },
+    {
+      "point": [
+        311,
+        118
+      ],
+      "key": "cover",
+      "scale": 0.6548042977041866,
+      "solid": false
+    },
+    {
+      "point": [
+        191,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.5787665063307158,
+      "solid": false
+    },
+    {
+      "point": [
+        196,
+        298
+      ],
+      "key": "tree_pale",
+      "scale": 0.7850916058067661,
+      "solid": false
+    },
+    {
+      "point": [
+        135,
+        86
+      ],
+      "key": "cover",
+      "scale": 0.5348023199251208,
+      "solid": false
+    },
+    {
+      "point": [
+        284,
+        118
+      ],
+      "key": "grave",
+      "scale": 0.614807728293189,
+      "solid": false
+    },
+    {
+      "point": [
+        171,
+        116
+      ],
+      "key": "cover",
+      "scale": 0.5946616617351036,
+      "solid": false
+    },
+    {
+      "point": [
+        176,
+        280
+      ],
+      "key": "cover",
+      "scale": 0.6065551312085262,
+      "solid": false
+    },
+    {
+      "point": [
+        162,
+        248
+      ],
+      "key": "grave",
+      "scale": 0.5643095110480087,
+      "solid": false
+    },
+    {
+      "point": [
+        145,
+        286
+      ],
+      "key": "grave",
+      "scale": 0.8428880280510174,
+      "solid": false
+    },
+    {
+      "point": [
+        304,
+        256
+      ],
+      "key": "cover",
+      "scale": 0.6097176619337222,
+      "solid": false
+    },
+    {
+      "point": [
+        176,
+        285
+      ],
+      "key": "tree_pale",
+      "scale": 0.6100236535092778,
+      "solid": false
+    },
+    {
+      "point": [
+        149,
+        76
+      ],
+      "key": "grave",
+      "scale": 0.5410380809752349,
+      "solid": false
+    },
+    {
+      "point": [
+        287,
+        294
+      ],
+      "key": "grave",
+      "scale": 0.71620417532569,
+      "solid": false
+    },
+    {
+      "point": [
+        169,
+        308
+      ],
+      "key": "grave",
+      "scale": 0.611379514568201,
+      "solid": false
+    },
+    {
+      "point": [
+        391,
+        74
+      ],
+      "key": "cover",
+      "scale": 0.836810689948551,
+      "solid": false
+    },
+    {
+      "point": [
+        439,
+        65
+      ],
+      "key": "tree_pale",
+      "scale": 0.6136568228518464,
+      "solid": false
+    },
+    {
+      "point": [
+        419,
+        73
+      ],
+      "key": "cover",
+      "scale": 0.7591295403999616,
+      "solid": false
+    },
+    {
+      "point": [
+        374,
+        226
+      ],
+      "key": "grave",
+      "scale": 0.5448985370279195,
+      "solid": false
+    },
+    {
+      "point": [
+        142,
+        322
+      ],
+      "key": "grave",
+      "scale": 0.7300397541285653,
+      "solid": false
+    },
+    {
+      "point": [
+        106,
+        122
+      ],
+      "key": "cover",
+      "scale": 0.6045827531322372,
+      "solid": false
+    },
+    {
+      "point": [
+        291,
+        308
+      ],
+      "key": "cover",
+      "scale": 0.766966269459923,
+      "solid": false
+    },
+    {
+      "point": [
+        259,
+        310
+      ],
+      "key": "grave",
+      "scale": 0.6262096330428047,
+      "solid": false
+    },
+    {
+      "point": [
+        292,
+        309
+      ],
+      "key": "tree_pale",
+      "scale": 0.7588459527275953,
+      "solid": false
+    },
+    {
+      "point": [
+        180,
+        105
+      ],
+      "key": "grave",
+      "scale": 0.6121091403704692,
+      "solid": false
+    },
+    {
+      "point": [
+        145,
+        300
+      ],
+      "key": "tree_pale",
+      "scale": 0.5948206394807022,
+      "solid": false
+    },
+    {
+      "point": [
+        149,
+        225
+      ],
+      "key": "grave",
+      "scale": 0.6370229084713991,
+      "solid": false
+    },
+    {
+      "point": [
+        172,
+        105
+      ],
+      "key": "grave",
+      "scale": 0.5289293750663748,
+      "solid": false
+    },
+    {
+      "point": [
+        378,
+        135
+      ],
+      "key": "tree_pale",
+      "scale": 0.5529620316616275,
+      "solid": false
+    },
+    {
+      "point": [
+        172,
+        111
+      ],
+      "key": "grave",
+      "scale": 0.6085723509691767,
+      "solid": false
+    },
+    {
+      "point": [
+        290,
+        264
+      ],
+      "key": "tree_pale",
+      "scale": 0.6868033854523411,
+      "solid": false
+    },
+    {
+      "point": [
+        380,
+        129
+      ],
+      "key": "grave",
+      "scale": 0.6061597426747584,
+      "solid": false
+    },
+    {
+      "point": [
+        138,
+        320
+      ],
+      "key": "grave",
+      "scale": 0.8162681501660343,
+      "solid": false
+    },
+    {
+      "point": [
+        120,
+        130
+      ],
+      "key": "cover",
+      "scale": 0.7512649410984684,
+      "solid": false
+    },
+    {
+      "point": [
+        152,
+        311
+      ],
+      "key": "cover",
+      "scale": 0.6761906305853773,
+      "solid": false
+    },
+    {
+      "point": [
+        99,
+        99
+      ],
+      "key": "tree_pale",
+      "scale": 0.6637612034710743,
+      "solid": false
+    },
+    {
+      "point": [
+        134,
+        180
+      ],
+      "key": "cover",
+      "scale": 0.7496898992420737,
+      "solid": false
+    },
+    {
+      "point": [
+        128,
+        187
+      ],
+      "key": "tree_pale",
+      "scale": 0.8445486906116878,
+      "solid": false
+    },
+    {
+      "point": [
+        147,
+        102
+      ],
+      "key": "grave",
+      "scale": 0.553150520117489,
+      "solid": false
+    },
+    {
+      "point": [
+        199,
+        194
+      ],
+      "key": "grave",
+      "scale": 0.5744977156947217,
+      "solid": false
+    },
+    {
+      "point": [
+        184,
+        310
+      ],
+      "key": "cover",
+      "scale": 0.7837544325209396,
+      "solid": false
+    },
+    {
+      "point": [
+        294,
+        329
+      ],
+      "key": "grave",
+      "scale": 0.6551536530517813,
+      "solid": false
+    },
+    {
+      "point": [
+        87,
+        153
+      ],
+      "key": "tree_pale",
+      "scale": 0.6134326474113112,
+      "solid": false
+    },
+    {
+      "point": [
+        357,
+        245
+      ],
+      "key": "cover",
+      "scale": 0.6545055194051225,
+      "solid": false
+    },
+    {
+      "point": [
+        242,
+        310
+      ],
+      "key": "cover",
+      "scale": 0.755712596049765,
+      "solid": false
+    },
+    {
+      "point": [
+        80,
+        254
+      ],
+      "key": "cover",
+      "scale": 0.6936901659275507,
+      "solid": false
+    },
+    {
+      "point": [
+        119,
+        131
+      ],
+      "key": "grave",
+      "scale": 0.5212805558409078,
+      "solid": false
+    },
+    {
+      "point": [
+        233,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.7934564146810992,
+      "solid": false
+    },
+    {
+      "point": [
+        77,
+        128
+      ],
+      "key": "tree_pale",
+      "scale": 0.7440153161247871,
+      "solid": false
+    },
+    {
+      "point": [
+        399,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.6914156303860536,
+      "solid": false
+    },
+    {
+      "point": [
+        153,
+        201
+      ],
+      "key": "cover",
+      "scale": 0.6224496636612242,
+      "solid": false
+    },
+    {
+      "point": [
+        93,
+        266
+      ],
+      "key": "tree_pale",
+      "scale": 0.7067610532904819,
+      "solid": false
+    },
+    {
+      "point": [
+        177,
+        205
+      ],
+      "key": "tree_pale",
+      "scale": 0.7067457132746988,
+      "solid": false
+    },
+    {
+      "point": [
+        415,
+        134
+      ],
+      "key": "cover",
+      "scale": 0.6483691170565957,
+      "solid": false
+    },
+    {
+      "point": [
+        357,
+        185
+      ],
+      "key": "cover",
+      "scale": 0.7943253366002467,
+      "solid": false
+    },
+    {
+      "point": [
+        371,
+        216
+      ],
+      "key": "cover",
+      "scale": 0.6147731916601253,
+      "solid": false
+    },
+    {
+      "point": [
+        107,
+        236
+      ],
+      "key": "tree_pale",
+      "scale": 0.8140643019363826,
+      "solid": false
+    },
+    {
+      "point": [
+        276,
+        336
+      ],
+      "key": "tree_pale",
+      "scale": 0.7289515845318547,
+      "solid": false
+    },
+    {
+      "point": [
+        188,
+        289
+      ],
+      "key": "tree_pale",
+      "scale": 0.8468742068551796,
+      "solid": false
+    },
+    {
+      "point": [
+        367,
+        148
+      ],
+      "key": "tree_pale",
+      "scale": 0.5539935926552128,
+      "solid": false
+    },
+    {
+      "point": [
+        123,
+        81
+      ],
+      "key": "tree_pale",
+      "scale": 0.5081509469065717,
+      "solid": false
+    },
+    {
+      "point": [
+        137,
+        212
+      ],
+      "key": "cover",
+      "scale": 0.6820263509935481,
+      "solid": false
+    },
+    {
+      "point": [
+        165,
+        205
+      ],
+      "key": "grave",
+      "scale": 0.8125339334801196,
+      "solid": false
+    },
+    {
+      "point": [
+        354,
+        148
+      ],
+      "key": "cover",
+      "scale": 0.585418859597371,
+      "solid": false
+    },
+    {
+      "point": [
+        135,
+        88
+      ],
+      "key": "cover",
+      "scale": 0.5412461643386703,
+      "solid": false
+    },
+    {
+      "point": [
+        144,
+        190
+      ],
+      "key": "tree_pale",
+      "scale": 0.7888811989873474,
+      "solid": false
+    },
+    {
+      "point": [
+        174,
+        308
+      ],
+      "key": "tree_pale",
+      "scale": 0.5174421569493363,
+      "solid": false
+    },
+    {
+      "point": [
+        278,
+        337
+      ],
+      "key": "grave",
+      "scale": 0.6722408118343041,
+      "solid": false
+    },
+    {
+      "point": [
+        112,
+        85
+      ],
+      "key": "tree_pale",
+      "scale": 0.805910648286299,
+      "solid": false
+    },
+    {
+      "point": [
+        176,
+        276
+      ],
+      "key": "grave",
+      "scale": 0.6926107277462651,
+      "solid": false
+    },
+    {
+      "point": [
+        356,
+        147
+      ],
+      "key": "grave",
+      "scale": 0.7446646845709882,
+      "solid": false
+    },
+    {
+      "point": [
+        277,
+        296
+      ],
+      "key": "grave",
+      "scale": 0.8268999610292176,
+      "solid": false
+    },
+    {
+      "point": [
+        292,
+        274
+      ],
+      "key": "grave",
+      "scale": 0.6452273150011536,
+      "solid": false
+    },
+    {
+      "point": [
+        384,
+        116
+      ],
+      "key": "grave",
+      "scale": 0.8301474301087767,
+      "solid": false
+    },
+    {
+      "point": [
+        433,
+        76
+      ],
+      "key": "cover",
+      "scale": 0.7738998032034574,
+      "solid": false
+    },
+    {
+      "point": [
+        225,
+        118
+      ],
+      "key": "tree_pale",
+      "scale": 0.5951918643719081,
+      "solid": false
+    },
+    {
+      "point": [
+        280,
+        205
+      ],
+      "key": "cover",
+      "scale": 0.714576530003241,
+      "solid": false
+    },
+    {
+      "point": [
+        290,
+        191
+      ],
+      "key": "cover",
+      "scale": 0.6558879414635981,
+      "solid": false
+    },
+    {
+      "point": [
+        145,
+        192
+      ],
+      "key": "cover",
+      "scale": 0.5177715453371722,
+      "solid": false
+    },
+    {
+      "point": [
+        337,
+        234
+      ],
+      "key": "cover",
+      "scale": 0.6986065594582276,
+      "solid": false
+    },
+    {
+      "point": [
+        433,
+        103
+      ],
+      "key": "grave",
+      "scale": 0.5460619323462991,
+      "solid": false
+    },
+    {
+      "point": [
+        269,
+        204
+      ],
+      "key": "grave",
+      "scale": 0.5838094854537873,
+      "solid": false
+    },
+    {
+      "point": [
+        173,
+        320
+      ],
+      "key": "tree_pale",
+      "scale": 0.8072379482040514,
+      "solid": false
+    },
+    {
+      "point": [
+        238,
+        298
+      ],
+      "key": "tree_pale",
+      "scale": 0.505792425329292,
+      "solid": false
+    },
+    {
+      "point": [
+        318,
+        238
+      ],
+      "key": "tree_pale",
+      "scale": 0.838593276288365,
+      "solid": false
+    },
+    {
+      "point": [
+        334,
+        118
+      ],
+      "key": "cover",
+      "scale": 0.5690309011337259,
+      "solid": false
+    },
+    {
+      "point": [
+        117,
+        175
+      ],
+      "key": "grave",
+      "scale": 0.7644090014136202,
+      "solid": false
+    },
+    {
+      "point": [
+        177,
+        126
+      ],
+      "key": "cover",
+      "scale": 0.6004878706378598,
+      "solid": false
+    },
+    {
+      "point": [
+        143,
+        233
+      ],
+      "key": "grave",
+      "scale": 0.5044437024364534,
+      "solid": false
+    },
+    {
+      "point": [
+        388,
+        204
+      ],
+      "key": "cover",
+      "scale": 0.7672062167243012,
+      "solid": false
+    },
+    {
+      "point": [
+        292,
+        280
+      ],
+      "key": "tree_pale",
+      "scale": 0.6468173348990229,
+      "solid": false
+    },
+    {
+      "point": [
+        75,
+        159
+      ],
+      "key": "tree_pale",
+      "scale": 0.740295577683688,
+      "solid": false
+    },
+    {
+      "point": [
+        355,
+        238
+      ],
+      "key": "cover",
+      "scale": 0.777299149821866,
+      "solid": false
+    },
+    {
+      "point": [
+        417,
+        136
+      ],
+      "key": "cover",
+      "scale": 0.6609114634189152,
+      "solid": false
+    },
+    {
+      "point": [
+        362,
+        204
+      ],
+      "key": "cover",
+      "scale": 0.5373233130014681,
+      "solid": false
+    },
+    {
+      "point": [
+        107,
+        286
+      ],
+      "key": "tree_pale",
+      "scale": 0.5863597734076185,
+      "solid": false
+    },
+    {
+      "point": [
+        174,
+        116
+      ],
+      "key": "cover",
+      "scale": 0.5804974852613735,
+      "solid": false
+    },
+    {
+      "point": [
+        96,
+        257
+      ],
+      "key": "grave",
+      "scale": 0.6267156767713573,
+      "solid": false
+    },
+    {
+      "point": [
+        88,
+        147
+      ],
+      "key": "cover",
+      "scale": 0.5006583719044841,
+      "solid": false
+    },
+    {
+      "point": [
+        75,
+        167
+      ],
+      "key": "tree_pale",
+      "scale": 0.5312556451552106,
+      "solid": false
+    },
+    {
+      "point": [
+        103,
+        120
+      ],
+      "key": "tree_pale",
+      "scale": 0.6585037476314398,
+      "solid": false
+    },
+    {
+      "point": [
+        451,
+        91
+      ],
+      "key": "tree_pale",
+      "scale": 0.5097371885212083,
+      "solid": false
+    },
+    {
+      "point": [
+        329,
+        106
+      ],
+      "key": "tree_pale",
+      "scale": 0.7318735590986508,
+      "solid": false
+    },
+    {
+      "point": [
+        333,
+        118
+      ],
+      "key": "cover",
+      "scale": 0.768091744039355,
+      "solid": false
+    },
+    {
+      "point": [
+        447,
+        111
+      ],
+      "key": "tree_pale",
+      "scale": 0.5593189810141062,
+      "solid": false
+    },
+    {
+      "point": [
+        172,
+        156
+      ],
+      "key": "tree_pale",
+      "scale": 0.6418016864500958,
+      "solid": false
+    },
+    {
+      "point": [
+        84,
+        219
+      ],
+      "key": "grave",
+      "scale": 0.5773263259711299,
+      "solid": false
+    },
+    {
+      "point": [
+        305,
+        244
+      ],
+      "key": "tree_pale",
+      "scale": 0.7086746952937841,
+      "solid": false
+    }
+  ]
+}

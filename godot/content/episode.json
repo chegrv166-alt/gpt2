@@ -407,6 +407,474 @@
           ]
         }
       ]
+    },
+    "road_ambush": {
+      "id": "road_ambush",
+      "title": "Засада на старом тракте",
+      "objective": "Удержите проход два раунда или вынудите нападающих отступить.",
+      "width": 14,
+      "height": 12,
+      "blocks": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "enemies": [
+        {
+          "id": "spear",
+          "name": "Привратник",
+          "team": "enemy",
+          "pos": [
+            8,
+            6
+          ],
+          "hp": 30,
+          "max_hp": 30,
+          "damage": 8,
+          "reach": 2,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "archer",
+          "name": "Дозорная",
+          "team": "enemy",
+          "pos": [
+            10,
+            3
+          ],
+          "hp": 24,
+          "max_hp": 24,
+          "damage": 7,
+          "reach": 5,
+          "art": "archer",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "knife",
+          "name": "Служитель",
+          "team": "enemy",
+          "pos": [
+            8,
+            9
+          ],
+          "hp": 26,
+          "max_hp": 26,
+          "damage": 7,
+          "reach": 1,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        }
+      ],
+      "round_limit": 8,
+      "objectives": [
+        {
+          "id": "gate_winch",
+          "name": "Механизм врат",
+          "pos": [
+            7,
+            7
+          ]
+        }
+      ],
+      "campaign_flags": {
+        "resolved_refugees": true
+      },
+      "campaign_journal": "Тракт у лагеря беженцев очищен от засады.",
+      "reward_supplies": 2
+    },
+    "warehouse_fight": {
+      "id": "warehouse_fight",
+      "title": "Запертый склад",
+      "objective": "Удержите проход два раунда или вынудите нападающих отступить.",
+      "width": 14,
+      "height": 12,
+      "blocks": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "enemies": [
+        {
+          "id": "spear",
+          "name": "Привратник",
+          "team": "enemy",
+          "pos": [
+            8,
+            6
+          ],
+          "hp": 30,
+          "max_hp": 30,
+          "damage": 8,
+          "reach": 2,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "archer",
+          "name": "Дозорная",
+          "team": "enemy",
+          "pos": [
+            10,
+            3
+          ],
+          "hp": 24,
+          "max_hp": 24,
+          "damage": 7,
+          "reach": 5,
+          "art": "archer",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "knife",
+          "name": "Служитель",
+          "team": "enemy",
+          "pos": [
+            8,
+            9
+          ],
+          "hp": 26,
+          "max_hp": 26,
+          "damage": 7,
+          "reach": 1,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        }
+      ],
+      "round_limit": 8,
+      "objectives": [
+        {
+          "id": "gate_winch",
+          "name": "Механизм врат",
+          "pos": [
+            7,
+            7
+          ]
+        }
+      ],
+      "campaign_flags": {
+        "resolved_warehouse": true
+      },
+      "campaign_journal": "Склад освобождён; запас лекарств передан отряду.",
+      "reward_supplies": 2
+    },
+    "gallows_rescue": {
+      "id": "gallows_rescue",
+      "title": "Свидетель у виселицы",
+      "objective": "Удержите проход два раунда или вынудите нападающих отступить.",
+      "width": 14,
+      "height": 12,
+      "blocks": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "enemies": [
+        {
+          "id": "spear",
+          "name": "Привратник",
+          "team": "enemy",
+          "pos": [
+            8,
+            6
+          ],
+          "hp": 30,
+          "max_hp": 30,
+          "damage": 8,
+          "reach": 2,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "archer",
+          "name": "Дозорная",
+          "team": "enemy",
+          "pos": [
+            10,
+            3
+          ],
+          "hp": 24,
+          "max_hp": 24,
+          "damage": 7,
+          "reach": 5,
+          "art": "archer",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "knife",
+          "name": "Служитель",
+          "team": "enemy",
+          "pos": [
+            8,
+            9
+          ],
+          "hp": 26,
+          "max_hp": 26,
+          "damage": 7,
+          "reach": 1,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        }
+      ],
+      "round_limit": 8,
+      "objectives": [
+        {
+          "id": "gate_winch",
+          "name": "Механизм врат",
+          "pos": [
+            7,
+            7
+          ]
+        }
+      ],
+      "campaign_flags": {
+        "resolved_gallows": true
+      },
+      "campaign_journal": "Свиде­тель у виселицы выведен из окружения.",
+      "reward_supplies": 2
+    },
+    "quarry_rite": {
+      "id": "quarry_rite",
+      "title": "Тёплый камень",
+      "objective": "Удержите проход два раунда или вынудите нападающих отступить.",
+      "width": 14,
+      "height": 12,
+      "blocks": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "enemies": [
+        {
+          "id": "spear",
+          "name": "Привратник",
+          "team": "enemy",
+          "pos": [
+            8,
+            6
+          ],
+          "hp": 30,
+          "max_hp": 30,
+          "damage": 8,
+          "reach": 2,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "archer",
+          "name": "Дозорная",
+          "team": "enemy",
+          "pos": [
+            10,
+            3
+          ],
+          "hp": 24,
+          "max_hp": 24,
+          "damage": 7,
+          "reach": 5,
+          "art": "archer",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        },
+        {
+          "id": "knife",
+          "name": "Служитель",
+          "team": "enemy",
+          "pos": [
+            8,
+            9
+          ],
+          "hp": 26,
+          "max_hp": 26,
+          "damage": 7,
+          "reach": 1,
+          "art": "guard",
+          "cursed": false,
+          "mutation": 0,
+          "ap": 2,
+          "guard": 0
+        }
+      ],
+      "round_limit": 8,
+      "objectives": [
+        {
+          "id": "gate_winch",
+          "name": "Механизм врат",
+          "pos": [
+            7,
+            7
+          ]
+        }
+      ],
+      "campaign_flags": {
+        "resolved_quarry": true
+      },
+      "campaign_journal": "Обряд в карьере остановлен, рабочим открыт выход.",
+      "reward_supplies": 2
     }
   },
   "locations": [
@@ -415,90 +883,552 @@
       "name": "Остывший костёр",
       "kind": "camp",
       "pos": [
-        7,
-        18
+        136,
+        290
       ],
-      "subtitle": "Спутники · отдых · проклятие"
+      "subtitle": "Спутники · отдых · проклятие",
+      "district": "town",
+      "category": "camp"
     },
     {
       "id": "witness",
       "name": "Дом без жильца",
       "kind": "house",
       "pos": [
-        5,
-        11
+        112,
+        264
       ],
-      "subtitle": "Поговорить с очевидицей"
+      "subtitle": "Поговорить с очевидицей",
+      "district": "town",
+      "category": "place"
     },
     {
       "id": "memorial",
       "name": "Стена имён",
       "kind": "memorial",
       "pos": [
-        12,
-        17
+        330,
+        176
       ],
-      "subtitle": "Сопоставить записи"
+      "subtitle": "Сопоставить записи",
+      "district": "graves",
+      "category": "place"
     },
     {
       "id": "market",
       "name": "Перевозчик",
       "kind": "market",
       "pos": [
-        3,
-        16
+        158,
+        278
       ],
-      "subtitle": "Припасы и слухи"
+      "subtitle": "Припасы и слухи",
+      "district": "town",
+      "category": "place"
     },
     {
       "id": "gate",
       "name": "Чёрные врата",
       "kind": "gate",
       "pos": [
-        16,
-        12
+        386,
+        96
       ],
-      "subtitle": "Три способа пройти"
+      "subtitle": "Три способа пройти",
+      "district": "abbey",
+      "category": "place"
     },
     {
       "id": "archivist",
       "name": "Уездный архив",
       "kind": "archive",
       "pos": [
-        17,
-        5
+        408,
+        64
       ],
-      "subtitle": "Подлинник чужого дела"
+      "subtitle": "Подлинник чужого дела",
+      "district": "abbey",
+      "category": "place"
     },
     {
       "id": "cistern",
       "name": "Старая цистерна",
       "kind": "ruin",
       "pos": [
-        10,
-        7
+        174,
+        142
       ],
-      "subtitle": "Обходной путь"
+      "subtitle": "Обходной путь",
+      "district": "forest",
+      "category": "place"
     },
     {
       "id": "chapel",
       "name": "Часовня без образа",
       "kind": "chapel",
       "pos": [
-        21,
-        17
+        354,
+        158
       ],
-      "subtitle": "Чужие голоса"
+      "subtitle": "Чужие голоса",
+      "district": "graves",
+      "category": "place"
     },
     {
       "id": "infirmary",
       "name": "Закрытая лечебница",
       "kind": "infirmary",
       "pos": [
-        24,
-        7
+        448,
+        72
       ],
-      "subtitle": "Кому принадлежит память"
+      "subtitle": "Кому принадлежит память",
+      "district": "abbey",
+      "category": "place"
+    },
+    {
+      "id": "town_well",
+      "name": "Колодец красильщиков",
+      "kind": "ruin",
+      "pos": [
+        134,
+        252
+      ],
+      "district": "town",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "cooper",
+      "name": "Двор бондаря",
+      "kind": "house",
+      "pos": [
+        94,
+        286
+      ],
+      "district": "town",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "foundry",
+      "name": "Колокольный двор",
+      "kind": "house",
+      "pos": [
+        170,
+        244
+      ],
+      "district": "town",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "lodging",
+      "name": "Постоялый двор",
+      "kind": "house",
+      "pos": [
+        108,
+        308
+      ],
+      "district": "town",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "ferryman",
+      "name": "Дом паромщика",
+      "kind": "market",
+      "pos": [
+        266,
+        294
+      ],
+      "district": "docks",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "warehouse",
+      "name": "Запертый склад",
+      "kind": "house",
+      "pos": [
+        294,
+        300
+      ],
+      "district": "docks",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "harbor_memorial",
+      "name": "Камень утопленников",
+      "kind": "memorial",
+      "pos": [
+        286,
+        338
+      ],
+      "district": "docks",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "gravedigger",
+      "name": "Дом могильщика",
+      "kind": "house",
+      "pos": [
+        310,
+        194
+      ],
+      "district": "graves",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "ossuary",
+      "name": "Старая костница",
+      "kind": "ruin",
+      "pos": [
+        350,
+        180
+      ],
+      "district": "graves",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "gallows",
+      "name": "Пустая виселица",
+      "kind": "memorial",
+      "pos": [
+        366,
+        224
+      ],
+      "district": "graves",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "quarry",
+      "name": "Край каменоломни",
+      "kind": "ruin",
+      "pos": [
+        394,
+        186
+      ],
+      "district": "graves",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "hunting",
+      "name": "Охотничий двор",
+      "kind": "house",
+      "pos": [
+        84,
+        100
+      ],
+      "district": "forest",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "wayshrine",
+      "name": "Дорожное святилище",
+      "kind": "chapel",
+      "pos": [
+        140,
+        78
+      ],
+      "district": "forest",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "refugees",
+      "name": "Беженцы у тракта",
+      "kind": "market",
+      "pos": [
+        104,
+        148
+      ],
+      "district": "forest",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "watch",
+      "name": "Лесная застава",
+      "kind": "gate",
+      "pos": [
+        164,
+        110
+      ],
+      "district": "forest",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "abbey_post",
+      "name": "Монастырский пост",
+      "kind": "house",
+      "pos": [
+        424,
+        132
+      ],
+      "district": "abbey",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "bone_garden",
+      "name": "Костяной сад",
+      "kind": "memorial",
+      "pos": [
+        460,
+        104
+      ],
+      "district": "abbey",
+      "category": "place",
+      "subtitle": "Исследовать · местная история"
+    },
+    {
+      "id": "forest_camp",
+      "name": "Охотничий привал",
+      "kind": "camp",
+      "pos": [
+        116,
+        118
+      ],
+      "district": "forest",
+      "category": "camp",
+      "subtitle": "Отдых · открытые лагеря"
+    },
+    {
+      "id": "dock_camp",
+      "name": "Костёр лодочников",
+      "kind": "camp",
+      "pos": [
+        272,
+        320
+      ],
+      "district": "docks",
+      "category": "camp",
+      "subtitle": "Отдых · открытые лагеря"
+    },
+    {
+      "id": "grave_camp",
+      "name": "Укрытие каменотёсов",
+      "kind": "camp",
+      "pos": [
+        350,
+        206
+      ],
+      "district": "graves",
+      "category": "camp",
+      "subtitle": "Отдых · открытые лагеря"
+    },
+    {
+      "id": "abbey_camp",
+      "name": "Последний привал",
+      "kind": "camp",
+      "pos": [
+        410,
+        112
+      ],
+      "district": "abbey",
+      "category": "camp",
+      "subtitle": "Отдых · открытые лагеря"
+    },
+    {
+      "id": "broken_cart",
+      "name": "Разбитая повозка",
+      "kind": "cover",
+      "pos": [
+        88,
+        238
+      ],
+      "district": "town",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "abandoned_tools",
+      "name": "Брошенные инструменты",
+      "kind": "cover",
+      "pos": [
+        180,
+        294
+      ],
+      "district": "town",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "mile_ledger",
+      "name": "Дорожная ведомость",
+      "kind": "cover",
+      "pos": [
+        122,
+        326
+      ],
+      "district": "wilds",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "ash_letter",
+      "name": "Письмо под золой",
+      "kind": "cover",
+      "pos": [
+        194,
+        226
+      ],
+      "district": "wilds",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "river_cache",
+      "name": "Береговой тайник",
+      "kind": "cover",
+      "pos": [
+        258,
+        270
+      ],
+      "district": "wilds",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "rope_bundle",
+      "name": "Свёрток на причале",
+      "kind": "cover",
+      "pos": [
+        304,
+        330
+      ],
+      "district": "docks",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "washed_seal",
+      "name": "Печать в наносах",
+      "kind": "cover",
+      "pos": [
+        268,
+        350
+      ],
+      "district": "docks",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "grave_note",
+      "name": "Записка на ограде",
+      "kind": "cover",
+      "pos": [
+        302,
+        164
+      ],
+      "district": "graves",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "burial_tags",
+      "name": "Погребальные жетоны",
+      "kind": "cover",
+      "pos": [
+        376,
+        160
+      ],
+      "district": "graves",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "quarry_satchel",
+      "name": "Сумка каменотёса",
+      "kind": "cover",
+      "pos": [
+        402,
+        208
+      ],
+      "district": "graves",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "hunter_stash",
+      "name": "Охотничий схрон",
+      "kind": "cover",
+      "pos": [
+        64,
+        124
+      ],
+      "district": "forest",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "lost_prayer",
+      "name": "Потерянная молитва",
+      "kind": "cover",
+      "pos": [
+        142,
+        154
+      ],
+      "district": "forest",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "watch_marks",
+      "name": "Метки на дереве",
+      "kind": "cover",
+      "pos": [
+        154,
+        58
+      ],
+      "district": "forest",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "old_bell",
+      "name": "Язык колокола",
+      "kind": "cover",
+      "pos": [
+        374,
+        118
+      ],
+      "district": "abbey",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "physician_pages",
+      "name": "Страницы лекаря",
+      "kind": "cover",
+      "pos": [
+        430,
+        44
+      ],
+      "district": "abbey",
+      "category": "find",
+      "subtitle": "Небольшая находка"
+    },
+    {
+      "id": "garden_ribbon",
+      "name": "Лента из сада",
+      "kind": "cover",
+      "pos": [
+        470,
+        142
+      ],
+      "district": "abbey",
+      "category": "find",
+      "subtitle": "Небольшая находка"
     }
   ],
   "dialogues": {
@@ -875,6 +1805,1283 @@
           }
         ],
         "speaker": "Смотритель"
+      }
+    ],
+    "town_well": [
+      {
+        "requires": [
+          "resolved_town_well"
+        ],
+        "speaker": "Колодец красильщиков",
+        "text": "След из колодца ведёт к монастырской прачечной. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Колодец красильщиков",
+        "text": "У воды остался окрашенный красным платок. Ведро пахнет не железом, а горькими травами.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_town_well",
+            "flags": {
+              "resolved_town_well": true
+            },
+            "journal": "След из колодца ведёт к монастырской прачечной.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "cooper": [
+      {
+        "requires": [
+          "resolved_cooper"
+        ],
+        "speaker": "Двор бондаря",
+        "text": "Найден список ночных перевозок в бочках. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Двор бондаря",
+        "text": "Бочки приготовлены для перевозки людей. Изнутри на дереве выцарапаны даты и короткие имена.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_cooper",
+            "flags": {
+              "resolved_cooper": true
+            },
+            "journal": "Найден список ночных перевозок в бочках.",
+            "supplies": 1
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "foundry": [
+      {
+        "requires": [
+          "resolved_foundry"
+        ],
+        "speaker": "Колокольный двор",
+        "text": "В колокольном дворе найдено свидетельство об оборванной тревоге. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Колокольный двор",
+        "text": "Под навесом лежит расколотый колокол. Его внутреннюю поверхность покрывают отпечатки пальцев.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_foundry",
+            "flags": {
+              "resolved_foundry": true
+            },
+            "journal": "В колокольном дворе найдено свидетельство об оборванной тревоге.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "lodging": [
+      {
+        "requires": [
+          "resolved_lodging"
+        ],
+        "speaker": "Постоялый двор",
+        "text": "Запись о пустой комнате дополнила хронику. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Постоялый двор",
+        "text": "У хозяйки осталась комната человека, которого никто не помнит. За пустое место в книге внесена плата.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_lodging",
+            "flags": {
+              "resolved_lodging": true
+            },
+            "journal": "Запись о пустой комнате дополнила хронику.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "ferryman": [
+      {
+        "requires": [
+          "resolved_ferryman"
+        ],
+        "speaker": "Дом паромщика",
+        "text": "Паромщик подтвердил тайные рейсы к лечебнице. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Дом паромщика",
+        "text": "Паромщик возит грузы после заката. Он узнаёт печать из дела хрониста и отворачивается к реке.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_ferryman",
+            "flags": {
+              "resolved_ferryman": true
+            },
+            "journal": "Паромщик подтвердил тайные рейсы к лечебнице.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "warehouse": [
+      {
+        "requires": [
+          "resolved_warehouse"
+        ],
+        "speaker": "Запертый склад",
+        "text": "Склад освобождён; запас лекарств передан отряду. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Запертый склад",
+        "text": "За запертой дверью слышны шаги. На косяке — та же печать, что на монастырских повозках.",
+        "choices": [
+          {
+            "id": "intervene",
+            "label": "Освободить запертый склад",
+            "encounter": "warehouse_fight"
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "harbor_memorial": [
+      {
+        "requires": [
+          "resolved_harbor_memorial"
+        ],
+        "speaker": "Камень утопленников",
+        "text": "Записаны имена пропавших на речной переправе. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Камень утопленников",
+        "text": "Имена здесь выбиты без дат смерти. Кто-то каждую неделю приносит ещё одну свечу.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_harbor_memorial",
+            "flags": {
+              "resolved_harbor_memorial": true
+            },
+            "journal": "Записаны имена пропавших на речной переправе.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "gravedigger": [
+      {
+        "requires": [
+          "resolved_gravedigger"
+        ],
+        "speaker": "Дом могильщика",
+        "text": "Второй список могильщика сохранён в хронике. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Дом могильщика",
+        "text": "Могильщик держит два списка: для родственников и для тех, кто привозит тела без лиц.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_gravedigger",
+            "flags": {
+              "resolved_gravedigger": true
+            },
+            "journal": "Второй список могильщика сохранён в хронике.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "ossuary": [
+      {
+        "requires": [
+          "resolved_ossuary"
+        ],
+        "speaker": "Старая костница",
+        "text": "Жетон из костницы связан с тюремным делом. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Старая костница",
+        "text": "Кости разложены по росту, но не по людям. Среди них зажат медный жетон с номером камеры.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_ossuary",
+            "flags": {
+              "resolved_ossuary": true
+            },
+            "journal": "Жетон из костницы связан с тюремным делом.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "gallows": [
+      {
+        "requires": [
+          "resolved_gallows"
+        ],
+        "speaker": "Пустая виселица",
+        "text": "Свиде­тель у виселицы выведен из окружения. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Пустая виселица",
+        "text": "Под настилом спрятан живой свидетель. На дороге стоят люди, которым он обещал молчание.",
+        "choices": [
+          {
+            "id": "intervene",
+            "label": "Защитить свидетеля",
+            "encounter": "gallows_rescue"
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "quarry": [
+      {
+        "requires": [
+          "resolved_quarry"
+        ],
+        "speaker": "Край каменоломни",
+        "text": "Обряд в карьере остановлен, рабочим открыт выход. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Край каменоломни",
+        "text": "В карьере добывали камень для лечебницы. Теперь из трещин тянется тепло, а рабочие не возвращаются.",
+        "choices": [
+          {
+            "id": "intervene",
+            "label": "Прервать обряд в карьере",
+            "encounter": "quarry_rite"
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "hunting": [
+      {
+        "requires": [
+          "resolved_hunting"
+        ],
+        "speaker": "Охотничий двор",
+        "text": "Метки охотницы добавлены к путевым записям. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Охотничий двор",
+        "text": "Охотница оставила у двери ленты с метками безопасных троп. Последняя обрывается у ручья.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_hunting",
+            "flags": {
+              "resolved_hunting": true
+            },
+            "journal": "Метки охотницы добавлены к путевым записям.",
+            "supplies": 1
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "wayshrine": [
+      {
+        "requires": [
+          "resolved_wayshrine"
+        ],
+        "speaker": "Дорожное святилище",
+        "text": "Надпись на дорожном святилище переписана. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Дорожное святилище",
+        "text": "На безликом образе лежат монеты. Здесь молятся о том, чтобы не услышать ответа.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_wayshrine",
+            "flags": {
+              "resolved_wayshrine": true
+            },
+            "journal": "Надпись на дорожном святилище переписана.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "refugees": [
+      {
+        "requires": [
+          "resolved_refugees"
+        ],
+        "speaker": "Беженцы у тракта",
+        "text": "Тракт у лагеря беженцев очищен от засады. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Беженцы у тракта",
+        "text": "Семья ждёт обоз, который перестал ходить. На дороге появились люди с чужими документами.",
+        "choices": [
+          {
+            "id": "intervene",
+            "label": "Вывести обоз через засаду",
+            "encounter": "road_ambush"
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "watch": [
+      {
+        "requires": [
+          "resolved_watch"
+        ],
+        "speaker": "Лесная застава",
+        "text": "Копия приказов с лесной заставы внесена в хронику. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Лесная застава",
+        "text": "Застава пуста. Приказы на столе подписаны разными почерками и одним отсутствующим именем.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_watch",
+            "flags": {
+              "resolved_watch": true
+            },
+            "journal": "Копия приказов с лесной заставы внесена в хронику.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "abbey_post": [
+      {
+        "requires": [
+          "resolved_abbey_post"
+        ],
+        "speaker": "Монастырский пост",
+        "text": "Под слоем золы найдены несовпадающие числа. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Монастырский пост",
+        "text": "Писец у шлагбаума ведёт учёт прибывших, но число вышедших закрашено золой.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Выслушать и записать свидетельство",
+            "once": "resolved_abbey_post",
+            "flags": {
+              "resolved_abbey_post": true
+            },
+            "journal": "Под слоем золы найдены несовпадающие числа.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "bone_garden": [
+      {
+        "requires": [
+          "resolved_bone_garden"
+        ],
+        "speaker": "Костяной сад",
+        "text": "Записаны голоса пациентов из костяного сада. Это место уже отмечено в ваших записях.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Костяной сад",
+        "text": "Между деревьями натянуты перевязи. Здесь больные учились узнавать изменившиеся тела.",
+        "choices": [
+          {
+            "id": "examine",
+            "label": "Осмотреть и сохранить находку",
+            "once": "resolved_bone_garden",
+            "flags": {
+              "resolved_bone_garden": true
+            },
+            "journal": "Записаны голоса пациентов из костяного сада.",
+            "supplies": 0
+          },
+          {
+            "id": "leave",
+            "label": "Вернуться к дороге",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "forest_camp": [
+      {
+        "speaker": "Спутники",
+        "text": "За спиной осталась часть пути. Здесь можно перевязать раны и свериться с картой уезда.",
+        "choices": [
+          {
+            "id": "rest",
+            "label": "Отдохнуть · 1 припас",
+            "cost_supplies": 1,
+            "rest": true
+          },
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "dock_camp": [
+      {
+        "speaker": "Спутники",
+        "text": "За спиной осталась часть пути. Здесь можно перевязать раны и свериться с картой уезда.",
+        "choices": [
+          {
+            "id": "rest",
+            "label": "Отдохнуть · 1 припас",
+            "cost_supplies": 1,
+            "rest": true
+          },
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "grave_camp": [
+      {
+        "speaker": "Спутники",
+        "text": "За спиной осталась часть пути. Здесь можно перевязать раны и свериться с картой уезда.",
+        "choices": [
+          {
+            "id": "rest",
+            "label": "Отдохнуть · 1 припас",
+            "cost_supplies": 1,
+            "rest": true
+          },
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "abbey_camp": [
+      {
+        "speaker": "Спутники",
+        "text": "За спиной осталась часть пути. Здесь можно перевязать раны и свериться с картой уезда.",
+        "choices": [
+          {
+            "id": "rest",
+            "label": "Отдохнуть · 1 припас",
+            "cost_supplies": 1,
+            "rest": true
+          },
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "broken_cart": [
+      {
+        "requires": [
+          "found_broken_cart"
+        ],
+        "speaker": "Разбитая повозка",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Разбитая повозка",
+        "text": "Под осью уцелел свёрток перевязочного полотна.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_broken_cart",
+            "flags": {
+              "found_broken_cart": true
+            },
+            "supplies": 1,
+            "journal": "Разбитая повозка: Под осью уцелел свёрток перевязочного полотна."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "abandoned_tools": [
+      {
+        "requires": [
+          "found_abandoned_tools"
+        ],
+        "speaker": "Брошенные инструменты",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Брошенные инструменты",
+        "text": "Инструменты сложены так, будто рабочие вернутся через минуту.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_abandoned_tools",
+            "flags": {
+              "found_abandoned_tools": true
+            },
+            "supplies": 0,
+            "journal": "Брошенные инструменты: Инструменты сложены так, будто рабочие вернутся через минуту."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "mile_ledger": [
+      {
+        "requires": [
+          "found_mile_ledger"
+        ],
+        "speaker": "Дорожная ведомость",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Дорожная ведомость",
+        "text": "На полях дорожной ведомости отмечены ночные рейсы.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_mile_ledger",
+            "flags": {
+              "found_mile_ledger": true
+            },
+            "supplies": 0,
+            "journal": "Дорожная ведомость: На полях дорожной ведомости отмечены ночные рейсы."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "ash_letter": [
+      {
+        "requires": [
+          "found_ash_letter"
+        ],
+        "speaker": "Письмо под золой",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Письмо под золой",
+        "text": "От огня уцелела просьба не отдавать заболевшего в лечебницу.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_ash_letter",
+            "flags": {
+              "found_ash_letter": true
+            },
+            "supplies": 1,
+            "journal": "Письмо под золой: От огня уцелела просьба не отдавать заболевшего в лечебницу."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "river_cache": [
+      {
+        "requires": [
+          "found_river_cache"
+        ],
+        "speaker": "Береговой тайник",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Береговой тайник",
+        "text": "В просмолённом ящике лежат сухие припасы.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_river_cache",
+            "flags": {
+              "found_river_cache": true
+            },
+            "supplies": 0,
+            "journal": "Береговой тайник: В просмолённом ящике лежат сухие припасы."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "rope_bundle": [
+      {
+        "requires": [
+          "found_rope_bundle"
+        ],
+        "speaker": "Свёрток на причале",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Свёрток на причале",
+        "text": "Свёрток привязан узлом, которым удерживают пленников.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_rope_bundle",
+            "flags": {
+              "found_rope_bundle": true
+            },
+            "supplies": 0,
+            "journal": "Свёрток на причале: Свёрток привязан узлом, которым удерживают пленников."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "washed_seal": [
+      {
+        "requires": [
+          "found_washed_seal"
+        ],
+        "speaker": "Печать в наносах",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Печать в наносах",
+        "text": "Река выбросила старую судебную печать.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_washed_seal",
+            "flags": {
+              "found_washed_seal": true
+            },
+            "supplies": 1,
+            "journal": "Печать в наносах: Река выбросила старую судебную печать."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "grave_note": [
+      {
+        "requires": [
+          "found_grave_note"
+        ],
+        "speaker": "Записка на ограде",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Записка на ограде",
+        "text": "В записке просят похоронить имя отдельно от тела.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_grave_note",
+            "flags": {
+              "found_grave_note": true
+            },
+            "supplies": 0,
+            "journal": "Записка на ограде: В записке просят похоронить имя отдельно от тела."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "burial_tags": [
+      {
+        "requires": [
+          "found_burial_tags"
+        ],
+        "speaker": "Погребальные жетоны",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Погребальные жетоны",
+        "text": "На двух жетонах выбит один и тот же номер.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_burial_tags",
+            "flags": {
+              "found_burial_tags": true
+            },
+            "supplies": 0,
+            "journal": "Погребальные жетоны: На двух жетонах выбит один и тот же номер."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "quarry_satchel": [
+      {
+        "requires": [
+          "found_quarry_satchel"
+        ],
+        "speaker": "Сумка каменотёса",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Сумка каменотёса",
+        "text": "В сумке остались вода и чистая ткань.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_quarry_satchel",
+            "flags": {
+              "found_quarry_satchel": true
+            },
+            "supplies": 1,
+            "journal": "Сумка каменотёса: В сумке остались вода и чистая ткань."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "hunter_stash": [
+      {
+        "requires": [
+          "found_hunter_stash"
+        ],
+        "speaker": "Охотничий схрон",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Охотничий схрон",
+        "text": "В сухом дупле лежит дорожный запас.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_hunter_stash",
+            "flags": {
+              "found_hunter_stash": true
+            },
+            "supplies": 0,
+            "journal": "Охотничий схрон: В сухом дупле лежит дорожный запас."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "lost_prayer": [
+      {
+        "requires": [
+          "found_lost_prayer"
+        ],
+        "speaker": "Потерянная молитва",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Потерянная молитва",
+        "text": "Кто-то перечеркнул имя бога, но оставил просьбу.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_lost_prayer",
+            "flags": {
+              "found_lost_prayer": true
+            },
+            "supplies": 0,
+            "journal": "Потерянная молитва: Кто-то перечеркнул имя бога, но оставил просьбу."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "watch_marks": [
+      {
+        "requires": [
+          "found_watch_marks"
+        ],
+        "speaker": "Метки на дереве",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Метки на дереве",
+        "text": "Зарубки считают людей, ушедших к монастырю.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_watch_marks",
+            "flags": {
+              "found_watch_marks": true
+            },
+            "supplies": 1,
+            "journal": "Метки на дереве: Зарубки считают людей, ушедших к монастырю."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "old_bell": [
+      {
+        "requires": [
+          "found_old_bell"
+        ],
+        "speaker": "Язык колокола",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Язык колокола",
+        "text": "Металл тёплый, хотя костра рядом нет.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_old_bell",
+            "flags": {
+              "found_old_bell": true
+            },
+            "supplies": 0,
+            "journal": "Язык колокола: Металл тёплый, хотя костра рядом нет."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "physician_pages": [
+      {
+        "requires": [
+          "found_physician_pages"
+        ],
+        "speaker": "Страницы лекаря",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Страницы лекаря",
+        "text": "На страницах меняются названия частей тела.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_physician_pages",
+            "flags": {
+              "found_physician_pages": true
+            },
+            "supplies": 0,
+            "journal": "Страницы лекаря: На страницах меняются названия частей тела."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
+      }
+    ],
+    "garden_ribbon": [
+      {
+        "requires": [
+          "found_garden_ribbon"
+        ],
+        "speaker": "Лента из сада",
+        "text": "Находка уже внесена в хронику.",
+        "choices": [
+          {
+            "id": "leave",
+            "label": "Продолжить путь",
+            "close": true
+          }
+        ]
+      },
+      {
+        "speaker": "Лента из сада",
+        "text": "На ленте вышиты чужие инициалы.",
+        "choices": [
+          {
+            "id": "take",
+            "label": "Забрать и сделать запись",
+            "once": "found_garden_ribbon",
+            "flags": {
+              "found_garden_ribbon": true
+            },
+            "supplies": 1,
+            "journal": "Лента из сада: На ленте вышиты чужие инициалы."
+          },
+          {
+            "id": "leave",
+            "label": "Оставить до возвращения",
+            "close": true
+          }
+        ]
       }
     ]
   },
