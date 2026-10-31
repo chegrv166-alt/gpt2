@@ -24,6 +24,7 @@ func _ready() -> void:
 	hud.new_requested.connect(func():hud.show_document("Начать новый эпизод?","Текущие несохранённые решения будут потеряны. Ручное сохранение останется доступно.",[{"id":"restart","label":"Начать заново"},{"id":"close_panel","label":"Остаться"}]))
 	await get_tree().process_frame
 	refresh()
+	print("CHRONICLE_READY ",JSON.stringify({"version":ProjectSettings.get_setting("application/config/version"),"platform":OS.get_name(),"party":campaign.party.size(),"locations":Data.locations().size(),"world_ready":world.is_node_ready(),"hud_ready":hud.is_node_ready()}))
 	var capture=""
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--capture="):capture=arg.substr(10)
