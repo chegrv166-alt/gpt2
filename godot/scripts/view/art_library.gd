@@ -13,10 +13,11 @@ const SHEETS={
 const HEIGHTS={
 	"house":224.0,"archive":300.0,"chapel":325.0,"infirmary":345.0,"gate":220.0,"ruin":115.0,
 	"memorial":133.0,"market":169.0,"camp":62.0,"tree":262.0,"tree_pale":245.0,"cover":62.0,
-	"hero":100.0,"mira":100.0,"sava":100.0,"guard":108.0,"archer":100.0,"prisoner":94.0,
+	"hero":108.0,"mira":108.0,"sava":110.0,"guard":114.0,"archer":104.0,"prisoner":98.0,
 	"hero_1":118.0,"hero_2":150.0,"sava_1":120.0,"sava_2":152.0
 }
 static var _textures: Dictionary={}
+static var _images: Dictionary={}
 const SOURCE_REGIONS={
 	"house":Rect2i(0,0,512,502),"archive":Rect2i(512,0,512,548),"chapel":Rect2i(1024,0,512,568),
 	"infirmary":Rect2i(0,502,512,522),"gate":Rect2i(512,548,512,476),"ruin":Rect2i(1024,568,512,456)
@@ -42,9 +43,13 @@ func _init() -> void:
 					region=Rect2i(region.position+used.position,used.size)
 			var atlas=AtlasTexture.new();atlas.atlas=source;atlas.region=Rect2(region);atlas.filter_clip=true
 			_textures[key]=atlas
+			_images[key]=image.get_region(region)
 
 func texture(key: String) -> Texture2D:
 	return _textures.get(key)
+
+func image(key: String) -> Image:
+	return _images.get(key)
 
 func rect(key: String,foot: Vector2,scale: float=1.0) -> Rect2:
 	var tex=texture(key)

@@ -112,7 +112,7 @@ def run(engine: Path, name: str, args: list[str], expected: str = '', timeout: i
 
 def check(engine: Path) -> None:
     run(engine, 'import', ['--headless', '--editor', '--path', str(PROJECT), '--import'])
-    for suite, marker in [('run_tests', 'MODEL TESTS:'), ('art_checks', 'ART TESTS:'), ('scene_smoke', 'SCENE TESTS:'), ('playthrough', 'PLAYTHROUGH TESTS:')]:
+    for suite, marker in [('run_tests', 'MODEL TESTS:'), ('art_checks', 'ART TESTS:'), ('scene_smoke', 'SCENE TESTS:'), ('visual_scene_checks', 'VISUAL SCENE TESTS:'), ('playthrough', 'PLAYTHROUGH TESTS:')]:
         output = run(engine, suite, ['--headless', '--path', str(PROJECT), '--script', 'tests/' + suite + '.gd'], marker, timeout=90)
         if not re.search(re.escape(marker) + r' \d+ checks, 0 failures', output): raise SystemExit(f'{suite} did not complete successfully')
         print(output.strip().splitlines()[-1], flush=True)

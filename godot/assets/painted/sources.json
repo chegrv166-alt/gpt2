@@ -3,13 +3,15 @@
   "art_design": "2026-10-31-painted-gothic-art-design.md",
   "sources": {
     "characters.png": {
-      "sha256": "b3e85d8c5edb9d945fd2d98913ab02294c598760a91840795af418acfc306a6a",
+      "sha256": "56d2e4afaaaaeeb03d755249783099866c5a5a8885697b11bbcc81c12319b6db",
       "dimensions": [
         1536,
         1024
       ],
       "mode": "RGBA",
-      "source_unchanged": true
+      "source_unchanged": true,
+      "previous_source_commit": "2f269f5",
+      "edit_prompt": "characters-spacing-prompt.txt"
     },
     "landmarks.png": {
       "sha256": "e56aa9a76fec246796f1af6e27cb065eafaf4adc6bc5bd99cdf65b589e00b7bc",
