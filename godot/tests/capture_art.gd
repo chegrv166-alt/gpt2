@@ -9,6 +9,14 @@ func capture() -> void:
 		if arg.begins_with("--output="):output=arg.substr(9)
 	var game=load("res://main.tscn").instantiate();root.add_child(game)
 	await process_frame;await process_frame
+	var regions={"town":"camp","forest":"forest_camp","docks":"dock_camp","graves":"grave_camp","abbey":"abbey_camp"}
+	if regions.has(scenario):
+		var target=game.campaign.layout.entrance(regions[scenario])
+		game.campaign.world_position=[target.x,target.y];game.campaign.discover(target);game.refresh();game.world._center_on(game.world.player)
+	if scenario=="river":
+		var target=Vector2i(game.campaign.layout.river_x(304),304)
+		game.campaign.world_position=[target.x,target.y];game.campaign.discover(target);game.refresh();game.world._center_on(game.world.player)
+	if scenario=="overview":game.show_region_map()
 	if scenario in ["battle","mutation"]:game.start_battle("ritual")
 	if scenario=="mutation":
 		# A render fixture for both anatomical variants; no claim of input playthrough.

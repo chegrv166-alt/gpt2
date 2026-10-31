@@ -14,12 +14,13 @@ func run() -> void:
 	check(exists,"Original painted art library is available")
 	if not exists:finish();return
 	var art=load("res://scripts/view/art_library.gd").new()
-	for key in ["house","archive","chapel","infirmary","gate","ruin","memorial","market","camp","tree","tree_pale","cover","hero","mira","sava","guard","archer","prisoner","hero_1","hero_2","sava_1","sava_2","portrait_hero","portrait_mira","portrait_sava","cobble","earth","flagstone","water"]:
+	for key in ["house","archive","chapel","infirmary","gate","ruin","memorial","market","camp","tree","tree_pale","cover","hero","mira","sava","guard","archer","prisoner","hero_1","hero_2","sava_1","sava_2","portrait_hero","portrait_mira","portrait_sava","cobble","earth","flagstone","water","house_b","warehouse","inn","bridge","grave","pine","pier","boat","ferry","yard_fence","cart","barrels"]:
 		var texture=art.texture(key)
 		check(texture!=null and texture.get_width()>8 and texture.get_height()>8,"Runtime image exists: "+key)
 		var foot=Vector2(400,300)
 		var rect=art.rect(key,foot,0.8)
 		check(rect.has_point(foot-Vector2(0,2)) and rect.size.x>0 and rect.size.y>0,"Ground anchor matches visible and clickable image: "+key)
+	check(art.texture("bridge_full")!=null,"Full-width river bridge is included as an actual resource")
 	for key in ["bandit","witness","archivist","market","guard","warden"]:
 		check(art.portrait(key)!=null,"Actual speaking character has a matching portrait: "+key)
 	var forms: Array=[]

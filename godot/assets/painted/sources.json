@@ -67,6 +67,36 @@
       "mode": "RGB",
       "source_unchanged": true,
       "prompt": "dialogue-portraits-prompt.txt"
+    },
+    "region_scenery.png": {
+      "sha256": "764e24266fefde544d967dcc0db9d2723e7eac82c6c778f6c5524dd7c7a4f847",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true,
+      "prompt": "region-scenery-prompt.txt"
+    },
+    "region_bridge.png": {
+      "sha256": "eaa0c56ca7702648f2d3eab6e19de6b3eeb133599f90abca9edc3168d9b1cc74",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true,
+      "prompt": "region-bridge-prompt.txt"
+    },
+    "region_harbor.png": {
+      "sha256": "82605026cfa0322b0b0c51c62faa87e9a6046817b36ce1688af95f9b3779a52c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true,
+      "prompt": "region-harbor-prompt.txt"
     }
   }
 }

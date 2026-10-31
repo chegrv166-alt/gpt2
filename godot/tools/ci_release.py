@@ -112,7 +112,7 @@ def run(engine: Path, name: str, args: list[str], expected: str = '', timeout: i
 
 def check(engine: Path) -> None:
     run(engine, 'import', ['--headless', '--editor', '--path', str(PROJECT), '--import'])
-    for suite, marker in [('run_tests', 'MODEL TESTS:'), ('art_checks', 'ART TESTS:'), ('scene_smoke', 'SCENE TESTS:'), ('visual_scene_checks', 'VISUAL SCENE TESTS:'), ('playthrough', 'PLAYTHROUGH TESTS:')]:
+    for suite, marker in [('run_tests', 'MODEL TESTS:'), ('art_checks', 'ART TESTS:'), ('region_checks', 'REGION TESTS:'), ('exploration_checks', 'EXPLORATION TESTS:'), ('scene_smoke', 'SCENE TESTS:'), ('visual_scene_checks', 'VISUAL SCENE TESTS:'), ('region_scene_checks', 'REGION SCENE TESTS:'), ('playthrough', 'PLAYTHROUGH TESTS:')]:
         output = run(engine, suite, ['--headless', '--path', str(PROJECT), '--script', 'tests/' + suite + '.gd'], marker, timeout=90)
         if not re.search(re.escape(marker) + r' \d+ checks, 0 failures', output): raise SystemExit(f'{suite} did not complete successfully')
         print(output.strip().splitlines()[-1], flush=True)
@@ -137,7 +137,7 @@ def smoke() -> None:
     line = next(line.split('CHRONICLE_READY ', 1)[1] for line in output.splitlines() if 'CHRONICLE_READY ' in line)
     report = json.loads(line)
     expected_platform = 'Windows' if host() == 'windows' else 'Linux'
-    if report.get('platform') != expected_platform or report.get('party') != 3 or report.get('locations') != 9 or not report.get('world_ready') or not report.get('hud_ready'):
+    if report.get('platform') != expected_platform or report.get('party') != 3 or report.get('locations') != len(json.loads((PROJECT / 'content/episode.json').read_text(encoding='utf-8'))['locations']) or not report.get('world_ready') or not report.get('hud_ready'):
         raise SystemExit(f'Packaged application did not initialize: {report}')
     print('Native packaged application readiness:', json.dumps(report, ensure_ascii=False), flush=True)
 
@@ -176,7 +176,7 @@ def main() -> None:
     parser.add_argument('command', choices=['paths', 'bootstrap', 'check', 'build', 'smoke', 'package'])
     parser.add_argument('--directory', type=Path, default=Path(os.environ.get('RUNNER_TEMP', '/tmp')) / 'godot-runtime')
     parser.add_argument('--engine', type=Path, default=Path(os.environ.get('GODOT_BIN', shutil.which('godot') or 'godot')))
-    parser.add_argument('--version', default='0.7.1')
+    parser.add_argument('--version', default='0.8.0')
     args = parser.parse_args()
     if args.command == 'paths':
         values = f'engine={args.directory}\ntemplates={templates_dir()}\n'

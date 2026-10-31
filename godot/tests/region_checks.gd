@@ -24,6 +24,7 @@ func run() -> void:
 		var center=Vector2i(layout.river_x(bridge.y),bridge.y)
 		check(not layout.blocked(center),"Visible bridge crosses the physical river")
 	check(layout.blocked(Vector2i(layout.river_x(180),180)),"River water is not walkable")
+	check(layout.blocked(Vector2i(430,190)),"Deep quarry terrain is a real obstacle")
 	check(layout.blocked(Vector2i(-1,20)) and layout.blocked(Vector2i(512,20)),"Region edges reject out-of-bounds movement")
 	finish()
 func finish() -> void:

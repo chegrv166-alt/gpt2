@@ -13,6 +13,11 @@ signal action_selected(id: String)
 signal save_requested
 signal load_requested
 signal retreat_requested
+signal region_requested
+signal region_destination(point: Vector2i)
+signal region_travel(id: String)
+var region_map=null
+var region_mode=false
 signal journal_requested
 signal new_requested
 var board_slot: Control
@@ -114,8 +119,9 @@ func _responsive() -> void:
 	queue_label.add_theme_font_size_override("font_size",11 if compact else 12)
 	intent_label.add_theme_font_size_override("font_size",11 if compact else 12)
 	if modal_panel!=null:
-		modal_panel.custom_minimum_size.x=minf(760,get_viewport_rect().size.x-48)
-		(modal_content.get_parent() as ScrollContainer).custom_minimum_size.y=minf(490,get_viewport_rect().size.y-145)
+		if region_mode and region_map!=null:region_map.custom_minimum_size.y=minf(450,get_viewport_rect().size.y-320)
+		modal_panel.custom_minimum_size.x=minf(1020 if region_mode else 760,get_viewport_rect().size.x-48)
+		(modal_content.get_parent() as ScrollContainer).custom_minimum_size.y=minf(660,get_viewport_rect().size.y-104) if region_mode else minf(490,get_viewport_rect().size.y-145)
 
 func _build_header() -> void:
 	var panel=PanelContainer.new();panel.name="Header";panel.custom_minimum_size.y=58
@@ -126,6 +132,7 @@ func _build_header() -> void:
 	var title=VBoxContainer.new();title.add_theme_constant_override("separation",1);title.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(title)
 	var logo=_label("ASHEN COVENANT",18,Color("d6c09a"));logo.add_theme_font_override("font",title_font);title.add_child(logo)
 	title.add_child(_label("ИМЯ, КОТОРОГО НЕТ",9,Color("7e8994")))
+	var map_button=_button("Карта · M");map_button.pressed.connect(func():region_requested.emit());row.add_child(map_button)
 	journal_button=_button("Хроника · J");journal_button.pressed.connect(func():journal_requested.emit());row.add_child(journal_button)
 	var save=_button("Записать · F5");save.pressed.connect(func():save_requested.emit());row.add_child(save)
 	var restore=_button("Загрузить · F9");restore.pressed.connect(func():load_requested.emit());row.add_child(restore)
@@ -196,7 +203,7 @@ func update_state(campaign,battle,mode: String,busy: bool=false) -> void:
 		action_buttons.skill.text="3 · "+(str(skills[battle.selected_voice]) if actor.id=="hero" else "Связка [1 ОД]" if actor.id=="mira" else "Перевязка [1 ОД]")
 	else:
 		objective_label.text="ИМЯ, КОТОРОГО НЕТ · "+("Эпизод завершён. Можно продолжить исследование или начать заново." if not campaign.ending.is_empty() else "Найдите след человека, чья подпись стоит в протоколе вашей казни.")
-		status_label.text="ЛКМ — идти / взаимодействовать · Колесо — масштаб · Средняя кнопка / WASD — камера · J — хроника · F5 / F9 — сохранить / загрузить"
+		status_label.text="ЛКМ — идти / взаимодействовать · Колесо — масштаб · Средняя кнопка / WASD — камера · Shift — бег · M — карта · J — хроника · F5 / F9 — сохранить / загрузить"
 
 func show_message(text: String) -> void:
 	status_label.text=text
@@ -205,6 +212,7 @@ func modal_visible() -> bool:
 	return modal_layer!=null and modal_layer.visible
 
 func _clear_modal() -> void:
+	region_mode=false;region_map=null
 	for child in modal_content.get_children():
 		modal_content.remove_child(child);child.queue_free()
 	choice_buttons.clear()
@@ -239,3 +247,25 @@ func show_document(title: String,text: String,options: Array=[]) -> void:
 
 func close_modal() -> void:
 	modal_layer.hide();takeover=false
+
+func show_region(campaign) -> void:
+	_clear_modal();region_mode=true;takeover=false
+	modal_content.add_child(_label("ВЕЛЬСКИЙ УЕЗД",22,Color("d9c9a9")))
+	region_map=load("res://scripts/view/region_map.gd").new();region_map.campaign=campaign
+	region_map.custom_minimum_size=Vector2(400,minf(450,get_viewport_rect().size.y-320))
+	region_map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	region_map.destination_selected.connect(func(point):region_destination.emit(point))
+	modal_content.add_child(region_map)
+	var row=HFlowContainer.new();row.add_theme_constant_override("h_separation",6);modal_content.add_child(row)
+	for camp in campaign.layout.camps():
+		if not campaign.discovered.has(camp.id):continue
+		var id:String=camp.id;var button=_button(camp.name+" · 1 припас")
+		button.tooltip_text="Переход между открытыми лагерями доступен из лагеря, вне боя."
+		button.pressed.connect(func():region_travel.emit(id));row.add_child(button)
+	var close=_button("Вернуться · M / Esc");close.pressed.connect(close_modal);modal_content.add_child(close)
+	_responsive();modal_layer.show()
+
+func show_region_notice(text: String) -> void:
+	if region_map!=null:
+		region_map.notice=text;region_map.queue_redraw()
+	show_message(text)

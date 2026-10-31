@@ -6,6 +6,7 @@ static var _data: Dictionary={}
 static var _walk=PackedByteArray()
 static var _roads=PackedByteArray()
 static var _water=PackedByteArray()
+static var _cliffs=PackedByteArray()
 static var _solids: Array[Vector2i]=[]
 static var _chunks: Dictionary={}
 static var _terrain: Texture2D
@@ -50,6 +51,7 @@ func _footprint(point: Vector2i,radius: int) -> void:
 func _prepare() -> void:
 	_walk.resize(SIZE.x*SIZE.y);_walk.fill(1)
 	_roads.resize(_walk.size());_roads.fill(0);_water.resize(_walk.size());_water.fill(0)
+	_cliffs.resize(_walk.size());_cliffs.fill(0)
 	for y in range(SIZE.y):
 		var center=river_x(y)
 		for x in range(center-8,center+9):
@@ -72,19 +74,34 @@ func _prepare() -> void:
 					if bounds().has_point(q):
 						var idx=q.y*SIZE.x+q.x;_roads[idx]=maxi(_roads[idx],bit[1])
 	for bridge in data.bridges:
-		for y in range(bridge.y-3,bridge.y+4):
+		for y in range(bridge.y-1,bridge.y+2):
 			for x in range(river_x(y)-12,river_x(y)+13):
 				var idx=y*SIZE.x+x;_walk[idx]=1;_roads[idx]=255;_water[idx]=0
+	for cliff in data.get("cliffs",[]):
+		var r=cliff.rect
+		for y in range(r[1],r[1]+r[3]):
+			for x in range(r[0],r[0]+r[2]):
+				_block(Vector2i(x,y));_cliffs[y*SIZE.x+x]=255;_roads[y*SIZE.x+x]=0
+	for pier in data.get("piers",[]):
+		var r=pier.rect
+		for y in range(r[1],r[1]+r[3]):
+			for x in range(r[0],r[0]+r[2]):
+				var idx=y*SIZE.x+x;_walk[idx]=1;_water[idx]=0;_roads[idx]=255
 	for place in Data.locations():
 		if place.kind in ["house","archive","chapel","infirmary","gate","market","memorial"]:_footprint(Vector2i(place.pos[0],place.pos[1]),1)
 	for item in data.scenery:
 		var p=Vector2i(item.point[0],item.point[1])
-		if blocked(p):continue
-		if item.get("solid",false):_footprint(p,1 if item.key in ["house","house_b","inn","warehouse"] else 0)
+		if blocked(p) and not item.get("over_water",false):continue
+		if item.get("solid",false):_footprint(p,1 if item.key in ["house","house_b","inn","warehouse","archive","chapel","cart"] else 0)
 		var sector=Vector2i(p.x/SECTOR,p.y/SECTOR)
 		if not _chunks.has(sector):_chunks[sector]=[]
 		_chunks[sector].append(item)
 	# Keep authored approaches clear even when a decorative root nearly touches one.
+	for bridge in data.bridges:
+		var p=Vector2i(river_x(bridge.y),bridge.y)
+		var sector=Vector2i(p.x/SECTOR,p.y/SECTOR)
+		if not _chunks.has(sector):_chunks[sector]=[]
+		_chunks[sector].append({"point":[p.x,p.y],"key":"bridge_full","scale":1.0,"solid":false})
 	for place in Data.locations():
 		var p=entrance(place.id)
 		if bounds().has_point(p) and _water[p.y*SIZE.x+p.x]==0:_walk[p.y*SIZE.x+p.x]=1
@@ -102,7 +119,7 @@ func terrain_texture() -> Texture2D:
 	for y in range(SIZE.y):
 		for x in range(SIZE.x):
 			var idx=y*SIZE.x+x;var dst=idx*4
-			bytes[dst]=_roads[idx];bytes[dst+1]=_water[idx];bytes[dst+2]=0;bytes[dst+3]=255
+			bytes[dst]=_roads[idx];bytes[dst+1]=_water[idx];bytes[dst+2]=0;bytes[dst+3]=255-_cliffs[idx]
 	for district in data.districts:
 		var r=district.rect;var index=["town","docks","graves","forest","abbey"].find(district.id)
 		for y in range(r[1],r[1]+r[3]):

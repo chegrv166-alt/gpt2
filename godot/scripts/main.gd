@@ -19,6 +19,9 @@ func _ready() -> void:
 	hud=GameHUD.new();hud.name="GameHUD";add_child(hud)
 	world=WorldView.new();world.name="WorldView";hud.board_slot.add_child(world);world.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	world.location_selected.connect(open_location);world.tile_selected.connect(on_tile)
+	world.region_requested.connect(show_region_map);world.exploration_changed.connect(func():hud.update_state(campaign,battle,mode,busy))
+	hud.region_requested.connect(show_region_map)
+	hud.region_destination.connect(on_region_destination);hud.region_travel.connect(on_region_travel)
 	hud.choice_selected.connect(on_choice);hud.action_selected.connect(on_action)
 	hud.save_requested.connect(func():save_game());hud.load_requested.connect(func():load_game());hud.retreat_requested.connect(retreat);hud.journal_requested.connect(show_journal)
 	hud.new_requested.connect(func():hud.show_document("Начать новый эпизод?","Текущие несохранённые решения будут потеряны. Ручное сохранение останется доступно.",[{"id":"restart","label":"Начать заново"},{"id":"close_panel","label":"Остаться"}]))
@@ -43,7 +46,9 @@ func refresh() -> void:
 	hud.update_state(campaign,battle,mode,busy)
 
 func _process(delta: float) -> void:
-	if world==null or hud==null or hud.modal_visible():return
+	if world==null or hud==null:return
+	world.suspended=hud.modal_visible()
+	if hud.modal_visible():return
 	var axis=Vector2.ZERO
 	if Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT):axis.x-=1
 	if Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT):axis.x+=1
@@ -57,6 +62,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		KEY_F5:save_game();get_viewport().set_input_as_handled()
 		KEY_F9:load_game();get_viewport().set_input_as_handled()
 		KEY_J:show_journal();get_viewport().set_input_as_handled()
+		KEY_M:
+			if hud.region_mode and hud.modal_visible():hud.close_modal()
+			else:show_region_map()
+			get_viewport().set_input_as_handled()
 		KEY_ESCAPE:
 			if hud.modal_visible() and not hud.takeover:
 				on_choice("close_panel")
@@ -222,3 +231,16 @@ func load_game(path: String="user://chronicle_save.json") -> bool:
 	battle=campaign.active_battle;mode="move";current_npc=campaign.dialogue_id;world.route.clear();world.pending_location="";hud.close_modal();refresh()
 	if not current_npc.is_empty() and battle==null:hud.show_dialogue(campaign.talk(current_npc))
 	hud.show_message("Хроника загружена");return true
+
+func show_region_map() -> void:
+	if busy or battle!=null:return
+	if not campaign.pending_takeover.is_empty():return
+	current_npc="";campaign.dialogue_id="";hud.show_region(campaign)
+func on_region_destination(point: Vector2i) -> void:
+	if battle!=null or busy:return
+	if world.navigate_to(point):hud.close_modal();hud.show_message("Маршрут отмечен. Shift — бежать; M — карта уезда.")
+	else:hud.show_region_notice("Здесь нельзя пройти. Выберите берег, дорогу или переправу.")
+func on_region_travel(id: String) -> void:
+	if not campaign.fast_travel(id):
+		hud.show_region_notice("Переход возможен из лагеря к другому открытому лагерю за один припас.");return
+	world.route.clear();world.pending_location="";hud.close_modal();refresh();world._center_on(world.player)

@@ -10,18 +10,25 @@ const SHEETS={
 	"portraits":["portrait_hero","portrait_mira","portrait_sava","portrait_investigator","portrait_executioner","portrait_judge"],
 	"dialogue_portraits":["portrait_bandit","portrait_witness","portrait_archivist","portrait_market","portrait_guard","portrait_warden"],
 	"terrain":["cobble","earth","flagstone","water"]
+	,"region_scenery":["house_b","warehouse","inn","bridge","grave","pine"]
+	,"region_bridge":["bridge_full"]
+	,"region_harbor":["pier","boat","ferry","yard_fence","cart","barrels"]
 }
 const HEIGHTS={
 	"house":300.0,"archive":390.0,"chapel":430.0,"infirmary":470.0,"gate":270.0,"ruin":140.0,
 	"memorial":160.0,"market":185.0,"camp":65.0,"tree":262.0,"tree_pale":245.0,"cover":62.0,
 	"hero":108.0,"mira":108.0,"sava":110.0,"guard":114.0,"archer":104.0,"prisoner":98.0,
 	"hero_1":118.0,"hero_2":150.0,"sava_1":120.0,"sava_2":152.0
+	,"house_b":300.0,"warehouse":255.0,"inn":290.0,"bridge":285.0,"grave":95.0,"pine":300.0
+	,"bridge_full":512.0
+	,"pier":410.0,"boat":105.0,"ferry":175.0,"yard_fence":100.0,"cart":110.0,"barrels":70.0
 }
 static var _textures: Dictionary={}
 static var _images: Dictionary={}
 const SOURCE_REGIONS={
 	"house":Rect2i(0,0,512,502),"archive":Rect2i(512,0,512,548),"chapel":Rect2i(1024,0,512,568),
 	"infirmary":Rect2i(0,502,512,522),"gate":Rect2i(512,548,512,476),"ruin":Rect2i(1024,568,512,456)
+	,"bridge":Rect2i(0,512,640,512),"grave":Rect2i(550,512,590,512),"pine":Rect2i(1140,512,396,512)
 }
 # Inspected physical silhouettes, excluding the generator's distant soft halo.
 # These are resource coordinates only; source PNG bytes remain unchanged.
@@ -41,9 +48,10 @@ func _init() -> void:
 	for sheet in SHEETS:
 		var source=load("res://assets/painted/%s.png"%sheet) as Texture2D
 		if source==null:continue
-		var columns=2 if sheet in ["mutations","terrain"] else 3
+		var columns=1 if sheet=="region_bridge" else 2 if sheet in ["mutations","terrain"] else 3
+		var rows=1 if sheet=="region_bridge" else 2
 		var image=source.get_image()
-		var cell=Vector2i(image.get_width()/columns,image.get_height()/2)
+		var cell=Vector2i(image.get_width()/columns,image.get_height()/rows)
 		for i in range(SHEETS[sheet].size()):
 			var key=SHEETS[sheet][i]
 			var region=Rect2i(Vector2i(i%columns,i/columns)*cell,cell)
@@ -53,7 +61,7 @@ func _init() -> void:
 				var used=image.get_region(region).get_used_rect()
 				if used.has_area():
 					# Keep a small clear edge to prevent atlas filtering into a neighbour.
-					used=used.grow(3).intersection(Rect2i(Vector2i.ZERO,cell))
+					used=used.grow(3).intersection(Rect2i(Vector2i.ZERO,region.size))
 					region=Rect2i(region.position+used.position,used.size)
 			var atlas=AtlasTexture.new();atlas.atlas=source;atlas.region=Rect2(region);atlas.filter_clip=true
 			_textures[key]=atlas
@@ -79,6 +87,8 @@ func rect(key: String,foot: Vector2,scale: float=1.0) -> Rect2:
 	var height=float(HEIGHTS.get(key,100.0))*scale
 	var width=height*tex.get_width()/tex.get_height()
 	var anchor=.94 if key in ["hero","mira","sava","guard","archer","prisoner","hero_1","hero_2","sava_1","sava_2"] else .86
+	if key=="bridge_full":anchor=.53
+	if key=="pier":anchor=.6
 	return Rect2(foot-Vector2(width*.5,height*anchor),Vector2(width,height))
 
 func actor_key(actor: Dictionary) -> String:

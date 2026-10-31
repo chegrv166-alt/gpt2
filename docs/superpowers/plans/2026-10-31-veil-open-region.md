@@ -24,26 +24,26 @@
 ### Task 1: Geography and region content
 **Files:** create `godot/content/region.json`, `godot/scripts/model/world_layout.gd`, `godot/tests/region_checks.gd`; modify `episode.json`, `episode_data.gd`, check runners.
 **Interfaces:** WorldLayout.bounds/start/district_at/entrance/blocked/road_strength/navigation/terrain_texture/scenery_near; Data.locations remains the authoritative 46-point list. Region declares five districts, roads, river, bridges and camps.
-- [ ] Write/run failing geography checks for dimensions, 46 interactions, five camps, reachability and water/bridge collision.
-- [ ] Author spaced main and side places with real conversations/one-time finds; add four encounter templates with explicit local rewards.
-- [ ] Implement deterministic cached masks/footprints and sector-indexed scenery; verify paths to every entrance and multiple river crossings.
-- [ ] Run new checks and baseline model suite, commit.
+- [x] Write/run failing geography checks for dimensions, 46 interactions, five camps, reachability and water/bridge collision.
+- [x] Author spaced main and side places with real conversations/one-time finds; add four encounter templates with explicit local rewards.
+- [x] Implement deterministic cached masks/footprints and sector-indexed scenery; verify paths to every entrance and multiple river crossings.
+- [x] Run new checks and baseline model suite, commit.
 
 ### Task 2: Campaign exploration and safe persistence
 **Files:** modify `campaign.gd`; extend `region_checks.gd` and model checks.
 **Interfaces:** discover(position), discovered/visited sectors, fast_travel(id), version2 snapshot and version1 migration; result handling distinguishes final encounters explicitly.
-- [ ] Write/run failing tests for old campaign/checkpoint migration, discovery persistence, safe camp-only travel, one-time reward and nonfinal road victories.
-- [ ] Implement version2 validation and atomic migration; preserve old active-battle data and outcomes.
-- [ ] Implement discovery and travel using WorldLayout entrance/camp data; optional road victories set explicit flags/rewards.
-- [ ] Run complete model/region tests, commit.
+- [x] Write/run failing tests for old campaign/checkpoint migration, discovery persistence, safe camp-only travel, one-time reward and nonfinal road victories.
+- [x] Implement version2 validation and atomic migration; preserve old active-battle data and outcomes.
+- [x] Implement discovery and travel using WorldLayout entrance/camp data; optional road victories set explicit flags/rewards.
+- [x] Run complete model/region tests, commit.
 
 ### Task 3: Spacious rendered world and navigation UI
 **Files:** modify `world_view.gd`, `ground.gdshader`, `game_hud.gd`, `main.gd`; create `region_map.gd`; add painted scenery and provenance if required; update visual checks/capture helper.
 **Interfaces:** WorldView.navigate_to(point), campaign-backed discovery, local minimap and M overview; RegionMap.destination_selected/travel_selected signals; same bounds/roads/river as physics.
-- [ ] Write/run failing scene checks for far movement, M map/input blocking, destination and compact layout.
-- [ ] Render visible scenery sectors with margin for tall art; use data-driven terrain mask, river banks, bridge surfaces, dense streets/courts and varied outskirts.
-- [ ] Add district naming, local minimap, full region overview with discoveries/waypoints, Shift jog and safe discovered-camp travel.
-- [ ] Inspect actual city/river/forest/cemetery/monastery frames, plus 960×640 overview/battle; verify real path traversal and culling; commit.
+- [x] Write/run failing scene checks for far movement, M map/input blocking, destination and compact layout.
+- [x] Render visible scenery sectors with margin for tall art; use data-driven terrain mask, river banks, bridge surfaces, dense streets/courts and varied outskirts.
+- [x] Add district naming, local minimap, full region overview with discoveries/waypoints, Shift jog and safe discovered-camp travel.
+- [x] Inspect actual city/river/forest/cemetery/monastery frames, plus 960×640 overview/battle; verify real path traversal and culling; commit.
 
 ### Task 4: Validation and local desktop delivery
 **Files:** update README/player notes/version/export helpers, verification report and capture artifacts.

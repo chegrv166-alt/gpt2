@@ -2,7 +2,12 @@ extends Control
 
 signal location_selected(id: String)
 signal tile_selected(tile: Vector2i)
+signal region_requested
+signal exploration_changed
 const Data=preload("res://scripts/model/episode_data.gd")
+const Layout=preload("res://scripts/model/world_layout.gd")
+var layout=Layout.new()
+var suspended=false
 const Art=preload("res://scripts/view/art_library.gd")
 var art=Art.new()
 var campaign=null
@@ -38,27 +43,21 @@ func _ready() -> void:
 	font=load("res://assets/body.ttf")
 	title_font=load("res://assets/title.ttf")
 	_build_atmosphere()
-	navigation.region=Rect2i(0,0,30,24)
-	navigation.cell_size=Vector2.ONE
-	navigation.diagonal_mode=AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
-	navigation.update()
-	for location in Data.locations():
-		if location.kind in ["camp","memorial","market"]:continue
-		var p=Vector2i(int(location.pos[0]),int(location.pos[1]))
-		for y in range(p.y-1,p.y+2):
-			for x in range(p.x-1,p.x+2):navigation.set_point_solid(Vector2i(x,y))
-	_create_scenery()
+	navigation=layout.navigation()
+	player=Vector2(layout.start())
 	resized.connect(_on_resize)
 
 func configure(state,new_battle=null) -> void:
+	var state_changed=campaign!=state
 	campaign=state
 	var changed=battle!=new_battle
 	battle=new_battle
 	if battle==null:
 		player=Vector2(float(campaign.world_position[0]),float(campaign.world_position[1]))
-		if changed or not _initialized:
+		if changed or state_changed or not _initialized:
+			route.clear();pending_location=""
 			zoom=.85 if size.x>=1000 else .92
-			_center_on(Vector2(14,12) if not _initialized and size.x>=1000 else player)
+			_center_on(player)
 	else:
 		route.clear();pending_location=""
 		if changed:
@@ -89,14 +88,17 @@ func _center_on(tile: Vector2) -> void:
 
 func _process(delta: float) -> void:
 	elapsed+=delta
-	if not route.is_empty() and battle==null:
+	if not route.is_empty() and battle==null and not suspended:
 		var target=Vector2(route[0])
-		player=player.move_toward(target,delta*5.0)
+		player=player.move_toward(target,delta*(11.0 if Input.is_physical_key_pressed(KEY_SHIFT) else 5.5))
 		camera_focus=player
 		pan=pan.lerp(-_iso(player)*zoom+Vector2(0,60),1.0-exp(-delta*3.0))
 		if player.distance_to(target)<0.015:
 			route.pop_front()
 			campaign.world_position=[int(target.x),int(target.y)]
+			var known=campaign.discovered.size()
+			campaign.discover(Vector2i(target))
+			if known!=campaign.discovered.size():exploration_changed.emit()
 			if route.is_empty() and not pending_location.is_empty():
 				var id=pending_location;pending_location="";location_selected.emit(id)
 	if battle!=null:
@@ -131,6 +133,8 @@ func _gui_input(event: InputEvent) -> void:
 		hovered_location=_location_at(event.position) if battle==null else ""
 		mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND if not hovered_location.is_empty() else Control.CURSOR_ARROW
 	if event is InputEventMouseButton:
+		if battle==null and _minimap_rect().has_point(event.position) and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
+			region_requested.emit();accept_event();return
 		if event.button_index==MOUSE_BUTTON_MIDDLE:drag=event.pressed
 		if not event.pressed:return
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
@@ -161,14 +165,19 @@ func _explore_click(pos: Vector2) -> void:
 	if not hit.is_empty():
 		for location in Data.locations():
 			if location.id==hit:target=Vector2i(int(location.pos[0]),int(location.pos[1])+2)
-	if not navigation.region.has_point(target) or navigation.is_point_solid(target):return
-	var from=Vector2i(roundi(player.x),roundi(player.y))
-	var path=navigation.get_id_path(from,target)
-	if path.is_empty():return
-	route=Array(path);pending_location=hit;selection=hit
-	if not route.is_empty() and Vector2(route[0]).distance_to(player)<0.1:route.pop_front()
+	if not navigate_to(target):return
+	pending_location=hit;selection=hit
 	if route.is_empty() and not pending_location.is_empty():
 		var id=pending_location;pending_location="";location_selected.emit(id)
+
+func navigate_to(target: Vector2i) -> bool:
+	if battle!=null or layout.blocked(target):return false
+	var from=Vector2i(roundi(player.x),roundi(player.y))
+	var path=navigation.get_id_path(from,target)
+	if path.is_empty():return false
+	route=Array(path);pending_location=""
+	if not route.is_empty() and Vector2(route[0]).distance_to(player)<.1:route.pop_front()
+	return true
 
 func pan_camera(axis: Vector2,delta: float) -> void:
 	if not axis.is_zero_approx():
@@ -181,30 +190,14 @@ func _build_atmosphere() -> void:
 	var floor=ColorRect.new();floor.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	floor.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);floor.show_behind_parent=true;floor.z_index=-1
 	ground_material=ShaderMaterial.new();ground_material.shader=load("res://scripts/view/ground.gdshader")
-	ground_material.set_shader_parameter("terrain",load("res://assets/painted/terrain.png"));floor.material=ground_material;add_child(floor)
+	ground_material.set_shader_parameter("terrain",load("res://assets/painted/terrain.png"))
+	ground_material.set_shader_parameter("region_mask",layout.terrain_texture());floor.material=ground_material;add_child(floor)
 	var mist=ColorRect.new();mist.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	mist.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mist_material=ShaderMaterial.new();mist_material.shader=load("res://scripts/view/atmosphere.gdshader");mist.material=mist_material;add_child(mist)
 	var gradient=Gradient.new();gradient.set_color(0,Color(1,1,1,.65));gradient.set_color(1,Color(1,1,1,0))
 	glow_texture=GradientTexture2D.new();glow_texture.gradient=gradient;glow_texture.width=128;glow_texture.height=128
 	glow_texture.fill=GradientTexture2D.FILL_RADIAL;glow_texture.fill_from=Vector2(.5,.5);glow_texture.fill_to=Vector2(1,.5)
-
-func _create_scenery() -> void:
-	for i in range(36):
-		var tile=Vector2(posmod(i*17+2,43)-6,posmod(i*13+1,35)-5)
-		if _road_distance(tile)<2.5:continue
-		var near=false
-		for place in Data.locations():
-			if tile.distance_to(Vector2(place.pos[0],place.pos[1]))<3.2:near=true;break
-		if not near:scenery.append({"point":tile,"key":"tree" if i%3 else "tree_pale","scale":.68+float(i%5)*.06})
-	for point in [Vector2(-2,8),Vector2(-2,13),Vector2(-2,19),Vector2(2,25),Vector2(8,26),Vector2(15,26),Vector2(1,-2),Vector2(8,-2),Vector2(19,-2),Vector2(32,15)]:
-		scenery.append({"point":point,"key":"house","scale":1.0})
-
-func _road_distance(p: Vector2) -> float:
-	var segments=[[Vector2(3,12.5),Vector2(26,12.5)],[Vector2(7,12.5),Vector2(7,19)],[Vector2(16.5,4),Vector2(16.5,18)],[Vector2(9,7),Vector2(26,7)],[Vector2(12,17),Vector2(22,17)]]
-	var nearest=100.0
-	for line in segments:nearest=minf(nearest,p.distance_to(Geometry2D.get_closest_point_to_segment(p,line[0],line[1])))
-	return nearest
 
 func location_rect(location: Dictionary) -> Rect2:
 	return art.rect(location.kind,screen(Vector2(location.pos[0],location.pos[1])),zoom)
@@ -218,7 +211,7 @@ func _location_at(pos: Vector2) -> String:
 	var places=Data.locations()
 	places.sort_custom(func(a,b):return a.pos[0]+a.pos[1]>b.pos[0]+b.pos[1])
 	for place in places:
-		var labelled=player.distance_to(Vector2(place.pos[0],place.pos[1]))<7.5 or place.id in [selection,hovered_location]
+		var labelled=(player.distance_to(Vector2(place.pos[0],place.pos[1]))<15 and campaign.discovered.has(place.id)) or place.id in [selection,hovered_location]
 		if labelled and _label_rect(place).has_point(pos):return place.id
 		if art.hit(place.kind,location_rect(place),pos):return place.id
 	return ""
@@ -246,6 +239,8 @@ func _scenery_sprite(key: String,tile: Vector2,scale: float=1.0) -> void:
 	var p=screen(tile);var rect=art.rect(key,p,zoom*scale)
 	if not _visible(rect):return
 	var tint=Color(.77,.82,.9,.85)
+	if key in ["bridge_full","pier"]:
+		draw_texture_rect(art.texture(key),rect,false,Color(1.03,1.05,1.08));return
 	if battle==null:
 		for i in range(3):
 			var unit=player+Vector2(-i*.95,i*.6)
@@ -258,7 +253,13 @@ func _scenery_sprite(key: String,tile: Vector2,scale: float=1.0) -> void:
 
 func _draw_settlement() -> void:
 	var items: Array=[]
-	for item in scenery:items.append({"depth":item.point.x+item.point.y,"type":"scenery","item":item})
+	var a=ground(Vector2.ZERO);var b=ground(size);var c=ground(Vector2(size.x,0));var d=ground(Vector2(0,size.y))
+	var lo=Vector2(minf(minf(a.x,b.x),minf(c.x,d.x)),minf(minf(a.y,b.y),minf(c.y,d.y)))
+	var hi=Vector2(maxf(maxf(a.x,b.x),maxf(c.x,d.x)),maxf(maxf(a.y,b.y),maxf(c.y,d.y)))
+	scenery=layout.scenery_near(Rect2(lo,hi-lo).grow(28))
+	for item in scenery:
+		if item.key in ["bridge_full","pier"]:_scenery_sprite(item.key,Vector2(item.point[0],item.point[1]),item.scale)
+		else:items.append({"depth":float(item.point[0]+item.point[1]),"type":"scenery","item":item})
 	for place in Data.locations():items.append({"depth":float(place.pos[0]+place.pos[1]),"type":"location","item":place})
 	for i in range(3):
 		var p=player+Vector2(-i*.95,i*.6)
@@ -267,7 +268,7 @@ func _draw_settlement() -> void:
 	for item in items:
 		match item.type:
 			"location":_building(item.item)
-			"scenery":_scenery_sprite(item.item.key,item.item.point,item.item.scale)
+			"scenery":_scenery_sprite(item.item.key,Vector2(item.item.point[0],item.item.point[1]),item.item.scale)
 			"actor":_actor(item.item,screen(item.point),item.item.id=="hero",not route.is_empty())
 	if not route.is_empty():
 		var points=PackedVector2Array([screen(player)])
@@ -278,7 +279,7 @@ func _draw_settlement() -> void:
 		var rect=_label_rect(place)
 		if not _visible(rect):continue
 		var active=place.id in [selection,hovered_location]
-		var near=player.distance_to(Vector2(place.pos[0],place.pos[1]))<7.5
+		var near=player.distance_to(Vector2(place.pos[0],place.pos[1]))<15 and campaign.discovered.has(place.id)
 		var p=screen(Vector2(place.pos[0],place.pos[1]))
 		_mark(p+Vector2(0,13),3,Color("bba783") if active else Color("7e888d"))
 		if not near and not active:continue
@@ -289,7 +290,7 @@ func _draw_settlement() -> void:
 			var width=font.get_string_size(place.subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,11).x
 			draw_string_outline(font,p+Vector2(-width*.5,58),place.subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,11,3,Color("14171c"))
 			draw_string(font,p+Vector2(-width*.5,58),place.subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("d0bf9d"))
-	_draw_heading("В Е Л Ь","Пограничный уезд · Последняя запись")
+	_draw_heading(str(layout.district_at(player).name),"Вельский уезд · M — карта · Shift — бег")
 
 func _building(place: Dictionary) -> void:
 	var rect=location_rect(place)
@@ -393,12 +394,21 @@ func _draw_heading(title: String,subtitle: String) -> void:
 	draw_string_outline(font,Vector2(26,61),subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,12,3,Color("11151b"))
 	draw_string(font,Vector2(26,61),subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("a6afb4"))
 	draw_line(Vector2(27,76),Vector2(223,76),Color(.63,.54,.39,.5),1,true);_mark(Vector2(231,76),4,Color("8e7956"))
+func _minimap_rect() -> Rect2:
+	return Rect2(Vector2(size.x-183,18),Vector2(166,130))
 func _draw_minimap() -> void:
-	var origin=Vector2(size.x-183,18);var base=origin+Vector2(85,36)
-	draw_rect(Rect2(origin,Vector2(166,130)),Color(.045,.058,.073,.86))
-	draw_rect(Rect2(origin,Vector2(166,130)),Color(.48,.45,.38,.65),false,1)
-	draw_string(title_font,origin+Vector2(12,21),"КАРТА УЕЗДА",HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("b6a583"))
-	draw_polyline(PackedVector2Array([base,base+Vector2(72,34),base+Vector2(14,63),base+Vector2(-58,29),base]),Color(.48,.54,.57,.5),1,true)
-	for place in Data.locations():_mark(base+Vector2((place.pos[0]-place.pos[1])*2.4,(place.pos[0]+place.pos[1])*1.2),2.3,Color("b4a07e") if place.id!=selection else Color("eee0bb"))
-	var p=base+Vector2((player.x-player.y)*2.4,(player.x+player.y)*1.2)
-	draw_circle(p,2.5,Color("e2d8bd"));draw_arc(p,5,0,TAU,16,Color(.88,.85,.73,.5),1,true)
+	var rect=_minimap_rect();var origin=rect.position
+	draw_rect(rect,Color(.045,.058,.073,.9));draw_rect(rect,Color(.48,.45,.38,.65),false,1)
+	draw_string(title_font,origin+Vector2(12,19),"ОКРЕСТНОСТИ · M",HORIZONTAL_ALIGNMENT_LEFT,-1,10,Color("b6a583"))
+	var center=origin+Vector2(83,76)
+	for road in layout.data.roads:
+		for i in range(road.size()-1):
+			var a=(Vector2(road[i][0],road[i][1])-player)*1.5+center
+			var b=(Vector2(road[i+1][0],road[i+1][1])-player)*1.5+center
+			# Only local segments are drawn; the complete network is on M.
+			if rect.grow(-8).has_point(a) and rect.grow(-8).has_point(b):draw_line(a,b,Color(.48,.5,.45,.6),1,true)
+	for place in Data.locations():
+		if not campaign.discovered.has(place.id):continue
+		var p=(Vector2(place.pos[0],place.pos[1])-player)*1.5+center
+		if rect.grow(-8).has_point(p):_mark(p,2.5,Color("c6ae83"))
+	draw_circle(center,3,Color("e2d8bd"));draw_arc(center,6,0,TAU,16,Color(.88,.85,.73,.5),1,true)

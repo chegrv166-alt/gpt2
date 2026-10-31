@@ -588,366 +588,6 @@
   "scenery": [
     {
       "point": [
-        98,
-        237
-      ],
-      "key": "house_b",
-      "scale": 1.0422584110272315,
-      "solid": true
-    },
-    {
-      "point": [
-        106,
-        236
-      ],
-      "key": "inn",
-      "scale": 1.0446512648794761,
-      "solid": true
-    },
-    {
-      "point": [
-        145,
-        236
-      ],
-      "key": "house_b",
-      "scale": 1.031722717740414,
-      "solid": true
-    },
-    {
-      "point": [
-        157,
-        237
-      ],
-      "key": "house_b",
-      "scale": 1.0171229957222865,
-      "solid": true
-    },
-    {
-      "point": [
-        181,
-        236
-      ],
-      "key": "inn",
-      "scale": 0.9132256346518083,
-      "solid": true
-    },
-    {
-      "point": [
-        94,
-        252
-      ],
-      "key": "house",
-      "scale": 1.003800216170947,
-      "solid": true
-    },
-    {
-      "point": [
-        106,
-        252
-      ],
-      "key": "inn",
-      "scale": 0.8092334946152506,
-      "solid": true
-    },
-    {
-      "point": [
-        119,
-        252
-      ],
-      "key": "inn",
-      "scale": 0.954143716304372,
-      "solid": true
-    },
-    {
-      "point": [
-        143,
-        248
-      ],
-      "key": "house",
-      "scale": 1.042433422641465,
-      "solid": true
-    },
-    {
-      "point": [
-        154,
-        251
-      ],
-      "key": "inn",
-      "scale": 0.9418411608858177,
-      "solid": true
-    },
-    {
-      "point": [
-        94,
-        262
-      ],
-      "key": "house",
-      "scale": 0.7960283079436401,
-      "solid": true
-    },
-    {
-      "point": [
-        119,
-        260
-      ],
-      "key": "inn",
-      "scale": 1.0407646710590286,
-      "solid": true
-    },
-    {
-      "point": [
-        132,
-        263
-      ],
-      "key": "inn",
-      "scale": 0.823012470933026,
-      "solid": true
-    },
-    {
-      "point": [
-        144,
-        260
-      ],
-      "key": "house_b",
-      "scale": 0.781520767177448,
-      "solid": true
-    },
-    {
-      "point": [
-        154,
-        262
-      ],
-      "key": "inn",
-      "scale": 1.0213219648735354,
-      "solid": true
-    },
-    {
-      "point": [
-        167,
-        260
-      ],
-      "key": "house",
-      "scale": 1.0372084331465719,
-      "solid": true
-    },
-    {
-      "point": [
-        85,
-        274
-      ],
-      "key": "house",
-      "scale": 0.9270315589747216,
-      "solid": true
-    },
-    {
-      "point": [
-        94,
-        275
-      ],
-      "key": "house_b",
-      "scale": 1.0006438629335803,
-      "solid": true
-    },
-    {
-      "point": [
-        109,
-        272
-      ],
-      "key": "inn",
-      "scale": 1.0426428031209953,
-      "solid": true
-    },
-    {
-      "point": [
-        121,
-        272
-      ],
-      "key": "house_b",
-      "scale": 1.0452177095437145,
-      "solid": true
-    },
-    {
-      "point": [
-        130,
-        274
-      ],
-      "key": "inn",
-      "scale": 0.8950829297567616,
-      "solid": true
-    },
-    {
-      "point": [
-        146,
-        272
-      ],
-      "key": "house_b",
-      "scale": 0.8824276075832298,
-      "solid": true
-    },
-    {
-      "point": [
-        166,
-        276
-      ],
-      "key": "house",
-      "scale": 0.9565268995381274,
-      "solid": true
-    },
-    {
-      "point": [
-        178,
-        272
-      ],
-      "key": "inn",
-      "scale": 0.9889250364708906,
-      "solid": true
-    },
-    {
-      "point": [
-        86,
-        286
-      ],
-      "key": "house_b",
-      "scale": 0.9698510117215191,
-      "solid": true
-    },
-    {
-      "point": [
-        109,
-        287
-      ],
-      "key": "house_b",
-      "scale": 1.011934451584776,
-      "solid": true
-    },
-    {
-      "point": [
-        121,
-        285
-      ],
-      "key": "house",
-      "scale": 0.8121095073027008,
-      "solid": true
-    },
-    {
-      "point": [
-        156,
-        286
-      ],
-      "key": "house",
-      "scale": 0.8862817008176799,
-      "solid": true
-    },
-    {
-      "point": [
-        170,
-        287
-      ],
-      "key": "house",
-      "scale": 0.8537345912356101,
-      "solid": true
-    },
-    {
-      "point": [
-        85,
-        296
-      ],
-      "key": "inn",
-      "scale": 0.983754019592051,
-      "solid": true
-    },
-    {
-      "point": [
-        97,
-        300
-      ],
-      "key": "inn",
-      "scale": 0.7925123920820509,
-      "solid": true
-    },
-    {
-      "point": [
-        108,
-        299
-      ],
-      "key": "house",
-      "scale": 1.0295712267514476,
-      "solid": true
-    },
-    {
-      "point": [
-        121,
-        300
-      ],
-      "key": "house",
-      "scale": 1.0228370656699952,
-      "solid": true
-    },
-    {
-      "point": [
-        132,
-        299
-      ],
-      "key": "inn",
-      "scale": 0.8291470967157377,
-      "solid": true
-    },
-    {
-      "point": [
-        146,
-        297
-      ],
-      "key": "inn",
-      "scale": 0.9523300723316417,
-      "solid": true
-    },
-    {
-      "point": [
-        158,
-        297
-      ],
-      "key": "house_b",
-      "scale": 1.0079811527185374,
-      "solid": true
-    },
-    {
-      "point": [
-        166,
-        296
-      ],
-      "key": "house_b",
-      "scale": 0.7842472602532242,
-      "solid": true
-    },
-    {
-      "point": [
-        82,
-        309
-      ],
-      "key": "inn",
-      "scale": 0.8419903013359423,
-      "solid": true
-    },
-    {
-      "point": [
-        118,
-        310
-      ],
-      "key": "house_b",
-      "scale": 0.896532427664565,
-      "solid": true
-    },
-    {
-      "point": [
-        178,
-        310
-      ],
-      "key": "inn",
-      "scale": 0.7961233505225093,
-      "solid": true
-    },
-    {
-      "point": [
         258,
         284
       ],
@@ -1065,263 +705,11 @@
     },
     {
       "point": [
-        305,
-        150
-      ],
-      "key": "grave",
-      "scale": 0.9199783787382123,
-      "solid": true
-    },
-    {
-      "point": [
-        318,
-        150
-      ],
-      "key": "grave",
-      "scale": 0.8980299933671776,
-      "solid": true
-    },
-    {
-      "point": [
-        335,
-        150
-      ],
-      "key": "grave",
-      "scale": 0.9931597646346427,
-      "solid": true
-    },
-    {
-      "point": [
-        351,
-        150
-      ],
-      "key": "grave",
-      "scale": 0.9429650061226029,
-      "solid": true
-    },
-    {
-      "point": [
-        385,
-        154
-      ],
-      "key": "grave",
-      "scale": 0.7877922521931822,
-      "solid": true
-    },
-    {
-      "point": [
-        398,
-        153
-      ],
-      "key": "grave",
-      "scale": 0.8274016482624227,
-      "solid": true
-    },
-    {
-      "point": [
-        321,
-        170
-      ],
-      "key": "grave",
-      "scale": 0.9459987221464465,
-      "solid": true
-    },
-    {
-      "point": [
-        335,
-        167
-      ],
-      "key": "grave",
-      "scale": 0.8314832177594423,
-      "solid": true
-    },
-    {
-      "point": [
-        350,
-        169
-      ],
-      "key": "grave",
-      "scale": 0.8434947008800178,
-      "solid": true
-    },
-    {
-      "point": [
-        369,
-        170
-      ],
-      "key": "grave",
-      "scale": 0.849820025237485,
-      "solid": true
-    },
-    {
-      "point": [
-        384,
-        170
-      ],
-      "key": "grave",
-      "scale": 0.8141040655321496,
-      "solid": true
-    },
-    {
-      "point": [
-        398,
-        168
-      ],
-      "key": "grave",
-      "scale": 0.9794803770728691,
-      "solid": true
-    },
-    {
-      "point": [
-        306,
-        182
-      ],
-      "key": "grave",
-      "scale": 0.8147762544776175,
-      "solid": true
-    },
-    {
-      "point": [
-        402,
-        183
-      ],
-      "key": "grave",
-      "scale": 0.9264036190208158,
-      "solid": true
-    },
-    {
-      "point": [
-        305,
-        201
-      ],
-      "key": "grave",
-      "scale": 0.8557381138013012,
-      "solid": true
-    },
-    {
-      "point": [
-        318,
-        202
-      ],
-      "key": "grave",
-      "scale": 0.8151427788115063,
-      "solid": true
-    },
-    {
-      "point": [
-        338,
-        199
-      ],
-      "key": "grave",
-      "scale": 0.9210685087922617,
-      "solid": true
-    },
-    {
-      "point": [
-        367,
-        199
-      ],
-      "key": "grave",
-      "scale": 1.0274667757288112,
-      "solid": true
-    },
-    {
-      "point": [
-        386,
-        200
-      ],
-      "key": "grave",
-      "scale": 0.9477919019097317,
-      "solid": true
-    },
-    {
-      "point": [
-        302,
-        215
-      ],
-      "key": "grave",
-      "scale": 0.9170687611386079,
-      "solid": true
-    },
-    {
-      "point": [
-        320,
-        218
-      ],
-      "key": "grave",
-      "scale": 0.9785155118341902,
-      "solid": true
-    },
-    {
-      "point": [
-        337,
-        215
-      ],
-      "key": "grave",
-      "scale": 0.9126777252990854,
-      "solid": true
-    },
-    {
-      "point": [
-        353,
-        218
-      ],
-      "key": "grave",
-      "scale": 0.9441501916928341,
-      "solid": true
-    },
-    {
-      "point": [
-        382,
-        215
-      ],
-      "key": "grave",
-      "scale": 0.8794357517786138,
-      "solid": true
-    },
-    {
-      "point": [
-        302,
-        233
-      ],
-      "key": "grave",
-      "scale": 0.8007316999704618,
-      "solid": true
-    },
-    {
-      "point": [
-        321,
-        231
-      ],
-      "key": "grave",
-      "scale": 0.8698167600932837,
-      "solid": true
-    },
-    {
-      "point": [
-        337,
-        233
-      ],
-      "key": "grave",
-      "scale": 0.8577917482563894,
-      "solid": true
-    },
-    {
-      "point": [
-        401,
-        234
-      ],
-      "key": "grave",
-      "scale": 0.8949682632703289,
-      "solid": true
-    },
-    {
-      "point": [
         381,
         45
       ],
-      "key": "inn",
-      "scale": 1.0453123569511353,
+      "key": "chapel",
+      "scale": 0.6841272121449027,
       "solid": true
     },
     {
@@ -1329,8 +717,8 @@
         394,
         42
       ],
-      "key": "inn",
-      "scale": 0.7876441492281645,
+      "key": "archive",
+      "scale": 0.6786782399191198,
       "solid": true
     },
     {
@@ -1338,8 +726,8 @@
         410,
         42
       ],
-      "key": "inn",
-      "scale": 0.8183766760931804,
+      "key": "house",
+      "scale": 0.7994229525821931,
       "solid": true
     },
     {
@@ -1356,8 +744,8 @@
         458,
         42
       ],
-      "key": "inn",
-      "scale": 0.8933966816940008,
+      "key": "chapel",
+      "scale": 0.7710272359330601,
       "solid": true
     },
     {
@@ -1374,8 +762,8 @@
         381,
         58
       ],
-      "key": "house_b",
-      "scale": 0.9384712190478486,
+      "key": "house",
+      "scale": 0.8353554493440724,
       "solid": true
     },
     {
@@ -1383,8 +771,8 @@
         397,
         58
       ],
-      "key": "inn",
-      "scale": 0.8009590684809474,
+      "key": "chapel",
+      "scale": 0.7891228555925404,
       "solid": true
     },
     {
@@ -1392,8 +780,8 @@
         430,
         59
       ],
-      "key": "inn",
-      "scale": 0.8661602975953943,
+      "key": "chapel",
+      "scale": 0.7262679134003762,
       "solid": true
     },
     {
@@ -1401,8 +789,8 @@
         446,
         62
       ],
-      "key": "inn",
-      "scale": 1.0395374767204981,
+      "key": "chapel",
+      "scale": 0.8440727505638937,
       "solid": true
     },
     {
@@ -1419,8 +807,8 @@
         475,
         59
       ],
-      "key": "house_b",
-      "scale": 0.8935998013182911,
+      "key": "house",
+      "scale": 0.8104106652359304,
       "solid": true
     },
     {
@@ -1428,8 +816,8 @@
         380,
         77
       ],
-      "key": "inn",
-      "scale": 1.0040209755952063,
+      "key": "chapel",
+      "scale": 0.767377380864495,
       "solid": true
     },
     {
@@ -1437,8 +825,8 @@
         413,
         78
       ],
-      "key": "house_b",
-      "scale": 0.9805188897134232,
+      "key": "chapel",
+      "scale": 0.6564054042724055,
       "solid": true
     },
     {
@@ -1446,8 +834,8 @@
         428,
         78
       ],
-      "key": "inn",
-      "scale": 0.8683013292133668,
+      "key": "chapel",
+      "scale": 0.7480196617365482,
       "solid": true
     },
     {
@@ -1482,8 +870,8 @@
         413,
         92
       ],
-      "key": "inn",
-      "scale": 0.8163191887444088,
+      "key": "archive",
+      "scale": 0.790533250613866,
       "solid": true
     },
     {
@@ -1491,8 +879,8 @@
         427,
         90
       ],
-      "key": "house_b",
-      "scale": 1.011216339179565,
+      "key": "house",
+      "scale": 0.857228638994971,
       "solid": true
     },
     {
@@ -1500,8 +888,8 @@
         446,
         92
       ],
-      "key": "inn",
-      "scale": 0.8673023698418516,
+      "key": "house",
+      "scale": 0.6728901464193208,
       "solid": true
     },
     {
@@ -1509,8 +897,8 @@
         460,
         93
       ],
-      "key": "house_b",
-      "scale": 1.0055975406357212,
+      "key": "house",
+      "scale": 0.8926510924461303,
       "solid": true
     },
     {
@@ -1518,8 +906,8 @@
         476,
         90
       ],
-      "key": "house_b",
-      "scale": 0.9253234895443937,
+      "key": "chapel",
+      "scale": 0.8815051094916195,
       "solid": true
     },
     {
@@ -1527,8 +915,8 @@
         478,
         110
       ],
-      "key": "inn",
-      "scale": 0.9078706151821503,
+      "key": "chapel",
+      "scale": 0.8965043443486737,
       "solid": true
     },
     {
@@ -1536,8 +924,8 @@
         396,
         122
       ],
-      "key": "inn",
-      "scale": 0.7839956931596906,
+      "key": "house",
+      "scale": 0.7675030007722816,
       "solid": true
     },
     {
@@ -1545,8 +933,8 @@
         413,
         125
       ],
-      "key": "house_b",
-      "scale": 0.8372451284069423,
+      "key": "chapel",
+      "scale": 0.6683431492976675,
       "solid": true
     },
     {
@@ -1554,8 +942,8 @@
         427,
         122
       ],
-      "key": "house_b",
-      "scale": 0.7965063600425333,
+      "key": "archive",
+      "scale": 0.6660436012564849,
       "solid": true
     },
     {
@@ -1563,8 +951,8 @@
         446,
         123
       ],
-      "key": "house_b",
-      "scale": 0.9170400770783778,
+      "key": "archive",
+      "scale": 0.7263776347862242,
       "solid": true
     },
     {
@@ -1572,8 +960,8 @@
         461,
         122
       ],
-      "key": "house_b",
-      "scale": 1.0469069797964285,
+      "key": "house",
+      "scale": 0.7101559918685947,
       "solid": true
     },
     {
@@ -1581,8 +969,8 @@
         478,
         123
       ],
-      "key": "house_b",
-      "scale": 0.8120198810015635,
+      "key": "house",
+      "scale": 0.7329364281811253,
       "solid": true
     },
     {
@@ -1590,8 +978,8 @@
         378,
         141
       ],
-      "key": "inn",
-      "scale": 1.045438747609667,
+      "key": "chapel",
+      "scale": 0.650339084644493,
       "solid": true
     },
     {
@@ -1617,8 +1005,8 @@
         428,
         139
       ],
-      "key": "inn",
-      "scale": 0.8274304387223912,
+      "key": "chapel",
+      "scale": 0.6975491448545208,
       "solid": true
     },
     {
@@ -1626,8 +1014,8 @@
         442,
         140
       ],
-      "key": "inn",
-      "scale": 0.9375306764944492,
+      "key": "chapel",
+      "scale": 0.7516928285369303,
       "solid": true
     },
     {
@@ -1635,8 +1023,8 @@
         460,
         140
       ],
-      "key": "house_b",
-      "scale": 0.8056872667362022,
+      "key": "archive",
+      "scale": 0.6572574336510617,
       "solid": true
     },
     {
@@ -7482,15 +6870,6 @@
     },
     {
       "point": [
-        366,
-        161
-      ],
-      "key": "grave",
-      "scale": 0.631459104841192,
-      "solid": false
-    },
-    {
-      "point": [
         255,
         106
       ],
@@ -7554,15 +6933,6 @@
     },
     {
       "point": [
-        371,
-        145
-      ],
-      "key": "grave",
-      "scale": 0.7103636036557399,
-      "solid": false
-    },
-    {
-      "point": [
         92,
         320
       ],
@@ -7586,15 +6956,6 @@
       ],
       "key": "grave",
       "scale": 0.6544534049769886,
-      "solid": false
-    },
-    {
-      "point": [
-        363,
-        155
-      ],
-      "key": "grave",
-      "scale": 0.5305875997101662,
       "solid": false
     },
     {
@@ -7631,15 +6992,6 @@
       ],
       "key": "cover",
       "scale": 0.7808182490130788,
-      "solid": false
-    },
-    {
-      "point": [
-        331,
-        187
-      ],
-      "key": "grave",
-      "scale": 0.5745993585735243,
       "solid": false
     },
     {
@@ -7923,29 +7275,11 @@
     },
     {
       "point": [
-        371,
-        190
-      ],
-      "key": "grave",
-      "scale": 0.6934971476529506,
-      "solid": false
-    },
-    {
-      "point": [
         350,
         118
       ],
       "key": "tree_pale",
       "scale": 0.7123546741900337,
-      "solid": false
-    },
-    {
-      "point": [
-        368,
-        177
-      ],
-      "key": "grave",
-      "scale": 0.7086260106322732,
       "solid": false
     },
     {
@@ -8238,15 +7572,6 @@
     },
     {
       "point": [
-        374,
-        226
-      ],
-      "key": "grave",
-      "scale": 0.5448985370279195,
-      "solid": false
-    },
-    {
-      "point": [
         142,
         322
       ],
@@ -8517,15 +7842,6 @@
     },
     {
       "point": [
-        399,
-        222
-      ],
-      "key": "grave",
-      "scale": 0.6914156303860536,
-      "solid": false
-    },
-    {
-      "point": [
         153,
         201
       ],
@@ -8702,15 +8018,6 @@
       ],
       "key": "grave",
       "scale": 0.6926107277462651,
-      "solid": false
-    },
-    {
-      "point": [
-        356,
-        147
-      ],
-      "key": "grave",
-      "scale": 0.7446646845709882,
       "solid": false
     },
     {
@@ -9045,6 +8352,2321 @@
       "key": "tree_pale",
       "scale": 0.7086746952937841,
       "solid": false
+    },
+    {
+      "point": [
+        96,
+        238
+      ],
+      "key": "house",
+      "scale": 0.849327836075968,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        238
+      ],
+      "key": "house",
+      "scale": 0.9921991350160297,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        238
+      ],
+      "key": "house_b",
+      "scale": 0.822586564713288,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        238
+      ],
+      "key": "inn",
+      "scale": 0.9932596202113769,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        238
+      ],
+      "key": "house",
+      "scale": 1.010773088333126,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        238
+      ],
+      "key": "inn",
+      "scale": 0.8501743241731223,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        238
+      ],
+      "key": "house_b",
+      "scale": 0.8374219130923276,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        238
+      ],
+      "key": "inn",
+      "scale": 0.8717861211823024,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        238
+      ],
+      "key": "inn",
+      "scale": 0.8677147950559242,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        238
+      ],
+      "key": "house",
+      "scale": 0.8803463702040958,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        238
+      ],
+      "key": "house_b",
+      "scale": 1.031695399839684,
+      "solid": true
+    },
+    {
+      "point": [
+        180,
+        238
+      ],
+      "key": "inn",
+      "scale": 0.9241749363117869,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        238
+      ],
+      "key": "inn",
+      "scale": 1.0027489943152732,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        247
+      ],
+      "key": "inn",
+      "scale": 0.9192104326646182,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        247
+      ],
+      "key": "house_b",
+      "scale": 0.8703182426392713,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        247
+      ],
+      "key": "house_b",
+      "scale": 0.8967464272216854,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        247
+      ],
+      "key": "inn",
+      "scale": 0.8852816831060527,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        247
+      ],
+      "key": "house_b",
+      "scale": 0.9979110384222588,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        247
+      ],
+      "key": "house",
+      "scale": 0.9914023727821554,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        247
+      ],
+      "key": "house_b",
+      "scale": 1.0034339543723796,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        247
+      ],
+      "key": "inn",
+      "scale": 0.9840311450177327,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        247
+      ],
+      "key": "house",
+      "scale": 0.8234437968924908,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        247
+      ],
+      "key": "house",
+      "scale": 0.8156207378381707,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        247
+      ],
+      "key": "house",
+      "scale": 0.8804985125142402,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        256
+      ],
+      "key": "house",
+      "scale": 1.0367311553567062,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8516196071469393,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8301187453805943,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8511193932159712,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        256
+      ],
+      "key": "house",
+      "scale": 0.9095651476816777,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8271542643560665,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        256
+      ],
+      "key": "house",
+      "scale": 0.9877617925570084,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        256
+      ],
+      "key": "house_b",
+      "scale": 0.9154167468598416,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        256
+      ],
+      "key": "house_b",
+      "scale": 0.9153164078296547,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8470152888804086,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        256
+      ],
+      "key": "house",
+      "scale": 0.8775936689119905,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.9246337154315435,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        256
+      ],
+      "key": "inn",
+      "scale": 0.8013179973100718,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        265
+      ],
+      "key": "house_b",
+      "scale": 0.931924489554457,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        265
+      ],
+      "key": "house",
+      "scale": 0.8519241526345336,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        265
+      ],
+      "key": "house",
+      "scale": 0.8205106146658537,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        265
+      ],
+      "key": "house",
+      "scale": 0.910762614427864,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        265
+      ],
+      "key": "house_b",
+      "scale": 0.8110008342189333,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        265
+      ],
+      "key": "house",
+      "scale": 0.9992227134595365,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        265
+      ],
+      "key": "inn",
+      "scale": 0.9502511998289244,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        265
+      ],
+      "key": "house_b",
+      "scale": 0.8626441548236902,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        265
+      ],
+      "key": "inn",
+      "scale": 0.8890854161148986,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        265
+      ],
+      "key": "house",
+      "scale": 1.019834069221639,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        265
+      ],
+      "key": "house_b",
+      "scale": 0.8567651077833094,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        265
+      ],
+      "key": "house_b",
+      "scale": 0.8550666427625745,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        274
+      ],
+      "key": "house",
+      "scale": 0.940127941034328,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        274
+      ],
+      "key": "house",
+      "scale": 1.0223846075360976,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        274
+      ],
+      "key": "house_b",
+      "scale": 0.9613901739982894,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        274
+      ],
+      "key": "house_b",
+      "scale": 0.9551858709024765,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        274
+      ],
+      "key": "inn",
+      "scale": 0.9512096583162324,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        274
+      ],
+      "key": "inn",
+      "scale": 0.8184358971014267,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        274
+      ],
+      "key": "house",
+      "scale": 0.9425082412573912,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        274
+      ],
+      "key": "house",
+      "scale": 0.8220701629686518,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        274
+      ],
+      "key": "house_b",
+      "scale": 0.9563513783155937,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        274
+      ],
+      "key": "house",
+      "scale": 0.9203105725925886,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        274
+      ],
+      "key": "house",
+      "scale": 1.0347189159708967,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        274
+      ],
+      "key": "house",
+      "scale": 0.8449433679655973,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        283
+      ],
+      "key": "house",
+      "scale": 0.8563503280550033,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        292
+      ],
+      "key": "house_b",
+      "scale": 0.9872950084851125,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        292
+      ],
+      "key": "house_b",
+      "scale": 0.8224222112302062,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.8726450126730425,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        292
+      ],
+      "key": "house",
+      "scale": 0.8803526448393446,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.9088040904480971,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.9446090881068503,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.8275757410311482,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        292
+      ],
+      "key": "house_b",
+      "scale": 0.9011619874079356,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.8267099591017367,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        292
+      ],
+      "key": "house",
+      "scale": 0.9737740650804916,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        292
+      ],
+      "key": "inn",
+      "scale": 0.8801898732315954,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        301
+      ],
+      "key": "house_b",
+      "scale": 0.885899254834918,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.9241875229664298,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.828034508781745,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        301
+      ],
+      "key": "house_b",
+      "scale": 0.9717013028612456,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.8181648545673287,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        301
+      ],
+      "key": "house",
+      "scale": 0.8332154618322838,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        301
+      ],
+      "key": "house",
+      "scale": 1.0156267091507907,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.8687715931206859,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        301
+      ],
+      "key": "house",
+      "scale": 1.0223898963948752,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.8718868536662072,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        301
+      ],
+      "key": "inn",
+      "scale": 0.92374492421602,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        301
+      ],
+      "key": "house_b",
+      "scale": 0.8172101312092971,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        301
+      ],
+      "key": "house",
+      "scale": 1.0236367906835748,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.8558970342223601,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        310
+      ],
+      "key": "inn",
+      "scale": 0.8329789752142454,
+      "solid": true
+    },
+    {
+      "point": [
+        120,
+        310
+      ],
+      "key": "inn",
+      "scale": 0.9566579963888208,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.9273486208036019,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        310
+      ],
+      "key": "house",
+      "scale": 0.823100781170042,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        310
+      ],
+      "key": "house",
+      "scale": 0.8624962777005712,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        310
+      ],
+      "key": "house",
+      "scale": 0.817587943375277,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        310
+      ],
+      "key": "house",
+      "scale": 0.8943393993494169,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        310
+      ],
+      "key": "house",
+      "scale": 0.9783916348281868,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.927349587491753,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.982539031438436,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        310
+      ],
+      "key": "house_b",
+      "scale": 0.9086450499915787,
+      "solid": true
+    },
+    {
+      "point": [
+        84,
+        319
+      ],
+      "key": "inn",
+      "scale": 1.0188901114145883,
+      "solid": true
+    },
+    {
+      "point": [
+        90,
+        319
+      ],
+      "key": "house_b",
+      "scale": 0.8353656006923704,
+      "solid": true
+    },
+    {
+      "point": [
+        96,
+        319
+      ],
+      "key": "house_b",
+      "scale": 1.034901977935108,
+      "solid": true
+    },
+    {
+      "point": [
+        102,
+        319
+      ],
+      "key": "inn",
+      "scale": 0.8670592496079903,
+      "solid": true
+    },
+    {
+      "point": [
+        108,
+        319
+      ],
+      "key": "house_b",
+      "scale": 0.8593146625978162,
+      "solid": true
+    },
+    {
+      "point": [
+        114,
+        319
+      ],
+      "key": "house",
+      "scale": 1.0126589910369739,
+      "solid": true
+    },
+    {
+      "point": [
+        126,
+        319
+      ],
+      "key": "inn",
+      "scale": 0.9755848720448865,
+      "solid": true
+    },
+    {
+      "point": [
+        132,
+        319
+      ],
+      "key": "house_b",
+      "scale": 0.9602109337788232,
+      "solid": true
+    },
+    {
+      "point": [
+        144,
+        319
+      ],
+      "key": "house_b",
+      "scale": 0.8036700524755478,
+      "solid": true
+    },
+    {
+      "point": [
+        150,
+        319
+      ],
+      "key": "inn",
+      "scale": 0.9859334266789496,
+      "solid": true
+    },
+    {
+      "point": [
+        156,
+        319
+      ],
+      "key": "house_b",
+      "scale": 0.9874989097960869,
+      "solid": true
+    },
+    {
+      "point": [
+        162,
+        319
+      ],
+      "key": "house",
+      "scale": 1.0196885242474947,
+      "solid": true
+    },
+    {
+      "point": [
+        168,
+        319
+      ],
+      "key": "house",
+      "scale": 0.8277187309415668,
+      "solid": true
+    },
+    {
+      "point": [
+        174,
+        319
+      ],
+      "key": "inn",
+      "scale": 0.9986162798170435,
+      "solid": true
+    },
+    {
+      "point": [
+        180,
+        319
+      ],
+      "key": "house",
+      "scale": 0.9347729754539336,
+      "solid": true
+    },
+    {
+      "point": [
+        186,
+        319
+      ],
+      "key": "inn",
+      "scale": 0.8384581112903537,
+      "solid": true
+    },
+    {
+      "point": [
+        303,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9013738951214613,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9550932510497415,
+      "solid": true
+    },
+    {
+      "point": [
+        314,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.1694150110410533,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.9658473636254835,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        150
+      ],
+      "key": "grave",
+      "scale": 0.975256275304232,
+      "solid": true
+    },
+    {
+      "point": [
+        331,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0348241052857432,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.167893984706064,
+      "solid": true
+    },
+    {
+      "point": [
+        345,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.1568905017698707,
+      "solid": true
+    },
+    {
+      "point": [
+        350,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0292792559272508,
+      "solid": true
+    },
+    {
+      "point": [
+        355,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.015841626153724,
+      "solid": true
+    },
+    {
+      "point": [
+        374,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.024829734742772,
+      "solid": true
+    },
+    {
+      "point": [
+        379,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0077509111670937,
+      "solid": true
+    },
+    {
+      "point": [
+        385,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.114883675906734,
+      "solid": true
+    },
+    {
+      "point": [
+        391,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0297618079174824,
+      "solid": true
+    },
+    {
+      "point": [
+        398,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0256030840100563,
+      "solid": true
+    },
+    {
+      "point": [
+        403,
+        150
+      ],
+      "key": "grave",
+      "scale": 1.0295290758686404,
+      "solid": true
+    },
+    {
+      "point": [
+        309,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.0063526760586972,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        158
+      ],
+      "key": "grave",
+      "scale": 0.9903289851847682,
+      "solid": true
+    },
+    {
+      "point": [
+        320,
+        158
+      ],
+      "key": "grave",
+      "scale": 0.9941811187398847,
+      "solid": true
+    },
+    {
+      "point": [
+        325,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.1490549975707371,
+      "solid": true
+    },
+    {
+      "point": [
+        331,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.1248361481014175,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.1009198803140021,
+      "solid": true
+    },
+    {
+      "point": [
+        343,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.175164470991219,
+      "solid": true
+    },
+    {
+      "point": [
+        368,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.1016146099316322,
+      "solid": true
+    },
+    {
+      "point": [
+        386,
+        158
+      ],
+      "key": "grave",
+      "scale": 0.991675598720265,
+      "solid": true
+    },
+    {
+      "point": [
+        391,
+        158
+      ],
+      "key": "grave",
+      "scale": 0.9642898084836932,
+      "solid": true
+    },
+    {
+      "point": [
+        399,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.082762737508701,
+      "solid": true
+    },
+    {
+      "point": [
+        403,
+        158
+      ],
+      "key": "grave",
+      "scale": 1.0449603084404533,
+      "solid": true
+    },
+    {
+      "point": [
+        314,
+        166
+      ],
+      "key": "grave",
+      "scale": 0.9593811165217714,
+      "solid": true
+    },
+    {
+      "point": [
+        320,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.0207263448470951,
+      "solid": true
+    },
+    {
+      "point": [
+        327,
+        166
+      ],
+      "key": "grave",
+      "scale": 0.9115931913717387,
+      "solid": true
+    },
+    {
+      "point": [
+        333,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.043073825900084,
+      "solid": true
+    },
+    {
+      "point": [
+        351,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.093600912484052,
+      "solid": true
+    },
+    {
+      "point": [
+        368,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.1508835923550749,
+      "solid": true
+    },
+    {
+      "point": [
+        381,
+        166
+      ],
+      "key": "grave",
+      "scale": 0.9569660227097255,
+      "solid": true
+    },
+    {
+      "point": [
+        387,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.0848555817940286,
+      "solid": true
+    },
+    {
+      "point": [
+        393,
+        166
+      ],
+      "key": "grave",
+      "scale": 1.1799390891374184,
+      "solid": true
+    },
+    {
+      "point": [
+        399,
+        166
+      ],
+      "key": "grave",
+      "scale": 0.9821037791537595,
+      "solid": true
+    },
+    {
+      "point": [
+        404,
+        166
+      ],
+      "key": "grave",
+      "scale": 0.8613359872908607,
+      "solid": true
+    },
+    {
+      "point": [
+        301,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.0752544335128613,
+      "solid": true
+    },
+    {
+      "point": [
+        307,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.9311713833513646,
+      "solid": true
+    },
+    {
+      "point": [
+        314,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.0582605982943485,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.9571206734676908,
+      "solid": true
+    },
+    {
+      "point": [
+        344,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.0472886736712834,
+      "solid": true
+    },
+    {
+      "point": [
+        362,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.1566230381496576,
+      "solid": true
+    },
+    {
+      "point": [
+        368,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.9742907783235588,
+      "solid": true
+    },
+    {
+      "point": [
+        373,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.8769577427182619,
+      "solid": true
+    },
+    {
+      "point": [
+        380,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.8716336133565324,
+      "solid": true
+    },
+    {
+      "point": [
+        387,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.8654991859372072,
+      "solid": true
+    },
+    {
+      "point": [
+        392,
+        174
+      ],
+      "key": "grave",
+      "scale": 0.8974308060147348,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.0766719118414023,
+      "solid": true
+    },
+    {
+      "point": [
+        405,
+        174
+      ],
+      "key": "grave",
+      "scale": 1.0049830279634913,
+      "solid": true
+    },
+    {
+      "point": [
+        301,
+        182
+      ],
+      "key": "grave",
+      "scale": 1.0710118276002305,
+      "solid": true
+    },
+    {
+      "point": [
+        309,
+        182
+      ],
+      "key": "grave",
+      "scale": 0.873979900921468,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        182
+      ],
+      "key": "grave",
+      "scale": 0.9096071571466624,
+      "solid": true
+    },
+    {
+      "point": [
+        404,
+        182
+      ],
+      "key": "grave",
+      "scale": 0.8739482963515403,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        190
+      ],
+      "key": "grave",
+      "scale": 1.0522404996318795,
+      "solid": true
+    },
+    {
+      "point": [
+        338,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.9854979486806812,
+      "solid": true
+    },
+    {
+      "point": [
+        344,
+        190
+      ],
+      "key": "grave",
+      "scale": 1.12193591755964,
+      "solid": true
+    },
+    {
+      "point": [
+        349,
+        190
+      ],
+      "key": "grave",
+      "scale": 1.003159549942818,
+      "solid": true
+    },
+    {
+      "point": [
+        361,
+        190
+      ],
+      "key": "grave",
+      "scale": 1.1481577526423492,
+      "solid": true
+    },
+    {
+      "point": [
+        368,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.9689011513651329,
+      "solid": true
+    },
+    {
+      "point": [
+        373,
+        190
+      ],
+      "key": "grave",
+      "scale": 1.0831510916086395,
+      "solid": true
+    },
+    {
+      "point": [
+        379,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.8659315361683381,
+      "solid": true
+    },
+    {
+      "point": [
+        385,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.9238052764736582,
+      "solid": true
+    },
+    {
+      "point": [
+        404,
+        190
+      ],
+      "key": "grave",
+      "scale": 0.937456520420122,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.1306511852412258,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.1691940250388702,
+      "solid": true
+    },
+    {
+      "point": [
+        332,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.029313355776743,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.928881519482789,
+      "solid": true
+    },
+    {
+      "point": [
+        343,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.8505571643616894,
+      "solid": true
+    },
+    {
+      "point": [
+        350,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.1122992977614525,
+      "solid": true
+    },
+    {
+      "point": [
+        363,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.1037226812040346,
+      "solid": true
+    },
+    {
+      "point": [
+        367,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.8623962851077039,
+      "solid": true
+    },
+    {
+      "point": [
+        374,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.9443815131892681,
+      "solid": true
+    },
+    {
+      "point": [
+        379,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.8523106691305605,
+      "solid": true
+    },
+    {
+      "point": [
+        386,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.9598893428808434,
+      "solid": true
+    },
+    {
+      "point": [
+        399,
+        198
+      ],
+      "key": "grave",
+      "scale": 1.0763210635990421,
+      "solid": true
+    },
+    {
+      "point": [
+        403,
+        198
+      ],
+      "key": "grave",
+      "scale": 0.8685038792681988,
+      "solid": true
+    },
+    {
+      "point": [
+        301,
+        206
+      ],
+      "key": "grave",
+      "scale": 1.0790748174504927,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        206
+      ],
+      "key": "grave",
+      "scale": 1.0774929851580688,
+      "solid": true
+    },
+    {
+      "point": [
+        315,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.8581561221612763,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.873261269149497,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.9707431805884047,
+      "solid": true
+    },
+    {
+      "point": [
+        331,
+        206
+      ],
+      "key": "grave",
+      "scale": 1.0585666395467963,
+      "solid": true
+    },
+    {
+      "point": [
+        339,
+        206
+      ],
+      "key": "grave",
+      "scale": 1.1417713400004603,
+      "solid": true
+    },
+    {
+      "point": [
+        369,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.8834258388882857,
+      "solid": true
+    },
+    {
+      "point": [
+        373,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.8661797593481934,
+      "solid": true
+    },
+    {
+      "point": [
+        379,
+        206
+      ],
+      "key": "grave",
+      "scale": 1.0882135802536634,
+      "solid": true
+    },
+    {
+      "point": [
+        386,
+        206
+      ],
+      "key": "grave",
+      "scale": 0.8721772168247013,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.078396247413646,
+      "solid": true
+    },
+    {
+      "point": [
+        309,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.0101588666350572,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        214
+      ],
+      "key": "grave",
+      "scale": 0.8774153026498156,
+      "solid": true
+    },
+    {
+      "point": [
+        321,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.1162136418170203,
+      "solid": true
+    },
+    {
+      "point": [
+        325,
+        214
+      ],
+      "key": "grave",
+      "scale": 0.8690409666016596,
+      "solid": true
+    },
+    {
+      "point": [
+        333,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.1035977283498561,
+      "solid": true
+    },
+    {
+      "point": [
+        337,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.096752080900886,
+      "solid": true
+    },
+    {
+      "point": [
+        344,
+        214
+      ],
+      "key": "grave",
+      "scale": 0.988206005130146,
+      "solid": true
+    },
+    {
+      "point": [
+        351,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.0135490883547806,
+      "solid": true
+    },
+    {
+      "point": [
+        357,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.0271766242211404,
+      "solid": true
+    },
+    {
+      "point": [
+        369,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.0574450174006151,
+      "solid": true
+    },
+    {
+      "point": [
+        375,
+        214
+      ],
+      "key": "grave",
+      "scale": 0.856415545427907,
+      "solid": true
+    },
+    {
+      "point": [
+        379,
+        214
+      ],
+      "key": "grave",
+      "scale": 0.9218022004284825,
+      "solid": true
+    },
+    {
+      "point": [
+        385,
+        214
+      ],
+      "key": "grave",
+      "scale": 1.0329272795644298,
+      "solid": true
+    },
+    {
+      "point": [
+        302,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.0496494419031632,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.1154940942639109,
+      "solid": true
+    },
+    {
+      "point": [
+        315,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.1536149008388907,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.0638264073558885,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.107561823083119,
+      "solid": true
+    },
+    {
+      "point": [
+        332,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.0408052580974987,
+      "solid": true
+    },
+    {
+      "point": [
+        338,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.0777455031873022,
+      "solid": true
+    },
+    {
+      "point": [
+        345,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.9349701671251028,
+      "solid": true
+    },
+    {
+      "point": [
+        351,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.012598432252336,
+      "solid": true
+    },
+    {
+      "point": [
+        357,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.974186361362043,
+      "solid": true
+    },
+    {
+      "point": [
+        375,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.898056963557375,
+      "solid": true
+    },
+    {
+      "point": [
+        380,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.875892812439193,
+      "solid": true
+    },
+    {
+      "point": [
+        386,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.0919927945485244,
+      "solid": true
+    },
+    {
+      "point": [
+        399,
+        222
+      ],
+      "key": "grave",
+      "scale": 0.938635310944831,
+      "solid": true
+    },
+    {
+      "point": [
+        405,
+        222
+      ],
+      "key": "grave",
+      "scale": 1.1663845349062187,
+      "solid": true
+    },
+    {
+      "point": [
+        303,
+        230
+      ],
+      "key": "grave",
+      "scale": 1.0857605716959597,
+      "solid": true
+    },
+    {
+      "point": [
+        308,
+        230
+      ],
+      "key": "grave",
+      "scale": 0.8711049903796081,
+      "solid": true
+    },
+    {
+      "point": [
+        313,
+        230
+      ],
+      "key": "grave",
+      "scale": 1.1673598255235127,
+      "solid": true
+    },
+    {
+      "point": [
+        319,
+        230
+      ],
+      "key": "grave",
+      "scale": 1.1229711800964841,
+      "solid": true
+    },
+    {
+      "point": [
+        326,
+        230
+      ],
+      "key": "grave",
+      "scale": 0.8537889155950348,
+      "solid": true
+    },
+    {
+      "point": [
+        333,
+        230
+      ],
+      "key": "grave",
+      "scale": 0.8683255496159351,
+      "solid": true
+    },
+    {
+      "point": [
+        337,
+        230
+      ],
+      "key": "grave",
+      "scale": 1.07418777294794,
+      "solid": true
+    },
+    {
+      "point": [
+        397,
+        230
+      ],
+      "key": "grave",
+      "scale": 0.879390822842827,
+      "solid": true
+    },
+    {
+      "point": [
+        405,
+        230
+      ],
+      "key": "grave",
+      "scale": 0.9482359516585255,
+      "solid": true
+    },
+    {
+      "point": [
+        254,
+        319
+      ],
+      "key": "pier",
+      "scale": 1.0,
+      "solid": false,
+      "over_water": false
+    },
+    {
+      "point": [
+        252,
+        293
+      ],
+      "key": "pier",
+      "scale": 1.0,
+      "solid": false,
+      "over_water": false
+    },
+    {
+      "point": [
+        242,
+        326
+      ],
+      "key": "boat",
+      "scale": 0.85,
+      "solid": false,
+      "over_water": true
+    },
+    {
+      "point": [
+        240,
+        310
+      ],
+      "key": "boat",
+      "scale": 0.9,
+      "solid": false,
+      "over_water": true
+    },
+    {
+      "point": [
+        242,
+        289
+      ],
+      "key": "ferry",
+      "scale": 1.0,
+      "solid": false,
+      "over_water": true
+    },
+    {
+      "point": [
+        260,
+        316
+      ],
+      "key": "barrels",
+      "scale": 1.0,
+      "solid": true,
+      "over_water": false
+    },
+    {
+      "point": [
+        262,
+        290
+      ],
+      "key": "barrels",
+      "scale": 0.9,
+      "solid": true,
+      "over_water": false
+    },
+    {
+      "point": [
+        280,
+        310
+      ],
+      "key": "cart",
+      "scale": 1.0,
+      "solid": true,
+      "over_water": false
+    },
+    {
+      "point": [
+        148,
+        286
+      ],
+      "key": "cart",
+      "scale": 1.0,
+      "solid": true,
+      "over_water": false
+    }
+  ],
+  "cliffs": [
+    {
+      "rect": [
+        404,
+        168,
+        44,
+        54
+      ],
+      "name": "Выработки карьера"
+    },
+    {
+      "rect": [
+        420,
+        250,
+        54,
+        24
+      ],
+      "name": "Известняковые уступы"
+    },
+    {
+      "rect": [
+        40,
+        50,
+        28,
+        24
+      ],
+      "name": "Северный обрыв"
+    }
+  ],
+  "piers": [
+    {
+      "rect": [
+        246,
+        318,
+        16,
+        3
+      ]
+    },
+    {
+      "rect": [
+        244,
+        292,
+        17,
+        3
+      ]
     }
   ]
 }

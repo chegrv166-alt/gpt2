@@ -19,3 +19,9 @@ body.ttf and title.ttf are DejaVu Sans and DejaVu Serif copied from the installe
 In the earlier prototype, buildings, organic structures and terrain were drawn with native Godot CanvasItem APIs. The overhaul replaces their visible art with the painted atlases; composition, cursor marks and effects remain native. No paid provider jobs or external asset packages.
 
 Godot-LICENSE.txt and Godot-COPYRIGHT.txt are the official Godot 4.6.3 license and third-party attribution files from the godotengine/godot 4.6.3-stable tag. Native binaries use official templates verified against Godot SHA512-SUMS.txt.
+
+## Open county extension (0.8.0)
+
+`painted/region_scenery.png` is an unchanged original host ImageGen six-object atlas (joined timber houses, warehouse, inn, bridge study, graves and cypresses). `painted/region_bridge.png` is a separate unchanged original bridge illustration aligned with the actual river crossings. Exact prompts are `region-scenery-prompt.txt` and `region-bridge-prompt.txt`; hashes/dimensions are in sources.json. Runtime uses the full bridge source as one atlas cell; custom regions for the first bridge study, grave cluster and pine are recorded in ArtLibrary. Crop bounds stay within each actual resource region, including nonuniform atlas cells. No source PNG was rewritten. District streets, river mask, quarry relief, nav footprints and sector indices are generated natively from content/region.json; they are not external asset packages.
+
+`painted/region_harbor.png` is an unchanged original host ImageGen 3×2 atlas: timber pier, boat, ferry, iron fence, loaded cart and cargo barrels. Prompt: `region-harbor-prompt.txt`; source hash and dimensions are in sources.json. Piers share authored walkable footprints with the navigation mask; boats and ferry are scenery over water.

@@ -54,6 +54,11 @@ func play(battle) -> void:
 	print("PLAYTHROUGH: ",battle.encounter.id," -> ",battle.status," in ",battle.round_number," rounds / ",safety," actions")
 
 func run() -> void:
+	for id in ["road_ambush","warehouse_fight","gallows_rescue","quarry_rite"]:
+		var county=Campaign.new();var road=county.start_battle(id);play(road)
+		check(road.status=="victory","Road encounter can be won through legal actions: "+id)
+		county.finish_battle(road)
+		check(county.ending.is_empty(),"Road encounter returns to regional exploration: "+id)
 	var optional=Campaign.new()
 	var gate=optional.start_battle("gate")
 	play(gate)
