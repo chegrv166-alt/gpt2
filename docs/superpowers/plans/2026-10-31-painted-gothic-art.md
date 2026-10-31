@@ -48,7 +48,7 @@
 
 ### Task 4: Verification and delivery
 **Files:** update `godot/README.md`, art provenance and this checklist; produce ignored builds and review screenshots.
-- [ ] Run import, art/geometry, model, scene and legal-playthrough checks. Run legacy build checks only if shared legacy files change.
-- [ ] Export Windows and Linux with embedded new resources; launch Linux binary graphically for rendered verification.
-- [ ] Obtain independent branch review, fix important findings and rerun affected checks.
-- [ ] Commit the complete local result and report actual gameplay screenshots, launch path, verification and limitations without publishing.
+- [x] Run import, art/geometry, model, scene and legal-playthrough checks. Run legacy build checks only if shared legacy files change.
+- [x] Export Windows and Linux with embedded new resources; launch Linux binary graphically for rendered verification.
+- [x] Obtain independent branch review, fix important findings and rerun affected checks.
+- [x] Commit the complete local result and report actual gameplay screenshots, launch path, verification and limitations without publishing.
