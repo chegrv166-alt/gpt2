@@ -2,6 +2,10 @@ extends RefCounted
 
 const Data = preload("res://scripts/model/episode_data.gd")
 const Battle = preload("res://scripts/model/tactical_battle.gd")
+const Layout = preload("res://scripts/model/world_layout.gd")
+var layout=Layout.new()
+var discovered: Array=[]
+var visited: Array=[]
 const VOICES = ["investigator","executioner","judge","bandit"]
 var party: Array = []
 var flags: Dictionary = {}
@@ -13,7 +17,7 @@ var supplies = 3
 var trust = 2
 var ending = ""
 var dialogue_id = ""
-var world_position: Array = [7,18]
+var world_position: Array = []
 var pending_takeover: Dictionary = {}
 var completed_battles: Array = []
 var battle_serial = 0
@@ -22,6 +26,8 @@ var checkpoint: Dictionary = {}
 
 func _init() -> void:
 	party=Data.initial_party()
+	world_position=[layout.start().x,layout.start().y]
+	discover(layout.start())
 	journal=["Вель. В протоколе моей казни стояло имя человека, которого никто не видел. Нужно сверить свидетельства и добраться до уездного архива."]
 
 func _meets(item: Dictionary) -> bool:
@@ -129,11 +135,15 @@ func finish_battle(battle) -> bool:
 	if id=="gate":
 		flags["gate_pass"]=true;flags["access_force"]=true
 		journal.append("Механизм врат захвачен. Стража отступила, путь к архиву открыт.")
-	else:
+	elif id in ["ritual","rescue"]:
 		ending=id;flags["episode_done"]=true
 		flags["ritual_stopped" if id=="ritual" else "prisoners_saved"]=true
 		trust=mini(6,trust+1)
 		journal.append("Обряд сорван, подлинник сохранён." if id=="ritual" else "Узники выведены из лечебницы. Свидетели остались живы.")
+	else:
+		for flag in battle.encounter.get("campaign_flags",{}):flags[flag]=battle.encounter.campaign_flags[flag]
+		supplies+=int(battle.encounter.get("reward_supplies",0))
+		journal.append(battle.encounter.get("campaign_journal","Дорога снова открыта. Отряд продолжает путь."))
 	active_battle=null;checkpoint={}
 	return true
 
@@ -143,7 +153,7 @@ func retreat() -> bool:
 	return finish_battle(active_battle)
 
 func _base_snapshot() -> Dictionary:
-	return {"version":1,"dialogue_id":dialogue_id,"party":party.duplicate(true),"flags":flags.duplicate(true),"evidence":evidence.duplicate(),"journal":journal.duplicate(),"pressure":pressure.duplicate(true),"coins":coins,"supplies":supplies,"trust":trust,"ending":ending,"world_position":world_position.duplicate(),"pending_takeover":pending_takeover.duplicate(true),"completed_battles":completed_battles.duplicate(),"battle_serial":battle_serial}
+	return {"version":2,"dialogue_id":dialogue_id,"party":party.duplicate(true),"flags":flags.duplicate(true),"evidence":evidence.duplicate(),"journal":journal.duplicate(),"pressure":pressure.duplicate(true),"coins":coins,"supplies":supplies,"trust":trust,"ending":ending,"world_position":world_position.duplicate(),"pending_takeover":pending_takeover.duplicate(true),"completed_battles":completed_battles.duplicate(),"battle_serial":battle_serial,"discovered":discovered.duplicate(),"visited":visited.duplicate()}
 
 func to_dict() -> Dictionary:
 	var data=_base_snapshot()
@@ -153,12 +163,25 @@ func to_dict() -> Dictionary:
 
 func _valid_base(data: Dictionary) -> bool:
 	var required=["version","dialogue_id","party","flags","evidence","journal","pressure","coins","supplies","trust","ending","world_position","pending_takeover","completed_battles","battle_serial"]
-	if not data.has_all(required) or data.version!=1:return false
+	if not data.has_all(required) or data.version!=2 or not data.has_all(["discovered","visited"]):return false
+	if not data.discovered is Array or not data.visited is Array:return false
+	var allowed: Dictionary={}
+	for place in Data.locations():allowed[place.id]=true
+	var seen: Dictionary={}
+	for id in data.discovered:
+		if not id is String or not allowed.has(id) or seen.has(id):return false
+		seen[id]=true
+	seen.clear()
+	for sector in data.visited:
+		if not typeof(sector) in [TYPE_INT,TYPE_FLOAT] or sector!=int(sector) or sector<0 or sector>=192 or seen.has(sector):return false
+		seen[sector]=true
 	if not data.party is Array or data.party.size()!=3 or not data.flags is Dictionary or not data.pressure is Dictionary:return false
 	if not data.evidence is Array or not data.journal is Array or not data.completed_battles is Array or not data.pending_takeover is Dictionary:return false
 	if not data.ending in ["","rescue","ritual","bargain"] or data.coins<0 or data.supplies<0 or absi(int(data.trust))>6 or data.battle_serial<0:return false
 	if not data.world_position is Array or data.world_position.size()!=2:return false
-	if data.world_position[0]<0 or data.world_position[0]>29 or data.world_position[1]<0 or data.world_position[1]>23:return false
+	for value in data.world_position:
+		if not typeof(value) in [TYPE_INT,TYPE_FLOAT] or value!=int(value):return false
+	if layout.blocked(Vector2i(data.world_position[0],data.world_position[1])):return false
 	for voice in VOICES:
 		if not data.pressure.has(voice) or data.pressure[voice]<0 or data.pressure[voice]>100:return false
 	var originals=Data.initial_party()
@@ -174,8 +197,14 @@ func _apply_base(data: Dictionary) -> void:
 	dialogue_id=data.dialogue_id
 	party=data.party.duplicate(true);flags=data.flags.duplicate(true);evidence=data.evidence.duplicate();journal=data.journal.duplicate();pressure=data.pressure.duplicate(true)
 	coins=int(data.coins);supplies=int(data.supplies);trust=int(data.trust);ending=data.ending;world_position=data.world_position.duplicate();pending_takeover=data.pending_takeover.duplicate(true);completed_battles=data.completed_battles.duplicate();battle_serial=int(data.battle_serial)
+	discovered=data.discovered.duplicate();visited=data.visited.duplicate()
 
 func restore(data: Dictionary) -> bool:
+	data=data.duplicate(true)
+	if data.get("version",0)==1:
+		if not _upgrade_base(data):return false
+		if not data.get("checkpoint",{}) is Dictionary:return false
+		if not data.get("checkpoint",{}).is_empty() and not _upgrade_base(data.checkpoint):return false
 	if not _valid_base(data) or not data.has_all(["battle","checkpoint"]) or not data.battle is Dictionary or not data.checkpoint is Dictionary:return false
 	var loaded_battle=null
 	if not data.battle.is_empty():
@@ -186,4 +215,34 @@ func restore(data: Dictionary) -> bool:
 		if not loaded_battle.restore(data.battle):return false
 	_apply_base(data)
 	active_battle=loaded_battle;checkpoint=data.checkpoint.duplicate(true)
+	return true
+
+func _upgrade_base(data: Dictionary) -> bool:
+	if data.get("version",0)!=1 or not data.get("world_position") is Array or data.world_position.size()!=2:return false
+	for i in range(2):
+		var value=data.world_position[i]
+		if not typeof(value) in [TYPE_INT,TYPE_FLOAT] or value!=int(value) or value<0 or value>(29 if i==0 else 23):return false
+	data.version=2;data.world_position=[layout.start().x,layout.start().y]
+	data.discovered=["camp"];data.visited=[int(layout.start().y/32)*16+int(layout.start().x/32)]
+	return true
+
+func discover(point: Vector2i) -> void:
+	if not layout.bounds().has_point(point):return
+	var sector=int(point.y/32)*16+int(point.x/32)
+	if not visited.has(sector):visited.append(sector)
+	for place in Data.locations():
+		var radius=7.0 if place.get("category","")=="find" else 15.0
+		if Vector2(point).distance_to(Vector2(place.pos[0],place.pos[1]))<=radius and not discovered.has(place.id):discovered.append(place.id)
+
+func fast_travel(id: String) -> bool:
+	if active_battle!=null or supplies<1 or not discovered.has(id):return false
+	var destination: Dictionary={};var at_camp=false
+	for camp in layout.camps():
+		if camp.id==id:destination=camp
+		if Vector2(world_position[0],world_position[1]).distance_to(Vector2(layout.entrance(camp.id)))<=5:at_camp=true
+	if destination.is_empty() or not at_camp:return false
+	var target=layout.entrance(id)
+	if Vector2i(world_position[0],world_position[1])==target:return false
+	supplies-=1;world_position=[target.x,target.y];discover(target)
+	journal.append("Отряд прошёл знакомой дорогой к месту «%s». Потрачен один припас."%destination.name)
 	return true

@@ -1,0 +1,311 @@
+{
+	"battle": {
+		"activations": 0,
+		"active": "hero",
+		"allies_left": [
+			"hero",
+			"mira",
+			"sava"
+		],
+		"borrowed": {
+			"executioner": 14
+		},
+		"encounter_id": "gate",
+		"enemies_left": [
+			"spear",
+			"archer",
+			"knife"
+		],
+		"instance_id": "gate:1",
+		"progress": {
+
+		},
+		"round": 1,
+		"selected_voice": "executioner",
+		"status": "playing",
+		"units": [
+			{
+				"ap": 1,
+				"art": "hero",
+				"cursed": true,
+				"damage": 12.0,
+				"guard": 0,
+				"hp": 52.0,
+				"id": "hero",
+				"max_hp": 52.0,
+				"mutation": 1,
+				"name": "Хронист",
+				"pos": [
+					2,
+					6
+				],
+				"reach": 1.0,
+				"team": "ally"
+			},
+			{
+				"ap": 2,
+				"art": "mira",
+				"cursed": false,
+				"damage": 10.0,
+				"guard": 0,
+				"hp": 42.0,
+				"id": "mira",
+				"max_hp": 42.0,
+				"mutation": 0,
+				"name": "Мирра",
+				"pos": [
+					2,
+					8
+				],
+				"reach": 5.0,
+				"team": "ally"
+			},
+			{
+				"ap": 2,
+				"art": "sava",
+				"cursed": true,
+				"damage": 8.0,
+				"guard": 0,
+				"hp": 44.0,
+				"id": "sava",
+				"max_hp": 44.0,
+				"mutation": 0,
+				"name": "Сава",
+				"pos": [
+					1,
+					7
+				],
+				"reach": 1.0,
+				"team": "ally"
+			},
+			{
+				"ap": 2.0,
+				"art": "guard",
+				"cursed": false,
+				"damage": 8.0,
+				"guard": 0,
+				"hp": 30.0,
+				"id": "spear",
+				"max_hp": 30.0,
+				"mutation": 0.0,
+				"name": "Привратник",
+				"pos": [
+					8.0,
+					6.0
+				],
+				"reach": 2.0,
+				"team": "enemy"
+			},
+			{
+				"ap": 2.0,
+				"art": "archer",
+				"cursed": false,
+				"damage": 7.0,
+				"guard": 0,
+				"hp": 24.0,
+				"id": "archer",
+				"max_hp": 24.0,
+				"mutation": 0.0,
+				"name": "Дозорная",
+				"pos": [
+					10.0,
+					3.0
+				],
+				"reach": 5.0,
+				"team": "enemy"
+			},
+			{
+				"ap": 2.0,
+				"art": "guard",
+				"cursed": false,
+				"damage": 7.0,
+				"guard": 0,
+				"hp": 26.0,
+				"id": "knife",
+				"max_hp": 26.0,
+				"mutation": 0.0,
+				"name": "Служитель",
+				"pos": [
+					8.0,
+					9.0
+				],
+				"reach": 1.0,
+				"team": "enemy"
+			}
+		]
+	},
+	"battle_serial": 1,
+	"checkpoint": {
+		"battle_serial": 0,
+		"coins": 9,
+		"completed_battles": [],
+		"dialogue_id": "",
+		"ending": "",
+		"evidence": [
+			"witness"
+		],
+		"flags": {
+			"gate_pass": true
+		},
+		"journal": [
+			"Вель. В протоколе моей казни стояло имя человека, которого никто не видел. Нужно сверить свидетельства и добраться до уездного архива."
+		],
+		"party": [
+			{
+				"ap": 2.0,
+				"art": "hero",
+				"cursed": true,
+				"damage": 12.0,
+				"guard": 0.0,
+				"hp": 52.0,
+				"id": "hero",
+				"max_hp": 52.0,
+				"mutation": 0.0,
+				"name": "Хронист",
+				"pos": [
+					2.0,
+					6.0
+				],
+				"reach": 1.0,
+				"team": "ally"
+			},
+			{
+				"ap": 2.0,
+				"art": "mira",
+				"cursed": false,
+				"damage": 10.0,
+				"guard": 0.0,
+				"hp": 42.0,
+				"id": "mira",
+				"max_hp": 42.0,
+				"mutation": 0.0,
+				"name": "Мирра",
+				"pos": [
+					2.0,
+					8.0
+				],
+				"reach": 5.0,
+				"team": "ally"
+			},
+			{
+				"ap": 2.0,
+				"art": "sava",
+				"cursed": true,
+				"damage": 8.0,
+				"guard": 0.0,
+				"hp": 44.0,
+				"id": "sava",
+				"max_hp": 44.0,
+				"mutation": 0.0,
+				"name": "Сава",
+				"pos": [
+					1.0,
+					7.0
+				],
+				"reach": 1.0,
+				"team": "ally"
+			}
+		],
+		"pending_takeover": {
+
+		},
+		"pressure": {
+			"bandit": 8,
+			"executioner": 8,
+			"investigator": 12,
+			"judge": 8
+		},
+		"supplies": 3,
+		"trust": 2,
+		"version": 1,
+		"world_position": [
+			7,
+			18
+		]
+	},
+	"coins": 9,
+	"completed_battles": [],
+	"dialogue_id": "",
+	"ending": "",
+	"evidence": [
+		"witness"
+	],
+	"flags": {
+		"gate_pass": true
+	},
+	"journal": [
+		"Вель. В протоколе моей казни стояло имя человека, которого никто не видел. Нужно сверить свидетельства и добраться до уездного архива."
+	],
+	"party": [
+		{
+			"ap": 2.0,
+			"art": "hero",
+			"cursed": true,
+			"damage": 12.0,
+			"guard": 0.0,
+			"hp": 52.0,
+			"id": "hero",
+			"max_hp": 52.0,
+			"mutation": 0.0,
+			"name": "Хронист",
+			"pos": [
+				2.0,
+				6.0
+			],
+			"reach": 1.0,
+			"team": "ally"
+		},
+		{
+			"ap": 2.0,
+			"art": "mira",
+			"cursed": false,
+			"damage": 10.0,
+			"guard": 0.0,
+			"hp": 42.0,
+			"id": "mira",
+			"max_hp": 42.0,
+			"mutation": 0.0,
+			"name": "Мирра",
+			"pos": [
+				2.0,
+				8.0
+			],
+			"reach": 5.0,
+			"team": "ally"
+		},
+		{
+			"ap": 2.0,
+			"art": "sava",
+			"cursed": true,
+			"damage": 8.0,
+			"guard": 0.0,
+			"hp": 44.0,
+			"id": "sava",
+			"max_hp": 44.0,
+			"mutation": 0.0,
+			"name": "Сава",
+			"pos": [
+				1.0,
+				7.0
+			],
+			"reach": 1.0,
+			"team": "ally"
+		}
+	],
+	"pending_takeover": {
+
+	},
+	"pressure": {
+		"bandit": 8,
+		"executioner": 8,
+		"investigator": 12,
+		"judge": 8
+	},
+	"supplies": 3,
+	"trust": 2,
+	"version": 1,
+	"world_position": [
+		7,
+		18
+	]
+}
