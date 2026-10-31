@@ -57,6 +57,16 @@
       ],
       "mode": "RGB",
       "source_unchanged": true
+    },
+    "dialogue_portraits.png": {
+      "sha256": "5c140f12dbb0e460a8a0ea0f346658087c85861a920692d5e090fb0d4b54d35c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "source_unchanged": true,
+      "prompt": "dialogue-portraits-prompt.txt"
     }
   }
 }

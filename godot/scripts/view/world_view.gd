@@ -11,6 +11,7 @@ var mode="move"
 var hover=Vector2i(-1,-1)
 var zoom=0.92
 var pan=Vector2.ZERO
+var camera_focus=Vector2(7,18)
 var drag=false
 var navigation=AStarGrid2D.new()
 var route: Array=[]
@@ -56,7 +57,8 @@ func configure(state,new_battle=null) -> void:
 	if battle==null:
 		player=Vector2(float(campaign.world_position[0]),float(campaign.world_position[1]))
 		if changed or not _initialized:
-			zoom=0.92;_center_on(player)
+			zoom=.85 if size.x>=1000 else .92
+			_center_on(Vector2(14,12) if not _initialized and size.x>=1000 else player)
 	else:
 		route.clear();pending_location=""
 		if changed:
@@ -69,7 +71,7 @@ func configure(state,new_battle=null) -> void:
 func _on_resize() -> void:
 	if not _initialized:return
 	if battle!=null:zoom=maxf(.56,minf(1.15,minf((size.x-70)/850.0,(size.y-95)/440.0)))
-	_center_on(Vector2(6.5,5.5) if battle!=null else player)
+	_center_on(Vector2(6.5,5.5) if battle!=null else (camera_focus if size.x>=1000 else player))
 
 func _iso(tile: Vector2) -> Vector2:
 	return Vector2((tile.x-tile.y)*32.0,(tile.x+tile.y)*16.0)
@@ -82,6 +84,7 @@ func ground(pos: Vector2) -> Vector2:
 	return Vector2((local.x/32.0+local.y/16.0)*0.5,(local.y/16.0-local.x/32.0)*0.5)
 
 func _center_on(tile: Vector2) -> void:
+	camera_focus=tile
 	pan=-_iso(tile)*zoom+Vector2(0,60 if battle==null else 38)
 
 func _process(delta: float) -> void:
@@ -89,6 +92,7 @@ func _process(delta: float) -> void:
 	if not route.is_empty() and battle==null:
 		var target=Vector2(route[0])
 		player=player.move_toward(target,delta*5.0)
+		camera_focus=player
 		pan=pan.lerp(-_iso(player)*zoom+Vector2(0,60),1.0-exp(-delta*3.0))
 		if player.distance_to(target)<0.015:
 			route.pop_front()
@@ -121,7 +125,8 @@ func feedback(events: Array) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if drag:pan+=event.relative
+		if drag:
+			pan+=event.relative;camera_focus=ground(size*.5+Vector2(0,60))
 		var p=ground(event.position);hover=Vector2i(roundi(p.x),roundi(p.y))
 		hovered_location=_location_at(event.position) if battle==null else ""
 		mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND if not hovered_location.is_empty() else Control.CURSOR_ARROW
@@ -132,6 +137,7 @@ func _gui_input(event: InputEvent) -> void:
 			var before=ground(event.position)
 			zoom=clampf(zoom*(1.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else 0.91),0.5,1.7)
 			pan=event.position-size*0.5-_iso(before)*zoom
+			camera_focus=ground(size*.5+Vector2(0,60))
 		elif event.button_index==MOUSE_BUTTON_LEFT:
 			if battle!=null:
 				var tile=ground(event.position)
@@ -141,7 +147,7 @@ func _gui_input(event: InputEvent) -> void:
 					targets.sort_custom(func(a,b):return a.pos[0]+a.pos[1]>b.pos[0]+b.pos[1])
 					for actor in targets:
 						var position:Vector2=drawn_units.get(actor.id,Vector2(actor.pos[0],actor.pos[1]))
-						if actor.hp>0 and actor_rect(actor,screen(position)).grow(3).has_point(event.position):
+						if actor.hp>0 and art.hit(art.actor_key(actor),actor_rect(actor,screen(position)),event.position):
 							clicked=battle.point(actor);break
 				tile_selected.emit(clicked)
 			else:_explore_click(event.position)
@@ -163,7 +169,8 @@ func _explore_click(pos: Vector2) -> void:
 		var id=pending_location;pending_location="";location_selected.emit(id)
 
 func pan_camera(axis: Vector2,delta: float) -> void:
-	if not axis.is_zero_approx():pan-=axis*delta*420
+	if not axis.is_zero_approx():
+		pan-=axis*delta*420;camera_focus=ground(size*.5+Vector2(0,60))
 
 func _poly(points: Array,color: Color) -> void:
 	draw_colored_polygon(PackedVector2Array(points),color)
@@ -209,12 +216,9 @@ func _location_at(pos: Vector2) -> String:
 	var places=Data.locations()
 	places.sort_custom(func(a,b):return a.pos[0]+a.pos[1]>b.pos[0]+b.pos[1])
 	for place in places:
-		if _label_rect(place).has_point(pos):return place.id
-		var rect=location_rect(place)
-		if rect.has_point(pos):
-			var tex=art.texture(place.kind)
-			var pixel=Vector2i((pos-rect.position)/rect.size*tex.get_size())
-			if art.image(place.kind).get_pixelv(pixel).a>.3:return place.id
+		var labelled=player.distance_to(Vector2(place.pos[0],place.pos[1]))<7.5 or place.id in [selection,hovered_location]
+		if labelled and _label_rect(place).has_point(pos):return place.id
+		if art.hit(place.kind,location_rect(place),pos):return place.id
 	return ""
 
 func _draw() -> void:
@@ -240,7 +244,14 @@ func _scenery_sprite(key: String,tile: Vector2,scale: float=1.0) -> void:
 	var p=screen(tile);var rect=art.rect(key,p,zoom*scale)
 	if not _visible(rect):return
 	var tint=Color(.77,.82,.9,.85)
-	if battle==null and rect.has_point(screen(player)-Vector2(0,45)*zoom) and tile.x+tile.y>player.x+player.y:tint.a=.25
+	if battle==null:
+		for i in range(3):
+			var unit=player+Vector2(-i*.95,i*.6)
+			if rect.has_point(screen(unit)-Vector2(0,45)*zoom) and tile.x+tile.y>unit.x+unit.y:tint.a=.25
+	else:
+		for member in battle.allies():
+			var position:Vector2=drawn_units.get(member.id,Vector2(member.pos[0],member.pos[1]))
+			if member.hp>0 and rect.has_point(screen(position)-Vector2(0,45)*zoom) and tile.x+tile.y>position.x+position.y:tint.a=.25
 	_shadow(p,rect.size.x*.3,.2);draw_texture_rect(art.texture(key),rect,false,tint)
 
 func _draw_settlement() -> void:

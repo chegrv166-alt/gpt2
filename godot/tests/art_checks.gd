@@ -20,6 +20,8 @@ func run() -> void:
 		var foot=Vector2(400,300)
 		var rect=art.rect(key,foot,0.8)
 		check(rect.has_point(foot-Vector2(0,2)) and rect.size.x>0 and rect.size.y>0,"Ground anchor matches visible and clickable image: "+key)
+	for key in ["bandit","witness","archivist","market","guard","warden"]:
+		check(art.portrait(key)!=null,"Actual speaking character has a matching portrait: "+key)
 	var forms: Array=[]
 	for id in ["hero","sava"]:
 		for level in range(3):forms.append(art.actor_key({"id":id,"art":id,"mutation":level}))
@@ -28,6 +30,7 @@ func run() -> void:
 	check(forms.size()==6 and unique.size()==6,"Two cursed actors have six distinct human/transformed silhouettes")
 	check(art.actor_key({"art":"guard","mutation":0})!="mira","Enemy guard does not reuse a companion image")
 	check(art.actor_key({"art":"archer","mutation":0})!="sava","Enemy scout does not reuse a companion image")
+	check(art.actor_key({"id":"prisoner","art":"sava","mutation":0})=="prisoner","A saved prisoner with legacy art metadata has her own silhouette")
 	for key in ["hero","mira","sava","hero_2","sava_2","house","chapel","tree"]:
 		var image=art.texture(key).get_image()
 		check(image.get_pixel(0,0).a<0.1,"Sprite has actual transparent corners: "+key)

@@ -176,7 +176,7 @@ def main() -> None:
     parser.add_argument('command', choices=['paths', 'bootstrap', 'check', 'build', 'smoke', 'package'])
     parser.add_argument('--directory', type=Path, default=Path(os.environ.get('RUNNER_TEMP', '/tmp')) / 'godot-runtime')
     parser.add_argument('--engine', type=Path, default=Path(os.environ.get('GODOT_BIN', shutil.which('godot') or 'godot')))
-    parser.add_argument('--version', default='0.7.0')
+    parser.add_argument('--version', default='0.7.1')
     args = parser.parse_args()
     if args.command == 'paths':
         values = f'engine={args.directory}\ntemplates={templates_dir()}\n'
