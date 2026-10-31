@@ -1,16 +1,14 @@
 # Ashen Covenant
 
-## Godot 0.7.1 — живописная готическая версия
+## Godot 0.8.0 — большой Вельский уезд (локальный черновик)
 
-Новая графика партийной RPG: оригинальная архитектура, персонажи и портреты, анатомические мутации, туман, мокрый камень и обновлённый интерфейс. Исследуйте Вель, собирайте свидетельства, управляйте тремя героями и решайте судьбу лечебницы.
+Непрерывная карта **512×384**: жилой Вель, пристань, кладбище с каменоломней, лесные окраины и монастырский округ. **30 именных мест и 16 находок**, четыре дополнительных столкновения, три моста и пять лагерей. Между районами — дороги, обходы и пространство для путешествия.
 
-**[Скачать для Windows x64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Windows-x64.zip)** · **[Скачать для Linux x86_64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Linux-x86_64.tar.gz)** · [Описание релиза](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.1)
+**M** — обзор уезда и выбор настоящего маршрута, **Shift** — бег. Открытые лагеря позволяют перемещаться за один припас; старые сохранения 0.7.1 переносятся к стартовому костру с сохранением решений и боя. [Запуск и управление](godot/README.md). [Проверка и ограничения сборок](docs/region/verification.md).
 
-Windows: распакуйте ZIP и откройте `Ashen-Covenant-Chronicle.exe`. Linux: распакуйте tar.gz и запустите `./Ashen-Covenant-Chronicle.x86_64`. Godot и Node.js игроку не нужны; графике требуется OpenGL 3.3. Это ранний играбельный прототип с процедурной анимацией.
+![Реальный кадр большого Веля](docs/region/gameplay/county-final-town.png)
 
-![Реальный кадр экспортированной Godot-игры](docs/art-direction/gameplay/exploration-native.png)
-
-[Подробнее и запуск из исходников](godot/README.md). [Предыдущая Godot-версия 0.7.0](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.0).
+Версия 0.8.0 пока не опубликована. Предыдущие опубликованные файлы 0.7.1: [Windows x64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Windows-x64.zip) · [Linux x86_64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Linux-x86_64.tar.gz).
 
 ## Предыдущая игра — Phaser/Electron 0.6
 

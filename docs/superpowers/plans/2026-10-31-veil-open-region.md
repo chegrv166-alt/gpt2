@@ -47,7 +47,7 @@
 
 ### Task 4: Validation and local desktop delivery
 **Files:** update README/player notes/version/export helpers, verification report and capture artifacts.
-- [ ] Run complete import/model/art/scene/region/visual/playthrough suites; verify data and art integrity.
-- [ ] Export Windows/Linux with embedded resources; boot/render Linux outside source project and inspect captures.
-- [ ] Obtain independent branch review, fix important findings with regression checks, rerun affected complete suite.
-- [ ] Build local archives with licenses/manifests/checksums, document actual evidence, commit and keep branch locally.
+- [x] Run complete import/model/art/scene/region/visual/playthrough suites; verify data and art integrity.
+- [x] Export Windows/Linux with embedded resources; boot/render Linux outside source project and inspect captures.
+- [x] Obtain independent branch review, fix important findings with regression checks, rerun affected complete suite.
+- [x] Build local archives with licenses/manifests/checksums, document actual evidence, commit and keep branch locally.
