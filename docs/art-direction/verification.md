@@ -1,5 +1,7 @@
 # Painted gothic overhaul — verification
 
+This is the historical local QA record before publication. Release 0.7.1 additionally runs the complete suite, native exports and packaged-application headless startup on Windows and Linux in [GitHub Actions](https://github.com/chegrv166-alt/gpt2/actions/workflows/godot-release.yml). Player downloads are published at [v0.7.1](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.1) after both platforms pass. The local source commit and archive hashes below describe the earlier local build, not the CI release assets.
+
 Local playable draft **0.7.1**, Godot **4.6.3**. Source-code commit: `b86fc4cf64731437ac8d092cc598c94ce05be5f2`; later documentation commits only record this evidence. Work remains on `feat/painted-gothic-art` in the managed checkout, without remote publication.
 
 ## Automated checks

@@ -1,12 +1,18 @@
 # Ashen Covenant
 
-## Живописная переделка — локальный черновик 0.7.1
+## Godot 0.7.1 — живописная готическая версия
 
-Новая графика Godot-эпизода: оригинальная готическая архитектура, персонажи и портреты, анатомические мутации, туман, мокрый камень и обновлённый интерфейс. [Посмотреть реальный игровой кадр](docs/art-direction/gameplay/exploration.png) · [Подробнее и запуск](godot/README.md). Черновик 0.7.1 пока не опубликован; ссылка ниже относится к предыдущему релизу 0.7.0.
+Новая графика партийной RPG: оригинальная архитектура, персонажи и портреты, анатомические мутации, туман, мокрый камень и обновлённый интерфейс. Исследуйте Вель, собирайте свидетельства, управляйте тремя героями и решайте судьбу лечебницы.
 
-## Godot 0.7.0 — Windows и Linux
+**[Скачать для Windows x64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Windows-x64.zip)** · **[Скачать для Linux x86_64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Linux-x86_64.tar.gz)** · [Описание релиза](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.1)
 
-Первый эпизод партийной пошаговой RPG находится в [`godot/`](godot/README.md): исследование Веля, диалоги и свидетельства, три героя, обращение, четыре личности и три исхода. Запуск: `godot --path godot`. [Скачать Godot-версию 0.7.0](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.0): Windows — распаковать ZIP и запустить `.exe`; Linux — распаковать tar.gz и запустить `.x86_64`. Godot и Node.js игроку не нужны. Это ранний играбельный прототип; опубликованная 0.6 ниже остаётся отдельной версией на Phaser.
+Windows: распакуйте ZIP и откройте `Ashen-Covenant-Chronicle.exe`. Linux: распакуйте tar.gz и запустите `./Ashen-Covenant-Chronicle.x86_64`. Godot и Node.js игроку не нужны; графике требуется OpenGL 3.3. Это ранний играбельный прототип с процедурной анимацией.
+
+![Реальный кадр экспортированной Godot-игры](docs/art-direction/gameplay/exploration-native.png)
+
+[Подробнее и запуск из исходников](godot/README.md). [Предыдущая Godot-версия 0.7.0](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.0).
+
+## Предыдущая игра — Phaser/Electron 0.6
 
 Браузерная изометрическая Action RPG: TypeScript strict, Phaser **3.90.0**, Vite.
 Реализованы **все четыре шага** вертикального среза: нарисованные текстуры и процедурные эффекты, лесной коридор и две изометрические комнаты,
@@ -18,7 +24,7 @@
 
 ### Windows: скачать и открыть
 
-Готовые Windows-файлы находятся в [Releases](https://github.com/chegrv166-alt/gpt2/releases/latest):
+Архивные Windows-файлы Phaser/Electron находятся в [релизе 0.6.0](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.6.0):
 
 - `Ashen-Covenant-0.6.0-Windows-x64.exe` — переносная версия, запускается двойным щелчком.
 - `Ashen-Covenant-0.6.0-Setup-x64.exe` — установщик с ярлыком на рабочем столе.
