@@ -8,3 +8,7 @@ desktop-dist/
 release/
 /.worktrees/
 /.superpowers/
+
+# Native Godot editor/import cache and local exports
+godot/.godot/
+godot/build/
