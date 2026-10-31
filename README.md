@@ -1,6 +1,6 @@
 # Ashen Covenant
 
-## Godot 0.8.0 — большой Вельский уезд (локальный черновик)
+## Godot 0.8.0 — большой Вельский уезд
 
 Непрерывная карта **512×384**: жилой Вель, пристань, кладбище с каменоломней, лесные окраины и монастырский округ. **30 именных мест и 16 находок**, четыре дополнительных столкновения, три моста и пять лагерей. Между районами — дороги, обходы и пространство для путешествия.
 
@@ -8,7 +8,7 @@
 
 ![Реальный кадр большого Веля](docs/region/gameplay/county-final-town.png)
 
-Версия 0.8.0 пока не опубликована. Предыдущие опубликованные файлы 0.7.1: [Windows x64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Windows-x64.zip) · [Linux x86_64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.7.1/Ashen-Covenant-0.7.1-Linux-x86_64.tar.gz).
+**[Скачать Windows x64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.8.0/Ashen-Covenant-0.8.0-Windows-x64.zip)** · **[Скачать Linux x86_64](https://github.com/chegrv166-alt/gpt2/releases/download/v0.8.0/Ashen-Covenant-0.8.0-Linux-x86_64.tar.gz)** · [Релиз 0.8.0](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.8.0). Архивы появляются после успешных проверок обеих ОС в GitHub Actions. Предыдущий релиз: [0.7.1](https://github.com/chegrv166-alt/gpt2/releases/tag/v0.7.1).
 
 ## Предыдущая игра — Phaser/Electron 0.6
 
