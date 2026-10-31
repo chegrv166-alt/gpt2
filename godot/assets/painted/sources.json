@@ -1,0 +1,60 @@
+{
+  "generator": "Host ImageGen",
+  "art_design": "2026-10-31-painted-gothic-art-design.md",
+  "sources": {
+    "characters.png": {
+      "sha256": "b3e85d8c5edb9d945fd2d98913ab02294c598760a91840795af418acfc306a6a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true
+    },
+    "landmarks.png": {
+      "sha256": "e56aa9a76fec246796f1af6e27cb065eafaf4adc6bc5bd99cdf65b589e00b7bc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true
+    },
+    "mutations.png": {
+      "sha256": "360ad8d1d02fb854f61334536294de3de4fd825e484d430612aee80706583b09",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true
+    },
+    "portraits.png": {
+      "sha256": "8382cf5c2480825d9857fa19b729e2608d76bb207c3965fa09d53f050fb53536",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "source_unchanged": true
+    },
+    "props.png": {
+      "sha256": "119a465a45a905b9c57023a20ba20c561cea538a0ca00bc3da6799b447e0b234",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "source_unchanged": true
+    },
+    "terrain.png": {
+      "sha256": "ac2084ed9f103b928678034022f4d601f8dca7030d75baccc1cfe81e68ce381e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_unchanged": true
+    }
+  }
+}
