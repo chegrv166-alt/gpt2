@@ -52,6 +52,19 @@ func run() -> void:
 		event.position=rect.position+Vector2(1,1)
 		world._gui_input(event)
 		check(picked.back()!=game.battle.point(actor),"Transparent corners around a transformed body do not steal ground clicks")
+		var front=game.battle.unit("sava");front.mutation=2
+		var front_rect=world.actor_rect(front,world.screen(Vector2(front.pos[0],front.pos[1])))
+		var overlap=rect.intersection(front_rect)
+		var overlap_point=Vector2.INF
+		for y in range(int(overlap.position.y),int(overlap.end.y)):
+			for x in range(int(overlap.position.x),int(overlap.end.x)):
+				var point=Vector2(x+.5,y+.5)
+				if world.art.hit("hero_2",rect,point) and world.art.hit("sava_2",front_rect,point):overlap_point=point;break
+			if overlap_point.is_finite():break
+		check(overlap_point.is_finite(),"Equal-depth transformed allies have a real opaque overlap fixture")
+		if overlap_point.is_finite():
+			event.position=overlap_point;world._gui_input(event)
+			check(picked.back()==game.battle.point(front),"Opaque overlap picks Sava, the ally painted above Hero at equal depth")
 	game.retreat()
 	check(game.hud.find_children("Portrait_*","TextureRect",true,false).size()==3,"All three companions have visible matching portrait controls")
 	root.size=Vector2i(960,640)

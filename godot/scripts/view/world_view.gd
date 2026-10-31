@@ -143,10 +143,12 @@ func _gui_input(event: InputEvent) -> void:
 				var tile=ground(event.position)
 				var clicked=Vector2i(roundi(tile.x),roundi(tile.y))
 				if mode in ["attack","skill"]:
-					var targets=battle.units.duplicate()
-					targets.sort_custom(func(a,b):return a.pos[0]+a.pos[1]>b.pos[0]+b.pos[1])
-					for actor in targets:
-						var position:Vector2=drawn_units.get(actor.id,Vector2(actor.pos[0],actor.pos[1]))
+					var targets=_battle_draw_items()
+					targets.reverse()
+					for entry in targets:
+						if entry.type!="actor":continue
+						var actor=entry.item
+						var position:Vector2=entry.point
 						if actor.hp>0 and art.hit(art.actor_key(actor),actor_rect(actor,screen(position)),event.position):
 							clicked=battle.point(actor);break
 				tile_selected.emit(clicked)
@@ -341,6 +343,17 @@ func _diamond(tile: Vector2,color: Color,filled: bool=false) -> void:
 	var points=PackedVector2Array([p+Vector2(0,-16)*zoom,p+Vector2(32,0)*zoom,p+Vector2(0,16)*zoom,p+Vector2(-32,0)*zoom,p+Vector2(0,-16)*zoom])
 	if filled:draw_colored_polygon(points,color)
 	else:draw_polyline(points,color,1,true)
+
+func _battle_draw_items() -> Array:
+	var items: Array=[]
+	for block in battle.encounter.blocks:
+		items.append({"depth":float(block[0]+block[1]),"order":items.size(),"type":"cover","point":Vector2(block[0],block[1])})
+	for actor in battle.units:
+		var position:Vector2=drawn_units.get(actor.id,Vector2(actor.pos[0],actor.pos[1]))
+		items.append({"depth":position.x+position.y,"order":items.size(),"type":"actor","point":position,"item":actor})
+	items.sort_custom(func(a,b):return a.order<b.order if a.depth==b.depth else a.depth<b.depth)
+	return items
+
 func _draw_battle() -> void:
 	_scenery_sprite("gate",Vector2(9,-3),1.2);_scenery_sprite("chapel",Vector2(-4,1),1.1)
 	_scenery_sprite("tree",Vector2(-2,11),.85);_scenery_sprite("tree_pale",Vector2(14,9),1)
@@ -360,18 +373,14 @@ func _draw_battle() -> void:
 		var width=font.get_string_size(objective.name,HORIZONTAL_ALIGNMENT_LEFT,-1,11).x
 		draw_string_outline(font,p+Vector2(-width*.5,30),objective.name,HORIZONTAL_ALIGNMENT_LEFT,-1,11,3,Color("11151b"))
 		draw_string(font,p+Vector2(-width*.5,30),objective.name,HORIZONTAL_ALIGNMENT_LEFT,-1,11,color)
-	var items: Array=[]
-	for block in battle.encounter.blocks:items.append({"depth":float(block[0]+block[1]),"type":"cover","point":Vector2(block[0],block[1])})
-	for actor in battle.units:items.append({"depth":float(actor.pos[0]+actor.pos[1]),"type":"actor","item":actor})
-	items.sort_custom(func(a,b):return a.depth<b.depth)
-	for item in items:
+	for item in _battle_draw_items():
 		if item.type=="cover":
 			var p=screen(item.point);var rect=art.rect("cover",p,zoom*.85);var alpha=1.0
 			for member in battle.units:
 				if member.team=="ally" and member.hp>0 and item.depth>member.pos[0]+member.pos[1] and rect.has_point(screen(Vector2(member.pos[0],member.pos[1]))-Vector2(0,40)*zoom):alpha=.38
 			_shadow(p,18*zoom);draw_texture_rect(art.texture("cover"),rect,false,Color(.84,.87,.92,alpha))
 		else:
-			var actor=item.item;var p:Vector2=drawn_units.get(actor.id,Vector2(actor.pos[0],actor.pos[1]))
+			var actor=item.item;var p:Vector2=item.point
 			_actor(actor,screen(p),actor.id==battle.active_id,p.distance_to(Vector2(actor.pos[0],actor.pos[1]))>.05)
 	if battle.in_bounds(hover):_diamond(Vector2(hover),Color("d7b7ad") if mode in ["attack","skill"] else Color("d2c5a8"))
 	_draw_heading(battle.encounter.title,"Раунд %d / %d · %s"%[battle.round_number,battle.encounter.round_limit,"Ваш ход" if battle.status=="playing" else "Столкновение завершено"])
