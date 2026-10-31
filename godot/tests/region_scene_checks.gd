@@ -15,6 +15,7 @@ func run() -> void:
 	var game=load("res://main.tscn").instantiate();root.add_child(game)
 	await process_frame;await process_frame
 	check(game.world.navigation.region==Rect2i(0,0,512,384),"Rendered world uses full county navigation")
+	check(game.save_game("user://county-camera-test.json"),"Exploration camera fixture saves")
 	var start=game.world.player
 	game.show_region_map();await process_frame
 	check(game.hud.modal_visible() and game.hud.region_map!=null,"M overview opens a real region panel")
@@ -29,6 +30,17 @@ func run() -> void:
 		game.world._process(.25);steps+=1
 	check(safe and game.world.route.is_empty(),"Actual world movement follows the entire safe cross-county path")
 	check(game.campaign.world_position==[destination.x,destination.y],"Long journey arrives and persists at chosen destination")
+	check(game.load_game("user://county-camera-test.json"),"Exploration save reloads after distant journey")
+	await process_frame
+	check(Rect2(Vector2.ZERO,game.world.size).has_point(game.world.screen(game.world.player)),"Loading distant exploration save recenters camera on restored party")
+	var preserved=game.campaign.to_dict()
+	var malformed=preserved.duplicate(true);malformed.dialogue_id=["witness"];malformed.coins=99
+	var malformed_file=FileAccess.open("user://county-invalid-test.json",FileAccess.WRITE)
+	malformed_file.store_string(JSON.stringify(malformed));malformed_file.close()
+	check(not game.load_game("user://county-invalid-test.json") and game.campaign.to_dict()==preserved,"Actual malformed file load preserves current campaign")
+	game.campaign.restore(preserved)
+	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://county-invalid-test.json"))
+	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://county-camera-test.json"))
 	game.world.route.clear();game.world.pending_location=""
 	game.campaign.discover(game.campaign.layout.entrance("forest_camp"))
 	game.show_region_map();await process_frame

@@ -229,6 +229,7 @@ func load_game(path: String="user://chronicle_save.json") -> bool:
 	if not parsed is Dictionary or not campaign.restore(parsed):hud.show_message("Сохранение повреждено или несовместимо. Текущая игра сохранена.");return false
 	battle_generation+=1
 	battle=campaign.active_battle;mode="move";current_npc=campaign.dialogue_id;world.route.clear();world.pending_location="";hud.close_modal();refresh()
+	if battle==null:world._center_on(world.player)
 	if not current_npc.is_empty() and battle==null:hud.show_dialogue(campaign.talk(current_npc))
 	hud.show_message("Хроника загружена");return true
 

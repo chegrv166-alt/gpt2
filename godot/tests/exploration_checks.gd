@@ -31,6 +31,29 @@ func run() -> void:
 	check(not restored.restore(invalid) and restored.to_dict()==saved,"Invalid new coordinates cannot replace current campaign")
 	invalid=saved.duplicate(true);invalid.discovered.append("missing_place")
 	check(not restored.restore(invalid),"Unknown discoveries rejected")
+	for point in [[4294967432,292],[-4294967160,292],[136,4294967588],[136,-4294967004]]:
+		invalid=saved.duplicate(true);invalid.world_position=point
+		var clean=Campaign.new();clean.restore(saved)
+		check(not clean.restore(invalid) and clean.to_dict()==saved,"Huge coordinates cannot wrap into playable tiles: "+str(point))
+	var battle_save=Campaign.new();battle_save.start_battle("gate")
+	invalid=battle_save.to_dict();invalid.checkpoint.world_position=[4294967432,292]
+	var clean=Campaign.new();before=clean.to_dict()
+	check(not clean.restore(invalid) and clean.to_dict()==before,"Huge checkpoint coordinates rejected atomically")
+	var malformed=[
+		[["dialogue_id"],["witness"]],[["coins"],[]],[["supplies"],{}],[["trust"],"broken"],[["battle_serial"],[]],
+		[["pressure","investigator"],[]],[["party",0,"damage"],"broken"],[["party",1,"pos"],["broken",0]],
+		[["party",2,"name"],[]],[["flags"],{"gate_pass":[]}],[["journal"],[{}]],[["evidence"],[[]]],[["completed_battles"],[{}]]
+	]
+	for sample in malformed:
+		invalid=saved.duplicate(true)
+		var field:Variant=invalid
+		for i in range(sample[0].size()-1):field=field[sample[0][i]]
+		field[sample[0][-1]]=sample[1]
+		var protected_state=Campaign.new();protected_state.restore(saved)
+		check(not protected_state.restore(invalid) and protected_state.to_dict()==saved,"Malformed field rejected atomically: "+str(sample[0]))
+	invalid=battle_save.to_dict();invalid.checkpoint.dialogue_id=["witness"]
+	clean=Campaign.new();before=clean.to_dict()
+	check(not clean.restore(invalid) and clean.to_dict()==before,"Nested checkpoint types validated before replacing campaign")
 	var legacy=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/legacy_region_v1.json"))
 	check(restored.restore(legacy),"Actual version1 active-battle save migrates")
 	check(restored.coins==9 and restored.flags.gate_pass and restored.active_battle.unit("hero").mutation==1,"Migration preserves resources, decisions and active mutation")

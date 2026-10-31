@@ -161,36 +161,67 @@ func to_dict() -> Dictionary:
 	data["checkpoint"]=checkpoint.duplicate(true)
 	return data
 
+func _integer_between(value: Variant,minimum: int,maximum: int) -> bool:
+	# Check raw numbers before narrowing to Vector2i or converting counters.
+	if not typeof(value) in [TYPE_INT,TYPE_FLOAT]:return false
+	if not is_finite(float(value)) or value<minimum or value>maximum:return false
+	return value==int(value)
+
+func _strings(values: Variant) -> bool:
+	if not values is Array:return false
+	for value in values:
+		if not value is String:return false
+	return true
+
 func _valid_base(data: Dictionary) -> bool:
-	var required=["version","dialogue_id","party","flags","evidence","journal","pressure","coins","supplies","trust","ending","world_position","pending_takeover","completed_battles","battle_serial"]
-	if not data.has_all(required) or data.version!=2 or not data.has_all(["discovered","visited"]):return false
-	if not data.discovered is Array or not data.visited is Array:return false
+	var required=["version","dialogue_id","party","flags","evidence","journal","pressure","coins","supplies","trust","ending","world_position","pending_takeover","completed_battles","battle_serial","discovered","visited"]
+	if not data.has_all(required) or not _integer_between(data.version,2,2):return false
+	if not _strings(data.discovered) or not data.visited is Array:return false
 	var allowed: Dictionary={}
 	for place in Data.locations():allowed[place.id]=true
+	if not data.dialogue_id is String or (not data.dialogue_id.is_empty() and not allowed.has(data.dialogue_id)):return false
 	var seen: Dictionary={}
 	for id in data.discovered:
-		if not id is String or not allowed.has(id) or seen.has(id):return false
+		if not allowed.has(id) or seen.has(id):return false
 		seen[id]=true
 	seen.clear()
 	for sector in data.visited:
-		if not typeof(sector) in [TYPE_INT,TYPE_FLOAT] or sector!=int(sector) or sector<0 or sector>=192 or seen.has(sector):return false
+		if not _integer_between(sector,0,191) or seen.has(sector):return false
 		seen[sector]=true
 	if not data.party is Array or data.party.size()!=3 or not data.flags is Dictionary or not data.pressure is Dictionary:return false
-	if not data.evidence is Array or not data.journal is Array or not data.completed_battles is Array or not data.pending_takeover is Dictionary:return false
-	if not data.ending in ["","rescue","ritual","bargain"] or data.coins<0 or data.supplies<0 or absi(int(data.trust))>6 or data.battle_serial<0:return false
+	if not _strings(data.evidence) or not _strings(data.journal) or not _strings(data.completed_battles) or not data.pending_takeover is Dictionary:return false
+	for key in data.flags:
+		if not key is String:return false
+		if key=="chosen_route":
+			if not data.flags[key] is String or not data.flags[key] in ["rescue","ritual"]:return false
+		elif not data.flags[key] is bool:return false
+	if not data.ending is String or not data.ending in ["","rescue","ritual","bargain"]:return false
+	for key in ["coins","supplies","battle_serial"]:
+		if not _integer_between(data[key],0,2147483647):return false
+	if not _integer_between(data.trust,-6,6):return false
 	if not data.world_position is Array or data.world_position.size()!=2:return false
-	for value in data.world_position:
-		if not typeof(value) in [TYPE_INT,TYPE_FLOAT] or value!=int(value):return false
+	if not _integer_between(data.world_position[0],0,layout.bounds().size.x-1) or not _integer_between(data.world_position[1],0,layout.bounds().size.y-1):return false
 	if layout.blocked(Vector2i(data.world_position[0],data.world_position[1])):return false
 	for voice in VOICES:
-		if not data.pressure.has(voice) or data.pressure[voice]<0 or data.pressure[voice]>100:return false
+		if not data.pressure.has(voice) or not _integer_between(data.pressure[voice],0,100):return false
 	var originals=Data.initial_party()
 	for i in range(3):
 		var member=data.party[i]
 		if not member is Dictionary or not member.has_all(["id","hp","max_hp","mutation","cursed","damage","reach","art","team","pos","guard","ap","name"]):return false
-		if member.id!=originals[i].id or member.max_hp!=originals[i].max_hp or member.hp<1 or member.hp>member.max_hp or member.mutation!=0 or member.cursed!=originals[i].cursed:return false
+		for key in ["id","art","team"]:
+			if not member[key] is String or member[key]!=originals[i][key]:return false
+		if not member.name is String or not member.cursed is bool or member.cursed!=originals[i].cursed:return false
+		for key in ["max_hp","damage","reach","guard","ap"]:
+			if not _integer_between(member[key],0,1000) or member[key]!=originals[i][key]:return false
+		if not _integer_between(member.hp,1,int(member.max_hp)) or not _integer_between(member.mutation,0,0):return false
+		if not member.pos is Array or member.pos.size()!=2:return false
+		if not _integer_between(member.pos[0],0,13) or not _integer_between(member.pos[1],0,10):return false
+		if member.has("voice") and (not member.voice is String or not VOICES.has(member.voice)):return false
 	if not data.pending_takeover.is_empty():
-		if not data.pending_takeover.has_all(["npc","voice"]) or not Data.all().takeovers.has(data.pending_takeover.npc) or not VOICES.has(data.pending_takeover.voice):return false
+		if not data.pending_takeover.has_all(["npc","voice"]):return false
+		var pending=data.pending_takeover
+		if not pending.npc is String or not pending.voice is String:return false
+		if not Data.all().takeovers.has(pending.npc) or Data.all().takeovers[pending.npc].voice!=pending.voice:return false
 	return true
 
 func _apply_base(data: Dictionary) -> void:
